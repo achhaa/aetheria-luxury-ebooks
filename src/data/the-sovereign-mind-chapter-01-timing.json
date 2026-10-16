@@ -1,0 +1,2005 @@
+{
+  "bookId": "the-sovereign-mind",
+  "chapterId": "chapter-01",
+  "audioUrl": "/assets/audio/the-sovereign-mind-chapter-01.wav",
+  "transcriptVersion": "1.0",
+  "totalSegments": 285,
+  "durationSeconds": 186.067,
+  "segments": [
+    {
+      "word": "The",
+      "start": 0.137,
+      "characterPosition": 0,
+      "characterCount": 3,
+      "end": 0.289
+    },
+    {
+      "word": "Fallacy",
+      "start": 0.289,
+      "characterPosition": 4,
+      "characterCount": 7,
+      "end": 1.026
+    },
+    {
+      "word": "of",
+      "start": 1.026,
+      "characterPosition": 12,
+      "characterCount": 2,
+      "end": 1.205
+    },
+    {
+      "word": "Ergodicity",
+      "start": 1.205,
+      "characterPosition": 15,
+      "characterCount": 10,
+      "end": 3.541
+    },
+    {
+      "word": "Why",
+      "start": 3.541,
+      "characterPosition": 27,
+      "characterCount": 3,
+      "end": 3.878
+    },
+    {
+      "word": "Ensemble",
+      "start": 3.878,
+      "characterPosition": 31,
+      "characterCount": 8,
+      "end": 4.705
+    },
+    {
+      "word": "Averages",
+      "start": 4.705,
+      "characterPosition": 40,
+      "characterCount": 8,
+      "end": 5.408
+    },
+    {
+      "word": "Conceal",
+      "start": 5.408,
+      "characterPosition": 49,
+      "characterCount": 7,
+      "end": 6.076
+    },
+    {
+      "word": "Individual",
+      "start": 6.076,
+      "characterPosition": 57,
+      "characterCount": 10,
+      "end": 6.93
+    },
+    {
+      "word": "Ruin",
+      "start": 6.93,
+      "characterPosition": 68,
+      "characterCount": 4,
+      "end": 8.68
+    },
+    {
+      "word": "In",
+      "start": 8.68,
+      "characterPosition": 74,
+      "characterCount": 2,
+      "end": 8.907
+    },
+    {
+      "word": "conventional",
+      "start": 8.907,
+      "characterPosition": 77,
+      "characterCount": 12,
+      "end": 9.776
+    },
+    {
+      "word": "financial",
+      "start": 9.776,
+      "characterPosition": 90,
+      "characterCount": 9,
+      "end": 10.644
+    },
+    {
+      "word": "modeling",
+      "start": 10.644,
+      "characterPosition": 100,
+      "characterCount": 8,
+      "end": 12.056
+    },
+    {
+      "word": "analysts",
+      "start": 12.056,
+      "characterPosition": 110,
+      "characterCount": 8,
+      "end": 12.779
+    },
+    {
+      "word": "treat",
+      "start": 12.779,
+      "characterPosition": 119,
+      "characterCount": 5,
+      "end": 13.172
+    },
+    {
+      "word": "economic",
+      "start": 13.172,
+      "characterPosition": 125,
+      "characterCount": 8,
+      "end": 13.937
+    },
+    {
+      "word": "actors",
+      "start": 13.937,
+      "characterPosition": 134,
+      "characterCount": 6,
+      "end": 14.577
+    },
+    {
+      "word": "as",
+      "start": 14.577,
+      "characterPosition": 141,
+      "characterCount": 2,
+      "end": 14.825
+    },
+    {
+      "word": "if",
+      "start": 14.825,
+      "characterPosition": 144,
+      "characterCount": 2,
+      "end": 15.018
+    },
+    {
+      "word": "they",
+      "start": 15.018,
+      "characterPosition": 147,
+      "characterCount": 4,
+      "end": 15.218
+    },
+    {
+      "word": "operated",
+      "start": 15.218,
+      "characterPosition": 152,
+      "characterCount": 8,
+      "end": 16.017
+    },
+    {
+      "word": "within",
+      "start": 16.017,
+      "characterPosition": 161,
+      "characterCount": 6,
+      "end": 16.41
+    },
+    {
+      "word": "an",
+      "start": 16.41,
+      "characterPosition": 168,
+      "characterCount": 2,
+      "end": 16.561
+    },
+    {
+      "word": "ergodic",
+      "start": 16.561,
+      "characterPosition": 171,
+      "characterCount": 7,
+      "end": 17.188
+    },
+    {
+      "word": "system",
+      "start": 17.188,
+      "characterPosition": 179,
+      "characterCount": 6,
+      "end": 18.47
+    },
+    {
+      "word": "one",
+      "start": 18.47,
+      "characterPosition": 188,
+      "characterCount": 3,
+      "end": 18.8
+    },
+    {
+      "word": "where",
+      "start": 18.8,
+      "characterPosition": 192,
+      "characterCount": 5,
+      "end": 19.11
+    },
+    {
+      "word": "the",
+      "start": 19.11,
+      "characterPosition": 198,
+      "characterCount": 3,
+      "end": 19.29
+    },
+    {
+      "word": "average",
+      "start": 19.29,
+      "characterPosition": 202,
+      "characterCount": 7,
+      "end": 19.834
+    },
+    {
+      "word": "outcome",
+      "start": 19.834,
+      "characterPosition": 210,
+      "characterCount": 7,
+      "end": 20.412
+    },
+    {
+      "word": "of",
+      "start": 20.412,
+      "characterPosition": 218,
+      "characterCount": 2,
+      "end": 20.598
+    },
+    {
+      "word": "a",
+      "start": 20.598,
+      "characterPosition": 221,
+      "characterCount": 1,
+      "end": 20.681
+    },
+    {
+      "word": "large",
+      "start": 20.681,
+      "characterPosition": 223,
+      "characterCount": 5,
+      "end": 21.136
+    },
+    {
+      "word": "group",
+      "start": 21.136,
+      "characterPosition": 229,
+      "characterCount": 5,
+      "end": 21.542
+    },
+    {
+      "word": "over",
+      "start": 21.542,
+      "characterPosition": 235,
+      "characterCount": 4,
+      "end": 21.935
+    },
+    {
+      "word": "a",
+      "start": 21.935,
+      "characterPosition": 240,
+      "characterCount": 1,
+      "end": 22.011
+    },
+    {
+      "word": "single",
+      "start": 22.011,
+      "characterPosition": 242,
+      "characterCount": 6,
+      "end": 22.562
+    },
+    {
+      "word": "interval",
+      "start": 22.562,
+      "characterPosition": 249,
+      "characterCount": 8,
+      "end": 23.161
+    },
+    {
+      "word": "corresponds",
+      "start": 23.161,
+      "characterPosition": 258,
+      "characterCount": 11,
+      "end": 24.201
+    },
+    {
+      "word": "to",
+      "start": 24.201,
+      "characterPosition": 270,
+      "characterCount": 2,
+      "end": 24.346
+    },
+    {
+      "word": "the",
+      "start": 24.346,
+      "characterPosition": 273,
+      "characterCount": 3,
+      "end": 24.525
+    },
+    {
+      "word": "average",
+      "start": 24.525,
+      "characterPosition": 277,
+      "characterCount": 7,
+      "end": 25.063
+    },
+    {
+      "word": "outcome",
+      "start": 25.063,
+      "characterPosition": 285,
+      "characterCount": 7,
+      "end": 25.648
+    },
+    {
+      "word": "of",
+      "start": 25.648,
+      "characterPosition": 293,
+      "characterCount": 2,
+      "end": 25.834
+    },
+    {
+      "word": "a",
+      "start": 25.834,
+      "characterPosition": 296,
+      "characterCount": 1,
+      "end": 25.91
+    },
+    {
+      "word": "single",
+      "start": 25.91,
+      "characterPosition": 298,
+      "characterCount": 6,
+      "end": 26.461
+    },
+    {
+      "word": "individual",
+      "start": 26.461,
+      "characterPosition": 305,
+      "characterCount": 10,
+      "end": 27.301
+    },
+    {
+      "word": "over",
+      "start": 27.301,
+      "characterPosition": 316,
+      "characterCount": 4,
+      "end": 27.687
+    },
+    {
+      "word": "a",
+      "start": 27.687,
+      "characterPosition": 321,
+      "characterCount": 1,
+      "end": 27.77
+    },
+    {
+      "word": "long",
+      "start": 27.77,
+      "characterPosition": 323,
+      "characterCount": 4,
+      "end": 28.149
+    },
+    {
+      "word": "time",
+      "start": 28.149,
+      "characterPosition": 328,
+      "characterCount": 4,
+      "end": 28.576
+    },
+    {
+      "word": "horizon",
+      "start": 28.576,
+      "characterPosition": 333,
+      "characterCount": 7,
+      "end": 30.643
+    },
+    {
+      "word": "This",
+      "start": 30.643,
+      "characterPosition": 343,
+      "characterCount": 4,
+      "end": 30.939
+    },
+    {
+      "word": "mathematical",
+      "start": 30.939,
+      "characterPosition": 348,
+      "characterCount": 12,
+      "end": 31.952
+    },
+    {
+      "word": "error",
+      "start": 31.952,
+      "characterPosition": 361,
+      "characterCount": 5,
+      "end": 32.386
+    },
+    {
+      "word": "has",
+      "start": 32.386,
+      "characterPosition": 367,
+      "characterCount": 3,
+      "end": 32.668
+    },
+    {
+      "word": "destroyed",
+      "start": 32.668,
+      "characterPosition": 371,
+      "characterCount": 9,
+      "end": 33.35
+    },
+    {
+      "word": "more",
+      "start": 33.35,
+      "characterPosition": 381,
+      "characterCount": 4,
+      "end": 33.667
+    },
+    {
+      "word": "private",
+      "start": 33.667,
+      "characterPosition": 386,
+      "characterCount": 7,
+      "end": 34.246
+    },
+    {
+      "word": "balance",
+      "start": 34.246,
+      "characterPosition": 394,
+      "characterCount": 7,
+      "end": 34.831
+    },
+    {
+      "word": "sheets",
+      "start": 34.831,
+      "characterPosition": 402,
+      "characterCount": 6,
+      "end": 35.265
+    },
+    {
+      "word": "than",
+      "start": 35.265,
+      "characterPosition": 409,
+      "characterCount": 4,
+      "end": 35.493
+    },
+    {
+      "word": "speculative",
+      "start": 35.493,
+      "characterPosition": 414,
+      "characterCount": 11,
+      "end": 36.471
+    },
+    {
+      "word": "fever",
+      "start": 36.471,
+      "characterPosition": 426,
+      "characterCount": 5,
+      "end": 38.193
+    },
+    {
+      "word": "Consider",
+      "start": 38.193,
+      "characterPosition": 433,
+      "characterCount": 8,
+      "end": 38.868
+    },
+    {
+      "word": "Russian",
+      "start": 38.868,
+      "characterPosition": 442,
+      "characterCount": 7,
+      "end": 39.392
+    },
+    {
+      "word": "roulette",
+      "start": 39.392,
+      "characterPosition": 450,
+      "characterCount": 8,
+      "end": 40.55
+    },
+    {
+      "word": "if",
+      "start": 40.55,
+      "characterPosition": 460,
+      "characterCount": 2,
+      "end": 40.763
+    },
+    {
+      "word": "six",
+      "start": 40.763,
+      "characterPosition": 463,
+      "characterCount": 3,
+      "end": 41.183
+    },
+    {
+      "word": "individuals",
+      "start": 41.183,
+      "characterPosition": 467,
+      "characterCount": 11,
+      "end": 42.113
+    },
+    {
+      "word": "play",
+      "start": 42.113,
+      "characterPosition": 479,
+      "characterCount": 4,
+      "end": 42.478
+    },
+    {
+      "word": "once",
+      "start": 42.478,
+      "characterPosition": 484,
+      "characterCount": 4,
+      "end": 43.608
+    },
+    {
+      "word": "five",
+      "start": 43.608,
+      "characterPosition": 490,
+      "characterCount": 4,
+      "end": 44.022
+    },
+    {
+      "word": "walk",
+      "start": 44.022,
+      "characterPosition": 495,
+      "characterCount": 4,
+      "end": 44.38
+    },
+    {
+      "word": "away",
+      "start": 44.38,
+      "characterPosition": 500,
+      "characterCount": 4,
+      "end": 44.793
+    },
+    {
+      "word": "wealthy",
+      "start": 44.793,
+      "characterPosition": 505,
+      "characterCount": 7,
+      "end": 45.331
+    },
+    {
+      "word": "and",
+      "start": 45.331,
+      "characterPosition": 513,
+      "characterCount": 3,
+      "end": 45.572
+    },
+    {
+      "word": "one",
+      "start": 45.572,
+      "characterPosition": 517,
+      "characterCount": 3,
+      "end": 45.882
+    },
+    {
+      "word": "dies",
+      "start": 45.882,
+      "characterPosition": 521,
+      "characterCount": 4,
+      "end": 47.667
+    },
+    {
+      "word": "The",
+      "start": 47.667,
+      "characterPosition": 527,
+      "characterCount": 3,
+      "end": 47.894
+    },
+    {
+      "word": "ensemble",
+      "start": 47.894,
+      "characterPosition": 531,
+      "characterCount": 8,
+      "end": 48.734
+    },
+    {
+      "word": "average",
+      "start": 48.734,
+      "characterPosition": 540,
+      "characterCount": 7,
+      "end": 49.189
+    },
+    {
+      "word": "shows",
+      "start": 49.189,
+      "characterPosition": 548,
+      "characterCount": 5,
+      "end": 49.609
+    },
+    {
+      "word": "a",
+      "start": 49.609,
+      "characterPosition": 554,
+      "characterCount": 1,
+      "end": 49.699
+    },
+    {
+      "word": "positive",
+      "start": 49.699,
+      "characterPosition": 556,
+      "characterCount": 8,
+      "end": 50.415
+    },
+    {
+      "word": "expected",
+      "start": 50.415,
+      "characterPosition": 565,
+      "characterCount": 8,
+      "end": 51.201
+    },
+    {
+      "word": "monetary",
+      "start": 51.201,
+      "characterPosition": 574,
+      "characterCount": 8,
+      "end": 52.014
+    },
+    {
+      "word": "gain",
+      "start": 52.014,
+      "characterPosition": 583,
+      "characterCount": 4,
+      "end": 53.743
+    },
+    {
+      "word": "But",
+      "start": 53.743,
+      "characterPosition": 589,
+      "characterCount": 3,
+      "end": 54.053
+    },
+    {
+      "word": "if",
+      "start": 54.053,
+      "characterPosition": 593,
+      "characterCount": 2,
+      "end": 54.26
+    },
+    {
+      "word": "one",
+      "start": 54.26,
+      "characterPosition": 596,
+      "characterCount": 3,
+      "end": 54.536
+    },
+    {
+      "word": "individual",
+      "start": 54.536,
+      "characterPosition": 600,
+      "characterCount": 10,
+      "end": 55.362
+    },
+    {
+      "word": "plays",
+      "start": 55.362,
+      "characterPosition": 611,
+      "characterCount": 5,
+      "end": 55.838
+    },
+    {
+      "word": "six",
+      "start": 55.838,
+      "characterPosition": 617,
+      "characterCount": 3,
+      "end": 56.23
+    },
+    {
+      "word": "consecutive",
+      "start": 56.23,
+      "characterPosition": 621,
+      "characterCount": 11,
+      "end": 57.167
+    },
+    {
+      "word": "rounds",
+      "start": 57.167,
+      "characterPosition": 633,
+      "characterCount": 6,
+      "end": 58.435
+    },
+    {
+      "word": "the",
+      "start": 58.435,
+      "characterPosition": 641,
+      "characterCount": 3,
+      "end": 58.566
+    },
+    {
+      "word": "probability",
+      "start": 58.566,
+      "characterPosition": 645,
+      "characterCount": 11,
+      "end": 59.544
+    },
+    {
+      "word": "of",
+      "start": 59.544,
+      "characterPosition": 657,
+      "characterCount": 2,
+      "end": 59.723
+    },
+    {
+      "word": "survival",
+      "start": 59.723,
+      "characterPosition": 660,
+      "characterCount": 8,
+      "end": 60.446
+    },
+    {
+      "word": "collapses",
+      "start": 60.446,
+      "characterPosition": 669,
+      "characterCount": 9,
+      "end": 61.266
+    },
+    {
+      "word": "to",
+      "start": 61.266,
+      "characterPosition": 679,
+      "characterCount": 2,
+      "end": 61.438
+    },
+    {
+      "word": "zero",
+      "start": 61.438,
+      "characterPosition": 682,
+      "characterCount": 4,
+      "end": 63.257
+    },
+    {
+      "word": "Path",
+      "start": 63.257,
+      "characterPosition": 689,
+      "characterCount": 4,
+      "end": 63.808
+    },
+    {
+      "word": "Dependency",
+      "start": 63.808,
+      "characterPosition": 694,
+      "characterCount": 10,
+      "end": 64.697
+    },
+    {
+      "word": "and",
+      "start": 64.697,
+      "characterPosition": 705,
+      "characterCount": 3,
+      "end": 64.931
+    },
+    {
+      "word": "Absorbing",
+      "start": 64.931,
+      "characterPosition": 709,
+      "characterCount": 9,
+      "end": 65.696
+    },
+    {
+      "word": "Barriers",
+      "start": 65.696,
+      "characterPosition": 719,
+      "characterCount": 8,
+      "end": 67.763
+    },
+    {
+      "word": "In",
+      "start": 67.763,
+      "characterPosition": 729,
+      "characterCount": 2,
+      "end": 67.969
+    },
+    {
+      "word": "the",
+      "start": 67.969,
+      "characterPosition": 732,
+      "characterCount": 3,
+      "end": 68.114
+    },
+    {
+      "word": "real",
+      "start": 68.114,
+      "characterPosition": 736,
+      "characterCount": 4,
+      "end": 68.445
+    },
+    {
+      "word": "world",
+      "start": 68.445,
+      "characterPosition": 741,
+      "characterCount": 5,
+      "end": 69.65
+    },
+    {
+      "word": "wealth",
+      "start": 69.65,
+      "characterPosition": 748,
+      "characterCount": 6,
+      "end": 70.064
+    },
+    {
+      "word": "accumulation",
+      "start": 70.064,
+      "characterPosition": 755,
+      "characterCount": 12,
+      "end": 71.132
+    },
+    {
+      "word": "is",
+      "start": 71.132,
+      "characterPosition": 768,
+      "characterCount": 2,
+      "end": 71.359
+    },
+    {
+      "word": "fundamentally",
+      "start": 71.359,
+      "characterPosition": 771,
+      "characterCount": 13,
+      "end": 72.323
+    },
+    {
+      "word": "path-dependent",
+      "start": 72.323,
+      "characterPosition": 785,
+      "characterCount": 14,
+      "end": 74.693
+    },
+    {
+      "word": "You",
+      "start": 74.693,
+      "characterPosition": 801,
+      "characterCount": 3,
+      "end": 74.893
+    },
+    {
+      "word": "cannot",
+      "start": 74.893,
+      "characterPosition": 805,
+      "characterCount": 6,
+      "end": 75.348
+    },
+    {
+      "word": "enjoy",
+      "start": 75.348,
+      "characterPosition": 812,
+      "characterCount": 5,
+      "end": 75.83
+    },
+    {
+      "word": "round",
+      "start": 75.83,
+      "characterPosition": 818,
+      "characterCount": 5,
+      "end": 76.23
+    },
+    {
+      "word": "ten",
+      "start": 76.23,
+      "characterPosition": 824,
+      "characterCount": 3,
+      "end": 76.54
+    },
+    {
+      "word": "of",
+      "start": 76.54,
+      "characterPosition": 828,
+      "characterCount": 2,
+      "end": 76.712
+    },
+    {
+      "word": "compounding",
+      "start": 76.712,
+      "characterPosition": 831,
+      "characterCount": 11,
+      "end": 77.587
+    },
+    {
+      "word": "if",
+      "start": 77.587,
+      "characterPosition": 843,
+      "characterCount": 2,
+      "end": 77.835
+    },
+    {
+      "word": "round",
+      "start": 77.835,
+      "characterPosition": 846,
+      "characterCount": 5,
+      "end": 78.269
+    },
+    {
+      "word": "four",
+      "start": 78.269,
+      "characterPosition": 852,
+      "characterCount": 4,
+      "end": 78.586
+    },
+    {
+      "word": "triggers",
+      "start": 78.586,
+      "characterPosition": 857,
+      "characterCount": 8,
+      "end": 79.178
+    },
+    {
+      "word": "an",
+      "start": 79.178,
+      "characterPosition": 866,
+      "characterCount": 2,
+      "end": 79.316
+    },
+    {
+      "word": "absorbing",
+      "start": 79.316,
+      "characterPosition": 869,
+      "characterCount": 9,
+      "end": 80.074
+    },
+    {
+      "word": "barrier",
+      "start": 80.074,
+      "characterPosition": 879,
+      "characterCount": 7,
+      "end": 81.348
+    },
+    {
+      "word": "a",
+      "start": 81.348,
+      "characterPosition": 889,
+      "characterCount": 1,
+      "end": 81.465
+    },
+    {
+      "word": "state",
+      "start": 81.465,
+      "characterPosition": 891,
+      "characterCount": 5,
+      "end": 81.92
+    },
+    {
+      "word": "of",
+      "start": 81.92,
+      "characterPosition": 897,
+      "characterCount": 2,
+      "end": 82.058
+    },
+    {
+      "word": "bankruptcy",
+      "start": 82.058,
+      "characterPosition": 900,
+      "characterCount": 10,
+      "end": 83.05
+    },
+    {
+      "word": "or",
+      "start": 83.05,
+      "characterPosition": 911,
+      "characterCount": 2,
+      "end": 83.305
+    },
+    {
+      "word": "irrecoverable",
+      "start": 83.305,
+      "characterPosition": 914,
+      "characterCount": 13,
+      "end": 84.331
+    },
+    {
+      "word": "capital",
+      "start": 84.331,
+      "characterPosition": 928,
+      "characterCount": 7,
+      "end": 85
+    },
+    {
+      "word": "impairment",
+      "start": 85,
+      "characterPosition": 936,
+      "characterCount": 10,
+      "end": 85.771
+    },
+    {
+      "word": "from",
+      "start": 85.771,
+      "characterPosition": 947,
+      "characterCount": 4,
+      "end": 86.06
+    },
+    {
+      "word": "which",
+      "start": 86.06,
+      "characterPosition": 952,
+      "characterCount": 5,
+      "end": 86.377
+    },
+    {
+      "word": "recovery",
+      "start": 86.377,
+      "characterPosition": 958,
+      "characterCount": 8,
+      "end": 87.149
+    },
+    {
+      "word": "is",
+      "start": 87.149,
+      "characterPosition": 967,
+      "characterCount": 2,
+      "end": 87.397
+    },
+    {
+      "word": "mathematically",
+      "start": 87.397,
+      "characterPosition": 970,
+      "characterCount": 14,
+      "end": 88.465
+    },
+    {
+      "word": "impossible",
+      "start": 88.465,
+      "characterPosition": 985,
+      "characterCount": 10,
+      "end": 90.635
+    },
+    {
+      "word": "The",
+      "start": 90.635,
+      "characterPosition": 998,
+      "characterCount": 3,
+      "end": 90.793
+    },
+    {
+      "word": "paramount",
+      "start": 90.793,
+      "characterPosition": 1002,
+      "characterCount": 9,
+      "end": 91.62
+    },
+    {
+      "word": "rule",
+      "start": 91.62,
+      "characterPosition": 1012,
+      "characterCount": 4,
+      "end": 91.944
+    },
+    {
+      "word": "of",
+      "start": 91.944,
+      "characterPosition": 1017,
+      "characterCount": 2,
+      "end": 92.096
+    },
+    {
+      "word": "sovereign",
+      "start": 92.096,
+      "characterPosition": 1020,
+      "characterCount": 9,
+      "end": 92.771
+    },
+    {
+      "word": "finance",
+      "start": 92.771,
+      "characterPosition": 1030,
+      "characterCount": 7,
+      "end": 93.508
+    },
+    {
+      "word": "is",
+      "start": 93.508,
+      "characterPosition": 1038,
+      "characterCount": 2,
+      "end": 93.763
+    },
+    {
+      "word": "not",
+      "start": 93.763,
+      "characterPosition": 1041,
+      "characterCount": 3,
+      "end": 94.073
+    },
+    {
+      "word": "to",
+      "start": 94.073,
+      "characterPosition": 1045,
+      "characterCount": 2,
+      "end": 94.211
+    },
+    {
+      "word": "maximize",
+      "start": 94.211,
+      "characterPosition": 1048,
+      "characterCount": 8,
+      "end": 95.141
+    },
+    {
+      "word": "upside",
+      "start": 95.141,
+      "characterPosition": 1057,
+      "characterCount": 6,
+      "end": 96.415
+    },
+    {
+      "word": "but",
+      "start": 96.415,
+      "characterPosition": 1065,
+      "characterCount": 3,
+      "end": 96.677
+    },
+    {
+      "word": "to",
+      "start": 96.677,
+      "characterPosition": 1069,
+      "characterCount": 2,
+      "end": 96.87
+    },
+    {
+      "word": "aggressively",
+      "start": 96.87,
+      "characterPosition": 1072,
+      "characterCount": 12,
+      "end": 97.745
+    },
+    {
+      "word": "eliminate",
+      "start": 97.745,
+      "characterPosition": 1085,
+      "characterCount": 9,
+      "end": 98.503
+    },
+    {
+      "word": "any",
+      "start": 98.503,
+      "characterPosition": 1095,
+      "characterCount": 3,
+      "end": 98.847
+    },
+    {
+      "word": "risk",
+      "start": 98.847,
+      "characterPosition": 1099,
+      "characterCount": 4,
+      "end": 99.267
+    },
+    {
+      "word": "vector",
+      "start": 99.267,
+      "characterPosition": 1104,
+      "characterCount": 6,
+      "end": 99.791
+    },
+    {
+      "word": "that",
+      "start": 99.791,
+      "characterPosition": 1111,
+      "characterCount": 4,
+      "end": 100.06
+    },
+    {
+      "word": "carries",
+      "start": 100.06,
+      "characterPosition": 1116,
+      "characterCount": 7,
+      "end": 100.631
+    },
+    {
+      "word": "even",
+      "start": 100.631,
+      "characterPosition": 1124,
+      "characterCount": 4,
+      "end": 101.003
+    },
+    {
+      "word": "a",
+      "start": 101.003,
+      "characterPosition": 1129,
+      "characterCount": 1,
+      "end": 101.086
+    },
+    {
+      "word": "non-zero",
+      "start": 101.086,
+      "characterPosition": 1131,
+      "characterCount": 8,
+      "end": 101.927
+    },
+    {
+      "word": "probability",
+      "start": 101.927,
+      "characterPosition": 1140,
+      "characterCount": 11,
+      "end": 102.884
+    },
+    {
+      "word": "of",
+      "start": 102.884,
+      "characterPosition": 1152,
+      "characterCount": 2,
+      "end": 103.091
+    },
+    {
+      "word": "catastrophic",
+      "start": 103.091,
+      "characterPosition": 1155,
+      "characterCount": 12,
+      "end": 104.166
+    },
+    {
+      "word": "ruin",
+      "start": 104.166,
+      "characterPosition": 1168,
+      "characterCount": 4,
+      "end": 105.923
+    },
+    {
+      "word": "Modern",
+      "start": 105.923,
+      "characterPosition": 1175,
+      "characterCount": 6,
+      "end": 106.46
+    },
+    {
+      "word": "portfolio",
+      "start": 106.46,
+      "characterPosition": 1182,
+      "characterCount": 9,
+      "end": 107.41
+    },
+    {
+      "word": "theory",
+      "start": 107.41,
+      "characterPosition": 1192,
+      "characterCount": 6,
+      "end": 107.886
+    },
+    {
+      "word": "preaches",
+      "start": 107.886,
+      "characterPosition": 1199,
+      "characterCount": 8,
+      "end": 108.533
+    },
+    {
+      "word": "diversification",
+      "start": 108.533,
+      "characterPosition": 1208,
+      "characterCount": 15,
+      "end": 110.538
+    },
+    {
+      "word": "yet",
+      "start": 110.538,
+      "characterPosition": 1225,
+      "characterCount": 3,
+      "end": 110.842
+    },
+    {
+      "word": "during",
+      "start": 110.842,
+      "characterPosition": 1229,
+      "characterCount": 6,
+      "end": 111.276
+    },
+    {
+      "word": "systemic",
+      "start": 111.276,
+      "characterPosition": 1236,
+      "characterCount": 8,
+      "end": 112.061
+    },
+    {
+      "word": "liquidity",
+      "start": 112.061,
+      "characterPosition": 1245,
+      "characterCount": 9,
+      "end": 112.77
+    },
+    {
+      "word": "crises",
+      "start": 112.77,
+      "characterPosition": 1255,
+      "characterCount": 6,
+      "end": 114.197
+    },
+    {
+      "word": "cross-asset",
+      "start": 114.197,
+      "characterPosition": 1263,
+      "characterCount": 11,
+      "end": 115.244
+    },
+    {
+      "word": "correlations",
+      "start": 115.244,
+      "characterPosition": 1275,
+      "characterCount": 12,
+      "end": 116.208
+    },
+    {
+      "word": "snap",
+      "start": 116.208,
+      "characterPosition": 1288,
+      "characterCount": 4,
+      "end": 116.704
+    },
+    {
+      "word": "violently",
+      "start": 116.704,
+      "characterPosition": 1293,
+      "characterCount": 9,
+      "end": 117.476
+    },
+    {
+      "word": "toward",
+      "start": 117.476,
+      "characterPosition": 1303,
+      "characterCount": 6,
+      "end": 117.951
+    },
+    {
+      "word": "one",
+      "start": 117.951,
+      "characterPosition": 1310,
+      "characterCount": 3,
+      "end": 119.626
+    },
+    {
+      "word": "The",
+      "start": 119.626,
+      "characterPosition": 1315,
+      "characterCount": 3,
+      "end": 119.763
+    },
+    {
+      "word": "sovereign",
+      "start": 119.763,
+      "characterPosition": 1319,
+      "characterCount": 9,
+      "end": 120.432
+    },
+    {
+      "word": "allocator",
+      "start": 120.432,
+      "characterPosition": 1329,
+      "characterCount": 9,
+      "end": 121.245
+    },
+    {
+      "word": "constructs",
+      "start": 121.245,
+      "characterPosition": 1339,
+      "characterCount": 10,
+      "end": 122.188
+    },
+    {
+      "word": "asymmetric",
+      "start": 122.188,
+      "characterPosition": 1350,
+      "characterCount": 10,
+      "end": 123.084
+    },
+    {
+      "word": "barbells",
+      "start": 123.084,
+      "characterPosition": 1361,
+      "characterCount": 8,
+      "end": 124.565
+    },
+    {
+      "word": "keeping",
+      "start": 124.565,
+      "characterPosition": 1371,
+      "characterCount": 7,
+      "end": 125.061
+    },
+    {
+      "word": "ninety",
+      "start": 125.061,
+      "characterPosition": 1379,
+      "characterCount": 6,
+      "end": 125.599
+    },
+    {
+      "word": "percent",
+      "start": 125.599,
+      "characterPosition": 1386,
+      "characterCount": 7,
+      "end": 126.205
+    },
+    {
+      "word": "of",
+      "start": 126.205,
+      "characterPosition": 1394,
+      "characterCount": 2,
+      "end": 126.412
+    },
+    {
+      "word": "reserves",
+      "start": 126.412,
+      "characterPosition": 1397,
+      "characterCount": 8,
+      "end": 127.039
+    },
+    {
+      "word": "in",
+      "start": 127.039,
+      "characterPosition": 1406,
+      "characterCount": 2,
+      "end": 127.238
+    },
+    {
+      "word": "hyper-resilient",
+      "start": 127.238,
+      "characterPosition": 1409,
+      "characterCount": 15,
+      "end": 129.119
+    },
+    {
+      "word": "non-custodial",
+      "start": 129.119,
+      "characterPosition": 1426,
+      "characterCount": 13,
+      "end": 130.38
+    },
+    {
+      "word": "hard",
+      "start": 130.38,
+      "characterPosition": 1440,
+      "characterCount": 4,
+      "end": 130.828
+    },
+    {
+      "word": "assets",
+      "start": 130.828,
+      "characterPosition": 1445,
+      "characterCount": 6,
+      "end": 131.482
+    },
+    {
+      "word": "while",
+      "start": 131.482,
+      "characterPosition": 1452,
+      "characterCount": 5,
+      "end": 131.84
+    },
+    {
+      "word": "directing",
+      "start": 131.84,
+      "characterPosition": 1458,
+      "characterCount": 9,
+      "end": 132.536
+    },
+    {
+      "word": "the",
+      "start": 132.536,
+      "characterPosition": 1468,
+      "characterCount": 3,
+      "end": 132.688
+    },
+    {
+      "word": "remaining",
+      "start": 132.688,
+      "characterPosition": 1472,
+      "characterCount": 9,
+      "end": 133.294
+    },
+    {
+      "word": "ten",
+      "start": 133.294,
+      "characterPosition": 1482,
+      "characterCount": 3,
+      "end": 133.625
+    },
+    {
+      "word": "percent",
+      "start": 133.625,
+      "characterPosition": 1486,
+      "characterCount": 7,
+      "end": 134.203
+    },
+    {
+      "word": "toward",
+      "start": 134.203,
+      "characterPosition": 1494,
+      "characterCount": 6,
+      "end": 134.575
+    },
+    {
+      "word": "aggressively",
+      "start": 134.575,
+      "characterPosition": 1501,
+      "characterCount": 12,
+      "end": 135.45
+    },
+    {
+      "word": "convex",
+      "start": 135.45,
+      "characterPosition": 1514,
+      "characterCount": 6,
+      "end": 136.918
+    },
+    {
+      "word": "high-optionality",
+      "start": 136.918,
+      "characterPosition": 1522,
+      "characterCount": 16,
+      "end": 138.123
+    },
+    {
+      "word": "ventures",
+      "start": 138.123,
+      "characterPosition": 1539,
+      "characterCount": 8,
+      "end": 140.142
+    },
+    {
+      "word": "Convexity",
+      "start": 140.142,
+      "characterPosition": 1550,
+      "characterCount": 9,
+      "end": 141.892
+    },
+    {
+      "word": "and",
+      "start": 141.892,
+      "characterPosition": 1560,
+      "characterCount": 3,
+      "end": 142.161
+    },
+    {
+      "word": "Asymmetric",
+      "start": 142.161,
+      "characterPosition": 1564,
+      "characterCount": 10,
+      "end": 143.056
+    },
+    {
+      "word": "Optionality",
+      "start": 143.056,
+      "characterPosition": 1575,
+      "characterCount": 11,
+      "end": 145.316
+    },
+    {
+      "word": "By",
+      "start": 145.316,
+      "characterPosition": 1588,
+      "characterCount": 2,
+      "end": 145.564
+    },
+    {
+      "word": "structuring",
+      "start": 145.564,
+      "characterPosition": 1591,
+      "characterCount": 11,
+      "end": 146.48
+    },
+    {
+      "word": "exposures",
+      "start": 146.48,
+      "characterPosition": 1603,
+      "characterCount": 9,
+      "end": 147.383
+    },
+    {
+      "word": "such",
+      "start": 147.383,
+      "characterPosition": 1613,
+      "characterCount": 4,
+      "end": 147.776
+    },
+    {
+      "word": "that",
+      "start": 147.776,
+      "characterPosition": 1618,
+      "characterCount": 4,
+      "end": 148.058
+    },
+    {
+      "word": "maximum",
+      "start": 148.058,
+      "characterPosition": 1623,
+      "characterCount": 7,
+      "end": 148.768
+    },
+    {
+      "word": "loss",
+      "start": 148.768,
+      "characterPosition": 1631,
+      "characterCount": 4,
+      "end": 149.167
+    },
+    {
+      "word": "is",
+      "start": 149.167,
+      "characterPosition": 1636,
+      "characterCount": 2,
+      "end": 149.34
+    },
+    {
+      "word": "strictly",
+      "start": 149.34,
+      "characterPosition": 1639,
+      "characterCount": 8,
+      "end": 150.015
+    },
+    {
+      "word": "capped",
+      "start": 150.015,
+      "characterPosition": 1648,
+      "characterCount": 6,
+      "end": 150.497
+    },
+    {
+      "word": "while",
+      "start": 150.497,
+      "characterPosition": 1655,
+      "characterCount": 5,
+      "end": 150.793
+    },
+    {
+      "word": "potential",
+      "start": 150.793,
+      "characterPosition": 1661,
+      "characterCount": 9,
+      "end": 151.523
+    },
+    {
+      "word": "gain",
+      "start": 151.523,
+      "characterPosition": 1671,
+      "characterCount": 4,
+      "end": 151.937
+    },
+    {
+      "word": "is",
+      "start": 151.937,
+      "characterPosition": 1676,
+      "characterCount": 2,
+      "end": 152.171
+    },
+    {
+      "word": "exponentially",
+      "start": 152.171,
+      "characterPosition": 1679,
+      "characterCount": 13,
+      "end": 153.328
+    },
+    {
+      "word": "unbounded",
+      "start": 153.328,
+      "characterPosition": 1693,
+      "characterCount": 9,
+      "end": 154.72
+    },
+    {
+      "word": "an",
+      "start": 154.72,
+      "characterPosition": 1704,
+      "characterCount": 2,
+      "end": 154.934
+    },
+    {
+      "word": "investor",
+      "start": 154.934,
+      "characterPosition": 1707,
+      "characterCount": 8,
+      "end": 155.636
+    },
+    {
+      "word": "converts",
+      "start": 155.636,
+      "characterPosition": 1716,
+      "characterCount": 8,
+      "end": 156.27
+    },
+    {
+      "word": "systemic",
+      "start": 156.27,
+      "characterPosition": 1725,
+      "characterCount": 8,
+      "end": 157
+    },
+    {
+      "word": "volatility",
+      "start": 157,
+      "characterPosition": 1734,
+      "characterCount": 10,
+      "end": 157.951
+    },
+    {
+      "word": "from",
+      "start": 157.951,
+      "characterPosition": 1745,
+      "characterCount": 4,
+      "end": 158.261
+    },
+    {
+      "word": "an",
+      "start": 158.261,
+      "characterPosition": 1750,
+      "characterCount": 2,
+      "end": 158.461
+    },
+    {
+      "word": "existential",
+      "start": 158.461,
+      "characterPosition": 1753,
+      "characterCount": 11,
+      "end": 159.466
+    },
+    {
+      "word": "hazard",
+      "start": 159.466,
+      "characterPosition": 1765,
+      "characterCount": 6,
+      "end": 160.018
+    },
+    {
+      "word": "into",
+      "start": 160.018,
+      "characterPosition": 1772,
+      "characterCount": 4,
+      "end": 160.445
+    },
+    {
+      "word": "a",
+      "start": 160.445,
+      "characterPosition": 1777,
+      "characterCount": 1,
+      "end": 160.548
+    },
+    {
+      "word": "fuel",
+      "start": 160.548,
+      "characterPosition": 1779,
+      "characterCount": 4,
+      "end": 160.961
+    },
+    {
+      "word": "source",
+      "start": 160.961,
+      "characterPosition": 1784,
+      "characterCount": 6,
+      "end": 162.87
+    },
+    {
+      "word": "True",
+      "start": 162.87,
+      "characterPosition": 1792,
+      "characterCount": 4,
+      "end": 163.166
+    },
+    {
+      "word": "freedom",
+      "start": 163.166,
+      "characterPosition": 1797,
+      "characterCount": 7,
+      "end": 163.676
+    },
+    {
+      "word": "is",
+      "start": 163.676,
+      "characterPosition": 1805,
+      "characterCount": 2,
+      "end": 163.917
+    },
+    {
+      "word": "not",
+      "start": 163.917,
+      "characterPosition": 1808,
+      "characterCount": 3,
+      "end": 164.22
+    },
+    {
+      "word": "measured",
+      "start": 164.22,
+      "characterPosition": 1812,
+      "characterCount": 8,
+      "end": 164.771
+    },
+    {
+      "word": "in",
+      "start": 164.771,
+      "characterPosition": 1821,
+      "characterCount": 2,
+      "end": 164.964
+    },
+    {
+      "word": "nominal",
+      "start": 164.964,
+      "characterPosition": 1824,
+      "characterCount": 7,
+      "end": 165.557
+    },
+    {
+      "word": "net",
+      "start": 165.557,
+      "characterPosition": 1832,
+      "characterCount": 3,
+      "end": 165.853
+    },
+    {
+      "word": "worth",
+      "start": 165.853,
+      "characterPosition": 1836,
+      "characterCount": 5,
+      "end": 166.983
+    },
+    {
+      "word": "but",
+      "start": 166.983,
+      "characterPosition": 1843,
+      "characterCount": 3,
+      "end": 167.217
+    },
+    {
+      "word": "in",
+      "start": 167.217,
+      "characterPosition": 1847,
+      "characterCount": 2,
+      "end": 167.375
+    },
+    {
+      "word": "the",
+      "start": 167.375,
+      "characterPosition": 1850,
+      "characterCount": 3,
+      "end": 167.52
+    },
+    {
+      "word": "ratio",
+      "start": 167.52,
+      "characterPosition": 1854,
+      "characterCount": 5,
+      "end": 168.181
+    },
+    {
+      "word": "of",
+      "start": 168.181,
+      "characterPosition": 1860,
+      "characterCount": 2,
+      "end": 168.381
+    },
+    {
+      "word": "autonomous",
+      "start": 168.381,
+      "characterPosition": 1863,
+      "characterCount": 10,
+      "end": 169.215
+    },
+    {
+      "word": "hours",
+      "start": 169.215,
+      "characterPosition": 1874,
+      "characterCount": 5,
+      "end": 169.773
+    },
+    {
+      "word": "to",
+      "start": 169.773,
+      "characterPosition": 1880,
+      "characterCount": 2,
+      "end": 169.973
+    },
+    {
+      "word": "obligated",
+      "start": 169.973,
+      "characterPosition": 1883,
+      "characterCount": 9,
+      "end": 170.868
+    },
+    {
+      "word": "commitments",
+      "start": 170.868,
+      "characterPosition": 1893,
+      "characterCount": 11,
+      "end": 173.018
+    },
+    {
+      "word": "Strategic",
+      "start": 173.018,
+      "characterPosition": 1907,
+      "characterCount": 9,
+      "end": 173.907
+    },
+    {
+      "word": "Synthesis",
+      "start": 173.907,
+      "characterPosition": 1917,
+      "characterCount": 9,
+      "end": 175.498
+    },
+    {
+      "word": "Wealth",
+      "start": 175.498,
+      "characterPosition": 1928,
+      "characterCount": 6,
+      "end": 175.898
+    },
+    {
+      "word": "preservation",
+      "start": 175.898,
+      "characterPosition": 1935,
+      "characterCount": 12,
+      "end": 176.897
+    },
+    {
+      "word": "across",
+      "start": 176.897,
+      "characterPosition": 1948,
+      "characterCount": 6,
+      "end": 177.468
+    },
+    {
+      "word": "generational",
+      "start": 177.468,
+      "characterPosition": 1955,
+      "characterCount": 12,
+      "end": 178.433
+    },
+    {
+      "word": "horizons",
+      "start": 178.433,
+      "characterPosition": 1968,
+      "characterCount": 8,
+      "end": 179.273
+    },
+    {
+      "word": "requires",
+      "start": 179.273,
+      "characterPosition": 1977,
+      "characterCount": 8,
+      "end": 180.045
+    },
+    {
+      "word": "immunizing",
+      "start": 180.045,
+      "characterPosition": 1986,
+      "characterCount": 10,
+      "end": 180.947
+    },
+    {
+      "word": "capital",
+      "start": 180.947,
+      "characterPosition": 1997,
+      "characterCount": 7,
+      "end": 181.595
+    },
+    {
+      "word": "against",
+      "start": 181.595,
+      "characterPosition": 2005,
+      "characterCount": 7,
+      "end": 182.187
+    },
+    {
+      "word": "non-ergodic",
+      "start": 182.187,
+      "characterPosition": 2013,
+      "characterCount": 11,
+      "end": 183.097
+    },
+    {
+      "word": "shocks",
+      "start": 183.097,
+      "characterPosition": 2025,
+      "characterCount": 6,
+      "end": 183.613
+    },
+    {
+      "word": "before",
+      "start": 183.613,
+      "characterPosition": 2032,
+      "characterCount": 6,
+      "end": 184.123
+    },
+    {
+      "word": "attempting",
+      "start": 184.123,
+      "characterPosition": 2039,
+      "characterCount": 10,
+      "end": 184.805
+    },
+    {
+      "word": "capital",
+      "start": 184.805,
+      "characterPosition": 2050,
+      "characterCount": 7,
+      "end": 185.467
+    },
+    {
+      "word": "acceleration",
+      "start": 185.467,
+      "characterPosition": 2058,
+      "characterCount": 12,
+      "end": 186.067
+    }
+  ]
+}

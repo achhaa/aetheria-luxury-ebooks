@@ -1,0 +1,1928 @@
+{
+  "bookId": "the-stoic-sovereign",
+  "chapterId": "chapter-01",
+  "audioUrl": "/assets/audio/the-stoic-sovereign-chapter-01.wav",
+  "transcriptVersion": "1.0",
+  "totalSegments": 274,
+  "durationSeconds": 173.494,
+  "segments": [
+    {
+      "word": "The",
+      "start": 0.137,
+      "characterPosition": 0,
+      "characterCount": 3,
+      "end": 0.268
+    },
+    {
+      "word": "Citadel",
+      "start": 0.268,
+      "characterPosition": 4,
+      "characterCount": 7,
+      "end": 0.867
+    },
+    {
+      "word": "of",
+      "start": 0.867,
+      "characterPosition": 12,
+      "characterCount": 2,
+      "end": 1.039
+    },
+    {
+      "word": "Mind",
+      "start": 1.039,
+      "characterPosition": 15,
+      "characterCount": 4,
+      "end": 2.845
+    },
+    {
+      "word": "Establishing",
+      "start": 2.845,
+      "characterPosition": 21,
+      "characterCount": 12,
+      "end": 3.906
+    },
+    {
+      "word": "the",
+      "start": 3.906,
+      "characterPosition": 34,
+      "characterCount": 3,
+      "end": 4.057
+    },
+    {
+      "word": "Ruling",
+      "start": 4.057,
+      "characterPosition": 38,
+      "characterCount": 6,
+      "end": 4.574
+    },
+    {
+      "word": "Rational",
+      "start": 4.574,
+      "characterPosition": 45,
+      "characterCount": 8,
+      "end": 5.235
+    },
+    {
+      "word": "Faculty",
+      "start": 5.235,
+      "characterPosition": 54,
+      "characterCount": 7,
+      "end": 7.295
+    },
+    {
+      "word": "In",
+      "start": 7.295,
+      "characterPosition": 63,
+      "characterCount": 2,
+      "end": 7.488
+    },
+    {
+      "word": "the",
+      "start": 7.488,
+      "characterPosition": 66,
+      "characterCount": 3,
+      "end": 7.612
+    },
+    {
+      "word": "winter",
+      "start": 7.612,
+      "characterPosition": 70,
+      "characterCount": 6,
+      "end": 8.122
+    },
+    {
+      "word": "of",
+      "start": 8.122,
+      "characterPosition": 77,
+      "characterCount": 2,
+      "end": 8.315
+    },
+    {
+      "word": "170",
+      "start": 8.315,
+      "characterPosition": 80,
+      "characterCount": 3,
+      "end": 8.604
+    },
+    {
+      "word": "170",
+      "start": 8.604,
+      "characterPosition": 80,
+      "characterCount": 3,
+      "end": 9.252
+    },
+    {
+      "word": "170",
+      "start": 9.252,
+      "characterPosition": 80,
+      "characterCount": 3,
+      "end": 9.486
+    },
+    {
+      "word": "170",
+      "start": 9.486,
+      "characterPosition": 80,
+      "characterCount": 3,
+      "end": 10.196
+    },
+    {
+      "word": "CE",
+      "start": 10.196,
+      "characterPosition": 84,
+      "characterCount": 2,
+      "end": 11.401
+    },
+    {
+      "word": "on",
+      "start": 11.401,
+      "characterPosition": 88,
+      "characterCount": 2,
+      "end": 11.608
+    },
+    {
+      "word": "the",
+      "start": 11.608,
+      "characterPosition": 91,
+      "characterCount": 3,
+      "end": 11.725
+    },
+    {
+      "word": "frozen",
+      "start": 11.725,
+      "characterPosition": 95,
+      "characterCount": 6,
+      "end": 12.331
+    },
+    {
+      "word": "banks",
+      "start": 12.331,
+      "characterPosition": 102,
+      "characterCount": 5,
+      "end": 12.807
+    },
+    {
+      "word": "of",
+      "start": 12.807,
+      "characterPosition": 108,
+      "characterCount": 2,
+      "end": 12.951
+    },
+    {
+      "word": "the",
+      "start": 12.951,
+      "characterPosition": 111,
+      "characterCount": 3,
+      "end": 13.089
+    },
+    {
+      "word": "Danube",
+      "start": 13.089,
+      "characterPosition": 115,
+      "characterCount": 6,
+      "end": 13.688
+    },
+    {
+      "word": "River",
+      "start": 13.688,
+      "characterPosition": 122,
+      "characterCount": 5,
+      "end": 14.074
+    },
+    {
+      "word": "near",
+      "start": 14.074,
+      "characterPosition": 128,
+      "characterCount": 4,
+      "end": 14.412
+    },
+    {
+      "word": "Carnuntum",
+      "start": 14.412,
+      "characterPosition": 133,
+      "characterCount": 9,
+      "end": 15.9
+    },
+    {
+      "word": "Emperor",
+      "start": 15.9,
+      "characterPosition": 144,
+      "characterCount": 7,
+      "end": 16.41
+    },
+    {
+      "word": "Marcus",
+      "start": 16.41,
+      "characterPosition": 152,
+      "characterCount": 6,
+      "end": 17.03
+    },
+    {
+      "word": "Aurelius",
+      "start": 17.03,
+      "characterPosition": 159,
+      "characterCount": 8,
+      "end": 17.857
+    },
+    {
+      "word": "opened",
+      "start": 17.857,
+      "characterPosition": 168,
+      "characterCount": 6,
+      "end": 18.304
+    },
+    {
+      "word": "his",
+      "start": 18.304,
+      "characterPosition": 175,
+      "characterCount": 3,
+      "end": 18.546
+    },
+    {
+      "word": "notebooks",
+      "start": 18.546,
+      "characterPosition": 179,
+      "characterCount": 9,
+      "end": 19.283
+    },
+    {
+      "word": "not",
+      "start": 19.283,
+      "characterPosition": 189,
+      "characterCount": 3,
+      "end": 19.586
+    },
+    {
+      "word": "to",
+      "start": 19.586,
+      "characterPosition": 193,
+      "characterCount": 2,
+      "end": 19.779
+    },
+    {
+      "word": "issue",
+      "start": 19.779,
+      "characterPosition": 196,
+      "characterCount": 5,
+      "end": 20.192
+    },
+    {
+      "word": "legislative",
+      "start": 20.192,
+      "characterPosition": 202,
+      "characterCount": 11,
+      "end": 21.156
+    },
+    {
+      "word": "edicts",
+      "start": 21.156,
+      "characterPosition": 214,
+      "characterCount": 6,
+      "end": 21.728
+    },
+    {
+      "word": "or",
+      "start": 21.728,
+      "characterPosition": 221,
+      "characterCount": 2,
+      "end": 21.976
+    },
+    {
+      "word": "military",
+      "start": 21.976,
+      "characterPosition": 224,
+      "characterCount": 8,
+      "end": 22.789
+    },
+    {
+      "word": "dispatches",
+      "start": 22.789,
+      "characterPosition": 233,
+      "characterCount": 10,
+      "end": 24.332
+    },
+    {
+      "word": "but",
+      "start": 24.332,
+      "characterPosition": 245,
+      "characterCount": 3,
+      "end": 24.594
+    },
+    {
+      "word": "to",
+      "start": 24.594,
+      "characterPosition": 249,
+      "characterCount": 2,
+      "end": 24.746
+    },
+    {
+      "word": "conduct",
+      "start": 24.746,
+      "characterPosition": 252,
+      "characterCount": 7,
+      "end": 25.317
+    },
+    {
+      "word": "an",
+      "start": 25.317,
+      "characterPosition": 260,
+      "characterCount": 2,
+      "end": 25.476
+    },
+    {
+      "word": "unforgiving",
+      "start": 25.476,
+      "characterPosition": 263,
+      "characterCount": 11,
+      "end": 26.323
+    },
+    {
+      "word": "audit",
+      "start": 26.323,
+      "characterPosition": 275,
+      "characterCount": 5,
+      "end": 26.75
+    },
+    {
+      "word": "of",
+      "start": 26.75,
+      "characterPosition": 281,
+      "characterCount": 2,
+      "end": 26.922
+    },
+    {
+      "word": "his",
+      "start": 26.922,
+      "characterPosition": 284,
+      "characterCount": 3,
+      "end": 27.157
+    },
+    {
+      "word": "own",
+      "start": 27.157,
+      "characterPosition": 288,
+      "characterCount": 3,
+      "end": 27.446
+    },
+    {
+      "word": "consciousness",
+      "start": 27.446,
+      "characterPosition": 292,
+      "characterCount": 13,
+      "end": 29.734
+    },
+    {
+      "word": "Surrounded",
+      "start": 29.734,
+      "characterPosition": 308,
+      "characterCount": 10,
+      "end": 30.477
+    },
+    {
+      "word": "by",
+      "start": 30.477,
+      "characterPosition": 319,
+      "characterCount": 2,
+      "end": 30.746
+    },
+    {
+      "word": "the",
+      "start": 30.746,
+      "characterPosition": 322,
+      "characterCount": 3,
+      "end": 30.884
+    },
+    {
+      "word": "devastation",
+      "start": 30.884,
+      "characterPosition": 326,
+      "characterCount": 11,
+      "end": 31.938
+    },
+    {
+      "word": "of",
+      "start": 31.938,
+      "characterPosition": 338,
+      "characterCount": 2,
+      "end": 32.11
+    },
+    {
+      "word": "the",
+      "start": 32.11,
+      "characterPosition": 341,
+      "characterCount": 3,
+      "end": 32.296
+    },
+    {
+      "word": "Antonine",
+      "start": 32.296,
+      "characterPosition": 345,
+      "characterCount": 8,
+      "end": 32.978
+    },
+    {
+      "word": "Plague",
+      "start": 32.978,
+      "characterPosition": 354,
+      "characterCount": 6,
+      "end": 33.44
+    },
+    {
+      "word": "and",
+      "start": 33.44,
+      "characterPosition": 361,
+      "characterCount": 3,
+      "end": 33.64
+    },
+    {
+      "word": "the",
+      "start": 33.64,
+      "characterPosition": 365,
+      "characterCount": 3,
+      "end": 33.826
+    },
+    {
+      "word": "existential",
+      "start": 33.826,
+      "characterPosition": 369,
+      "characterCount": 11,
+      "end": 34.818
+    },
+    {
+      "word": "pressure",
+      "start": 34.818,
+      "characterPosition": 381,
+      "characterCount": 8,
+      "end": 35.424
+    },
+    {
+      "word": "of",
+      "start": 35.424,
+      "characterPosition": 390,
+      "characterCount": 2,
+      "end": 35.596
+    },
+    {
+      "word": "the",
+      "start": 35.596,
+      "characterPosition": 393,
+      "characterCount": 3,
+      "end": 35.72
+    },
+    {
+      "word": "Marcomannic",
+      "start": 35.72,
+      "characterPosition": 397,
+      "characterCount": 11,
+      "end": 36.691
+    },
+    {
+      "word": "Wars",
+      "start": 36.691,
+      "characterPosition": 409,
+      "characterCount": 4,
+      "end": 37.904
+    },
+    {
+      "word": "Aurelius",
+      "start": 37.904,
+      "characterPosition": 415,
+      "characterCount": 8,
+      "end": 38.676
+    },
+    {
+      "word": "recognized",
+      "start": 38.676,
+      "characterPosition": 424,
+      "characterCount": 10,
+      "end": 39.592
+    },
+    {
+      "word": "that",
+      "start": 39.592,
+      "characterPosition": 435,
+      "characterCount": 4,
+      "end": 39.812
+    },
+    {
+      "word": "an",
+      "start": 39.812,
+      "characterPosition": 440,
+      "characterCount": 2,
+      "end": 40.012
+    },
+    {
+      "word": "emperor’s",
+      "start": 40.012,
+      "characterPosition": 443,
+      "characterCount": 9,
+      "end": 40.66
+    },
+    {
+      "word": "most",
+      "start": 40.66,
+      "characterPosition": 453,
+      "characterCount": 4,
+      "end": 41.08
+    },
+    {
+      "word": "dangerous",
+      "start": 41.08,
+      "characterPosition": 458,
+      "characterCount": 9,
+      "end": 41.804
+    },
+    {
+      "word": "adversary",
+      "start": 41.804,
+      "characterPosition": 468,
+      "characterCount": 9,
+      "end": 42.706
+    },
+    {
+      "word": "was",
+      "start": 42.706,
+      "characterPosition": 478,
+      "characterCount": 3,
+      "end": 43.016
+    },
+    {
+      "word": "never",
+      "start": 43.016,
+      "characterPosition": 482,
+      "characterCount": 5,
+      "end": 43.416
+    },
+    {
+      "word": "the",
+      "start": 43.416,
+      "characterPosition": 488,
+      "characterCount": 3,
+      "end": 43.581
+    },
+    {
+      "word": "Germanic",
+      "start": 43.581,
+      "characterPosition": 492,
+      "characterCount": 8,
+      "end": 44.27
+    },
+    {
+      "word": "tribes",
+      "start": 44.27,
+      "characterPosition": 501,
+      "characterCount": 6,
+      "end": 44.848
+    },
+    {
+      "word": "on",
+      "start": 44.848,
+      "characterPosition": 508,
+      "characterCount": 2,
+      "end": 45.048
+    },
+    {
+      "word": "the",
+      "start": 45.048,
+      "characterPosition": 511,
+      "characterCount": 3,
+      "end": 45.158
+    },
+    {
+      "word": "frontier",
+      "start": 45.158,
+      "characterPosition": 515,
+      "characterCount": 8,
+      "end": 46.619
+    },
+    {
+      "word": "but",
+      "start": 46.619,
+      "characterPosition": 525,
+      "characterCount": 3,
+      "end": 46.874
+    },
+    {
+      "word": "the",
+      "start": 46.874,
+      "characterPosition": 529,
+      "characterCount": 3,
+      "end": 47.039
+    },
+    {
+      "word": "unexamined",
+      "start": 47.039,
+      "characterPosition": 533,
+      "characterCount": 10,
+      "end": 47.949
+    },
+    {
+      "word": "panic",
+      "start": 47.949,
+      "characterPosition": 544,
+      "characterCount": 5,
+      "end": 48.458
+    },
+    {
+      "word": "generated",
+      "start": 48.458,
+      "characterPosition": 550,
+      "characterCount": 9,
+      "end": 49.209
+    },
+    {
+      "word": "by",
+      "start": 49.209,
+      "characterPosition": 560,
+      "characterCount": 2,
+      "end": 49.478
+    },
+    {
+      "word": "his",
+      "start": 49.478,
+      "characterPosition": 563,
+      "characterCount": 3,
+      "end": 49.754
+    },
+    {
+      "word": "own",
+      "start": 49.754,
+      "characterPosition": 567,
+      "characterCount": 3,
+      "end": 49.995
+    },
+    {
+      "word": "subjective",
+      "start": 49.995,
+      "characterPosition": 571,
+      "characterCount": 10,
+      "end": 50.794
+    },
+    {
+      "word": "perceptions",
+      "start": 50.794,
+      "characterPosition": 582,
+      "characterCount": 11,
+      "end": 53.081
+    },
+    {
+      "word": "The",
+      "start": 53.081,
+      "characterPosition": 596,
+      "characterCount": 3,
+      "end": 53.233
+    },
+    {
+      "word": "Hegemonikon",
+      "start": 53.233,
+      "characterPosition": 600,
+      "characterCount": 11,
+      "end": 54.914
+    },
+    {
+      "word": "The",
+      "start": 54.914,
+      "characterPosition": 613,
+      "characterCount": 3,
+      "end": 55.093
+    },
+    {
+      "word": "Ruling",
+      "start": 55.093,
+      "characterPosition": 617,
+      "characterCount": 6,
+      "end": 55.568
+    },
+    {
+      "word": "Center",
+      "start": 55.568,
+      "characterPosition": 624,
+      "characterCount": 6,
+      "end": 57.415
+    },
+    {
+      "word": "The",
+      "start": 57.415,
+      "characterPosition": 632,
+      "characterCount": 3,
+      "end": 57.546
+    },
+    {
+      "word": "Stoics",
+      "start": 57.546,
+      "characterPosition": 636,
+      "characterCount": 6,
+      "end": 58.228
+    },
+    {
+      "word": "called",
+      "start": 58.228,
+      "characterPosition": 643,
+      "characterCount": 6,
+      "end": 58.689
+    },
+    {
+      "word": "this",
+      "start": 58.689,
+      "characterPosition": 650,
+      "characterCount": 4,
+      "end": 58.972
+    },
+    {
+      "word": "inner",
+      "start": 58.972,
+      "characterPosition": 655,
+      "characterCount": 5,
+      "end": 59.33
+    },
+    {
+      "word": "executive",
+      "start": 59.33,
+      "characterPosition": 661,
+      "characterCount": 9,
+      "end": 60.136
+    },
+    {
+      "word": "mechanism",
+      "start": 60.136,
+      "characterPosition": 671,
+      "characterCount": 9,
+      "end": 60.935
+    },
+    {
+      "word": "the",
+      "start": 60.935,
+      "characterPosition": 681,
+      "characterCount": 3,
+      "end": 61.073
+    },
+    {
+      "word": "Hegemonikon",
+      "start": 61.073,
+      "characterPosition": 685,
+      "characterCount": 11,
+      "end": 62.774
+    },
+    {
+      "word": "the",
+      "start": 62.774,
+      "characterPosition": 699,
+      "characterCount": 3,
+      "end": 62.933
+    },
+    {
+      "word": "ruling",
+      "start": 62.933,
+      "characterPosition": 703,
+      "characterCount": 6,
+      "end": 63.45
+    },
+    {
+      "word": "rational",
+      "start": 63.45,
+      "characterPosition": 710,
+      "characterCount": 8,
+      "end": 64.111
+    },
+    {
+      "word": "faculty",
+      "start": 64.111,
+      "characterPosition": 719,
+      "characterCount": 7,
+      "end": 64.876
+    },
+    {
+      "word": "that",
+      "start": 64.876,
+      "characterPosition": 727,
+      "characterCount": 4,
+      "end": 65.124
+    },
+    {
+      "word": "sits",
+      "start": 65.124,
+      "characterPosition": 732,
+      "characterCount": 4,
+      "end": 65.53
+    },
+    {
+      "word": "between",
+      "start": 65.53,
+      "characterPosition": 737,
+      "characterCount": 7,
+      "end": 66.068
+    },
+    {
+      "word": "sensory",
+      "start": 66.068,
+      "characterPosition": 745,
+      "characterCount": 7,
+      "end": 66.798
+    },
+    {
+      "word": "stimuli",
+      "start": 66.798,
+      "characterPosition": 753,
+      "characterCount": 7,
+      "end": 67.611
+    },
+    {
+      "word": "and",
+      "start": 67.611,
+      "characterPosition": 761,
+      "characterCount": 3,
+      "end": 67.866
+    },
+    {
+      "word": "behavioral",
+      "start": 67.866,
+      "characterPosition": 765,
+      "characterCount": 10,
+      "end": 68.741
+    },
+    {
+      "word": "response",
+      "start": 68.741,
+      "characterPosition": 776,
+      "characterCount": 8,
+      "end": 70.883
+    },
+    {
+      "word": "External",
+      "start": 70.883,
+      "characterPosition": 786,
+      "characterCount": 8,
+      "end": 71.655
+    },
+    {
+      "word": "events",
+      "start": 71.655,
+      "characterPosition": 795,
+      "characterCount": 6,
+      "end": 72.144
+    },
+    {
+      "word": "possess",
+      "start": 72.144,
+      "characterPosition": 802,
+      "characterCount": 7,
+      "end": 72.771
+    },
+    {
+      "word": "zero",
+      "start": 72.771,
+      "characterPosition": 810,
+      "characterCount": 4,
+      "end": 73.294
+    },
+    {
+      "word": "intrinsic",
+      "start": 73.294,
+      "characterPosition": 815,
+      "characterCount": 9,
+      "end": 74.094
+    },
+    {
+      "word": "emotional",
+      "start": 74.094,
+      "characterPosition": 825,
+      "characterCount": 9,
+      "end": 74.824
+    },
+    {
+      "word": "charge",
+      "start": 74.824,
+      "characterPosition": 835,
+      "characterCount": 6,
+      "end": 76.719
+    },
+    {
+      "word": "They",
+      "start": 76.719,
+      "characterPosition": 843,
+      "characterCount": 4,
+      "end": 76.925
+    },
+    {
+      "word": "are",
+      "start": 76.925,
+      "characterPosition": 848,
+      "characterCount": 3,
+      "end": 77.111
+    },
+    {
+      "word": "simply",
+      "start": 77.111,
+      "characterPosition": 852,
+      "characterCount": 6,
+      "end": 77.711
+    },
+    {
+      "word": "physical",
+      "start": 77.711,
+      "characterPosition": 859,
+      "characterCount": 8,
+      "end": 78.344
+    },
+    {
+      "word": "configurations",
+      "start": 78.344,
+      "characterPosition": 868,
+      "characterCount": 14,
+      "end": 79.598
+    },
+    {
+      "word": "of",
+      "start": 79.598,
+      "characterPosition": 883,
+      "characterCount": 2,
+      "end": 79.791
+    },
+    {
+      "word": "matter",
+      "start": 79.791,
+      "characterPosition": 886,
+      "characterCount": 6,
+      "end": 80.28
+    },
+    {
+      "word": "and",
+      "start": 80.28,
+      "characterPosition": 893,
+      "characterCount": 3,
+      "end": 80.514
+    },
+    {
+      "word": "circumstance",
+      "start": 80.514,
+      "characterPosition": 897,
+      "characterCount": 12,
+      "end": 83.057
+    },
+    {
+      "word": "Strip",
+      "start": 83.057,
+      "characterPosition": 912,
+      "characterCount": 5,
+      "end": 83.58
+    },
+    {
+      "word": "away",
+      "start": 83.58,
+      "characterPosition": 918,
+      "characterCount": 4,
+      "end": 84.028
+    },
+    {
+      "word": "the",
+      "start": 84.028,
+      "characterPosition": 923,
+      "characterCount": 3,
+      "end": 84.214
+    },
+    {
+      "word": "opinion",
+      "start": 84.214,
+      "characterPosition": 927,
+      "characterCount": 7,
+      "end": 85.509
+    },
+    {
+      "word": "and",
+      "start": 85.509,
+      "characterPosition": 936,
+      "characterCount": 3,
+      "end": 85.716
+    },
+    {
+      "word": "the",
+      "start": 85.716,
+      "characterPosition": 940,
+      "characterCount": 3,
+      "end": 85.847
+    },
+    {
+      "word": "harm",
+      "start": 85.847,
+      "characterPosition": 944,
+      "characterCount": 4,
+      "end": 86.267
+    },
+    {
+      "word": "is",
+      "start": 86.267,
+      "characterPosition": 949,
+      "characterCount": 2,
+      "end": 86.44
+    },
+    {
+      "word": "stripped",
+      "start": 86.44,
+      "characterPosition": 952,
+      "characterCount": 8,
+      "end": 86.963
+    },
+    {
+      "word": "away",
+      "start": 86.963,
+      "characterPosition": 961,
+      "characterCount": 4,
+      "end": 88.658
+    },
+    {
+      "word": "Do",
+      "start": 88.658,
+      "characterPosition": 967,
+      "characterCount": 2,
+      "end": 88.851
+    },
+    {
+      "word": "not",
+      "start": 88.851,
+      "characterPosition": 970,
+      "characterCount": 3,
+      "end": 89.168
+    },
+    {
+      "word": "think",
+      "start": 89.168,
+      "characterPosition": 974,
+      "characterCount": 5,
+      "end": 89.492
+    },
+    {
+      "word": "that",
+      "start": 89.492,
+      "characterPosition": 980,
+      "characterCount": 4,
+      "end": 89.747
+    },
+    {
+      "word": "you",
+      "start": 89.747,
+      "characterPosition": 985,
+      "characterCount": 3,
+      "end": 89.953
+    },
+    {
+      "word": "are",
+      "start": 89.953,
+      "characterPosition": 989,
+      "characterCount": 3,
+      "end": 90.146
+    },
+    {
+      "word": "harmed",
+      "start": 90.146,
+      "characterPosition": 993,
+      "characterCount": 6,
+      "end": 91.311
+    },
+    {
+      "word": "and",
+      "start": 91.311,
+      "characterPosition": 1001,
+      "characterCount": 3,
+      "end": 91.524
+    },
+    {
+      "word": "you",
+      "start": 91.524,
+      "characterPosition": 1005,
+      "characterCount": 3,
+      "end": 91.724
+    },
+    {
+      "word": "have",
+      "start": 91.724,
+      "characterPosition": 1009,
+      "characterCount": 4,
+      "end": 91.93
+    },
+    {
+      "word": "suffered",
+      "start": 91.93,
+      "characterPosition": 1014,
+      "characterCount": 8,
+      "end": 92.544
+    },
+    {
+      "word": "no",
+      "start": 92.544,
+      "characterPosition": 1023,
+      "characterCount": 2,
+      "end": 92.826
+    },
+    {
+      "word": "harm",
+      "start": 92.826,
+      "characterPosition": 1026,
+      "characterCount": 4,
+      "end": 93.239
+    },
+    {
+      "word": "at",
+      "start": 93.239,
+      "characterPosition": 1031,
+      "characterCount": 2,
+      "end": 93.446
+    },
+    {
+      "word": "all",
+      "start": 93.446,
+      "characterPosition": 1034,
+      "characterCount": 3,
+      "end": 95.12
+    },
+    {
+      "word": "When",
+      "start": 95.12,
+      "characterPosition": 1040,
+      "characterCount": 4,
+      "end": 95.396
+    },
+    {
+      "word": "a",
+      "start": 95.396,
+      "characterPosition": 1045,
+      "characterCount": 1,
+      "end": 95.479
+    },
+    {
+      "word": "leader",
+      "start": 95.479,
+      "characterPosition": 1047,
+      "characterCount": 6,
+      "end": 95.933
+    },
+    {
+      "word": "encounters",
+      "start": 95.933,
+      "characterPosition": 1054,
+      "characterCount": 10,
+      "end": 96.76
+    },
+    {
+      "word": "acute",
+      "start": 96.76,
+      "characterPosition": 1065,
+      "characterCount": 5,
+      "end": 97.228
+    },
+    {
+      "word": "institutional",
+      "start": 97.228,
+      "characterPosition": 1071,
+      "characterCount": 13,
+      "end": 98.351
+    },
+    {
+      "word": "crises",
+      "start": 98.351,
+      "characterPosition": 1085,
+      "characterCount": 6,
+      "end": 99.832
+    },
+    {
+      "word": "the",
+      "start": 99.832,
+      "characterPosition": 1093,
+      "characterCount": 3,
+      "end": 99.97
+    },
+    {
+      "word": "physiological",
+      "start": 99.97,
+      "characterPosition": 1097,
+      "characterCount": 13,
+      "end": 101.128
+    },
+    {
+      "word": "impulse",
+      "start": 101.128,
+      "characterPosition": 1111,
+      "characterCount": 7,
+      "end": 101.713
+    },
+    {
+      "word": "is",
+      "start": 101.713,
+      "characterPosition": 1119,
+      "characterCount": 2,
+      "end": 101.996
+    },
+    {
+      "word": "to",
+      "start": 101.996,
+      "characterPosition": 1122,
+      "characterCount": 2,
+      "end": 102.147
+    },
+    {
+      "word": "react",
+      "start": 102.147,
+      "characterPosition": 1125,
+      "characterCount": 5,
+      "end": 102.636
+    },
+    {
+      "word": "impulsively",
+      "start": 102.636,
+      "characterPosition": 1131,
+      "characterCount": 11,
+      "end": 103.601
+    },
+    {
+      "word": "to",
+      "start": 103.601,
+      "characterPosition": 1143,
+      "characterCount": 2,
+      "end": 103.835
+    },
+    {
+      "word": "external",
+      "start": 103.835,
+      "characterPosition": 1146,
+      "characterCount": 8,
+      "end": 104.586
+    },
+    {
+      "word": "noise",
+      "start": 104.586,
+      "characterPosition": 1155,
+      "characterCount": 5,
+      "end": 106.371
+    },
+    {
+      "word": "The",
+      "start": 106.371,
+      "characterPosition": 1162,
+      "characterCount": 3,
+      "end": 106.522
+    },
+    {
+      "word": "disciplined",
+      "start": 106.522,
+      "characterPosition": 1166,
+      "characterCount": 11,
+      "end": 107.266
+    },
+    {
+      "word": "sovereign",
+      "start": 107.266,
+      "characterPosition": 1178,
+      "characterCount": 9,
+      "end": 107.955
+    },
+    {
+      "word": "cultivates",
+      "start": 107.955,
+      "characterPosition": 1188,
+      "characterCount": 10,
+      "end": 108.768
+    },
+    {
+      "word": "an",
+      "start": 108.768,
+      "characterPosition": 1199,
+      "characterCount": 2,
+      "end": 108.926
+    },
+    {
+      "word": "unbreachable",
+      "start": 108.926,
+      "characterPosition": 1202,
+      "characterCount": 12,
+      "end": 109.829
+    },
+    {
+      "word": "psychological",
+      "start": 109.829,
+      "characterPosition": 1215,
+      "characterCount": 13,
+      "end": 110.993
+    },
+    {
+      "word": "boundary",
+      "start": 110.993,
+      "characterPosition": 1229,
+      "characterCount": 8,
+      "end": 112.922
+    },
+    {
+      "word": "By",
+      "start": 112.922,
+      "characterPosition": 1239,
+      "characterCount": 2,
+      "end": 113.17
+    },
+    {
+      "word": "categorizing",
+      "start": 113.17,
+      "characterPosition": 1242,
+      "characterCount": 12,
+      "end": 114.3
+    },
+    {
+      "word": "all",
+      "start": 114.3,
+      "characterPosition": 1255,
+      "characterCount": 3,
+      "end": 114.638
+    },
+    {
+      "word": "phenomena",
+      "start": 114.638,
+      "characterPosition": 1259,
+      "characterCount": 9,
+      "end": 115.34
+    },
+    {
+      "word": "under",
+      "start": 115.34,
+      "characterPosition": 1269,
+      "characterCount": 5,
+      "end": 115.712
+    },
+    {
+      "word": "the",
+      "start": 115.712,
+      "characterPosition": 1275,
+      "characterCount": 3,
+      "end": 115.829
+    },
+    {
+      "word": "strict",
+      "start": 115.829,
+      "characterPosition": 1279,
+      "characterCount": 6,
+      "end": 116.36
+    },
+    {
+      "word": "dichotomy",
+      "start": 116.36,
+      "characterPosition": 1286,
+      "characterCount": 9,
+      "end": 117.311
+    },
+    {
+      "word": "of",
+      "start": 117.311,
+      "characterPosition": 1296,
+      "characterCount": 2,
+      "end": 117.497
+    },
+    {
+      "word": "control",
+      "start": 117.497,
+      "characterPosition": 1299,
+      "characterCount": 7,
+      "end": 118.895
+    },
+    {
+      "word": "energy",
+      "start": 118.895,
+      "characterPosition": 1308,
+      "characterCount": 6,
+      "end": 119.488
+    },
+    {
+      "word": "is",
+      "start": 119.488,
+      "characterPosition": 1315,
+      "characterCount": 2,
+      "end": 119.736
+    },
+    {
+      "word": "ruthlessly",
+      "start": 119.736,
+      "characterPosition": 1318,
+      "characterCount": 10,
+      "end": 120.521
+    },
+    {
+      "word": "concentrated",
+      "start": 120.521,
+      "characterPosition": 1329,
+      "characterCount": 12,
+      "end": 121.699
+    },
+    {
+      "word": "only",
+      "start": 121.699,
+      "characterPosition": 1342,
+      "characterCount": 4,
+      "end": 122.112
+    },
+    {
+      "word": "on",
+      "start": 122.112,
+      "characterPosition": 1347,
+      "characterCount": 2,
+      "end": 122.34
+    },
+    {
+      "word": "deliberate",
+      "start": 122.34,
+      "characterPosition": 1350,
+      "characterCount": 10,
+      "end": 123.001
+    },
+    {
+      "word": "actions",
+      "start": 123.001,
+      "characterPosition": 1361,
+      "characterCount": 7,
+      "end": 123.938
+    },
+    {
+      "word": "judgments",
+      "start": 123.938,
+      "characterPosition": 1370,
+      "characterCount": 9,
+      "end": 124.965
+    },
+    {
+      "word": "and",
+      "start": 124.965,
+      "characterPosition": 1381,
+      "characterCount": 3,
+      "end": 125.192
+    },
+    {
+      "word": "moral",
+      "start": 125.192,
+      "characterPosition": 1385,
+      "characterCount": 5,
+      "end": 125.654
+    },
+    {
+      "word": "integrity",
+      "start": 125.654,
+      "characterPosition": 1391,
+      "characterCount": 9,
+      "end": 127.741
+    },
+    {
+      "word": "Premeditatio",
+      "start": 127.741,
+      "characterPosition": 1403,
+      "characterCount": 12,
+      "end": 129.036
+    },
+    {
+      "word": "Malorum",
+      "start": 129.036,
+      "characterPosition": 1416,
+      "characterCount": 7,
+      "end": 129.649
+    },
+    {
+      "word": "in",
+      "start": 129.649,
+      "characterPosition": 1424,
+      "characterCount": 2,
+      "end": 129.836
+    },
+    {
+      "word": "High-Stakes",
+      "start": 129.836,
+      "characterPosition": 1427,
+      "characterCount": 11,
+      "end": 130.662
+    },
+    {
+      "word": "Leadership",
+      "start": 130.662,
+      "characterPosition": 1439,
+      "characterCount": 10,
+      "end": 132.709
+    },
+    {
+      "word": "Classical",
+      "start": 132.709,
+      "characterPosition": 1451,
+      "characterCount": 9,
+      "end": 133.508
+    },
+    {
+      "word": "Stoicism",
+      "start": 133.508,
+      "characterPosition": 1461,
+      "characterCount": 8,
+      "end": 134.493
+    },
+    {
+      "word": "is",
+      "start": 134.493,
+      "characterPosition": 1470,
+      "characterCount": 2,
+      "end": 134.734
+    },
+    {
+      "word": "not",
+      "start": 134.734,
+      "characterPosition": 1473,
+      "characterCount": 3,
+      "end": 135.023
+    },
+    {
+      "word": "passive",
+      "start": 135.023,
+      "characterPosition": 1477,
+      "characterCount": 7,
+      "end": 135.623
+    },
+    {
+      "word": "endurance",
+      "start": 135.623,
+      "characterPosition": 1485,
+      "characterCount": 9,
+      "end": 136.312
+    },
+    {
+      "word": "or",
+      "start": 136.312,
+      "characterPosition": 1495,
+      "characterCount": 2,
+      "end": 136.566
+    },
+    {
+      "word": "emotional",
+      "start": 136.566,
+      "characterPosition": 1498,
+      "characterCount": 9,
+      "end": 137.31
+    },
+    {
+      "word": "numbness",
+      "start": 137.31,
+      "characterPosition": 1508,
+      "characterCount": 8,
+      "end": 138.53
+    },
+    {
+      "word": "it",
+      "start": 138.53,
+      "characterPosition": 1518,
+      "characterCount": 2,
+      "end": 138.695
+    },
+    {
+      "word": "is",
+      "start": 138.695,
+      "characterPosition": 1521,
+      "characterCount": 2,
+      "end": 138.888
+    },
+    {
+      "word": "an",
+      "start": 138.888,
+      "characterPosition": 1524,
+      "characterCount": 2,
+      "end": 139.046
+    },
+    {
+      "word": "active",
+      "start": 139.046,
+      "characterPosition": 1527,
+      "characterCount": 6,
+      "end": 139.598
+    },
+    {
+      "word": "cognitive",
+      "start": 139.598,
+      "characterPosition": 1534,
+      "characterCount": 9,
+      "end": 140.314
+    },
+    {
+      "word": "discipline",
+      "start": 140.314,
+      "characterPosition": 1544,
+      "characterCount": 10,
+      "end": 142.36
+    },
+    {
+      "word": "Through",
+      "start": 142.36,
+      "characterPosition": 1556,
+      "characterCount": 7,
+      "end": 142.698
+    },
+    {
+      "word": "premeditatio",
+      "start": 142.698,
+      "characterPosition": 1564,
+      "characterCount": 12,
+      "end": 143.945
+    },
+    {
+      "word": "malorum",
+      "start": 143.945,
+      "characterPosition": 1577,
+      "characterCount": 7,
+      "end": 145.282
+    },
+    {
+      "word": "the",
+      "start": 145.282,
+      "characterPosition": 1587,
+      "characterCount": 3,
+      "end": 145.399
+    },
+    {
+      "word": "systematic",
+      "start": 145.399,
+      "characterPosition": 1591,
+      "characterCount": 10,
+      "end": 146.342
+    },
+    {
+      "word": "mental",
+      "start": 146.342,
+      "characterPosition": 1602,
+      "characterCount": 6,
+      "end": 146.818
+    },
+    {
+      "word": "rehearsal",
+      "start": 146.818,
+      "characterPosition": 1609,
+      "characterCount": 9,
+      "end": 147.555
+    },
+    {
+      "word": "of",
+      "start": 147.555,
+      "characterPosition": 1619,
+      "characterCount": 2,
+      "end": 147.748
+    },
+    {
+      "word": "worst-case",
+      "start": 147.748,
+      "characterPosition": 1622,
+      "characterCount": 10,
+      "end": 148.568
+    },
+    {
+      "word": "scenarios",
+      "start": 148.568,
+      "characterPosition": 1633,
+      "characterCount": 9,
+      "end": 150.138
+    },
+    {
+      "word": "the",
+      "start": 150.138,
+      "characterPosition": 1645,
+      "characterCount": 3,
+      "end": 150.297
+    },
+    {
+      "word": "executive",
+      "start": 150.297,
+      "characterPosition": 1649,
+      "characterCount": 9,
+      "end": 151.089
+    },
+    {
+      "word": "inoculates",
+      "start": 151.089,
+      "characterPosition": 1659,
+      "characterCount": 10,
+      "end": 151.978
+    },
+    {
+      "word": "the",
+      "start": 151.978,
+      "characterPosition": 1670,
+      "characterCount": 3,
+      "end": 152.102
+    },
+    {
+      "word": "mind",
+      "start": 152.102,
+      "characterPosition": 1674,
+      "characterCount": 4,
+      "end": 152.508
+    },
+    {
+      "word": "against",
+      "start": 152.508,
+      "characterPosition": 1679,
+      "characterCount": 7,
+      "end": 153.073
+    },
+    {
+      "word": "surprise",
+      "start": 153.073,
+      "characterPosition": 1687,
+      "characterCount": 8,
+      "end": 154.575
+    },
+    {
+      "word": "transforming",
+      "start": 154.575,
+      "characterPosition": 1697,
+      "characterCount": 12,
+      "end": 155.595
+    },
+    {
+      "word": "operational",
+      "start": 155.595,
+      "characterPosition": 1710,
+      "characterCount": 11,
+      "end": 156.545
+    },
+    {
+      "word": "friction",
+      "start": 156.545,
+      "characterPosition": 1722,
+      "characterCount": 8,
+      "end": 157.165
+    },
+    {
+      "word": "into",
+      "start": 157.165,
+      "characterPosition": 1731,
+      "characterCount": 4,
+      "end": 157.565
+    },
+    {
+      "word": "clarity",
+      "start": 157.565,
+      "characterPosition": 1736,
+      "characterCount": 7,
+      "end": 158.281
+    },
+    {
+      "word": "and",
+      "start": 158.281,
+      "characterPosition": 1744,
+      "characterCount": 3,
+      "end": 158.509
+    },
+    {
+      "word": "decisive",
+      "start": 158.509,
+      "characterPosition": 1748,
+      "characterCount": 8,
+      "end": 159.28
+    },
+    {
+      "word": "command",
+      "start": 159.28,
+      "characterPosition": 1757,
+      "characterCount": 7,
+      "end": 161.196
+    },
+    {
+      "word": "Sovereign",
+      "start": 161.196,
+      "characterPosition": 1767,
+      "characterCount": 9,
+      "end": 161.871
+    },
+    {
+      "word": "Invariant",
+      "start": 161.871,
+      "characterPosition": 1777,
+      "characterCount": 9,
+      "end": 163.297
+    },
+    {
+      "word": "Tranquility",
+      "start": 163.297,
+      "characterPosition": 1788,
+      "characterCount": 11,
+      "end": 164.316
+    },
+    {
+      "word": "is",
+      "start": 164.316,
+      "characterPosition": 1800,
+      "characterCount": 2,
+      "end": 164.571
+    },
+    {
+      "word": "not",
+      "start": 164.571,
+      "characterPosition": 1803,
+      "characterCount": 3,
+      "end": 164.874
+    },
+    {
+      "word": "the",
+      "start": 164.874,
+      "characterPosition": 1807,
+      "characterCount": 3,
+      "end": 165.04
+    },
+    {
+      "word": "absence",
+      "start": 165.04,
+      "characterPosition": 1811,
+      "characterCount": 7,
+      "end": 165.687
+    },
+    {
+      "word": "of",
+      "start": 165.687,
+      "characterPosition": 1819,
+      "characterCount": 2,
+      "end": 165.873
+    },
+    {
+      "word": "external",
+      "start": 165.873,
+      "characterPosition": 1822,
+      "characterCount": 8,
+      "end": 166.597
+    },
+    {
+      "word": "storm",
+      "start": 166.597,
+      "characterPosition": 1831,
+      "characterCount": 5,
+      "end": 167.878
+    },
+    {
+      "word": "but",
+      "start": 167.878,
+      "characterPosition": 1838,
+      "characterCount": 3,
+      "end": 168.126
+    },
+    {
+      "word": "the",
+      "start": 168.126,
+      "characterPosition": 1842,
+      "characterCount": 3,
+      "end": 168.292
+    },
+    {
+      "word": "unshakeable",
+      "start": 168.292,
+      "characterPosition": 1846,
+      "characterCount": 11,
+      "end": 169.215
+    },
+    {
+      "word": "mastery",
+      "start": 169.215,
+      "characterPosition": 1858,
+      "characterCount": 7,
+      "end": 169.966
+    },
+    {
+      "word": "of",
+      "start": 169.966,
+      "characterPosition": 1866,
+      "characterCount": 2,
+      "end": 170.158
+    },
+    {
+      "word": "one’s",
+      "start": 170.158,
+      "characterPosition": 1869,
+      "characterCount": 5,
+      "end": 170.565
+    },
+    {
+      "word": "ruling",
+      "start": 170.565,
+      "characterPosition": 1875,
+      "characterCount": 6,
+      "end": 171.109
+    },
+    {
+      "word": "rational",
+      "start": 171.109,
+      "characterPosition": 1882,
+      "characterCount": 8,
+      "end": 171.771
+    },
+    {
+      "word": "faculty",
+      "start": 171.771,
+      "characterPosition": 1891,
+      "characterCount": 7,
+      "end": 172.549
+    },
+    {
+      "word": "amid",
+      "start": 172.549,
+      "characterPosition": 1899,
+      "characterCount": 4,
+      "end": 172.894
+    },
+    {
+      "word": "disorder",
+      "start": 172.894,
+      "characterPosition": 1904,
+      "characterCount": 8,
+      "end": 173.494
+    }
+  ]
+}

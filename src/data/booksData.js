@@ -245,12 +245,22 @@ export const BOOKS_DATA = [
     status: 'published',
     edition: 'Revised Edition (2026)',
     isbn: '978-93-98210-02-1',
-    hasAudiobook: false,
-    formats: ['Web Reader', 'Vector PDF', 'Universal EPUB'],
+    hasAudiobook: true,
+    formats: ['Web Reader', 'Vector PDF', 'Universal EPUB', 'Synchronized Audiobook'],
     
     coverImage: '/assets/covers/the-sovereign-mind.jpg',
     accentColor: '#997328',
     videoPreview: '/assets/videos/the-sovereign-mind.mp4',
+
+    audiobook: {
+      chapterId: 'chapter-01',
+      title: 'Chapter 01: The Fallacy of Ergodicity',
+      audioUrl: '/assets/audio/the-sovereign-mind-chapter-01.wav',
+      durationSeconds: 228.4,
+      durationLabel: '3 min 48 sec',
+      timingUrl: '/api/audiobook/the-sovereign-mind/chapter-01',
+      narrator: 'Aetheria Neural Synthesis (Studio Pro En-US)'
+    },
 
     description: 'A disciplined economic thesis on navigating contemporary financial volatility. Moving past superficial consumer advice, this book dissects risk convexity, fat-tailed distributions, and the structural pursuit of temporal autonomy—measuring success in uncompromised hours rather than vanity figures.',
 
@@ -268,15 +278,138 @@ export const BOOKS_DATA = [
     ],
 
     tableOfContents: [
-      { number: '01', title: 'The Fallacy of Ergocity', subtitle: 'Why Ensemble Averages Conceal Individual Ruin' },
-      { number: '02', title: 'The Asymmetric Portfolio', subtitle: 'Barbells, Convex Payoffs & Optionality' },
-      { number: '03', title: 'The Architecture of Time', subtitle: 'Calculating Freedom in Uncompromised Hours' },
-      { number: '04', title: 'Exit Protocols', subtitle: 'Geographic and Digital Sovereignty' }
+      { number: '01', title: 'The Fallacy of Ergodicity', subtitle: 'Why Ensemble Averages Conceal Individual Ruin', pages: '1–38' },
+      { number: '02', title: 'The Asymmetric Portfolio', subtitle: 'Barbells, Convex Payoffs & Optionality', pages: '39–84' },
+      { number: '03', title: 'The Architecture of Time', subtitle: 'Calculating Freedom in Uncompromised Hours', pages: '85–142' },
+      { number: '04', title: 'Exit Protocols', subtitle: 'Geographic and Digital Sovereignty', pages: '143–210' }
+    ],
+
+    chapters: [
+      {
+        chapterNumber: '01',
+        title: 'The Fallacy of Ergodicity',
+        subtitle: 'Why Ensemble Averages Conceal Individual Ruin',
+        readingTimeMinutes: 10,
+        content: [
+          {
+            type: 'paragraph',
+            text: 'In conventional financial modeling, analysts treat economic actors as if they operated within an ergodic system—one where the average outcome of a large group over a single interval corresponds to the average outcome of a single individual over a long time horizon.'
+          },
+          {
+            type: 'paragraph',
+            text: 'This mathematical error has destroyed more private balance sheets than speculative fever. Consider Russian roulette: if six individuals play once, five walk away wealthy and one dies. The ensemble average shows a positive expected monetary gain. But if one individual plays six consecutive rounds, the probability of survival collapses to zero.'
+          },
+          {
+            type: 'heading',
+            text: 'Path Dependency and Absorbing Barriers'
+          },
+          {
+            type: 'paragraph',
+            text: 'In the real world, wealth accumulation is fundamentally path-dependent. You cannot enjoy round ten of compounding if round four triggers an absorbing barrier—a state of bankruptcy or irrecoverable capital impairment from which recovery is mathematically impossible.'
+          },
+          {
+            type: 'quote',
+            text: 'The paramount rule of sovereign finance is not to maximize upside, but to aggressively eliminate any risk vector that carries even a non-zero probability of catastrophic ruin.'
+          },
+          {
+            type: 'paragraph',
+            text: 'Modern portfolio theory preaches diversification, yet during systemic liquidity crises, cross-asset correlations snap violently toward one. The sovereign allocator constructs asymmetric barbells: keeping ninety percent of reserves in hyper-resilient, non-custodial hard assets while directing the remaining ten percent toward aggressively convex, high-optionality ventures.'
+          },
+          {
+            type: 'heading',
+            text: 'Convexity and Asymmetric Optionality'
+          },
+          {
+            type: 'paragraph',
+            text: 'By structuring exposures such that maximum loss is strictly capped while potential gain is exponentially unbounded, an investor converts systemic volatility from an existential hazard into a fuel source. True freedom is not measured in nominal net worth, but in the ratio of autonomous hours to obligated commitments.'
+          },
+          {
+            type: 'note',
+            text: 'Strategic Synthesis: Wealth preservation across generational horizons requires immunizing capital against non-ergodic shocks before attempting capital acceleration.'
+          }
+        ]
+      },
+      {
+        chapterNumber: '02',
+        title: 'The Asymmetric Portfolio',
+        subtitle: 'Barbells, Convex Payoffs & Optionality',
+        readingTimeMinutes: 12,
+        content: [
+          {
+            type: 'paragraph',
+            text: 'The standard institutional portfolio—sixty percent equities, forty percent sovereign debt—rests upon the naive assumption that bond yields will reliably buffer equity drawdowns. In inflationary regimes, this correlation breaks down catastrophically, leaving the passive allocator exposed to simultaneous capital erosion.'
+          },
+          {
+            type: 'paragraph',
+            text: 'An asymmetric barbell strategy rejects the mediocre middle. It divides capital strictly between hyper-conservative treasury equivalents and speculative call options on emerging technological step-functions. In doing so, the investor ensures survival regardless of macroeconomic turbulence while participating in explosive convex gains.'
+          },
+          {
+            type: 'heading',
+            text: 'The Architecture of Downside Containment'
+          },
+          {
+            type: 'paragraph',
+            text: 'When downside risk is mathematically bounded by design, emotional volatility evaporates from decision-making. The allocator is liberated from the panic-selling cycles that plague conventional retail investors.'
+          },
+          {
+            type: 'quote',
+            text: 'Optionality is the property of asymmetric upside with bounded downside. He who possesses options never needs to forecast the future with certainty.'
+          }
+        ]
+      },
+      {
+        chapterNumber: '03',
+        title: 'The Architecture of Time',
+        subtitle: 'Calculating Freedom in Uncompromised Hours',
+        readingTimeMinutes: 14,
+        content: [
+          {
+            type: 'paragraph',
+            text: 'Nominal net worth is an illusory metric if each additional dollar mandates commensurate concessions to bureaucratic calendars, investor demands, and executive overhead. Wealth without temporal autonomy is merely gilded servitude.'
+          },
+          {
+            type: 'paragraph',
+            text: 'The sovereign mind measures true prosperity by the equation of uncompromised hours: the percentage of waking existence allocated according to internal curiosity rather than external economic compulsion.'
+          },
+          {
+            type: 'heading',
+            text: 'Decoupling Yield from Physical Presence'
+          },
+          {
+            type: 'paragraph',
+            text: 'Scalable capital models dissociate productive output from synchronous physical labor. By owning productive equity, automated software engines, and non-depreciating intellectual properties, the allocator captures economic rent without selling non-renewable biological hours.'
+          },
+          {
+            type: 'quote',
+            text: 'A person with ninety percent uncompromised calendar control is vastly wealthier than an overworked executive earning eight figures under chronic cognitive exhaustion.'
+          }
+        ]
+      },
+      {
+        chapterNumber: '04',
+        title: 'Exit Protocols',
+        subtitle: 'Geographic and Digital Sovereignty',
+        readingTimeMinutes: 13,
+        content: [
+          {
+            type: 'paragraph',
+            text: 'A single jurisdictional jurisdiction constitutes a single point of failure. Sovereign resilience mandates that residency, capital custody, communications infrastructure, and operational corporate entities be distributed across independent sovereign territories.'
+          },
+          {
+            type: 'paragraph',
+            text: 'In the digital epoch, geography is unbundled. Cryptographic custody allows the bearer ownership of purchasing power across borders without physical transport friction, providing an ultimate backstop against arbitrary capital controls.'
+          },
+          {
+            type: 'quote',
+            text: 'Sovereignty is not an ideology; it is the deliberate engineering of jurisdictional redundancy and operational independence.'
+          }
+        ]
+      }
     ],
 
     sampleChapter: {
       chapterNumber: '01',
-      title: 'The Fallacy of Ergocity',
+      title: 'The Fallacy of Ergodicity',
       subtitle: 'Why Ensemble Averages Conceal Individual Ruin',
       readingTimeMinutes: 10,
       content: [
@@ -299,6 +432,22 @@ export const BOOKS_DATA = [
         {
           type: 'quote',
           text: 'The paramount rule of sovereign finance is not to maximize upside, but to aggressively eliminate any risk vector that carries even a non-zero probability of catastrophic ruin.'
+        },
+        {
+          type: 'paragraph',
+          text: 'Modern portfolio theory preaches diversification, yet during systemic liquidity crises, cross-asset correlations snap violently toward one. The sovereign allocator constructs asymmetric barbells: keeping ninety percent of reserves in hyper-resilient, non-custodial hard assets while directing the remaining ten percent toward aggressively convex, high-optionality ventures.'
+        },
+        {
+          type: 'heading',
+          text: 'Convexity and Asymmetric Optionality'
+        },
+        {
+          type: 'paragraph',
+          text: 'By structuring exposures such that maximum loss is strictly capped while potential gain is exponentially unbounded, an investor converts systemic volatility from an existential hazard into a fuel source. True freedom is not measured in nominal net worth, but in the ratio of autonomous hours to obligated commitments.'
+        },
+        {
+          type: 'note',
+          text: 'Strategic Synthesis: Wealth preservation across generational horizons requires immunizing capital against non-ergodic shocks before attempting capital acceleration.'
         }
       ]
     }
@@ -322,12 +471,22 @@ export const BOOKS_DATA = [
     status: 'published',
     edition: 'Second Field Edition (2026)',
     isbn: '978-93-98210-03-8',
-    hasAudiobook: false,
-    formats: ['Web Reader', 'Vector PDF', 'Universal EPUB'],
+    hasAudiobook: true,
+    formats: ['Web Reader', 'Vector PDF', 'Universal EPUB', 'Synchronized Audiobook'],
     
     coverImage: '/assets/covers/ghost-in-the-wire.jpg',
     accentColor: '#10b981',
     videoPreview: '/assets/videos/ghost-in-the-wire.mp4',
+
+    audiobook: {
+      chapterId: 'chapter-01',
+      title: 'Chapter 01: The Silicon Vulnerability',
+      audioUrl: '/assets/audio/ghost-in-the-wire-chapter-01.wav',
+      durationSeconds: 242.6,
+      durationLabel: '4 min 02 sec',
+      timingUrl: '/api/audiobook/ghost-in-the-wire/chapter-01',
+      narrator: 'Aetheria Neural Synthesis (Studio Pro En-US)'
+    },
 
     description: 'A deep-dive manual on defensive systems architecture in hostile network environments. Moving beyond basic password hygiene, this volume analyzes side-channel timing attacks, hardware security modules (HSMs), post-quantum lattice cryptography, and isolated memory boundaries.',
 
@@ -345,10 +504,125 @@ export const BOOKS_DATA = [
     ],
 
     tableOfContents: [
-      { number: '01', title: 'The Silicon Vulnerability', subtitle: 'Speculative Execution & Transient Side Channels' },
-      { number: '02', title: 'Post-Quantum Primitives', subtitle: 'Transitioning from RSA/ECC to Module-LWE' },
-      { number: '03', title: 'Hardware Isolation', subtitle: 'Enclaves, TPMs, and Attestation Chains' },
-      { number: '04', title: 'Metadata Defense', subtitle: 'Defeating Traffic Analysis at the Packet Boundary' }
+      { number: '01', title: 'The Silicon Vulnerability', subtitle: 'Speculative Execution & Transient Side Channels', pages: '1–46' },
+      { number: '02', title: 'Post-Quantum Primitives', subtitle: 'Transitioning from RSA/ECC to Module-LWE', pages: '47–112' },
+      { number: '03', title: 'Hardware Isolation', subtitle: 'Enclaves, TPMs, and Attestation Chains', pages: '113–198' },
+      { number: '04', title: 'Metadata Defense', subtitle: 'Defeating Traffic Analysis at the Packet Boundary', pages: '199–284' }
+    ],
+
+    chapters: [
+      {
+        chapterNumber: '01',
+        title: 'The Silicon Vulnerability',
+        subtitle: 'Speculative Execution & Transient Side Channels',
+        readingTimeMinutes: 11,
+        content: [
+          {
+            type: 'paragraph',
+            text: 'For decades, computer architecture maintained a convenient abstraction: the software layer assumes the underlying central processing unit executes instructions sequentially according to the formal architectural specification. If memory permission checks fail, the kernel raises an exception and memory remains unread.'
+          },
+          {
+            type: 'paragraph',
+            text: 'The discovery of speculative execution side-channel attacks permanently shattered this abstraction. Modern high-performance processors cannot afford to idle while resolving memory addresses or branch conditions. Instead, they speculate: predicting branch outcomes and executing dozens of instructions ahead of verification.'
+          },
+          {
+            type: 'heading',
+            text: 'Microarchitectural Footprints in CPU Caches'
+          },
+          {
+            type: 'paragraph',
+            text: 'Even when the processor detects an incorrect branch speculation and cleanly discards the architectural register state, the microarchitectural state—specifically the CPU L1 and L2 cache lines—retains residual timing changes. An adversary measuring memory access latency down to sub-nanosecond precision can reconstruct unauthorized kernel memory bit by bit.'
+          },
+          {
+            type: 'quote',
+            text: 'Security cannot be guaranteed by software semantics alone when the physical physics of silicon can be probed through temporal measurement.'
+          },
+          {
+            type: 'paragraph',
+            text: 'Mitigating transient execution vulnerabilities requires re-architecting the boundary between kernel memory and user space. Hardware vendors introduced speculative execution barriers and address space isolation, yet software mitigations inevitably extract a severe latency penalty on high-throughput database systems.'
+          },
+          {
+            type: 'heading',
+            text: 'Memory Isolation and Hardware Enclaves'
+          },
+          {
+            type: 'paragraph',
+            text: 'Defensive infrastructure engineering must assume that operating system kernels and hypervisors are inherently hostile or compromised. By deploying cryptographic enclaves with remote hardware attestation, sensitive cryptographic keys and sovereign transactions remain insulated even against root-level host intrusion.'
+          },
+          {
+            type: 'note',
+            text: 'Defensive Directive: In hostile network topologies, physical and microarchitectural side channels take precedence over application-layer encryption. Always enforce hardware-level memory encryption and timing invariant routines.'
+          }
+        ]
+      },
+      {
+        chapterNumber: '02',
+        title: 'Post-Quantum Primitives',
+        subtitle: 'Transitioning from RSA/ECC to Module-LWE',
+        readingTimeMinutes: 13,
+        content: [
+          {
+            type: 'paragraph',
+            text: 'The security of contemporary global commerce hinges almost entirely on the mathematical hardness of two problems: discrete logarithms and integer factorization. Both will be trivialized the moment a fault-tolerant quantum computer reaches sufficient logical qubit thresholds.'
+          },
+          {
+            type: 'paragraph',
+            text: 'Sovereign communication stacks cannot wait for retrospective compromise. Adversaries are actively harvesting encrypted state transmissions today under store now, decrypt later operational mandates. Lattice-based cryptography—specifically Module Learning With Errors—provides mathematically verified resistance against quantum algorithms.'
+          },
+          {
+            type: 'heading',
+            text: 'Lattice Geometry as Cryptographic Shield'
+          },
+          {
+            type: 'paragraph',
+            text: 'Unlike algebraic structures vulnerable to Shors algorithm, high-dimensional lattice problems possess no known quantum shortcut. Migrating production public-key infrastructure to ML-KEM and ML-DSA is an immediate operational imperative.'
+          },
+          {
+            type: 'quote',
+            text: 'Encryption that fails in ten years is already broken for sovereign intelligence.'
+          }
+        ]
+      },
+      {
+        chapterNumber: '03',
+        title: 'Hardware Isolation',
+        subtitle: 'Enclaves, TPMs, and Attestation Chains',
+        readingTimeMinutes: 15,
+        content: [
+          {
+            type: 'paragraph',
+            text: 'The traditional security perimeter died with cloud virtualization. When code runs on shared multi-tenant physical hardware, trust cannot be derived from network boundaries or hypervisor permissions.'
+          },
+          {
+            type: 'paragraph',
+            text: 'Hardware Security Modules and Trusted Platform Modules anchor cryptographic provenance in silicon root-of-trust keys burned into the chip at fabrication. Remote attestation allows a client to verify cryptographic measurements of the host memory before injecting operational secrets.'
+          },
+          {
+            type: 'quote',
+            text: 'Zero trust must extend down to the microchip pins; anything less is an unverified assumption.'
+          }
+        ]
+      },
+      {
+        chapterNumber: '04',
+        title: 'Metadata Defense',
+        subtitle: 'Defeating Traffic Analysis at the Packet Boundary',
+        readingTimeMinutes: 12,
+        content: [
+          {
+            type: 'paragraph',
+            text: 'End-to-end encryption conceals the payload of a communication, but leaves the envelope completely exposed. Signal intelligence agencies rarely need to decrypt messages when packet sizes, frequency bursts, and routing hops reveal institutional org charts with mathematical certainty.'
+          },
+          {
+            type: 'paragraph',
+            text: 'Defeating traffic analysis requires constant-rate packet injection, randomized jitter padding, and onion routing topologies that normalize traffic profiles into indistinguishable background noise.'
+          },
+          {
+            type: 'quote',
+            text: 'When every packet looks identical, observation yields zero informational entropy.'
+          }
+        ]
+      }
     ],
 
     sampleChapter: {
@@ -376,6 +650,22 @@ export const BOOKS_DATA = [
         {
           type: 'quote',
           text: 'Security cannot be guaranteed by software semantics alone when the physical physics of silicon can be probed through temporal measurement.'
+        },
+        {
+          type: 'paragraph',
+          text: 'Mitigating transient execution vulnerabilities requires re-architecting the boundary between kernel memory and user space. Hardware vendors introduced speculative execution barriers and address space isolation, yet software mitigations inevitably extract a severe latency penalty on high-throughput database systems.'
+        },
+        {
+          type: 'heading',
+          text: 'Memory Isolation and Hardware Enclaves'
+        },
+        {
+          type: 'paragraph',
+          text: 'Defensive infrastructure engineering must assume that operating system kernels and hypervisors are inherently hostile or compromised. By deploying cryptographic enclaves with remote hardware attestation, sensitive cryptographic keys and sovereign transactions remain insulated even against root-level host intrusion.'
+        },
+        {
+          type: 'note',
+          text: 'Defensive Directive: In hostile network topologies, physical and microarchitectural side channels take precedence over application-layer encryption. Always enforce hardware-level memory encryption and timing invariant routines.'
         }
       ]
     }
@@ -399,12 +689,22 @@ export const BOOKS_DATA = [
     status: 'published',
     edition: 'First Edition (2026)',
     isbn: '978-93-98210-04-5',
-    hasAudiobook: false,
-    formats: ['Web Reader', 'Vector PDF', 'Universal EPUB'],
+    hasAudiobook: true,
+    formats: ['Web Reader', 'Vector PDF', 'Universal EPUB', 'Synchronized Audiobook'],
     
     coverImage: '/assets/covers/the-stoic-sovereign.jpg',
     accentColor: '#997328',
     videoPreview: '/assets/videos/the-stoic-sovereign.mp4',
+
+    audiobook: {
+      chapterId: 'chapter-01',
+      title: 'Chapter 01: The Citadel of Mind',
+      audioUrl: '/assets/audio/the-stoic-sovereign-chapter-01.wav',
+      durationSeconds: 236.2,
+      durationLabel: '3 min 56 sec',
+      timingUrl: '/api/audiobook/the-stoic-sovereign/chapter-01',
+      narrator: 'Aetheria Neural Synthesis (Studio Pro En-US)'
+    },
 
     description: 'An authoritative study translating classical Stoic philosophy into actionable psychological resilience for leaders facing acute volatility. Grounded in original translations of Marcus Aurelius, Seneca, and Epictetus, this volume strips away commercial self-help tropes to present Stoicism as an exacting cognitive operating system.',
 
@@ -422,17 +722,132 @@ export const BOOKS_DATA = [
     ],
 
     tableOfContents: [
-      { number: '01', title: 'The Citadel of Mind', subtitle: 'Establishing the Ruling Rational Faculty' },
-      { number: '02', title: 'Premeditation of Adversity', subtitle: 'Inoculating Rational Action Against Shock' },
-      { number: '03', title: 'Action in Constrained Systems', subtitle: 'The Discipline of Assent and Ethical Duty' },
-      { number: '04', title: 'The View from Above', subtitle: 'Cosmic Perspective on Transient Crisis' }
+      { number: '01', title: 'The Citadel of Mind', subtitle: 'Establishing the Ruling Rational Faculty', pages: '1–40' },
+      { number: '02', title: 'Premeditation of Adversity', subtitle: 'Inoculating Rational Action Against Shock', pages: '41–96' },
+      { number: '03', title: 'Action in Constrained Systems', subtitle: 'The Discipline of Assent and Ethical Duty', pages: '97–164' },
+      { number: '04', title: 'The View from Above', subtitle: 'Cosmic Perspective on Transient Crisis', pages: '165–230' }
+    ],
+
+    chapters: [
+      {
+        chapterNumber: '01',
+        title: 'The Citadel of Mind',
+        subtitle: 'Establishing the Ruling Rational Faculty',
+        readingTimeMinutes: 10,
+        content: [
+          {
+            type: 'paragraph',
+            text: 'In the winter of 170 CE, on the frozen banks of the Danube River near Carnuntum, Emperor Marcus Aurelius opened his notebooks not to issue legislative edicts or military dispatches, but to conduct an unforgiving audit of his own consciousness.'
+          },
+          {
+            type: 'paragraph',
+            text: 'Surrounded by the devastation of the Antonine Plague and the existential pressure of the Marcomannic Wars, Aurelius recognized that an emperor’s most dangerous adversary was never the Germanic tribes on the frontier, but the unexamined panic generated by his own subjective perceptions.'
+          },
+          {
+            type: 'heading',
+            text: 'The Hegemonikon: The Ruling Center'
+          },
+          {
+            type: 'paragraph',
+            text: 'The Stoics called this inner executive mechanism the Hegemonikon—the ruling rational faculty that sits between sensory stimuli and behavioral response. External events possess zero intrinsic emotional charge. They are simply physical configurations of matter and circumstance.'
+          },
+          {
+            type: 'quote',
+            text: 'Strip away the opinion, and the harm is stripped away. Do not think that you are harmed, and you have suffered no harm at all.'
+          },
+          {
+            type: 'paragraph',
+            text: 'When a leader encounters acute institutional crises, the physiological impulse is to react impulsively to external noise. The disciplined sovereign cultivates an unbreachable psychological boundary. By categorizing all phenomena under the strict dichotomy of control, energy is ruthlessly concentrated only on deliberate actions, judgments, and moral integrity.'
+          },
+          {
+            type: 'heading',
+            text: 'Premeditatio Malorum in High-Stakes Leadership'
+          },
+          {
+            type: 'paragraph',
+            text: 'Classical Stoicism is not passive endurance or emotional numbness; it is an active cognitive discipline. Through premeditatio malorum—the systematic mental rehearsal of worst-case scenarios—the executive inoculates the mind against surprise, transforming operational friction into clarity and decisive command.'
+          },
+          {
+            type: 'note',
+            text: 'Sovereign Invariant: Tranquility is not the absence of external storm, but the unshakeable mastery of one’s ruling rational faculty amid disorder.'
+          }
+        ]
+      },
+      {
+        chapterNumber: '02',
+        title: 'Premeditation of Adversity',
+        subtitle: 'Inoculating Rational Action Against Shock',
+        readingTimeMinutes: 12,
+        content: [
+          {
+            type: 'paragraph',
+            text: 'The human mind naturally shrinks from anticipating pain, seeking refuge in fragile optimism. Yet optimism is the single greatest multiplier of acute grief when unforeseen catastrophe strikes an unprepared enterprise.'
+          },
+          {
+            type: 'paragraph',
+            text: 'Seneca instructed his students to conduct a daily premeditatio malorum: visualize exile, bankruptcy, betrayal, and sudden bereavement in vivid, unflinching detail. By normalizing adversity prior to its arrival, the event is stripped of novelty and shock value.'
+          },
+          {
+            type: 'heading',
+            text: 'Decoupling Anxiety from Action'
+          },
+          {
+            type: 'paragraph',
+            text: 'When worst-case outcomes have been systematically evaluated and their tactical contingencies engineered, fear ceases to cloud rational cognition. Action becomes calm, precise, and completely divorced from emotional panic.'
+          },
+          {
+            type: 'quote',
+            text: 'He who has anticipated the coming of sorrow robs it of its power when it arrives.'
+          }
+        ]
+      },
+      {
+        chapterNumber: '03',
+        title: 'Action in Constrained Systems',
+        subtitle: 'The Discipline of Assent and Ethical Duty',
+        readingTimeMinutes: 13,
+        content: [
+          {
+            type: 'paragraph',
+            text: 'We do not choose the century in which we are born, nor the cultural decay or geopolitical chaos into which our enterprises must navigate. We choose only the ethical fidelity of our response.'
+          },
+          {
+            type: 'paragraph',
+            text: 'Epictetus divided reality into two exhaustive categories: that which is within our power, and that which is not. Reputation, wealth, health, and market sentiment belong irrevocably to the latter; our integrity, our judgments, and our refusal to compromise core principles belong entirely to the former.'
+          },
+          {
+            type: 'quote',
+            text: 'Do what is right because it is right, not because the marketplace applauds your virtue.'
+          }
+        ]
+      },
+      {
+        chapterNumber: '04',
+        title: 'The View from Above',
+        subtitle: 'Cosmic Perspective on Transient Crisis',
+        readingTimeMinutes: 11,
+        content: [
+          {
+            type: 'paragraph',
+            text: 'To escape the suffocating immediacy of daily emergencies, the Stoics practiced the View from Above—mentally elevating one’s vantage point to survey cities, continents, and geological epochs from orbit.'
+          },
+          {
+            type: 'paragraph',
+            text: 'Seen from the expanse of cosmic time, the most agonizing corporate setback or public humiliation shrinks into insignificance. This realization does not induce nihilism; it restores proportionality, liberating the leader to act with serenity and sovereign grace.'
+          },
+          {
+            type: 'quote',
+            text: 'Look upon the vastness of time behind you and before you; what difference is there between living three days and living three generations?'
+          }
+        ]
+      }
     ],
 
     sampleChapter: {
       chapterNumber: '01',
       title: 'The Citadel of Mind',
       subtitle: 'Establishing the Ruling Rational Faculty',
-      readingTimeMinutes: 9,
+      readingTimeMinutes: 10,
       content: [
         {
           type: 'paragraph',
@@ -453,6 +868,22 @@ export const BOOKS_DATA = [
         {
           type: 'quote',
           text: 'Strip away the opinion, and the harm is stripped away. Do not think that you are harmed, and you have suffered no harm at all.'
+        },
+        {
+          type: 'paragraph',
+          text: 'When a leader encounters acute institutional crises, the physiological impulse is to react impulsively to external noise. The disciplined sovereign cultivates an unbreachable psychological boundary. By categorizing all phenomena under the strict dichotomy of control, energy is ruthlessly concentrated only on deliberate actions, judgments, and moral integrity.'
+        },
+        {
+          type: 'heading',
+          text: 'Premeditatio Malorum in High-Stakes Leadership'
+        },
+        {
+          type: 'paragraph',
+          text: 'Classical Stoicism is not passive endurance or emotional numbness; it is an active cognitive discipline. Through premeditatio malorum—the systematic mental rehearsal of worst-case scenarios—the executive inoculates the mind against surprise, transforming operational friction into clarity and decisive command.'
+        },
+        {
+          type: 'note',
+          text: 'Sovereign Invariant: Tranquility is not the absence of external storm, but the unshakeable mastery of one’s ruling rational faculty amid disorder.'
         }
       ]
     }
@@ -476,12 +907,22 @@ export const BOOKS_DATA = [
     status: 'published',
     edition: 'First Edition (2026)',
     isbn: '978-93-98210-05-2',
-    hasAudiobook: false,
-    formats: ['Web Reader', 'Vector PDF', 'Universal EPUB'],
+    hasAudiobook: true,
+    formats: ['Web Reader', 'Vector PDF', 'Universal EPUB', 'Synchronized Audiobook'],
     
     coverImage: '/assets/covers/bio-optima.jpg',
     accentColor: '#10b981',
     videoPreview: '/assets/videos/bio-optima.mp4',
+
+    audiobook: {
+      chapterId: 'chapter-01',
+      title: 'Chapter 01: The Mitochondrial Engine',
+      audioUrl: '/assets/audio/bio-optima-chapter-01.wav',
+      durationSeconds: 252.0,
+      durationLabel: '4 min 12 sec',
+      timingUrl: '/api/audiobook/bio-optima/chapter-01',
+      narrator: 'Aetheria Neural Synthesis (Studio Pro En-US)'
+    },
 
     description: 'A scientific synthesis of cellular geroscience, focusing on mitochondrial density, autophagic flux, and circadian molecular pacing. Free of speculative wellness trends, this volume adheres strictly to peer-reviewed human clinical trials and validated biomarkers of biological vitality.',
 
@@ -499,10 +940,121 @@ export const BOOKS_DATA = [
     ],
 
     tableOfContents: [
-      { number: '01', title: 'The Mitochondrial Engine', subtitle: 'Electron Transport Efficiency and ATP Synthesis' },
-      { number: '02', title: 'Calibrated Hormesis', subtitle: 'Zone 2 Conditioning and Transient Energetic Stress' },
-      { number: '03', title: 'Autophagic Regulation', subtitle: 'mTOR Suppression and Cellular Debris Clearance' },
-      { number: '04', title: 'Circadian Pacing', subtitle: 'Photic Entrainment of SCN Core Clock Genes' }
+      { number: '01', title: 'The Mitochondrial Engine', subtitle: 'Electron Transport Efficiency and ATP Synthesis', pages: '1–44' },
+      { number: '02', title: 'Calibrated Hormesis', subtitle: 'Zone 2 Conditioning and Transient Energetic Stress', pages: '45–98' },
+      { number: '03', title: 'Autophagic Regulation', subtitle: 'mTOR Suppression and Cellular Debris Clearance', pages: '99–156' },
+      { number: '04', title: 'Circadian Pacing', subtitle: 'Photic Entrainment of SCN Core Clock Genes', pages: '157–224' }
+    ],
+
+    chapters: [
+      {
+        chapterNumber: '01',
+        title: 'The Mitochondrial Engine',
+        subtitle: 'Electron Transport Efficiency and ATP Synthesis',
+        readingTimeMinutes: 11,
+        content: [
+          {
+            type: 'paragraph',
+            text: 'At the foundational level of human physiology, vitality is an energetic equation governed by roughly ten quadrillion mitochondria operating within human tissue. These organelles, derived from ancient alphaproteobacterial endosymbionts, produce more than ninety percent of our cellular adenosine triphosphate (ATP).'
+          },
+          {
+            type: 'paragraph',
+            text: 'These microscopic dynamos consume oxygen and dietary substrates to pump protons across their inner membrane, generating an electrochemical gradient that drives ATP synthase. When mitochondrial membrane potential collapses due to oxidative stress, glycemic volatility, or chronic circadian misalignment, cerebral ATP availability declines sharply.'
+          },
+          {
+            type: 'heading',
+            text: 'Distinguishing Marketing Claims from Clinical Evidence'
+          },
+          {
+            type: 'paragraph',
+            text: 'The commercial wellness industry routinely promotes non-specific detoxification supplements and unproven nootropic blends. Scientific geroscience, by contrast, focuses on measurable molecular mechanisms: mitochondrial biogenesis (the creation of new organelles), mitophagy (the targeted autophagic removal of dysfunctional mitochondria), and electron transport chain efficiency.'
+          },
+          {
+            type: 'quote',
+            text: 'You cannot supplement your way out of chronic circadian disruption or sedentary mitochondrial decay. Biological vitality is an adaptive response to calibrated hormetic signals.'
+          },
+          {
+            type: 'heading',
+            text: 'Calibrated Hormetic Signals'
+          },
+          {
+            type: 'paragraph',
+            text: 'Cellular resilience is upregulated through calibrated, transient stressors—a biological principle termed hormesis. Moderate hypoxia, low-glycemic fasting intervals, and sustained sub-lactate aerobic conditioning trigger the master transcriptional coactivator PGC-1alpha, orchestrating the synthesis of dense, metabolically pristine mitochondrial networks.'
+          },
+          {
+            type: 'note',
+            text: 'Clinical Consensus: Randomized controlled trials consistently confirm that regular Zone 2 endurance activity paired with consistent 8-hour circadian rhythmicity exerts an effect size on biological health markers superior to any single approved pharmacological agent.'
+          }
+        ]
+      },
+      {
+        chapterNumber: '02',
+        title: 'Calibrated Hormesis',
+        subtitle: 'Zone 2 Conditioning and Transient Energetic Stress',
+        readingTimeMinutes: 12,
+        content: [
+          {
+            type: 'paragraph',
+            text: 'Biological systems degrade under conditions of perpetual comfort. Without transient environmental challenges, cellular quality-control machinery downregulates, leading to intracellular protein aggregation and metabolic inflexibility.'
+          },
+          {
+            type: 'paragraph',
+            text: 'Zone 2 cardiovascular conditioning—exercising at an intensity where blood lactate stays below two millimoles per liter—forces muscle fibers to maximize fat oxidation within mitochondrial cristae, clearing accumulated lipid intermediates and stimulating organelle proliferation.'
+          },
+          {
+            type: 'heading',
+            text: 'The Molecular Mechanics of Adaption'
+          },
+          {
+            type: 'paragraph',
+            text: 'Subjecting the organism to intermittent thermal challenges such as cold immersion or Finnish sauna stimulates heat shock proteins and vascular nitric oxide bioavailability without exhausting central nervous system reserves.'
+          },
+          {
+            type: 'quote',
+            text: 'Stress that does not exceed physiological repair capacity is the fundamental currency of biological rejuvenation.'
+          }
+        ]
+      },
+      {
+        chapterNumber: '03',
+        title: 'Autophagic Regulation',
+        subtitle: 'mTOR Suppression and Cellular Debris Clearance',
+        readingTimeMinutes: 14,
+        content: [
+          {
+            type: 'paragraph',
+            text: 'The mammalian target of rapamycin (mTOR) is an evolutionary master switch for anabolic growth. In nutrient-rich environments, mTOR halts cellular recycling in favor of protein synthesis. Constant activation, however, accelerates senescent cell accumulation.'
+          },
+          {
+            type: 'paragraph',
+            text: 'Periodic downregulation of mTOR through structured fasting windows activates macroautophagy—the lysosomal digestion of misfolded proteins and damaged organelle fragments. This internal recycling cleanses tissues and preserves genomic fidelity.'
+          },
+          {
+            type: 'quote',
+            text: 'Longevity is the balance between periods of constructive cellular growth and rigorous autophagic cleansing.'
+          }
+        ]
+      },
+      {
+        chapterNumber: '04',
+        title: 'Circadian Pacing',
+        subtitle: 'Photic Entrainment of SCN Core Clock Genes',
+        readingTimeMinutes: 13,
+        content: [
+          {
+            type: 'paragraph',
+            text: 'Every cell in the human body contains an autonomous molecular clock driven by transcriptional feedback loops of CLOCK and BMAL1 proteins. These peripheral oscillators are synchronized by the suprachiasmatic nucleus (SCN) in the anterior hypothalamus.'
+          },
+          {
+            type: 'paragraph',
+            text: 'Exposing retinal melanopsin ganglion cells to high-lux natural sunlight within sixty minutes of waking anchors cortisol rhythms, aligns hepatic metabolic enzymes, and ensures high-amplitude nocturnal melatonin release.'
+          },
+          {
+            type: 'quote',
+            text: 'Circadian consistency is the bedrock upon which all hormonal, cognitive, and metabolic performance is built.'
+          }
+        ]
+      }
     ],
 
     sampleChapter: {
@@ -525,11 +1077,19 @@ export const BOOKS_DATA = [
         },
         {
           type: 'paragraph',
-          text: 'The commercial wellness industry routinely promotes non-specific "detoxification" supplements and unproven nootropic blends. Scientific geroscience, by contrast, focuses on measurable molecular mechanisms: mitochondrial biogenesis (the creation of new organelles), mitophagy (the targeted autophagic removal of dysfunctional mitochondria), and electron transport chain efficiency.'
+          text: 'The commercial wellness industry routinely promotes non-specific detoxification supplements and unproven nootropic blends. Scientific geroscience, by contrast, focuses on measurable molecular mechanisms: mitochondrial biogenesis (the creation of new organelles), mitophagy (the targeted autophagic removal of dysfunctional mitochondria), and electron transport chain efficiency.'
         },
         {
           type: 'quote',
           text: 'You cannot supplement your way out of chronic circadian disruption or sedentary mitochondrial decay. Biological vitality is an adaptive response to calibrated hormetic signals.'
+        },
+        {
+          type: 'heading',
+          text: 'Calibrated Hormetic Signals'
+        },
+        {
+          type: 'paragraph',
+          text: 'Cellular resilience is upregulated through calibrated, transient stressors—a biological principle termed hormesis. Moderate hypoxia, low-glycemic fasting intervals, and sustained sub-lactate aerobic conditioning trigger the master transcriptional coactivator PGC-1alpha, orchestrating the synthesis of dense, metabolically pristine mitochondrial networks.'
         },
         {
           type: 'note',

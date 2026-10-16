@@ -82,13 +82,30 @@ async function runTests() {
     if (buf.byteLength < 1000) throw new Error(`EPUB too small: ${buf.byteLength} bytes`);
   });
 
-  // 6. Audiobook Timing Map
-  await assert('Synchronized Audiobook Timing Map (/api/audiobook/the-artificial-mind/chapter-01)', async () => {
-    const res = await fetch('http://localhost:3001/api/audiobook/the-artificial-mind/chapter-01');
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-    if (data.totalSegments !== 384) throw new Error(`Expected 384 words, got ${data.totalSegments}`);
-    if (!data.segments[0].word || data.segments[0].start === undefined) throw new Error('Malformed timing segment');
+  // 6. Audiobook Timing Maps for all 5 books
+  await assert('Synchronized Audiobook Timing Maps for all 5 titles (/api/audiobook/:bookId/chapter-01)', async () => {
+    const bookIds = [
+      'the-artificial-mind',
+      'the-sovereign-mind',
+      'ghost-in-the-wire',
+      'the-stoic-sovereign',
+      'bio-optima'
+    ];
+
+    for (const bId of bookIds) {
+      const res = await fetch(`http://localhost:3001/api/audiobook/${bId}/chapter-01`);
+      if (!res.ok) throw new Error(`HTTP ${res.status} for ${bId}`);
+      const data = await res.json();
+      if (!data.totalSegments || data.totalSegments < 100) {
+        throw new Error(`Insufficient word segments (${data.totalSegments}) for ${bId}`);
+      }
+      if (!data.segments[0].word || data.segments[0].start === undefined || data.segments[0].end === undefined) {
+        throw new Error(`Malformed timing segment structure for ${bId}`);
+      }
+      if (!data.audioUrl || !data.durationSeconds || data.durationSeconds <= 0) {
+        throw new Error(`Invalid audioUrl or durationSeconds for ${bId}`);
+      }
+    }
   });
 
   // 7. Reading Progress Persistence

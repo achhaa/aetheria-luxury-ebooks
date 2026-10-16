@@ -1,0 +1,1704 @@
+{
+  "bookId": "bio-optima",
+  "chapterId": "chapter-01",
+  "audioUrl": "/assets/audio/bio-optima-chapter-01.wav",
+  "transcriptVersion": "1.0",
+  "totalSegments": 242,
+  "durationSeconds": 188.924,
+  "segments": [
+    {
+      "word": "The",
+      "start": 0.137,
+      "characterPosition": 0,
+      "characterCount": 3,
+      "end": 0.275
+    },
+    {
+      "word": "Mitochondrial",
+      "start": 0.275,
+      "characterPosition": 4,
+      "characterCount": 13,
+      "end": 1.446
+    },
+    {
+      "word": "Engine",
+      "start": 1.446,
+      "characterPosition": 18,
+      "characterCount": 6,
+      "end": 3.251
+    },
+    {
+      "word": "Electron",
+      "start": 3.251,
+      "characterPosition": 26,
+      "characterCount": 8,
+      "end": 4.043
+    },
+    {
+      "word": "Transport",
+      "start": 4.043,
+      "characterPosition": 35,
+      "characterCount": 9,
+      "end": 4.891
+    },
+    {
+      "word": "Efficiency",
+      "start": 4.891,
+      "characterPosition": 45,
+      "characterCount": 10,
+      "end": 5.752
+    },
+    {
+      "word": "and",
+      "start": 5.752,
+      "characterPosition": 56,
+      "characterCount": 3,
+      "end": 6.02
+    },
+    {
+      "word": "ATP",
+      "start": 6.02,
+      "characterPosition": 60,
+      "characterCount": 3,
+      "end": 6.73
+    },
+    {
+      "word": "Synthesis",
+      "start": 6.73,
+      "characterPosition": 64,
+      "characterCount": 9,
+      "end": 8.99
+    },
+    {
+      "word": "At",
+      "start": 8.99,
+      "characterPosition": 75,
+      "characterCount": 2,
+      "end": 9.217
+    },
+    {
+      "word": "the",
+      "start": 9.217,
+      "characterPosition": 78,
+      "characterCount": 3,
+      "end": 9.341
+    },
+    {
+      "word": "foundational",
+      "start": 9.341,
+      "characterPosition": 82,
+      "characterCount": 12,
+      "end": 10.395
+    },
+    {
+      "word": "level",
+      "start": 10.395,
+      "characterPosition": 95,
+      "characterCount": 5,
+      "end": 10.809
+    },
+    {
+      "word": "of",
+      "start": 10.809,
+      "characterPosition": 101,
+      "characterCount": 2,
+      "end": 10.988
+    },
+    {
+      "word": "human",
+      "start": 10.988,
+      "characterPosition": 104,
+      "characterCount": 5,
+      "end": 11.47
+    },
+    {
+      "word": "physiology",
+      "start": 11.47,
+      "characterPosition": 110,
+      "characterCount": 10,
+      "end": 13.192
+    },
+    {
+      "word": "vitality",
+      "start": 13.192,
+      "characterPosition": 122,
+      "characterCount": 8,
+      "end": 14.129
+    },
+    {
+      "word": "is",
+      "start": 14.129,
+      "characterPosition": 131,
+      "characterCount": 2,
+      "end": 14.37
+    },
+    {
+      "word": "an",
+      "start": 14.37,
+      "characterPosition": 134,
+      "characterCount": 2,
+      "end": 14.57
+    },
+    {
+      "word": "energetic",
+      "start": 14.57,
+      "characterPosition": 137,
+      "characterCount": 9,
+      "end": 15.314
+    },
+    {
+      "word": "equation",
+      "start": 15.314,
+      "characterPosition": 147,
+      "characterCount": 8,
+      "end": 16.065
+    },
+    {
+      "word": "governed",
+      "start": 16.065,
+      "characterPosition": 156,
+      "characterCount": 8,
+      "end": 16.595
+    },
+    {
+      "word": "by",
+      "start": 16.595,
+      "characterPosition": 165,
+      "characterCount": 2,
+      "end": 16.864
+    },
+    {
+      "word": "roughly",
+      "start": 16.864,
+      "characterPosition": 168,
+      "characterCount": 7,
+      "end": 17.422
+    },
+    {
+      "word": "ten",
+      "start": 17.422,
+      "characterPosition": 176,
+      "characterCount": 3,
+      "end": 17.794
+    },
+    {
+      "word": "quadrillion",
+      "start": 17.794,
+      "characterPosition": 180,
+      "characterCount": 11,
+      "end": 18.703
+    },
+    {
+      "word": "mitochondria",
+      "start": 18.703,
+      "characterPosition": 192,
+      "characterCount": 12,
+      "end": 19.792
+    },
+    {
+      "word": "operating",
+      "start": 19.792,
+      "characterPosition": 205,
+      "characterCount": 9,
+      "end": 20.612
+    },
+    {
+      "word": "within",
+      "start": 20.612,
+      "characterPosition": 215,
+      "characterCount": 6,
+      "end": 20.997
+    },
+    {
+      "word": "human",
+      "start": 20.997,
+      "characterPosition": 222,
+      "characterCount": 5,
+      "end": 21.521
+    },
+    {
+      "word": "tissue",
+      "start": 21.521,
+      "characterPosition": 228,
+      "characterCount": 6,
+      "end": 23.333
+    },
+    {
+      "word": "These",
+      "start": 23.333,
+      "characterPosition": 236,
+      "characterCount": 5,
+      "end": 23.691
+    },
+    {
+      "word": "organelles",
+      "start": 23.691,
+      "characterPosition": 242,
+      "characterCount": 10,
+      "end": 25.269
+    },
+    {
+      "word": "derived",
+      "start": 25.269,
+      "characterPosition": 254,
+      "characterCount": 7,
+      "end": 25.896
+    },
+    {
+      "word": "from",
+      "start": 25.896,
+      "characterPosition": 262,
+      "characterCount": 4,
+      "end": 26.213
+    },
+    {
+      "word": "ancient",
+      "start": 26.213,
+      "characterPosition": 267,
+      "characterCount": 7,
+      "end": 26.764
+    },
+    {
+      "word": "alphaproteobacterial",
+      "start": 26.764,
+      "characterPosition": 275,
+      "characterCount": 20,
+      "end": 28.865
+    },
+    {
+      "word": "endosymbionts",
+      "start": 28.865,
+      "characterPosition": 296,
+      "characterCount": 13,
+      "end": 30.822
+    },
+    {
+      "word": "produce",
+      "start": 30.822,
+      "characterPosition": 311,
+      "characterCount": 7,
+      "end": 31.414
+    },
+    {
+      "word": "more",
+      "start": 31.414,
+      "characterPosition": 319,
+      "characterCount": 4,
+      "end": 31.745
+    },
+    {
+      "word": "than",
+      "start": 31.745,
+      "characterPosition": 324,
+      "characterCount": 4,
+      "end": 31.986
+    },
+    {
+      "word": "ninety",
+      "start": 31.986,
+      "characterPosition": 329,
+      "characterCount": 6,
+      "end": 32.516
+    },
+    {
+      "word": "percent",
+      "start": 32.516,
+      "characterPosition": 336,
+      "characterCount": 7,
+      "end": 33.123
+    },
+    {
+      "word": "of",
+      "start": 33.123,
+      "characterPosition": 344,
+      "characterCount": 2,
+      "end": 33.302
+    },
+    {
+      "word": "our",
+      "start": 33.302,
+      "characterPosition": 347,
+      "characterCount": 3,
+      "end": 33.488
+    },
+    {
+      "word": "cellular",
+      "start": 33.488,
+      "characterPosition": 351,
+      "characterCount": 8,
+      "end": 34.232
+    },
+    {
+      "word": "adenosine",
+      "start": 34.232,
+      "characterPosition": 360,
+      "characterCount": 9,
+      "end": 35.058
+    },
+    {
+      "word": "triphosphate",
+      "start": 35.058,
+      "characterPosition": 370,
+      "characterCount": 12,
+      "end": 36.864
+    },
+    {
+      "word": "ATP",
+      "start": 36.864,
+      "characterPosition": 384,
+      "characterCount": 3,
+      "end": 38.855
+    },
+    {
+      "word": "These",
+      "start": 38.855,
+      "characterPosition": 391,
+      "characterCount": 5,
+      "end": 39.186
+    },
+    {
+      "word": "microscopic",
+      "start": 39.186,
+      "characterPosition": 397,
+      "characterCount": 11,
+      "end": 40.281
+    },
+    {
+      "word": "dynamos",
+      "start": 40.281,
+      "characterPosition": 409,
+      "characterCount": 7,
+      "end": 41.053
+    },
+    {
+      "word": "consume",
+      "start": 41.053,
+      "characterPosition": 417,
+      "characterCount": 7,
+      "end": 41.7
+    },
+    {
+      "word": "oxygen",
+      "start": 41.7,
+      "characterPosition": 425,
+      "characterCount": 6,
+      "end": 42.451
+    },
+    {
+      "word": "and",
+      "start": 42.451,
+      "characterPosition": 432,
+      "characterCount": 3,
+      "end": 42.706
+    },
+    {
+      "word": "dietary",
+      "start": 42.706,
+      "characterPosition": 436,
+      "characterCount": 7,
+      "end": 43.533
+    },
+    {
+      "word": "substrates",
+      "start": 43.533,
+      "characterPosition": 444,
+      "characterCount": 10,
+      "end": 44.47
+    },
+    {
+      "word": "to",
+      "start": 44.47,
+      "characterPosition": 455,
+      "characterCount": 2,
+      "end": 44.614
+    },
+    {
+      "word": "pump",
+      "start": 44.614,
+      "characterPosition": 458,
+      "characterCount": 4,
+      "end": 45.014
+    },
+    {
+      "word": "protons",
+      "start": 45.014,
+      "characterPosition": 463,
+      "characterCount": 7,
+      "end": 45.689
+    },
+    {
+      "word": "across",
+      "start": 45.689,
+      "characterPosition": 471,
+      "characterCount": 6,
+      "end": 46.261
+    },
+    {
+      "word": "their",
+      "start": 46.261,
+      "characterPosition": 478,
+      "characterCount": 5,
+      "end": 46.522
+    },
+    {
+      "word": "inner",
+      "start": 46.522,
+      "characterPosition": 484,
+      "characterCount": 5,
+      "end": 46.846
+    },
+    {
+      "word": "membrane",
+      "start": 46.846,
+      "characterPosition": 490,
+      "characterCount": 8,
+      "end": 48.293
+    },
+    {
+      "word": "generating",
+      "start": 48.293,
+      "characterPosition": 500,
+      "characterCount": 10,
+      "end": 49.072
+    },
+    {
+      "word": "an",
+      "start": 49.072,
+      "characterPosition": 511,
+      "characterCount": 2,
+      "end": 49.216
+    },
+    {
+      "word": "electrochemical",
+      "start": 49.216,
+      "characterPosition": 514,
+      "characterCount": 15,
+      "end": 50.497
+    },
+    {
+      "word": "gradient",
+      "start": 50.497,
+      "characterPosition": 530,
+      "characterCount": 8,
+      "end": 51.221
+    },
+    {
+      "word": "that",
+      "start": 51.221,
+      "characterPosition": 539,
+      "characterCount": 4,
+      "end": 51.469
+    },
+    {
+      "word": "drives",
+      "start": 51.469,
+      "characterPosition": 544,
+      "characterCount": 6,
+      "end": 52.054
+    },
+    {
+      "word": "ATP",
+      "start": 52.054,
+      "characterPosition": 551,
+      "characterCount": 3,
+      "end": 52.771
+    },
+    {
+      "word": "synthase",
+      "start": 52.771,
+      "characterPosition": 555,
+      "characterCount": 8,
+      "end": 54.976
+    },
+    {
+      "word": "When",
+      "start": 54.976,
+      "characterPosition": 565,
+      "characterCount": 4,
+      "end": 55.265
+    },
+    {
+      "word": "mitochondrial",
+      "start": 55.265,
+      "characterPosition": 570,
+      "characterCount": 13,
+      "end": 56.395
+    },
+    {
+      "word": "membrane",
+      "start": 56.395,
+      "characterPosition": 584,
+      "characterCount": 8,
+      "end": 57.132
+    },
+    {
+      "word": "potential",
+      "start": 57.132,
+      "characterPosition": 593,
+      "characterCount": 9,
+      "end": 57.869
+    },
+    {
+      "word": "collapses",
+      "start": 57.869,
+      "characterPosition": 603,
+      "characterCount": 9,
+      "end": 58.689
+    },
+    {
+      "word": "due",
+      "start": 58.689,
+      "characterPosition": 613,
+      "characterCount": 3,
+      "end": 58.93
+    },
+    {
+      "word": "to",
+      "start": 58.93,
+      "characterPosition": 617,
+      "characterCount": 2,
+      "end": 59.178
+    },
+    {
+      "word": "oxidative",
+      "start": 59.178,
+      "characterPosition": 620,
+      "characterCount": 9,
+      "end": 60.053
+    },
+    {
+      "word": "stress",
+      "start": 60.053,
+      "characterPosition": 630,
+      "characterCount": 6,
+      "end": 60.976
+    },
+    {
+      "word": "glycemic",
+      "start": 60.976,
+      "characterPosition": 638,
+      "characterCount": 8,
+      "end": 61.858
+    },
+    {
+      "word": "volatility",
+      "start": 61.858,
+      "characterPosition": 647,
+      "characterCount": 10,
+      "end": 63.105
+    },
+    {
+      "word": "or",
+      "start": 63.105,
+      "characterPosition": 659,
+      "characterCount": 2,
+      "end": 63.318
+    },
+    {
+      "word": "chronic",
+      "start": 63.318,
+      "characterPosition": 662,
+      "characterCount": 7,
+      "end": 63.869
+    },
+    {
+      "word": "circadian",
+      "start": 63.869,
+      "characterPosition": 670,
+      "characterCount": 9,
+      "end": 64.703
+    },
+    {
+      "word": "misalignment",
+      "start": 64.703,
+      "characterPosition": 680,
+      "characterCount": 12,
+      "end": 66.246
+    },
+    {
+      "word": "cerebral",
+      "start": 66.246,
+      "characterPosition": 694,
+      "characterCount": 8,
+      "end": 67.039
+    },
+    {
+      "word": "ATP",
+      "start": 67.039,
+      "characterPosition": 703,
+      "characterCount": 3,
+      "end": 67.728
+    },
+    {
+      "word": "availability",
+      "start": 67.728,
+      "characterPosition": 707,
+      "characterCount": 12,
+      "end": 68.713
+    },
+    {
+      "word": "declines",
+      "start": 68.713,
+      "characterPosition": 720,
+      "characterCount": 8,
+      "end": 69.422
+    },
+    {
+      "word": "sharply",
+      "start": 69.422,
+      "characterPosition": 729,
+      "characterCount": 7,
+      "end": 71.365
+    },
+    {
+      "word": "Distinguishing",
+      "start": 71.365,
+      "characterPosition": 739,
+      "characterCount": 14,
+      "end": 72.385
+    },
+    {
+      "word": "Marketing",
+      "start": 72.385,
+      "characterPosition": 754,
+      "characterCount": 9,
+      "end": 73.039
+    },
+    {
+      "word": "Claims",
+      "start": 73.039,
+      "characterPosition": 764,
+      "characterCount": 6,
+      "end": 73.604
+    },
+    {
+      "word": "from",
+      "start": 73.604,
+      "characterPosition": 771,
+      "characterCount": 4,
+      "end": 73.928
+    },
+    {
+      "word": "Clinical",
+      "start": 73.928,
+      "characterPosition": 776,
+      "characterCount": 8,
+      "end": 74.582
+    },
+    {
+      "word": "Evidence",
+      "start": 74.582,
+      "characterPosition": 785,
+      "characterCount": 8,
+      "end": 76.546
+    },
+    {
+      "word": "The",
+      "start": 76.546,
+      "characterPosition": 795,
+      "characterCount": 3,
+      "end": 76.704
+    },
+    {
+      "word": "commercial",
+      "start": 76.704,
+      "characterPosition": 799,
+      "characterCount": 10,
+      "end": 77.393
+    },
+    {
+      "word": "wellness",
+      "start": 77.393,
+      "characterPosition": 810,
+      "characterCount": 8,
+      "end": 77.958
+    },
+    {
+      "word": "industry",
+      "start": 77.958,
+      "characterPosition": 819,
+      "characterCount": 8,
+      "end": 78.702
+    },
+    {
+      "word": "routinely",
+      "start": 78.702,
+      "characterPosition": 828,
+      "characterCount": 9,
+      "end": 79.467
+    },
+    {
+      "word": "promotes",
+      "start": 79.467,
+      "characterPosition": 838,
+      "characterCount": 8,
+      "end": 80.087
+    },
+    {
+      "word": "non-specific",
+      "start": 80.087,
+      "characterPosition": 847,
+      "characterCount": 12,
+      "end": 81.113
+    },
+    {
+      "word": "detoxification",
+      "start": 81.113,
+      "characterPosition": 860,
+      "characterCount": 14,
+      "end": 82.574
+    },
+    {
+      "word": "supplements",
+      "start": 82.574,
+      "characterPosition": 875,
+      "characterCount": 11,
+      "end": 83.414
+    },
+    {
+      "word": "and",
+      "start": 83.414,
+      "characterPosition": 887,
+      "characterCount": 3,
+      "end": 83.655
+    },
+    {
+      "word": "unproven",
+      "start": 83.655,
+      "characterPosition": 891,
+      "characterCount": 8,
+      "end": 84.44
+    },
+    {
+      "word": "nootropic",
+      "start": 84.44,
+      "characterPosition": 900,
+      "characterCount": 9,
+      "end": 85.233
+    },
+    {
+      "word": "blends",
+      "start": 85.233,
+      "characterPosition": 910,
+      "characterCount": 6,
+      "end": 87.162
+    },
+    {
+      "word": "Scientific",
+      "start": 87.162,
+      "characterPosition": 918,
+      "characterCount": 10,
+      "end": 88.161
+    },
+    {
+      "word": "geroscience",
+      "start": 88.161,
+      "characterPosition": 929,
+      "characterCount": 11,
+      "end": 89.911
+    },
+    {
+      "word": "by",
+      "start": 89.911,
+      "characterPosition": 942,
+      "characterCount": 2,
+      "end": 90.269
+    },
+    {
+      "word": "contrast",
+      "start": 90.269,
+      "characterPosition": 945,
+      "characterCount": 8,
+      "end": 91.922
+    },
+    {
+      "word": "focuses",
+      "start": 91.922,
+      "characterPosition": 955,
+      "characterCount": 7,
+      "end": 92.646
+    },
+    {
+      "word": "on",
+      "start": 92.646,
+      "characterPosition": 963,
+      "characterCount": 2,
+      "end": 92.887
+    },
+    {
+      "word": "measurable",
+      "start": 92.887,
+      "characterPosition": 966,
+      "characterCount": 10,
+      "end": 93.576
+    },
+    {
+      "word": "molecular",
+      "start": 93.576,
+      "characterPosition": 977,
+      "characterCount": 9,
+      "end": 94.313
+    },
+    {
+      "word": "mechanisms",
+      "start": 94.313,
+      "characterPosition": 987,
+      "characterCount": 10,
+      "end": 95.884
+    },
+    {
+      "word": "mitochondrial",
+      "start": 95.884,
+      "characterPosition": 999,
+      "characterCount": 13,
+      "end": 97.055
+    },
+    {
+      "word": "biogenesis",
+      "start": 97.055,
+      "characterPosition": 1013,
+      "characterCount": 10,
+      "end": 98.908
+    },
+    {
+      "word": "the",
+      "start": 98.908,
+      "characterPosition": 1025,
+      "characterCount": 3,
+      "end": 99.039
+    },
+    {
+      "word": "creation",
+      "start": 99.039,
+      "characterPosition": 1029,
+      "characterCount": 8,
+      "end": 99.811
+    },
+    {
+      "word": "of",
+      "start": 99.811,
+      "characterPosition": 1038,
+      "characterCount": 2,
+      "end": 100.003
+    },
+    {
+      "word": "new",
+      "start": 100.003,
+      "characterPosition": 1041,
+      "characterCount": 3,
+      "end": 100.258
+    },
+    {
+      "word": "organelles",
+      "start": 100.258,
+      "characterPosition": 1045,
+      "characterCount": 10,
+      "end": 101.843
+    },
+    {
+      "word": "mitophagy",
+      "start": 101.843,
+      "characterPosition": 1058,
+      "characterCount": 9,
+      "end": 103.441
+    },
+    {
+      "word": "the",
+      "start": 103.441,
+      "characterPosition": 1069,
+      "characterCount": 3,
+      "end": 103.579
+    },
+    {
+      "word": "targeted",
+      "start": 103.579,
+      "characterPosition": 1073,
+      "characterCount": 8,
+      "end": 104.289
+    },
+    {
+      "word": "autophagic",
+      "start": 104.289,
+      "characterPosition": 1082,
+      "characterCount": 10,
+      "end": 105.205
+    },
+    {
+      "word": "removal",
+      "start": 105.205,
+      "characterPosition": 1093,
+      "characterCount": 7,
+      "end": 105.797
+    },
+    {
+      "word": "of",
+      "start": 105.797,
+      "characterPosition": 1101,
+      "characterCount": 2,
+      "end": 106.004
+    },
+    {
+      "word": "dysfunctional",
+      "start": 106.004,
+      "characterPosition": 1104,
+      "characterCount": 13,
+      "end": 106.975
+    },
+    {
+      "word": "mitochondria",
+      "start": 106.975,
+      "characterPosition": 1118,
+      "characterCount": 12,
+      "end": 108.787
+    },
+    {
+      "word": "and",
+      "start": 108.787,
+      "characterPosition": 1133,
+      "characterCount": 3,
+      "end": 109.008
+    },
+    {
+      "word": "electron",
+      "start": 109.008,
+      "characterPosition": 1137,
+      "characterCount": 8,
+      "end": 109.766
+    },
+    {
+      "word": "transport",
+      "start": 109.766,
+      "characterPosition": 1146,
+      "characterCount": 9,
+      "end": 110.592
+    },
+    {
+      "word": "chain",
+      "start": 110.592,
+      "characterPosition": 1156,
+      "characterCount": 5,
+      "end": 110.978
+    },
+    {
+      "word": "efficiency",
+      "start": 110.978,
+      "characterPosition": 1162,
+      "characterCount": 10,
+      "end": 113.135
+    },
+    {
+      "word": "You",
+      "start": 113.135,
+      "characterPosition": 1175,
+      "characterCount": 3,
+      "end": 113.334
+    },
+    {
+      "word": "cannot",
+      "start": 113.334,
+      "characterPosition": 1179,
+      "characterCount": 6,
+      "end": 113.803
+    },
+    {
+      "word": "supplement",
+      "start": 113.803,
+      "characterPosition": 1186,
+      "characterCount": 10,
+      "end": 114.623
+    },
+    {
+      "word": "your",
+      "start": 114.623,
+      "characterPosition": 1197,
+      "characterCount": 4,
+      "end": 114.836
+    },
+    {
+      "word": "way",
+      "start": 114.836,
+      "characterPosition": 1202,
+      "characterCount": 3,
+      "end": 115.125
+    },
+    {
+      "word": "out",
+      "start": 115.125,
+      "characterPosition": 1206,
+      "characterCount": 3,
+      "end": 115.387
+    },
+    {
+      "word": "of",
+      "start": 115.387,
+      "characterPosition": 1210,
+      "characterCount": 2,
+      "end": 115.553
+    },
+    {
+      "word": "chronic",
+      "start": 115.553,
+      "characterPosition": 1213,
+      "characterCount": 7,
+      "end": 116.104
+    },
+    {
+      "word": "circadian",
+      "start": 116.104,
+      "characterPosition": 1221,
+      "characterCount": 9,
+      "end": 116.917
+    },
+    {
+      "word": "disruption",
+      "start": 116.917,
+      "characterPosition": 1231,
+      "characterCount": 10,
+      "end": 117.743
+    },
+    {
+      "word": "or",
+      "start": 117.743,
+      "characterPosition": 1242,
+      "characterCount": 2,
+      "end": 117.984
+    },
+    {
+      "word": "sedentary",
+      "start": 117.984,
+      "characterPosition": 1245,
+      "characterCount": 9,
+      "end": 118.887
+    },
+    {
+      "word": "mitochondrial",
+      "start": 118.887,
+      "characterPosition": 1255,
+      "characterCount": 13,
+      "end": 120.058
+    },
+    {
+      "word": "decay",
+      "start": 120.058,
+      "characterPosition": 1269,
+      "characterCount": 5,
+      "end": 121.76
+    },
+    {
+      "word": "Biological",
+      "start": 121.76,
+      "characterPosition": 1276,
+      "characterCount": 10,
+      "end": 122.765
+    },
+    {
+      "word": "vitality",
+      "start": 122.765,
+      "characterPosition": 1287,
+      "characterCount": 8,
+      "end": 123.716
+    },
+    {
+      "word": "is",
+      "start": 123.716,
+      "characterPosition": 1296,
+      "characterCount": 2,
+      "end": 123.957
+    },
+    {
+      "word": "an",
+      "start": 123.957,
+      "characterPosition": 1299,
+      "characterCount": 2,
+      "end": 124.088
+    },
+    {
+      "word": "adaptive",
+      "start": 124.088,
+      "characterPosition": 1302,
+      "characterCount": 8,
+      "end": 124.756
+    },
+    {
+      "word": "response",
+      "start": 124.756,
+      "characterPosition": 1311,
+      "characterCount": 8,
+      "end": 125.48
+    },
+    {
+      "word": "to",
+      "start": 125.48,
+      "characterPosition": 1320,
+      "characterCount": 2,
+      "end": 125.631
+    },
+    {
+      "word": "calibrated",
+      "start": 125.631,
+      "characterPosition": 1323,
+      "characterCount": 10,
+      "end": 126.548
+    },
+    {
+      "word": "hormetic",
+      "start": 126.548,
+      "characterPosition": 1334,
+      "characterCount": 8,
+      "end": 127.202
+    },
+    {
+      "word": "signals",
+      "start": 127.202,
+      "characterPosition": 1343,
+      "characterCount": 7,
+      "end": 129.221
+    },
+    {
+      "word": "Calibrated",
+      "start": 129.221,
+      "characterPosition": 1353,
+      "characterCount": 10,
+      "end": 130.109
+    },
+    {
+      "word": "Hormetic",
+      "start": 130.109,
+      "characterPosition": 1364,
+      "characterCount": 8,
+      "end": 130.764
+    },
+    {
+      "word": "Signals",
+      "start": 130.764,
+      "characterPosition": 1373,
+      "characterCount": 7,
+      "end": 132.783
+    },
+    {
+      "word": "Cellular",
+      "start": 132.783,
+      "characterPosition": 1382,
+      "characterCount": 8,
+      "end": 133.547
+    },
+    {
+      "word": "resilience",
+      "start": 133.547,
+      "characterPosition": 1391,
+      "characterCount": 10,
+      "end": 134.353
+    },
+    {
+      "word": "is",
+      "start": 134.353,
+      "characterPosition": 1402,
+      "characterCount": 2,
+      "end": 134.622
+    },
+    {
+      "word": "upregulated",
+      "start": 134.622,
+      "characterPosition": 1405,
+      "characterCount": 11,
+      "end": 135.628
+    },
+    {
+      "word": "through",
+      "start": 135.628,
+      "characterPosition": 1417,
+      "characterCount": 7,
+      "end": 135.917
+    },
+    {
+      "word": "calibrated",
+      "start": 135.917,
+      "characterPosition": 1425,
+      "characterCount": 10,
+      "end": 137.502
+    },
+    {
+      "word": "transient",
+      "start": 137.502,
+      "characterPosition": 1437,
+      "characterCount": 9,
+      "end": 138.287
+    },
+    {
+      "word": "stressors",
+      "start": 138.287,
+      "characterPosition": 1447,
+      "characterCount": 9,
+      "end": 139.768
+    },
+    {
+      "word": "a",
+      "start": 139.768,
+      "characterPosition": 1459,
+      "characterCount": 1,
+      "end": 139.892
+    },
+    {
+      "word": "biological",
+      "start": 139.892,
+      "characterPosition": 1461,
+      "characterCount": 10,
+      "end": 140.898
+    },
+    {
+      "word": "principle",
+      "start": 140.898,
+      "characterPosition": 1472,
+      "characterCount": 9,
+      "end": 141.649
+    },
+    {
+      "word": "termed",
+      "start": 141.649,
+      "characterPosition": 1482,
+      "characterCount": 6,
+      "end": 142.159
+    },
+    {
+      "word": "hormesis",
+      "start": 142.159,
+      "characterPosition": 1489,
+      "characterCount": 8,
+      "end": 144.384
+    },
+    {
+      "word": "Moderate",
+      "start": 144.384,
+      "characterPosition": 1499,
+      "characterCount": 8,
+      "end": 144.99
+    },
+    {
+      "word": "hypoxia",
+      "start": 144.99,
+      "characterPosition": 1508,
+      "characterCount": 7,
+      "end": 146.61
+    },
+    {
+      "word": "low-glycemic",
+      "start": 146.61,
+      "characterPosition": 1517,
+      "characterCount": 12,
+      "end": 147.712
+    },
+    {
+      "word": "fasting",
+      "start": 147.712,
+      "characterPosition": 1530,
+      "characterCount": 7,
+      "end": 148.387
+    },
+    {
+      "word": "intervals",
+      "start": 148.387,
+      "characterPosition": 1538,
+      "characterCount": 9,
+      "end": 149.813
+    },
+    {
+      "word": "and",
+      "start": 149.813,
+      "characterPosition": 1549,
+      "characterCount": 3,
+      "end": 150.041
+    },
+    {
+      "word": "sustained",
+      "start": 150.041,
+      "characterPosition": 1553,
+      "characterCount": 9,
+      "end": 150.778
+    },
+    {
+      "word": "sub-lactate",
+      "start": 150.778,
+      "characterPosition": 1563,
+      "characterCount": 11,
+      "end": 151.77
+    },
+    {
+      "word": "aerobic",
+      "start": 151.77,
+      "characterPosition": 1575,
+      "characterCount": 7,
+      "end": 152.3
+    },
+    {
+      "word": "conditioning",
+      "start": 152.3,
+      "characterPosition": 1583,
+      "characterCount": 12,
+      "end": 153.134
+    },
+    {
+      "word": "trigger",
+      "start": 153.134,
+      "characterPosition": 1596,
+      "characterCount": 7,
+      "end": 153.602
+    },
+    {
+      "word": "the",
+      "start": 153.602,
+      "characterPosition": 1604,
+      "characterCount": 3,
+      "end": 153.733
+    },
+    {
+      "word": "master",
+      "start": 153.733,
+      "characterPosition": 1608,
+      "characterCount": 6,
+      "end": 154.367
+    },
+    {
+      "word": "transcriptional",
+      "start": 154.367,
+      "characterPosition": 1615,
+      "characterCount": 15,
+      "end": 155.49
+    },
+    {
+      "word": "coactivator",
+      "start": 155.49,
+      "characterPosition": 1631,
+      "characterCount": 11,
+      "end": 156.502
+    },
+    {
+      "word": "PGC-1alpha",
+      "start": 156.502,
+      "characterPosition": 1643,
+      "characterCount": 10,
+      "end": 157.467
+    },
+    {
+      "word": "PGC-1alpha",
+      "start": 157.467,
+      "characterPosition": 1643,
+      "characterCount": 10,
+      "end": 157.77
+    },
+    {
+      "word": "PGC-1alpha",
+      "start": 157.77,
+      "characterPosition": 1643,
+      "characterCount": 10,
+      "end": 158.976
+    },
+    {
+      "word": "orchestrating",
+      "start": 158.976,
+      "characterPosition": 1655,
+      "characterCount": 13,
+      "end": 159.981
+    },
+    {
+      "word": "the",
+      "start": 159.981,
+      "characterPosition": 1669,
+      "characterCount": 3,
+      "end": 160.085
+    },
+    {
+      "word": "synthesis",
+      "start": 160.085,
+      "characterPosition": 1673,
+      "characterCount": 9,
+      "end": 160.98
+    },
+    {
+      "word": "of",
+      "start": 160.98,
+      "characterPosition": 1683,
+      "characterCount": 2,
+      "end": 161.159
+    },
+    {
+      "word": "dense",
+      "start": 161.159,
+      "characterPosition": 1686,
+      "characterCount": 5,
+      "end": 162.31
+    },
+    {
+      "word": "metabolically",
+      "start": 162.31,
+      "characterPosition": 1693,
+      "characterCount": 13,
+      "end": 163.316
+    },
+    {
+      "word": "pristine",
+      "start": 163.316,
+      "characterPosition": 1707,
+      "characterCount": 8,
+      "end": 163.984
+    },
+    {
+      "word": "mitochondrial",
+      "start": 163.984,
+      "characterPosition": 1716,
+      "characterCount": 13,
+      "end": 165.121
+    },
+    {
+      "word": "networks",
+      "start": 165.121,
+      "characterPosition": 1730,
+      "characterCount": 8,
+      "end": 167.236
+    },
+    {
+      "word": "Clinical",
+      "start": 167.236,
+      "characterPosition": 1741,
+      "characterCount": 8,
+      "end": 167.904
+    },
+    {
+      "word": "Consensus",
+      "start": 167.904,
+      "characterPosition": 1750,
+      "characterCount": 9,
+      "end": 169.537
+    },
+    {
+      "word": "Randomized",
+      "start": 169.537,
+      "characterPosition": 1761,
+      "characterCount": 10,
+      "end": 170.446
+    },
+    {
+      "word": "controlled",
+      "start": 170.446,
+      "characterPosition": 1772,
+      "characterCount": 10,
+      "end": 171.252
+    },
+    {
+      "word": "trials",
+      "start": 171.252,
+      "characterPosition": 1783,
+      "characterCount": 6,
+      "end": 171.914
+    },
+    {
+      "word": "consistently",
+      "start": 171.914,
+      "characterPosition": 1790,
+      "characterCount": 12,
+      "end": 172.933
+    },
+    {
+      "word": "confirm",
+      "start": 172.933,
+      "characterPosition": 1803,
+      "characterCount": 7,
+      "end": 173.553
+    },
+    {
+      "word": "that",
+      "start": 173.553,
+      "characterPosition": 1811,
+      "characterCount": 4,
+      "end": 173.808
+    },
+    {
+      "word": "regular",
+      "start": 173.808,
+      "characterPosition": 1816,
+      "characterCount": 7,
+      "end": 174.449
+    },
+    {
+      "word": "Zone",
+      "start": 174.449,
+      "characterPosition": 1824,
+      "characterCount": 4,
+      "end": 174.862
+    },
+    {
+      "word": "2",
+      "start": 174.862,
+      "characterPosition": 1829,
+      "characterCount": 1,
+      "end": 175.124
+    },
+    {
+      "word": "endurance",
+      "start": 175.124,
+      "characterPosition": 1831,
+      "characterCount": 9,
+      "end": 175.813
+    },
+    {
+      "word": "activity",
+      "start": 175.813,
+      "characterPosition": 1841,
+      "characterCount": 8,
+      "end": 176.585
+    },
+    {
+      "word": "paired",
+      "start": 176.585,
+      "characterPosition": 1850,
+      "characterCount": 6,
+      "end": 177.033
+    },
+    {
+      "word": "with",
+      "start": 177.033,
+      "characterPosition": 1857,
+      "characterCount": 4,
+      "end": 177.281
+    },
+    {
+      "word": "consistent",
+      "start": 177.281,
+      "characterPosition": 1862,
+      "characterCount": 10,
+      "end": 178.114
+    },
+    {
+      "word": "8-hour",
+      "start": 178.114,
+      "characterPosition": 1873,
+      "characterCount": 6,
+      "end": 178.41
+    },
+    {
+      "word": "8-hour",
+      "start": 178.41,
+      "characterPosition": 1873,
+      "characterCount": 6,
+      "end": 178.81
+    },
+    {
+      "word": "circadian",
+      "start": 178.81,
+      "characterPosition": 1880,
+      "characterCount": 9,
+      "end": 179.699
+    },
+    {
+      "word": "rhythmicity",
+      "start": 179.699,
+      "characterPosition": 1890,
+      "characterCount": 11,
+      "end": 180.608
+    },
+    {
+      "word": "exerts",
+      "start": 180.608,
+      "characterPosition": 1902,
+      "characterCount": 6,
+      "end": 181.207
+    },
+    {
+      "word": "an",
+      "start": 181.207,
+      "characterPosition": 1909,
+      "characterCount": 2,
+      "end": 181.352
+    },
+    {
+      "word": "effect",
+      "start": 181.352,
+      "characterPosition": 1912,
+      "characterCount": 6,
+      "end": 181.834
+    },
+    {
+      "word": "size",
+      "start": 181.834,
+      "characterPosition": 1919,
+      "characterCount": 4,
+      "end": 182.337
+    },
+    {
+      "word": "on",
+      "start": 182.337,
+      "characterPosition": 1924,
+      "characterCount": 2,
+      "end": 182.585
+    },
+    {
+      "word": "biological",
+      "start": 182.585,
+      "characterPosition": 1927,
+      "characterCount": 10,
+      "end": 183.577
+    },
+    {
+      "word": "health",
+      "start": 183.577,
+      "characterPosition": 1938,
+      "characterCount": 6,
+      "end": 183.963
+    },
+    {
+      "word": "markers",
+      "start": 183.963,
+      "characterPosition": 1945,
+      "characterCount": 7,
+      "end": 184.576
+    },
+    {
+      "word": "superior",
+      "start": 184.576,
+      "characterPosition": 1953,
+      "characterCount": 8,
+      "end": 185.382
+    },
+    {
+      "word": "to",
+      "start": 185.382,
+      "characterPosition": 1962,
+      "characterCount": 2,
+      "end": 185.616
+    },
+    {
+      "word": "any",
+      "start": 185.616,
+      "characterPosition": 1965,
+      "characterCount": 3,
+      "end": 185.933
+    },
+    {
+      "word": "single",
+      "start": 185.933,
+      "characterPosition": 1969,
+      "characterCount": 6,
+      "end": 186.505
+    },
+    {
+      "word": "approved",
+      "start": 186.505,
+      "characterPosition": 1976,
+      "characterCount": 8,
+      "end": 187.063
+    },
+    {
+      "word": "pharmacological",
+      "start": 187.063,
+      "characterPosition": 1985,
+      "characterCount": 15,
+      "end": 188.324
+    },
+    {
+      "word": "agent",
+      "start": 188.324,
+      "characterPosition": 2001,
+      "characterCount": 5,
+      "end": 188.924
+    }
+  ]
+}

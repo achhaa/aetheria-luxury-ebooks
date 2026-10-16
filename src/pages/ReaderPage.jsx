@@ -383,6 +383,25 @@ export default function ReaderPage() {
     return `${m}:${s.toString().padStart(2, '0')}`;
   };
 
+  const renderWordSpan = (item, key) => {
+    if (item.isSpace) {
+      return <span key={key}>{item.word}</span>;
+    }
+
+    const isActive = isSyncHighlightEnabled && item.globalWordIndex === activeWordIndex;
+    const isPast = isSyncHighlightEnabled && activeWordIndex > 0 && item.globalWordIndex < activeWordIndex;
+
+    return (
+      <span
+        key={key}
+        className={`${isActive ? 'word-active' : ''} ${isPast ? 'word-completed' : ''}`}
+        data-word-idx={item.globalWordIndex}
+      >
+        {item.word}
+      </span>
+    );
+  };
+
   const activePageBlocks = pages[currentPageIndex] || [];
 
   return (
@@ -623,26 +642,6 @@ export default function ReaderPage() {
         </footer>
 
       </main>
-
-      {/* Helper to render word with active karaoke highlight */}
-      {function renderWordSpan(item, key) {
-        if (item.isSpace) {
-          return <span key={key}>{item.word}</span>;
-        }
-
-        const isActive = isSyncHighlightEnabled && item.globalWordIndex === activeWordIndex;
-        const isPast = isSyncHighlightEnabled && activeWordIndex > 0 && item.globalWordIndex < activeWordIndex;
-
-        return (
-          <span
-            key={key}
-            className={`${isActive ? 'word-active' : ''} ${isPast ? 'word-completed' : ''}`}
-            data-word-idx={item.globalWordIndex}
-          >
-            {item.word}
-          </span>
-        );
-      }}
 
       {/* 3. Docked Audiobook Synchronized Player Bar */}
       {isAudioPlayerVisible && (

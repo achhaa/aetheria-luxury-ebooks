@@ -3,8 +3,8 @@
   "chapterId": "chapter-01",
   "audioUrl": "/assets/audio/the-artificial-mind-chapter-01.wav",
   "transcriptVersion": "1.0",
-  "totalSegments": 384,
-  "durationSeconds": 263.618,
+  "totalSegments": 386,
+  "durationSeconds": 267.456,
   "segments": [
     {
       "word": "The",
@@ -170,2529 +170,2543 @@
     {
       "word": "the",
       "start": 16.603,
-      "characterPosition": 172,
+      "characterPosition": 173,
       "characterCount": 3,
       "end": 16.74
     },
     {
       "word": "mathematically",
       "start": 16.74,
-      "characterPosition": 176,
+      "characterPosition": 177,
       "characterCount": 14,
       "end": 17.808
     },
     {
       "word": "elegant",
       "start": 17.808,
-      "characterPosition": 191,
+      "characterPosition": 192,
       "characterCount": 7,
       "end": 18.38
     },
     {
       "word": "yet",
       "start": 18.38,
-      "characterPosition": 199,
+      "characterPosition": 200,
       "characterCount": 3,
       "end": 18.669
     },
     {
       "word": "cognitively",
       "start": 18.669,
-      "characterPosition": 203,
+      "characterPosition": 204,
       "characterCount": 11,
       "end": 19.585
     },
     {
       "word": "restricted",
       "start": 19.585,
-      "characterPosition": 215,
+      "characterPosition": 216,
       "characterCount": 10,
       "end": 20.453
     },
     {
       "word": "task",
       "start": 20.453,
-      "characterPosition": 226,
+      "characterPosition": 227,
       "characterCount": 4,
       "end": 20.984
     },
     {
       "word": "of",
       "start": 20.984,
-      "characterPosition": 231,
+      "characterPosition": 232,
       "characterCount": 2,
       "end": 21.135
     },
     {
       "word": "predicting",
       "start": 21.135,
-      "characterPosition": 234,
+      "characterPosition": 235,
       "characterCount": 10,
       "end": 21.859
     },
     {
       "word": "the",
       "start": 21.859,
-      "characterPosition": 245,
+      "characterPosition": 246,
       "characterCount": 3,
       "end": 21.962
     },
     {
       "word": "subsequent",
       "start": 21.962,
-      "characterPosition": 249,
+      "characterPosition": 250,
       "characterCount": 10,
       "end": 22.885
     },
     {
       "word": "token",
       "start": 22.885,
-      "characterPosition": 260,
+      "characterPosition": 261,
       "characterCount": 5,
       "end": 23.395
     },
     {
       "word": "in",
       "start": 23.395,
-      "characterPosition": 266,
+      "characterPosition": 267,
       "characterCount": 2,
       "end": 23.574
     },
     {
       "word": "a",
       "start": 23.574,
-      "characterPosition": 269,
+      "characterPosition": 270,
       "characterCount": 1,
       "end": 23.664
     },
     {
       "word": "textual",
       "start": 23.664,
-      "characterPosition": 271,
+      "characterPosition": 272,
       "characterCount": 7,
       "end": 24.442
     },
     {
       "word": "sequence",
       "start": 24.442,
-      "characterPosition": 279,
+      "characterPosition": 280,
       "characterCount": 8,
       "end": 26.557
     },
     {
       "word": "Trained",
       "start": 26.557,
-      "characterPosition": 289,
+      "characterPosition": 290,
       "characterCount": 7,
       "end": 27.081
     },
     {
       "word": "over",
       "start": 27.081,
-      "characterPosition": 297,
+      "characterPosition": 298,
       "characterCount": 4,
       "end": 27.446
     },
     {
       "word": "petabyte-scale",
       "start": 27.446,
-      "characterPosition": 302,
+      "characterPosition": 303,
       "characterCount": 14,
       "end": 28.624
     },
     {
       "word": "corpora",
       "start": 28.624,
-      "characterPosition": 317,
+      "characterPosition": 318,
       "characterCount": 7,
       "end": 29.286
     },
     {
       "word": "of",
       "start": 29.286,
-      "characterPosition": 325,
+      "characterPosition": 326,
       "characterCount": 2,
       "end": 29.465
     },
     {
       "word": "human",
       "start": 29.465,
-      "characterPosition": 328,
+      "characterPosition": 329,
       "characterCount": 5,
       "end": 29.947
     },
     {
       "word": "discourse",
       "start": 29.947,
-      "characterPosition": 334,
+      "characterPosition": 335,
       "characterCount": 9,
       "end": 31.345
     },
     {
       "word": "these",
       "start": 31.345,
-      "characterPosition": 345,
+      "characterPosition": 346,
       "characterCount": 5,
       "end": 31.669
     },
     {
       "word": "networks",
       "start": 31.669,
-      "characterPosition": 351,
+      "characterPosition": 352,
       "characterCount": 8,
       "end": 32.392
     },
     {
       "word": "developed",
       "start": 32.392,
-      "characterPosition": 360,
+      "characterPosition": 361,
       "characterCount": 9,
       "end": 33.026
     },
     {
       "word": "astonishing",
       "start": 33.026,
-      "characterPosition": 370,
+      "characterPosition": 371,
       "characterCount": 11,
       "end": 33.908
     },
     {
       "word": "surface",
       "start": 33.908,
-      "characterPosition": 382,
+      "characterPosition": 383,
       "characterCount": 7,
       "end": 34.521
     },
     {
       "word": "fluency",
       "start": 34.521,
-      "characterPosition": 390,
+      "characterPosition": 391,
       "characterCount": 7,
       "end": 36.595
     },
     {
       "word": "They",
       "start": 36.595,
-      "characterPosition": 399,
+      "characterPosition": 400,
       "characterCount": 4,
       "end": 36.795
     },
     {
       "word": "could",
       "start": 36.795,
-      "characterPosition": 404,
+      "characterPosition": 405,
       "characterCount": 5,
       "end": 37.057
     },
     {
       "word": "mimic",
       "start": 37.057,
-      "characterPosition": 410,
+      "characterPosition": 411,
       "characterCount": 5,
       "end": 37.497
     },
     {
       "word": "legal",
       "start": 37.497,
-      "characterPosition": 416,
+      "characterPosition": 417,
       "characterCount": 5,
       "end": 37.924
     },
     {
       "word": "contracts",
       "start": 37.924,
-      "characterPosition": 422,
+      "characterPosition": 423,
       "characterCount": 9,
       "end": 39.619
     },
     {
       "word": "write",
       "start": 39.619,
-      "characterPosition": 433,
+      "characterPosition": 434,
       "characterCount": 5,
       "end": 39.95
     },
     {
       "word": "sonnets",
       "start": 39.95,
-      "characterPosition": 439,
+      "characterPosition": 440,
       "characterCount": 7,
       "end": 40.57
     },
     {
       "word": "in",
       "start": 40.57,
-      "characterPosition": 447,
+      "characterPosition": 448,
       "characterCount": 2,
       "end": 40.784
     },
     {
       "word": "iambic",
       "start": 40.784,
-      "characterPosition": 450,
+      "characterPosition": 451,
       "characterCount": 6,
       "end": 41.424
     },
     {
       "word": "pentameter",
       "start": 41.424,
-      "characterPosition": 457,
+      "characterPosition": 458,
       "characterCount": 10,
       "end": 42.919
     },
     {
       "word": "and",
       "start": 42.919,
-      "characterPosition": 469,
+      "characterPosition": 470,
       "characterCount": 3,
       "end": 43.154
     },
     {
       "word": "generate",
       "start": 43.154,
-      "characterPosition": 473,
+      "characterPosition": 474,
       "characterCount": 8,
       "end": 43.76
     },
     {
       "word": "syntactically",
       "start": 43.76,
-      "characterPosition": 482,
+      "characterPosition": 483,
       "characterCount": 13,
       "end": 44.786
     },
     {
       "word": "immaculate",
       "start": 44.786,
-      "characterPosition": 496,
+      "characterPosition": 497,
       "characterCount": 10,
       "end": 45.599
     },
     {
       "word": "Python",
       "start": 45.599,
-      "characterPosition": 507,
+      "characterPosition": 508,
       "characterCount": 6,
       "end": 46.309
     },
     {
       "word": "code",
       "start": 46.309,
-      "characterPosition": 514,
+      "characterPosition": 515,
       "characterCount": 4,
       "end": 48.011
     },
     {
       "word": "Yet",
       "start": 48.011,
-      "characterPosition": 520,
+      "characterPosition": 522,
       "characterCount": 3,
       "end": 48.3
     },
     {
       "word": "practitioners",
       "start": 48.3,
-      "characterPosition": 524,
+      "characterPosition": 526,
       "characterCount": 13,
       "end": 49.368
     },
     {
       "word": "frequently",
       "start": 49.368,
-      "characterPosition": 538,
+      "characterPosition": 540,
       "characterCount": 10,
       "end": 50.181
     },
     {
       "word": "encountered",
       "start": 50.181,
-      "characterPosition": 549,
+      "characterPosition": 551,
       "characterCount": 11,
       "end": 50.959
     },
     {
       "word": "an",
       "start": 50.959,
-      "characterPosition": 561,
+      "characterPosition": 563,
       "characterCount": 2,
       "end": 51.117
     },
     {
       "word": "unsettling",
       "start": 51.117,
-      "characterPosition": 564,
+      "characterPosition": 566,
       "characterCount": 10,
       "end": 52.034
     },
     {
       "word": "fragility",
       "start": 52.034,
-      "characterPosition": 575,
+      "characterPosition": 577,
       "characterCount": 9,
       "end": 54.156
     },
     {
       "word": "A",
       "start": 54.156,
-      "characterPosition": 586,
+      "characterPosition": 588,
       "characterCount": 1,
       "end": 54.28
     },
     {
       "word": "model",
       "start": 54.28,
-      "characterPosition": 588,
+      "characterPosition": 590,
       "characterCount": 5,
       "end": 54.755
     },
     {
       "word": "capable",
       "start": 54.755,
-      "characterPosition": 594,
+      "characterPosition": 596,
       "characterCount": 7,
       "end": 55.416
     },
     {
       "word": "of",
       "start": 55.416,
-      "characterPosition": 602,
+      "characterPosition": 604,
       "characterCount": 2,
       "end": 55.602
     },
     {
       "word": "explaining",
       "start": 55.602,
-      "characterPosition": 605,
+      "characterPosition": 607,
       "characterCount": 10,
       "end": 56.388
     },
     {
       "word": "quantum",
       "start": 56.388,
-      "characterPosition": 616,
+      "characterPosition": 618,
       "characterCount": 7,
       "end": 57.001
     },
     {
       "word": "electrodynamics",
       "start": 57.001,
-      "characterPosition": 624,
+      "characterPosition": 626,
       "characterCount": 15,
       "end": 58.475
     },
     {
       "word": "might",
       "start": 58.475,
-      "characterPosition": 640,
+      "characterPosition": 642,
       "characterCount": 5,
       "end": 58.813
     },
     {
       "word": "fail",
       "start": 58.813,
-      "characterPosition": 646,
+      "characterPosition": 648,
       "characterCount": 4,
       "end": 59.205
     },
     {
       "word": "at",
       "start": 59.205,
-      "characterPosition": 651,
+      "characterPosition": 653,
       "characterCount": 2,
       "end": 59.426
     },
     {
       "word": "simple",
       "start": 59.426,
-      "characterPosition": 654,
+      "characterPosition": 656,
       "characterCount": 6,
       "end": 59.942
     },
     {
       "word": "planning",
       "start": 59.942,
-      "characterPosition": 661,
+      "characterPosition": 663,
       "characterCount": 8,
       "end": 60.535
     },
     {
       "word": "puzzles",
       "start": 60.535,
-      "characterPosition": 670,
+      "characterPosition": 672,
       "characterCount": 7,
       "end": 61.148
     },
     {
       "word": "requiring",
       "start": 61.148,
-      "characterPosition": 678,
+      "characterPosition": 680,
       "characterCount": 9,
       "end": 61.906
     },
     {
       "word": "four",
       "start": 61.906,
-      "characterPosition": 688,
+      "characterPosition": 690,
       "characterCount": 4,
       "end": 62.23
     },
     {
       "word": "sequential",
       "start": 62.23,
-      "characterPosition": 693,
+      "characterPosition": 695,
       "characterCount": 10,
       "end": 63.042
     },
     {
       "word": "steps",
       "start": 63.042,
-      "characterPosition": 704,
+      "characterPosition": 706,
       "characterCount": 5,
       "end": 63.559
     },
     {
       "word": "of",
       "start": 63.559,
-      "characterPosition": 710,
+      "characterPosition": 712,
       "characterCount": 2,
       "end": 63.704
     },
     {
       "word": "physical",
       "start": 63.704,
-      "characterPosition": 713,
+      "characterPosition": 715,
       "characterCount": 8,
       "end": 64.331
     },
     {
       "word": "causation",
       "start": 64.331,
-      "characterPosition": 722,
+      "characterPosition": 724,
       "characterCount": 9,
       "end": 66.549
     },
     {
       "word": "The",
       "start": 66.549,
-      "characterPosition": 733,
+      "characterPosition": 735,
       "characterCount": 3,
       "end": 66.721
     },
     {
       "word": "root",
       "start": 66.721,
-      "characterPosition": 737,
+      "characterPosition": 739,
       "characterCount": 4,
       "end": 67.004
     },
     {
       "word": "of",
       "start": 67.004,
-      "characterPosition": 742,
+      "characterPosition": 744,
       "characterCount": 2,
       "end": 67.135
     },
     {
       "word": "this",
       "start": 67.135,
-      "characterPosition": 745,
+      "characterPosition": 747,
       "characterCount": 4,
       "end": 67.431
     },
     {
       "word": "dissonance",
       "start": 67.431,
-      "characterPosition": 750,
+      "characterPosition": 752,
       "characterCount": 10,
       "end": 68.113
     },
     {
       "word": "lies",
       "start": 68.113,
-      "characterPosition": 761,
+      "characterPosition": 763,
       "characterCount": 4,
       "end": 68.595
     },
     {
       "word": "in",
       "start": 68.595,
-      "characterPosition": 766,
+      "characterPosition": 768,
       "characterCount": 2,
       "end": 68.774
     },
     {
       "word": "the",
       "start": 68.774,
-      "characterPosition": 769,
+      "characterPosition": 771,
       "characterCount": 3,
       "end": 68.891
     },
     {
       "word": "distinction",
       "start": 68.891,
-      "characterPosition": 773,
+      "characterPosition": 775,
       "characterCount": 11,
       "end": 69.718
     },
     {
       "word": "between",
       "start": 69.718,
-      "characterPosition": 785,
+      "characterPosition": 787,
       "characterCount": 7,
       "end": 70.262
     },
     {
       "word": "correlation",
       "start": 70.262,
-      "characterPosition": 793,
+      "characterPosition": 795,
       "characterCount": 11,
       "end": 71.158
     },
     {
       "word": "and",
       "start": 71.158,
-      "characterPosition": 805,
+      "characterPosition": 807,
       "characterCount": 3,
       "end": 71.385
     },
     {
       "word": "deliberation",
       "start": 71.385,
-      "characterPosition": 809,
+      "characterPosition": 811,
       "characterCount": 12,
       "end": 73.679
     },
     {
       "word": "A",
       "start": 73.679,
-      "characterPosition": 823,
+      "characterPosition": 825,
       "characterCount": 1,
       "end": 73.803
     },
     {
       "word": "next-token",
       "start": 73.803,
-      "characterPosition": 825,
+      "characterPosition": 827,
       "characterCount": 10,
       "end": 74.74
     },
     {
       "word": "predictor",
       "start": 74.74,
-      "characterPosition": 836,
+      "characterPosition": 838,
       "characterCount": 9,
       "end": 75.395
     },
     {
       "word": "does",
       "start": 75.395,
-      "characterPosition": 846,
+      "characterPosition": 848,
       "characterCount": 4,
       "end": 75.732
     },
     {
       "word": "not",
       "start": 75.732,
-      "characterPosition": 851,
+      "characterPosition": 853,
       "characterCount": 3,
       "end": 76.028
     },
     {
       "word": "maintain",
       "start": 76.028,
-      "characterPosition": 855,
+      "characterPosition": 857,
       "characterCount": 8,
       "end": 76.697
     },
     {
       "word": "an",
       "start": 76.697,
-      "characterPosition": 864,
+      "characterPosition": 866,
       "characterCount": 2,
       "end": 76.841
     },
     {
       "word": "internal",
       "start": 76.841,
-      "characterPosition": 867,
+      "characterPosition": 869,
       "characterCount": 8,
       "end": 77.489
     },
     {
       "word": "state",
       "start": 77.489,
-      "characterPosition": 876,
+      "characterPosition": 878,
       "characterCount": 5,
       "end": 77.964
     },
     {
       "word": "machine",
       "start": 77.964,
-      "characterPosition": 882,
+      "characterPosition": 884,
       "characterCount": 7,
       "end": 78.564
     },
     {
       "word": "testing",
       "start": 78.564,
-      "characterPosition": 890,
+      "characterPosition": 892,
       "characterCount": 7,
       "end": 79.142
     },
     {
       "word": "hypotheses",
       "start": 79.142,
-      "characterPosition": 898,
+      "characterPosition": 900,
       "characterCount": 10,
       "end": 80.3
     },
     {
       "word": "against",
       "start": 80.3,
-      "characterPosition": 909,
+      "characterPosition": 911,
       "characterCount": 7,
       "end": 80.885
     },
     {
       "word": "reality",
       "start": 80.885,
-      "characterPosition": 917,
+      "characterPosition": 919,
       "characterCount": 7,
       "end": 82.236
     },
     {
       "word": "it",
       "start": 82.236,
-      "characterPosition": 926,
+      "characterPosition": 928,
       "characterCount": 2,
       "end": 82.422
     },
     {
       "word": "navigates",
       "start": 82.422,
-      "characterPosition": 929,
+      "characterPosition": 931,
       "characterCount": 9,
       "end": 83.2
     },
     {
       "word": "a",
       "start": 83.2,
-      "characterPosition": 939,
+      "characterPosition": 941,
       "characterCount": 1,
       "end": 83.283
     },
     {
       "word": "manifold",
       "start": 83.283,
-      "characterPosition": 941,
+      "characterPosition": 943,
       "characterCount": 8,
       "end": 84.123
     },
     {
       "word": "of",
       "start": 84.123,
-      "characterPosition": 950,
+      "characterPosition": 952,
       "characterCount": 2,
       "end": 84.295
     },
     {
       "word": "likelihood",
       "start": 84.295,
-      "characterPosition": 953,
+      "characterPosition": 955,
       "characterCount": 10,
       "end": 86.404
     },
     {
       "word": "The",
       "start": 86.404,
-      "characterPosition": 965,
+      "characterPosition": 968,
       "characterCount": 3,
       "end": 86.597
     },
     {
       "word": "Architecture",
       "start": 86.597,
-      "characterPosition": 969,
+      "characterPosition": 972,
       "characterCount": 12,
       "end": 87.602
     },
     {
       "word": "of",
       "start": 87.602,
-      "characterPosition": 982,
+      "characterPosition": 985,
       "characterCount": 2,
       "end": 87.809
     },
     {
       "word": "Deliberative",
       "start": 87.809,
-      "characterPosition": 985,
+      "characterPosition": 988,
       "characterCount": 12,
       "end": 88.629
     },
     {
       "word": "Inference",
       "start": 88.629,
-      "characterPosition": 998,
+      "characterPosition": 1001,
       "characterCount": 9,
       "end": 90.668
     },
     {
       "word": "The",
       "start": 90.668,
-      "characterPosition": 1009,
+      "characterPosition": 1012,
       "characterCount": 3,
       "end": 90.854
     },
     {
       "word": "emergence",
       "start": 90.854,
-      "characterPosition": 1013,
+      "characterPosition": 1016,
       "characterCount": 9,
       "end": 91.578
     },
     {
       "word": "of",
       "start": 91.578,
-      "characterPosition": 1023,
+      "characterPosition": 1026,
       "characterCount": 2,
       "end": 91.757
     },
     {
       "word": "sovereign",
       "start": 91.757,
-      "characterPosition": 1026,
+      "characterPosition": 1029,
       "characterCount": 9,
       "end": 92.432
     },
     {
       "word": "reasoning",
       "start": 92.432,
-      "characterPosition": 1036,
+      "characterPosition": 1039,
       "characterCount": 9,
       "end": 93.038
     },
     {
       "word": "architectures",
       "start": 93.038,
-      "characterPosition": 1046,
+      "characterPosition": 1049,
       "characterCount": 13,
       "end": 94.154
     },
     {
       "word": "represents",
       "start": 94.154,
-      "characterPosition": 1060,
+      "characterPosition": 1063,
       "characterCount": 10,
       "end": 95.022
     },
     {
       "word": "a",
       "start": 95.022,
-      "characterPosition": 1071,
+      "characterPosition": 1074,
       "characterCount": 1,
       "end": 95.098
     },
     {
       "word": "structural",
       "start": 95.098,
-      "characterPosition": 1073,
+      "characterPosition": 1076,
       "characterCount": 10,
       "end": 95.973
     },
     {
       "word": "departure",
       "start": 95.973,
-      "characterPosition": 1084,
+      "characterPosition": 1087,
       "characterCount": 9,
       "end": 96.669
     },
     {
       "word": "from",
       "start": 96.669,
-      "characterPosition": 1094,
+      "characterPosition": 1097,
       "characterCount": 4,
       "end": 97.013
     },
     {
       "word": "unconstrained",
       "start": 97.013,
-      "characterPosition": 1099,
+      "characterPosition": 1102,
       "characterCount": 13,
       "end": 98.04
     },
     {
       "word": "feed-forward",
       "start": 98.04,
-      "characterPosition": 1113,
+      "characterPosition": 1116,
       "characterCount": 12,
       "end": 98.97
     },
     {
       "word": "emission",
       "start": 98.97,
-      "characterPosition": 1126,
+      "characterPosition": 1129,
       "characterCount": 8,
       "end": 100.885
     },
     {
       "word": "Rather",
       "start": 100.885,
-      "characterPosition": 1136,
+      "characterPosition": 1139,
       "characterCount": 6,
       "end": 101.333
     },
     {
       "word": "than",
       "start": 101.333,
-      "characterPosition": 1143,
+      "characterPosition": 1146,
       "characterCount": 4,
       "end": 101.56
     },
     {
       "word": "directly",
       "start": 101.56,
-      "characterPosition": 1148,
+      "characterPosition": 1151,
       "characterCount": 8,
       "end": 102.229
     },
     {
       "word": "sampling",
       "start": 102.229,
-      "characterPosition": 1157,
+      "characterPosition": 1160,
       "characterCount": 8,
       "end": 102.966
     },
     {
       "word": "output",
       "start": 102.966,
-      "characterPosition": 1166,
+      "characterPosition": 1169,
       "characterCount": 6,
       "end": 103.49
     },
     {
       "word": "tokens",
       "start": 103.49,
-      "characterPosition": 1173,
+      "characterPosition": 1176,
       "characterCount": 6,
       "end": 104.068
     },
     {
       "word": "from",
       "start": 104.068,
-      "characterPosition": 1180,
+      "characterPosition": 1183,
       "characterCount": 4,
       "end": 104.385
     },
     {
       "word": "the",
       "start": 104.385,
-      "characterPosition": 1185,
+      "characterPosition": 1188,
       "characterCount": 3,
       "end": 104.55
     },
     {
       "word": "initial",
       "start": 104.55,
-      "characterPosition": 1189,
+      "characterPosition": 1192,
       "characterCount": 7,
       "end": 105.102
     },
     {
       "word": "latent",
       "start": 105.102,
-      "characterPosition": 1197,
+      "characterPosition": 1200,
       "characterCount": 6,
       "end": 105.563
     },
     {
       "word": "representation",
       "start": 105.563,
-      "characterPosition": 1204,
+      "characterPosition": 1207,
       "characterCount": 14,
       "end": 107.54
     },
     {
       "word": "modern",
       "start": 107.54,
-      "characterPosition": 1220,
+      "characterPosition": 1223,
       "characterCount": 6,
       "end": 108.078
     },
     {
       "word": "cognitive",
       "start": 108.078,
-      "characterPosition": 1227,
+      "characterPosition": 1230,
       "characterCount": 9,
       "end": 108.774
     },
     {
       "word": "pipelines",
       "start": 108.774,
-      "characterPosition": 1237,
+      "characterPosition": 1240,
       "characterCount": 9,
       "end": 109.642
     },
     {
       "word": "introduce",
       "start": 109.642,
-      "characterPosition": 1247,
+      "characterPosition": 1250,
       "characterCount": 9,
       "end": 110.386
     },
     {
       "word": "an",
       "start": 110.386,
-      "characterPosition": 1257,
+      "characterPosition": 1260,
       "characterCount": 2,
       "end": 110.544
     },
     {
       "word": "intermediate",
       "start": 110.544,
-      "characterPosition": 1260,
+      "characterPosition": 1263,
       "characterCount": 12,
       "end": 111.44
     },
     {
       "word": "deliberation",
       "start": 111.44,
-      "characterPosition": 1273,
+      "characterPosition": 1276,
       "characterCount": 12,
       "end": 112.431
     },
     {
       "word": "phase",
       "start": 112.431,
-      "characterPosition": 1286,
+      "characterPosition": 1289,
       "characterCount": 5,
       "end": 114.25
     },
     {
       "word": "In",
       "start": 114.25,
-      "characterPosition": 1293,
+      "characterPosition": 1296,
       "characterCount": 2,
       "end": 114.45
     },
     {
       "word": "this",
       "start": 114.45,
-      "characterPosition": 1296,
+      "characterPosition": 1299,
       "characterCount": 4,
       "end": 114.691
     },
     {
       "word": "space",
       "start": 114.691,
-      "characterPosition": 1301,
+      "characterPosition": 1304,
       "characterCount": 5,
       "end": 115.925
     },
     {
       "word": "the",
       "start": 115.925,
-      "characterPosition": 1308,
+      "characterPosition": 1311,
       "characterCount": 3,
       "end": 116.042
     },
     {
       "word": "system",
       "start": 116.042,
-      "characterPosition": 1312,
+      "characterPosition": 1315,
       "characterCount": 6,
       "end": 116.669
     },
     {
       "word": "operates",
       "start": 116.669,
-      "characterPosition": 1319,
+      "characterPosition": 1322,
       "characterCount": 8,
       "end": 117.426
     },
     {
       "word": "not",
       "start": 117.426,
-      "characterPosition": 1328,
+      "characterPosition": 1331,
       "characterCount": 3,
       "end": 117.736
     },
     {
       "word": "as",
       "start": 117.736,
-      "characterPosition": 1332,
+      "characterPosition": 1335,
       "characterCount": 2,
       "end": 117.984
     },
     {
       "word": "a",
       "start": 117.984,
-      "characterPosition": 1335,
+      "characterPosition": 1338,
       "characterCount": 1,
       "end": 118.074
     },
     {
       "word": "typewriter",
       "start": 118.074,
-      "characterPosition": 1337,
+      "characterPosition": 1340,
       "characterCount": 10,
       "end": 119.631
     },
     {
       "word": "but",
       "start": 119.631,
-      "characterPosition": 1349,
+      "characterPosition": 1352,
       "characterCount": 3,
       "end": 119.886
     },
     {
       "word": "as",
       "start": 119.886,
-      "characterPosition": 1353,
+      "characterPosition": 1356,
       "characterCount": 2,
       "end": 120.134
     },
     {
       "word": "a",
       "start": 120.134,
-      "characterPosition": 1356,
+      "characterPosition": 1359,
       "characterCount": 1,
       "end": 120.224
     },
     {
       "word": "theorem",
       "start": 120.224,
-      "characterPosition": 1358,
+      "characterPosition": 1361,
       "characterCount": 7,
       "end": 120.83
     },
     {
       "word": "prover",
       "start": 120.83,
-      "characterPosition": 1366,
+      "characterPosition": 1369,
       "characterCount": 6,
       "end": 122.649
     },
     {
       "word": "True",
       "start": 122.649,
-      "characterPosition": 1374,
+      "characterPosition": 1378,
       "characterCount": 4,
       "end": 122.952
     },
     {
       "word": "artificial",
       "start": 122.952,
-      "characterPosition": 1379,
+      "characterPosition": 1383,
       "characterCount": 10,
       "end": 123.82
     },
     {
       "word": "agency",
       "start": 123.82,
-      "characterPosition": 1390,
+      "characterPosition": 1394,
       "characterCount": 6,
       "end": 124.488
     },
     {
       "word": "begins",
       "start": 124.488,
-      "characterPosition": 1397,
+      "characterPosition": 1401,
       "characterCount": 6,
       "end": 125.032
     },
     {
       "word": "not",
       "start": 125.032,
-      "characterPosition": 1404,
+      "characterPosition": 1408,
       "characterCount": 3,
       "end": 125.335
     },
     {
       "word": "when",
       "start": 125.335,
-      "characterPosition": 1408,
+      "characterPosition": 1412,
       "characterCount": 4,
       "end": 125.577
     },
     {
       "word": "a",
       "start": 125.577,
-      "characterPosition": 1413,
+      "characterPosition": 1417,
       "characterCount": 1,
       "end": 125.652
     },
     {
       "word": "system",
       "start": 125.652,
-      "characterPosition": 1415,
+      "characterPosition": 1419,
       "characterCount": 6,
       "end": 126.265
     },
     {
       "word": "speaks",
       "start": 126.265,
-      "characterPosition": 1422,
+      "characterPosition": 1426,
       "characterCount": 6,
       "end": 126.81
     },
     {
       "word": "fluently",
       "start": 126.81,
-      "characterPosition": 1429,
+      "characterPosition": 1433,
       "characterCount": 8,
       "end": 128.236
     },
     {
       "word": "but",
       "start": 128.236,
-      "characterPosition": 1439,
+      "characterPosition": 1443,
       "characterCount": 3,
       "end": 128.491
     },
     {
       "word": "when",
       "start": 128.491,
-      "characterPosition": 1443,
+      "characterPosition": 1447,
       "characterCount": 4,
       "end": 128.725
     },
     {
       "word": "it",
       "start": 128.725,
-      "characterPosition": 1448,
+      "characterPosition": 1452,
       "characterCount": 2,
       "end": 128.89
     },
     {
       "word": "possesses",
       "start": 128.89,
-      "characterPosition": 1451,
+      "characterPosition": 1455,
       "characterCount": 9,
       "end": 129.648
     },
     {
       "word": "the",
       "start": 129.648,
-      "characterPosition": 1461,
+      "characterPosition": 1465,
       "characterCount": 3,
       "end": 129.765
     },
     {
       "word": "structural",
       "start": 129.765,
-      "characterPosition": 1465,
+      "characterPosition": 1469,
       "characterCount": 10,
       "end": 130.626
     },
     {
       "word": "capacity",
       "start": 130.626,
-      "characterPosition": 1476,
+      "characterPosition": 1480,
       "characterCount": 8,
       "end": 131.501
     },
     {
       "word": "to",
       "start": 131.501,
-      "characterPosition": 1485,
+      "characterPosition": 1489,
       "characterCount": 2,
       "end": 131.687
     },
     {
       "word": "pause",
       "start": 131.687,
-      "characterPosition": 1488,
+      "characterPosition": 1492,
       "characterCount": 5,
       "end": 132.824
     },
     {
       "word": "simulate",
       "start": 132.824,
-      "characterPosition": 1495,
+      "characterPosition": 1499,
       "characterCount": 8,
       "end": 133.603
     },
     {
       "word": "consequences",
       "start": 133.603,
-      "characterPosition": 1504,
+      "characterPosition": 1508,
       "characterCount": 12,
       "end": 134.788
     },
     {
       "word": "in",
       "start": 134.788,
-      "characterPosition": 1517,
+      "characterPosition": 1521,
       "characterCount": 2,
       "end": 134.987
     },
     {
       "word": "a",
       "start": 134.987,
-      "characterPosition": 1520,
+      "characterPosition": 1524,
       "characterCount": 1,
       "end": 135.063
     },
     {
       "word": "sandboxed",
       "start": 135.063,
-      "characterPosition": 1522,
+      "characterPosition": 1526,
       "characterCount": 9,
       "end": 136.014
     },
     {
       "word": "scratchpad",
       "start": 136.014,
-      "characterPosition": 1532,
+      "characterPosition": 1536,
       "characterCount": 10,
       "end": 137.633
     },
     {
       "word": "and",
       "start": 137.633,
-      "characterPosition": 1544,
+      "characterPosition": 1548,
       "characterCount": 3,
       "end": 137.854
     },
     {
       "word": "discard",
       "start": 137.854,
-      "characterPosition": 1548,
+      "characterPosition": 1552,
       "characterCount": 7,
       "end": 138.494
     },
     {
       "word": "its",
       "start": 138.494,
-      "characterPosition": 1556,
+      "characterPosition": 1560,
       "characterCount": 3,
       "end": 138.694
     },
     {
       "word": "own",
       "start": 138.694,
-      "characterPosition": 1560,
+      "characterPosition": 1564,
       "characterCount": 3,
       "end": 138.928
     },
     {
       "word": "initial",
       "start": 138.928,
-      "characterPosition": 1564,
+      "characterPosition": 1568,
       "characterCount": 7,
       "end": 139.486
     },
     {
       "word": "deductions",
       "start": 139.486,
-      "characterPosition": 1572,
+      "characterPosition": 1576,
       "characterCount": 10,
       "end": 141.643
     },
     {
       "word": "Consider",
       "start": 141.643,
-      "characterPosition": 1584,
+      "characterPosition": 1589,
       "characterCount": 8,
       "end": 142.332
     },
     {
       "word": "an",
       "start": 142.332,
-      "characterPosition": 1593,
+      "characterPosition": 1598,
       "characterCount": 2,
       "end": 142.525
     },
     {
       "word": "agent",
       "start": 142.525,
-      "characterPosition": 1596,
+      "characterPosition": 1601,
       "characterCount": 5,
       "end": 143.007
     },
     {
       "word": "tasked",
       "start": 143.007,
-      "characterPosition": 1602,
+      "characterPosition": 1607,
       "characterCount": 6,
       "end": 143.579
     },
     {
       "word": "with",
       "start": 143.579,
-      "characterPosition": 1609,
+      "characterPosition": 1614,
       "characterCount": 4,
       "end": 143.827
     },
     {
       "word": "auditing",
       "start": 143.827,
-      "characterPosition": 1614,
+      "characterPosition": 1619,
       "characterCount": 8,
       "end": 144.357
     },
     {
       "word": "a",
       "start": 144.357,
-      "characterPosition": 1623,
+      "characterPosition": 1628,
       "characterCount": 1,
       "end": 144.447
     },
     {
       "word": "cryptographic",
       "start": 144.447,
-      "characterPosition": 1625,
+      "characterPosition": 1630,
       "characterCount": 13,
       "end": 145.542
     },
     {
       "word": "consensus",
       "start": 145.542,
-      "characterPosition": 1639,
+      "characterPosition": 1644,
       "characterCount": 9,
       "end": 146.369
     },
     {
       "word": "protocol",
       "start": 146.369,
-      "characterPosition": 1649,
+      "characterPosition": 1654,
       "characterCount": 8,
       "end": 148.566
     },
     {
       "word": "Under",
       "start": 148.566,
-      "characterPosition": 1659,
+      "characterPosition": 1664,
       "characterCount": 5,
       "end": 148.938
     },
     {
       "word": "pure",
       "start": 148.938,
-      "characterPosition": 1665,
+      "characterPosition": 1670,
       "characterCount": 4,
       "end": 149.331
     },
     {
       "word": "autoregression",
       "start": 149.331,
-      "characterPosition": 1670,
+      "characterPosition": 1675,
       "characterCount": 14,
       "end": 151.164
     },
     {
       "word": "the",
       "start": 151.164,
-      "characterPosition": 1686,
+      "characterPosition": 1691,
       "characterCount": 3,
       "end": 151.288
     },
     {
       "word": "model",
       "start": 151.288,
-      "characterPosition": 1690,
+      "characterPosition": 1695,
       "characterCount": 5,
       "end": 151.763
     },
     {
       "word": "emits",
       "start": 151.763,
-      "characterPosition": 1696,
+      "characterPosition": 1701,
       "characterCount": 5,
       "end": 152.204
     },
     {
       "word": "judgments",
       "start": 152.204,
-      "characterPosition": 1702,
+      "characterPosition": 1707,
       "characterCount": 9,
       "end": 152.907
     },
     {
       "word": "based",
       "start": 152.907,
-      "characterPosition": 1712,
+      "characterPosition": 1717,
       "characterCount": 5,
       "end": 153.361
     },
     {
       "word": "on",
       "start": 153.361,
-      "characterPosition": 1718,
+      "characterPosition": 1723,
       "characterCount": 2,
       "end": 153.609
     },
     {
       "word": "semantic",
       "start": 153.609,
-      "characterPosition": 1721,
+      "characterPosition": 1726,
       "characterCount": 8,
       "end": 154.305
     },
     {
       "word": "similarity",
       "start": 154.305,
-      "characterPosition": 1730,
+      "characterPosition": 1735,
       "characterCount": 10,
       "end": 155.256
     },
     {
       "word": "to",
       "start": 155.256,
-      "characterPosition": 1741,
+      "characterPosition": 1746,
       "characterCount": 2,
       "end": 155.469
     },
     {
       "word": "known",
       "start": 155.469,
-      "characterPosition": 1744,
+      "characterPosition": 1749,
       "characterCount": 5,
       "end": 155.841
     },
     {
       "word": "vulnerability",
       "start": 155.841,
-      "characterPosition": 1750,
+      "characterPosition": 1755,
       "characterCount": 13,
       "end": 156.882
     },
     {
       "word": "disclosures",
       "start": 156.882,
-      "characterPosition": 1764,
+      "characterPosition": 1769,
       "characterCount": 11,
       "end": 159.155
     },
     {
       "word": "Under",
       "start": 159.155,
-      "characterPosition": 1777,
+      "characterPosition": 1782,
       "characterCount": 5,
       "end": 159.555
     },
     {
       "word": "an",
       "start": 159.555,
-      "characterPosition": 1783,
+      "characterPosition": 1788,
       "characterCount": 2,
       "end": 159.748
     },
     {
       "word": "agentic",
       "start": 159.748,
-      "characterPosition": 1786,
+      "characterPosition": 1791,
       "characterCount": 7,
       "end": 160.389
     },
     {
       "word": "deliberation",
       "start": 160.389,
-      "characterPosition": 1794,
+      "characterPosition": 1799,
       "characterCount": 12,
       "end": 161.401
     },
     {
       "word": "graph",
       "start": 161.401,
-      "characterPosition": 1807,
+      "characterPosition": 1812,
       "characterCount": 5,
       "end": 162.586
     },
     {
       "word": "the",
       "start": 162.586,
-      "characterPosition": 1814,
+      "characterPosition": 1819,
       "characterCount": 3,
       "end": 162.703
     },
     {
       "word": "model",
       "start": 162.703,
-      "characterPosition": 1818,
+      "characterPosition": 1823,
       "characterCount": 5,
       "end": 163.179
     },
     {
       "word": "decomposes",
       "start": 163.179,
-      "characterPosition": 1824,
+      "characterPosition": 1829,
       "characterCount": 10,
       "end": 164.219
     },
     {
       "word": "the",
       "start": 164.219,
-      "characterPosition": 1835,
+      "characterPosition": 1840,
       "characterCount": 3,
       "end": 164.35
     },
     {
       "word": "protocol",
       "start": 164.35,
-      "characterPosition": 1839,
+      "characterPosition": 1844,
       "characterCount": 8,
       "end": 165.149
     },
     {
       "word": "into",
       "start": 165.149,
-      "characterPosition": 1848,
+      "characterPosition": 1853,
       "characterCount": 4,
       "end": 165.549
     },
     {
       "word": "state",
       "start": 165.549,
-      "characterPosition": 1853,
+      "characterPosition": 1858,
       "characterCount": 5,
       "end": 166.031
     },
     {
       "word": "transitions",
       "start": 166.031,
-      "characterPosition": 1859,
+      "characterPosition": 1864,
       "characterCount": 11,
       "end": 167.684
     },
     {
       "word": "writes",
       "start": 167.684,
-      "characterPosition": 1872,
+      "characterPosition": 1877,
       "characterCount": 6,
       "end": 168.105
     },
     {
       "word": "formal",
       "start": 168.105,
-      "characterPosition": 1879,
+      "characterPosition": 1884,
       "characterCount": 6,
       "end": 168.628
     },
     {
       "word": "verification",
       "start": 168.628,
-      "characterPosition": 1886,
+      "characterPosition": 1891,
       "characterCount": 12,
       "end": 169.737
     },
     {
       "word": "lemmas",
       "start": 169.737,
-      "characterPosition": 1899,
+      "characterPosition": 1904,
       "characterCount": 6,
       "end": 170.916
     },
     {
       "word": "executes",
       "start": 170.916,
-      "characterPosition": 1907,
+      "characterPosition": 1912,
       "characterCount": 8,
       "end": 171.784
     },
     {
       "word": "them",
       "start": 171.784,
-      "characterPosition": 1916,
+      "characterPosition": 1921,
       "characterCount": 4,
       "end": 172.025
     },
     {
       "word": "in",
       "start": 172.025,
-      "characterPosition": 1921,
+      "characterPosition": 1926,
       "characterCount": 2,
       "end": 172.197
     },
     {
       "word": "an",
       "start": 172.197,
-      "characterPosition": 1924,
+      "characterPosition": 1929,
       "characterCount": 2,
       "end": 172.342
     },
     {
       "word": "ephemeral",
       "start": 172.342,
-      "characterPosition": 1927,
+      "characterPosition": 1932,
       "characterCount": 9,
       "end": 173.01
     },
     {
       "word": "container",
       "start": 173.01,
-      "characterPosition": 1937,
+      "characterPosition": 1942,
       "characterCount": 9,
       "end": 174.381
     },
     {
       "word": "and",
       "start": 174.381,
-      "characterPosition": 1948,
+      "characterPosition": 1953,
       "characterCount": 3,
       "end": 174.629
     },
     {
       "word": "refines",
       "start": 174.629,
-      "characterPosition": 1952,
+      "characterPosition": 1957,
       "characterCount": 7,
       "end": 175.276
     },
     {
       "word": "its",
       "start": 175.276,
-      "characterPosition": 1960,
+      "characterPosition": 1965,
       "characterCount": 3,
       "end": 175.511
     },
     {
       "word": "thesis",
       "start": 175.511,
-      "characterPosition": 1964,
+      "characterPosition": 1969,
       "characterCount": 6,
-      "end": 176.103
+      "end": 176.096
     },
     {
       "word": "based",
-      "start": 176.103,
-      "characterPosition": 1971,
+      "start": 176.096,
+      "characterPosition": 1976,
       "characterCount": 5,
       "end": 176.558
     },
     {
       "word": "on",
       "start": 176.558,
-      "characterPosition": 1977,
+      "characterPosition": 1982,
       "characterCount": 2,
       "end": 176.813
     },
     {
       "word": "machine",
       "start": 176.813,
-      "characterPosition": 1980,
+      "characterPosition": 1985,
       "characterCount": 7,
-      "end": 177.384
+      "end": 177.378
     },
     {
       "word": "execution",
-      "start": 177.384,
-      "characterPosition": 1988,
+      "start": 177.378,
+      "characterPosition": 1993,
       "characterCount": 9,
-      "end": 178.397
+      "end": 178.39
     },
     {
       "word": "traces.",
-      "start": 178.397,
-      "characterPosition": 1998,
+      "start": 178.39,
+      "characterPosition": 2003,
       "characterCount": 7,
-      "end": 179.106
+      "end": 180.43
     },
     {
       "word": "Dual-Stream",
-      "start": 179.106,
-      "characterPosition": 2006,
+      "start": 180.43,
+      "characterPosition": 2012,
       "characterCount": 11,
-      "end": 180.016
+      "end": 181.312
     },
     {
       "word": "Memory",
-      "start": 180.016,
-      "characterPosition": 2018,
+      "start": 181.312,
+      "characterPosition": 2024,
       "characterCount": 6,
-      "end": 181.215
+      "end": 182.531
     },
     {
       "word": "Epistemic",
-      "start": 181.215,
-      "characterPosition": 2026,
+      "start": 182.531,
+      "characterPosition": 2032,
       "characterCount": 9,
-      "end": 182.035
+      "end": 183.351
     },
     {
-      "word": "versus",
-      "start": 182.035,
-      "characterPosition": 2036,
-      "characterCount": 6,
-      "end": 182.627
+      "word": "vs.",
+      "start": 183.351,
+      "characterPosition": 2042,
+      "characterCount": 3,
+      "end": 183.93
     },
     {
       "word": "Episodic",
-      "start": 182.627,
-      "characterPosition": 2043,
+      "start": 183.93,
+      "characterPosition": 2046,
       "characterCount": 8,
-      "end": 184.735
+      "end": 186.031
     },
     {
       "word": "A",
-      "start": 184.735,
-      "characterPosition": 2053,
+      "start": 186.031,
+      "characterPosition": 2056,
       "characterCount": 1,
-      "end": 184.859
+      "end": 186.155
     },
     {
       "word": "critical",
-      "start": 184.859,
-      "characterPosition": 2055,
+      "start": 186.155,
+      "characterPosition": 2058,
       "characterCount": 8,
-      "end": 185.493
+      "end": 186.789
     },
     {
       "word": "bottleneck",
-      "start": 185.493,
-      "characterPosition": 2064,
+      "start": 186.789,
+      "characterPosition": 2067,
       "characterCount": 10,
-      "end": 186.203
+      "end": 187.498
     },
     {
       "word": "in",
-      "start": 186.203,
-      "characterPosition": 2075,
+      "start": 187.498,
+      "characterPosition": 2078,
       "characterCount": 2,
-      "end": 186.402
+      "end": 187.698
     },
     {
       "word": "early",
-      "start": 186.402,
-      "characterPosition": 2078,
+      "start": 187.698,
+      "characterPosition": 2081,
       "characterCount": 5,
-      "end": 186.85
+      "end": 188.146
     },
     {
       "word": "deployments",
-      "start": 186.85,
-      "characterPosition": 2084,
+      "start": 188.146,
+      "characterPosition": 2087,
       "characterCount": 11,
-      "end": 187.67
+      "end": 188.966
     },
     {
       "word": "was",
-      "start": 187.67,
-      "characterPosition": 2096,
+      "start": 188.966,
+      "characterPosition": 2099,
       "characterCount": 3,
-      "end": 187.973
+      "end": 189.269
     },
     {
       "word": "context",
-      "start": 187.973,
-      "characterPosition": 2100,
+      "start": 189.269,
+      "characterPosition": 2103,
       "characterCount": 7,
-      "end": 188.855
+      "end": 190.151
     },
     {
       "word": "degradation",
-      "start": 188.855,
-      "characterPosition": 2108,
+      "start": 190.151,
+      "characterPosition": 2111,
       "characterCount": 11,
-      "end": 191.122
+      "end": 192.417
     },
     {
       "word": "While",
-      "start": 191.122,
-      "characterPosition": 2121,
+      "start": 192.417,
+      "characterPosition": 2124,
       "characterCount": 5,
-      "end": 191.432
+      "end": 192.727
     },
     {
       "word": "raw",
-      "start": 191.432,
-      "characterPosition": 2127,
+      "start": 192.727,
+      "characterPosition": 2130,
       "characterCount": 3,
-      "end": 191.7
+      "end": 192.996
     },
     {
       "word": "context",
-      "start": 191.7,
-      "characterPosition": 2131,
+      "start": 192.996,
+      "characterPosition": 2134,
       "characterCount": 7,
-      "end": 192.582
+      "end": 193.878
     },
     {
       "word": "windows",
-      "start": 192.582,
-      "characterPosition": 2139,
+      "start": 193.878,
+      "characterPosition": 2142,
       "characterCount": 7,
-      "end": 193.168
+      "end": 194.463
     },
     {
       "word": "expanded",
-      "start": 193.168,
-      "characterPosition": 2147,
+      "start": 194.463,
+      "characterPosition": 2150,
       "characterCount": 8,
-      "end": 193.939
+      "end": 195.235
     },
     {
       "word": "to",
-      "start": 193.939,
-      "characterPosition": 2156,
+      "start": 195.235,
+      "characterPosition": 2159,
       "characterCount": 2,
-      "end": 194.104
+      "end": 195.4
     },
     {
       "word": "hundreds",
-      "start": 194.104,
-      "characterPosition": 2159,
+      "start": 195.4,
+      "characterPosition": 2162,
       "characterCount": 8,
-      "end": 194.8
+      "end": 196.096
     },
     {
       "word": "of",
-      "start": 194.8,
-      "characterPosition": 2168,
+      "start": 196.096,
+      "characterPosition": 2171,
       "characterCount": 2,
-      "end": 195
+      "end": 196.296
     },
     {
       "word": "thousands",
-      "start": 195,
-      "characterPosition": 2171,
+      "start": 196.296,
+      "characterPosition": 2174,
       "characterCount": 9,
-      "end": 195.703
+      "end": 196.998
     },
     {
       "word": "of",
-      "start": 195.703,
-      "characterPosition": 2181,
+      "start": 196.998,
+      "characterPosition": 2184,
       "characterCount": 2,
-      "end": 195.889
+      "end": 197.184
     },
     {
       "word": "tokens",
-      "start": 195.889,
-      "characterPosition": 2184,
+      "start": 197.184,
+      "characterPosition": 2187,
       "characterCount": 6,
-      "end": 197.26
+      "end": 198.556
     },
     {
       "word": "passive",
-      "start": 197.26,
-      "characterPosition": 2192,
+      "start": 198.556,
+      "characterPosition": 2195,
       "characterCount": 7,
-      "end": 197.887
+      "end": 199.183
     },
     {
       "word": "ingestion",
-      "start": 197.887,
-      "characterPosition": 2200,
+      "start": 199.183,
+      "characterPosition": 2203,
       "characterCount": 9,
-      "end": 198.707
+      "end": 200.002
     },
     {
       "word": "proved",
-      "start": 198.707,
-      "characterPosition": 2210,
+      "start": 200.002,
+      "characterPosition": 2213,
       "characterCount": 6,
-      "end": 199.182
+      "end": 200.478
     },
     {
       "word": "insufficient",
-      "start": 199.182,
-      "characterPosition": 2217,
+      "start": 200.478,
+      "characterPosition": 2220,
       "characterCount": 12,
-      "end": 200.126
+      "end": 201.421
     },
     {
       "word": "for",
-      "start": 200.126,
-      "characterPosition": 2230,
+      "start": 201.421,
+      "characterPosition": 2233,
       "characterCount": 3,
-      "end": 200.346
+      "end": 201.642
     },
     {
       "word": "coherent",
-      "start": 200.346,
-      "characterPosition": 2234,
+      "start": 201.642,
+      "characterPosition": 2237,
       "characterCount": 8,
-      "end": 201.131
+      "end": 202.427
     },
     {
       "word": "long-horizon",
-      "start": 201.131,
-      "characterPosition": 2243,
+      "start": 202.427,
+      "characterPosition": 2246,
       "characterCount": 12,
-      "end": 202.172
+      "end": 203.467
     },
     {
       "word": "execution",
-      "start": 202.172,
-      "characterPosition": 2256,
+      "start": 203.467,
+      "characterPosition": 2259,
       "characterCount": 9,
-      "end": 204.493
+      "end": 205.789
     },
     {
       "word": "Unstructured",
-      "start": 204.493,
-      "characterPosition": 2267,
+      "start": 205.789,
+      "characterPosition": 2270,
       "characterCount": 12,
-      "end": 205.513
+      "end": 206.809
     },
     {
       "word": "text",
-      "start": 205.513,
-      "characterPosition": 2280,
+      "start": 206.809,
+      "characterPosition": 2283,
       "characterCount": 4,
-      "end": 205.975
+      "end": 207.27
     },
     {
       "word": "windows",
-      "start": 205.975,
-      "characterPosition": 2285,
+      "start": 207.27,
+      "characterPosition": 2288,
       "characterCount": 7,
-      "end": 206.519
+      "end": 207.815
     },
     {
       "word": "suffer",
-      "start": 206.519,
-      "characterPosition": 2293,
+      "start": 207.815,
+      "characterPosition": 2296,
       "characterCount": 6,
-      "end": 207.008
+      "end": 208.304
     },
     {
       "word": "from",
-      "start": 207.008,
-      "characterPosition": 2300,
+      "start": 208.304,
+      "characterPosition": 2303,
       "characterCount": 4,
-      "end": 207.318
+      "end": 208.614
     },
     {
       "word": "attentional",
-      "start": 207.318,
-      "characterPosition": 2305,
+      "start": 208.614,
+      "characterPosition": 2308,
       "characterCount": 11,
-      "end": 208.09
+      "end": 209.385
     },
     {
       "word": "noise",
-      "start": 208.09,
-      "characterPosition": 2317,
+      "start": 209.385,
+      "characterPosition": 2320,
       "characterCount": 5,
-      "end": 208.586
+      "end": 209.881
     },
     {
       "word": "and",
-      "start": 208.586,
-      "characterPosition": 2323,
+      "start": 209.881,
+      "characterPosition": 2326,
       "characterCount": 3,
-      "end": 208.82
+      "end": 210.116
     },
     {
       "word": "loss",
-      "start": 208.82,
-      "characterPosition": 2327,
+      "start": 210.116,
+      "characterPosition": 2330,
       "characterCount": 4,
-      "end": 209.219
+      "end": 210.515
     },
     {
       "word": "of",
-      "start": 209.219,
-      "characterPosition": 2332,
+      "start": 210.515,
+      "characterPosition": 2335,
       "characterCount": 2,
-      "end": 209.392
+      "end": 210.687
     },
     {
       "word": "continuity",
-      "start": 209.392,
-      "characterPosition": 2335,
+      "start": 210.687,
+      "characterPosition": 2338,
       "characterCount": 10,
-      "end": 210.363
+      "end": 211.659
     },
     {
       "word": "across",
-      "start": 210.363,
-      "characterPosition": 2346,
+      "start": 211.659,
+      "characterPosition": 2349,
       "characterCount": 6,
-      "end": 210.935
+      "end": 212.23
     },
     {
       "word": "multiple",
-      "start": 210.935,
-      "characterPosition": 2353,
+      "start": 212.23,
+      "characterPosition": 2356,
       "characterCount": 8,
-      "end": 211.603
+      "end": 212.899
     },
     {
       "word": "execution",
-      "start": 211.603,
-      "characterPosition": 2362,
+      "start": 212.899,
+      "characterPosition": 2365,
       "characterCount": 9,
-      "end": 212.622
+      "end": 213.918
     },
     {
       "word": "days",
-      "start": 212.622,
-      "characterPosition": 2372,
+      "start": 213.918,
+      "characterPosition": 2375,
       "characterCount": 4,
-      "end": 214.407
+      "end": 215.703
     },
     {
       "word": "Robust",
-      "start": 214.407,
-      "characterPosition": 2378,
+      "start": 215.703,
+      "characterPosition": 2382,
       "characterCount": 6,
-      "end": 214.979
+      "end": 216.275
     },
     {
       "word": "systems",
-      "start": 214.979,
-      "characterPosition": 2385,
+      "start": 216.275,
+      "characterPosition": 2389,
       "characterCount": 7,
-      "end": 215.668
+      "end": 216.963
     },
     {
       "word": "resolve",
-      "start": 215.668,
-      "characterPosition": 2393,
+      "start": 216.963,
+      "characterPosition": 2397,
       "characterCount": 7,
-      "end": 216.26
+      "end": 217.556
     },
     {
       "word": "this",
-      "start": 216.26,
-      "characterPosition": 2401,
+      "start": 217.556,
+      "characterPosition": 2405,
       "characterCount": 4,
-      "end": 216.577
+      "end": 217.873
     },
     {
       "word": "through",
-      "start": 216.577,
-      "characterPosition": 2406,
+      "start": 217.873,
+      "characterPosition": 2410,
       "characterCount": 7,
-      "end": 216.908
+      "end": 218.204
     },
     {
       "word": "a",
-      "start": 216.908,
-      "characterPosition": 2414,
+      "start": 218.204,
+      "characterPosition": 2418,
       "characterCount": 1,
-      "end": 217.004
+      "end": 218.3
     },
     {
       "word": "dual-stream",
-      "start": 217.004,
-      "characterPosition": 2416,
+      "start": 218.3,
+      "characterPosition": 2420,
       "characterCount": 11,
-      "end": 217.927
+      "end": 219.223
     },
     {
       "word": "architecture",
-      "start": 217.927,
-      "characterPosition": 2428,
+      "start": 219.223,
+      "characterPosition": 2432,
       "characterCount": 12,
-      "end": 220.18
+      "end": 221.476
     },
     {
       "word": "The",
-      "start": 220.18,
-      "characterPosition": 2442,
+      "start": 221.476,
+      "characterPosition": 2446,
       "characterCount": 3,
-      "end": 220.38
+      "end": 221.676
     },
     {
       "word": "episodic",
-      "start": 220.38,
-      "characterPosition": 2446,
+      "start": 221.676,
+      "characterPosition": 2450,
       "characterCount": 8,
-      "end": 221.152
+      "end": 222.448
     },
     {
       "word": "stream",
-      "start": 221.152,
-      "characterPosition": 2455,
+      "start": 222.448,
+      "characterPosition": 2459,
       "characterCount": 6,
-      "end": 221.675
+      "end": 222.971
     },
     {
       "word": "logs",
-      "start": 221.675,
-      "characterPosition": 2462,
+      "start": 222.971,
+      "characterPosition": 2466,
       "characterCount": 4,
-      "end": 222.165
+      "end": 223.46
     },
     {
       "word": "fine-grained",
-      "start": 222.165,
-      "characterPosition": 2467,
+      "start": 223.46,
+      "characterPosition": 2471,
       "characterCount": 12,
-      "end": 223.012
+      "end": 224.308
     },
     {
       "word": "interactions",
-      "start": 223.012,
-      "characterPosition": 2480,
+      "start": 224.308,
+      "characterPosition": 2484,
       "characterCount": 12,
-      "end": 224.3
+      "end": 225.596
     },
     {
       "word": "timestamps",
-      "start": 224.3,
-      "characterPosition": 2494,
+      "start": 225.596,
+      "characterPosition": 2498,
       "characterCount": 10,
-      "end": 225.651
+      "end": 226.946
     },
     {
       "word": "and",
-      "start": 225.651,
-      "characterPosition": 2506,
+      "start": 226.946,
+      "characterPosition": 2510,
       "characterCount": 3,
-      "end": 225.899
+      "end": 227.194
     },
     {
       "word": "transient",
-      "start": 225.899,
-      "characterPosition": 2510,
+      "start": 227.194,
+      "characterPosition": 2514,
       "characterCount": 9,
-      "end": 226.725
+      "end": 228.021
     },
     {
       "word": "environmental",
-      "start": 226.725,
-      "characterPosition": 2520,
+      "start": 228.021,
+      "characterPosition": 2524,
       "characterCount": 13,
-      "end": 227.765
+      "end": 229.061
     },
     {
       "word": "states",
-      "start": 227.765,
-      "characterPosition": 2534,
+      "start": 229.061,
+      "characterPosition": 2538,
       "characterCount": 6,
-      "end": 229.75
+      "end": 231.045
     },
     {
       "word": "Parallel",
-      "start": 229.75,
-      "characterPosition": 2542,
+      "start": 231.045,
+      "characterPosition": 2546,
       "characterCount": 8,
-      "end": 230.583
+      "end": 231.879
     },
     {
       "word": "to",
-      "start": 230.583,
-      "characterPosition": 2551,
+      "start": 231.879,
+      "characterPosition": 2555,
       "characterCount": 2,
-      "end": 230.79
+      "end": 232.086
     },
     {
       "word": "this",
-      "start": 230.79,
-      "characterPosition": 2554,
+      "start": 232.086,
+      "characterPosition": 2558,
       "characterCount": 4,
-      "end": 231.865
+      "end": 233.161
     },
     {
       "word": "an",
-      "start": 231.865,
-      "characterPosition": 2560,
+      "start": 233.161,
+      "characterPosition": 2564,
       "characterCount": 2,
-      "end": 232.078
+      "end": 233.374
     },
     {
       "word": "epistemic",
-      "start": 232.078,
-      "characterPosition": 2563,
+      "start": 233.374,
+      "characterPosition": 2567,
       "characterCount": 9,
-      "end": 232.857
+      "end": 234.153
     },
     {
       "word": "distillation",
-      "start": 232.857,
-      "characterPosition": 2573,
+      "start": 234.153,
+      "characterPosition": 2577,
       "characterCount": 12,
-      "end": 233.808
+      "end": 235.103
     },
     {
       "word": "layer",
-      "start": 233.808,
-      "characterPosition": 2586,
+      "start": 235.103,
+      "characterPosition": 2590,
       "characterCount": 5,
-      "end": 234.18
+      "end": 235.475
     },
     {
       "word": "periodically",
-      "start": 234.18,
-      "characterPosition": 2592,
+      "start": 235.475,
+      "characterPosition": 2596,
       "characterCount": 12,
-      "end": 235.206
+      "end": 236.502
     },
     {
       "word": "extracts",
-      "start": 235.206,
-      "characterPosition": 2605,
+      "start": 236.502,
+      "characterPosition": 2609,
       "characterCount": 8,
-      "end": 235.998
+      "end": 237.294
     },
     {
       "word": "stable",
-      "start": 235.998,
-      "characterPosition": 2614,
+      "start": 237.294,
+      "characterPosition": 2618,
       "characterCount": 6,
-      "end": 236.515
+      "end": 237.811
     },
     {
       "word": "invariant",
-      "start": 236.515,
-      "characterPosition": 2621,
+      "start": 237.811,
+      "characterPosition": 2625,
       "characterCount": 9,
-      "end": 237.238
+      "end": 238.534
     },
     {
       "word": "principles",
-      "start": 237.238,
-      "characterPosition": 2631,
+      "start": 238.534,
+      "characterPosition": 2635,
       "characterCount": 10,
-      "end": 238.754
+      "end": 240.05
     },
     {
       "word": "committing",
-      "start": 238.754,
-      "characterPosition": 2643,
+      "start": 240.05,
+      "characterPosition": 2647,
       "characterCount": 10,
-      "end": 239.319
+      "end": 240.614
     },
     {
       "word": "them",
-      "start": 239.319,
-      "characterPosition": 2654,
+      "start": 240.614,
+      "characterPosition": 2658,
       "characterCount": 4,
-      "end": 239.56
+      "end": 240.855
     },
     {
       "word": "to",
-      "start": 239.56,
-      "characterPosition": 2659,
+      "start": 240.855,
+      "characterPosition": 2663,
       "characterCount": 2,
-      "end": 239.773
+      "end": 241.069
     },
     {
       "word": "a",
-      "start": 239.773,
-      "characterPosition": 2662,
+      "start": 241.069,
+      "characterPosition": 2666,
       "characterCount": 1,
-      "end": 239.87
+      "end": 241.165
     },
     {
       "word": "directed",
-      "start": 239.87,
-      "characterPosition": 2664,
+      "start": 241.165,
+      "characterPosition": 2668,
       "characterCount": 8,
-      "end": 240.552
+      "end": 241.847
     },
     {
       "word": "knowledge",
-      "start": 240.552,
-      "characterPosition": 2673,
+      "start": 241.847,
+      "characterPosition": 2677,
       "characterCount": 9,
-      "end": 241.068
+      "end": 242.364
     },
     {
       "word": "graph",
-      "start": 241.068,
-      "characterPosition": 2683,
+      "start": 242.364,
+      "characterPosition": 2687,
       "characterCount": 5,
-      "end": 242.887
+      "end": 244.183
     },
     {
       "word": "When",
-      "start": 242.887,
-      "characterPosition": 2690,
+      "start": 244.183,
+      "characterPosition": 2694,
       "characterCount": 4,
-      "end": 243.149
+      "end": 244.445
     },
     {
       "word": "an",
-      "start": 243.149,
-      "characterPosition": 2695,
+      "start": 244.445,
+      "characterPosition": 2699,
       "characterCount": 2,
-      "end": 243.349
+      "end": 244.645
     },
     {
       "word": "agent",
-      "start": 243.349,
-      "characterPosition": 2698,
+      "start": 244.645,
+      "characterPosition": 2702,
       "characterCount": 5,
-      "end": 243.831
+      "end": 245.127
     },
     {
       "word": "acts",
-      "start": 243.831,
-      "characterPosition": 2704,
+      "start": 245.127,
+      "characterPosition": 2708,
       "characterCount": 4,
-      "end": 244.989
+      "end": 246.284
     },
     {
       "word": "it",
-      "start": 244.989,
-      "characterPosition": 2710,
+      "start": 246.284,
+      "characterPosition": 2714,
       "characterCount": 2,
-      "end": 245.182
+      "end": 246.477
     },
     {
       "word": "queries",
-      "start": 245.182,
-      "characterPosition": 2713,
+      "start": 246.477,
+      "characterPosition": 2717,
       "characterCount": 7,
-      "end": 245.836
+      "end": 247.132
     },
     {
       "word": "not",
-      "start": 245.836,
-      "characterPosition": 2721,
+      "start": 247.132,
+      "characterPosition": 2725,
       "characterCount": 3,
-      "end": 246.139
+      "end": 247.435
     },
     {
       "word": "raw",
-      "start": 246.139,
-      "characterPosition": 2725,
+      "start": 247.435,
+      "characterPosition": 2729,
       "characterCount": 3,
-      "end": 246.429
+      "end": 247.724
     },
     {
       "word": "chat",
-      "start": 246.429,
-      "characterPosition": 2729,
+      "start": 247.724,
+      "characterPosition": 2733,
       "characterCount": 4,
-      "end": 246.828
+      "end": 248.124
     },
     {
       "word": "logs",
-      "start": 246.828,
-      "characterPosition": 2734,
+      "start": 248.124,
+      "characterPosition": 2738,
       "characterCount": 4,
-      "end": 248.034
+      "end": 249.33
     },
     {
       "word": "but",
-      "start": 248.034,
-      "characterPosition": 2740,
+      "start": 249.33,
+      "characterPosition": 2744,
       "characterCount": 3,
-      "end": 248.31
+      "end": 249.605
     },
     {
       "word": "verified",
-      "start": 248.31,
-      "characterPosition": 2744,
+      "start": 249.605,
+      "characterPosition": 2748,
       "characterCount": 8,
-      "end": 249.095
+      "end": 250.391
     },
     {
       "word": "conceptual",
-      "start": 249.095,
-      "characterPosition": 2753,
+      "start": 250.391,
+      "characterPosition": 2757,
       "characterCount": 10,
-      "end": 250.039
+      "end": 251.334
     },
     {
       "word": "models",
-      "start": 250.039,
-      "characterPosition": 2764,
+      "start": 251.334,
+      "characterPosition": 2768,
       "characterCount": 6,
-      "end": 251.954
+      "end": 253.25
+    },
+    {
+      "word": "Editorial",
+      "start": 253.25,
+      "characterPosition": 2777,
+      "characterCount": 9,
+      "end": 254.132
+    },
+    {
+      "word": "Synthesis",
+      "start": 254.132,
+      "characterPosition": 2787,
+      "characterCount": 9,
+      "end": 255.758
     },
     {
       "word": "Dual-stream",
-      "start": 251.954,
-      "characterPosition": 2772,
+      "start": 255.758,
+      "characterPosition": 2798,
       "characterCount": 11,
-      "end": 252.829
+      "end": 256.66
     },
     {
       "word": "memory",
-      "start": 252.829,
-      "characterPosition": 2784,
+      "start": 256.66,
+      "characterPosition": 2810,
       "characterCount": 6,
-      "end": 253.366
+      "end": 257.204
     },
     {
       "word": "models",
-      "start": 253.366,
-      "characterPosition": 2791,
+      "start": 257.204,
+      "characterPosition": 2817,
       "characterCount": 6,
-      "end": 253.973
+      "end": 257.811
     },
     {
       "word": "demonstrate",
-      "start": 253.973,
-      "characterPosition": 2798,
+      "start": 257.811,
+      "characterPosition": 2824,
       "characterCount": 11,
-      "end": 254.882
+      "end": 258.72
     },
     {
       "word": "substantial",
-      "start": 254.882,
-      "characterPosition": 2810,
+      "start": 258.72,
+      "characterPosition": 2836,
       "characterCount": 11,
-      "end": 255.819
+      "end": 259.65
     },
     {
       "word": "consistency",
-      "start": 255.819,
-      "characterPosition": 2822,
+      "start": 259.65,
+      "characterPosition": 2848,
       "characterCount": 11,
-      "end": 256.852
+      "end": 260.69
     },
     {
       "word": "improvements",
-      "start": 256.852,
-      "characterPosition": 2834,
+      "start": 260.69,
+      "characterPosition": 2860,
       "characterCount": 12,
-      "end": 257.734
+      "end": 261.565
     },
     {
       "word": "over",
-      "start": 257.734,
-      "characterPosition": 2847,
+      "start": 261.565,
+      "characterPosition": 2873,
       "characterCount": 4,
-      "end": 258.126
+      "end": 261.965
     },
     {
       "word": "unstructured",
-      "start": 258.126,
-      "characterPosition": 2852,
+      "start": 261.965,
+      "characterPosition": 2878,
       "characterCount": 12,
-      "end": 259.146
+      "end": 262.977
     },
     {
       "word": "large-context",
-      "start": 259.146,
-      "characterPosition": 2865,
+      "start": 262.977,
+      "characterPosition": 2891,
       "characterCount": 13,
-      "end": 260.372
+      "end": 264.203
     },
     {
       "word": "prompts",
-      "start": 260.372,
-      "characterPosition": 2879,
+      "start": 264.203,
+      "characterPosition": 2905,
       "characterCount": 7,
-      "end": 260.951
+      "end": 264.782
     },
     {
       "word": "in",
-      "start": 260.951,
-      "characterPosition": 2887,
+      "start": 264.782,
+      "characterPosition": 2913,
       "characterCount": 2,
-      "end": 261.158
+      "end": 264.989
     },
     {
       "word": "long-horizon",
-      "start": 261.158,
-      "characterPosition": 2890,
+      "start": 264.989,
+      "characterPosition": 2916,
       "characterCount": 12,
-      "end": 262.205
+      "end": 266.036
     },
     {
       "word": "autonomous",
-      "start": 262.205,
-      "characterPosition": 2903,
+      "start": 266.036,
+      "characterPosition": 2929,
       "characterCount": 10,
-      "end": 263.018
+      "end": 266.856
     },
     {
       "word": "workflows",
-      "start": 263.018,
-      "characterPosition": 2914,
+      "start": 266.856,
+      "characterPosition": 2940,
       "characterCount": 9,
-      "end": 263.618
+      "end": 267.456
     }
   ]
 }

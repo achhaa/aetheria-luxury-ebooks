@@ -458,20 +458,39 @@ app.post('/api/customer/orders', async (req, res) => {
  * 8. GET /api/audiobook/:bookId/:chapterId
  * Returns structured word-level timing map and verified audio URL for read-along experience.
  */
-app.get('/api/audiobook/:bookId/:chapterId', (req, res) => {
+app.get('/api/audiobook/:bookId/:chapterId', async (req, res) => {
   const { bookId, chapterId } = req.params;
+  const normalizedChapter = chapterId.startsWith('chapter-') 
+    ? chapterId 
+    : `chapter-${chapterId.padStart(2, '0')}`;
 
-  if (bookId === 'the-artificial-mind' && (chapterId === 'chapter-01' || chapterId === '01')) {
-    const timingFile = path.join(__dirname, '..', 'src', 'data', 'the-artificial-mind-chapter-01-timing.json');
-    if (fs.existsSync(timingFile)) {
+  try {
+    // 1. Check SQLite database audiobook_tracks first
+    const dbTrack = await get(
+      `SELECT * FROM audiobook_tracks WHERE book_id = ? AND (chapter_id = ? OR chapter_id = ?)`,
+      [bookId, normalizedChapter, chapterId]
+    );
+
+    if (dbTrack && dbTrack.timing_json) {
       try {
-        const raw = fs.readFileSync(timingFile, 'utf-8').replace(/^\uFEFF/, '');
-        const data = JSON.parse(raw);
+        const data = JSON.parse(dbTrack.timing_json);
+        res.setHeader('Cache-Control', 'public, max-age=3600');
         return res.json(data);
       } catch (err) {
-        console.error('Failed to read timing file:', err);
+        console.warn('[Server] DB timing_json parse warning:', err);
       }
     }
+
+    // 2. Fallback to file system in src/data
+    const timingFile = path.join(__dirname, '..', 'src', 'data', `${bookId}-${normalizedChapter}-timing.json`);
+    if (fs.existsSync(timingFile)) {
+      const raw = fs.readFileSync(timingFile, 'utf-8').replace(/^\uFEFF/, '');
+      const data = JSON.parse(raw);
+      res.setHeader('Cache-Control', 'public, max-age=3600');
+      return res.json(data);
+    }
+  } catch (err) {
+    console.error('Audiobook retrieval error:', err);
   }
 
   // Honest fallback state if exact audio timing is not yet produced

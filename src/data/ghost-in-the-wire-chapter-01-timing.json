@@ -1,0 +1,1886 @@
+{
+  "bookId": "ghost-in-the-wire",
+  "chapterId": "chapter-01",
+  "audioUrl": "/assets/audio/ghost-in-the-wire-chapter-01.wav",
+  "transcriptVersion": "1.0",
+  "totalSegments": 268,
+  "durationSeconds": 194.433,
+  "segments": [
+    {
+      "word": "The",
+      "start": 0.137,
+      "characterPosition": 0,
+      "characterCount": 3,
+      "end": 0.268
+    },
+    {
+      "word": "Silicon",
+      "start": 0.268,
+      "characterPosition": 4,
+      "characterCount": 7,
+      "end": 0.964
+    },
+    {
+      "word": "Vulnerability",
+      "start": 0.964,
+      "characterPosition": 12,
+      "characterCount": 13,
+      "end": 3.327
+    },
+    {
+      "word": "Speculative",
+      "start": 3.327,
+      "characterPosition": 27,
+      "characterCount": 11,
+      "end": 4.305
+    },
+    {
+      "word": "Execution",
+      "start": 4.305,
+      "characterPosition": 39,
+      "characterCount": 9,
+      "end": 5.304
+    },
+    {
+      "word": "&",
+      "start": 5.304,
+      "characterPosition": 49,
+      "characterCount": 1,
+      "end": 5.648
+    },
+    {
+      "word": "Transient",
+      "start": 5.648,
+      "characterPosition": 51,
+      "characterCount": 9,
+      "end": 6.434
+    },
+    {
+      "word": "Side",
+      "start": 6.434,
+      "characterPosition": 61,
+      "characterCount": 4,
+      "end": 6.916
+    },
+    {
+      "word": "Channels",
+      "start": 6.916,
+      "characterPosition": 66,
+      "characterCount": 8,
+      "end": 8.921
+    },
+    {
+      "word": "For",
+      "start": 8.921,
+      "characterPosition": 76,
+      "characterCount": 3,
+      "end": 9.21
+    },
+    {
+      "word": "decades",
+      "start": 9.21,
+      "characterPosition": 80,
+      "characterCount": 7,
+      "end": 10.561
+    },
+    {
+      "word": "computer",
+      "start": 10.561,
+      "characterPosition": 89,
+      "characterCount": 8,
+      "end": 11.277
+    },
+    {
+      "word": "architecture",
+      "start": 11.277,
+      "characterPosition": 98,
+      "characterCount": 12,
+      "end": 12.235
+    },
+    {
+      "word": "maintained",
+      "start": 12.235,
+      "characterPosition": 111,
+      "characterCount": 10,
+      "end": 12.951
+    },
+    {
+      "word": "a",
+      "start": 12.951,
+      "characterPosition": 122,
+      "characterCount": 1,
+      "end": 13.041
+    },
+    {
+      "word": "convenient",
+      "start": 13.041,
+      "characterPosition": 124,
+      "characterCount": 10,
+      "end": 13.84
+    },
+    {
+      "word": "abstraction",
+      "start": 13.84,
+      "characterPosition": 135,
+      "characterCount": 11,
+      "end": 15.507
+    },
+    {
+      "word": "the",
+      "start": 15.507,
+      "characterPosition": 148,
+      "characterCount": 3,
+      "end": 15.624
+    },
+    {
+      "word": "software",
+      "start": 15.624,
+      "characterPosition": 152,
+      "characterCount": 8,
+      "end": 16.458
+    },
+    {
+      "word": "layer",
+      "start": 16.458,
+      "characterPosition": 161,
+      "characterCount": 5,
+      "end": 16.871
+    },
+    {
+      "word": "assumes",
+      "start": 16.871,
+      "characterPosition": 167,
+      "characterCount": 7,
+      "end": 17.47
+    },
+    {
+      "word": "the",
+      "start": 17.47,
+      "characterPosition": 175,
+      "characterCount": 3,
+      "end": 17.656
+    },
+    {
+      "word": "underlying",
+      "start": 17.656,
+      "characterPosition": 179,
+      "characterCount": 10,
+      "end": 18.469
+    },
+    {
+      "word": "central",
+      "start": 18.469,
+      "characterPosition": 190,
+      "characterCount": 7,
+      "end": 19.11
+    },
+    {
+      "word": "processing",
+      "start": 19.11,
+      "characterPosition": 198,
+      "characterCount": 10,
+      "end": 19.95
+    },
+    {
+      "word": "unit",
+      "start": 19.95,
+      "characterPosition": 209,
+      "characterCount": 4,
+      "end": 20.371
+    },
+    {
+      "word": "executes",
+      "start": 20.371,
+      "characterPosition": 214,
+      "characterCount": 8,
+      "end": 21.246
+    },
+    {
+      "word": "instructions",
+      "start": 21.246,
+      "characterPosition": 223,
+      "characterCount": 12,
+      "end": 22.21
+    },
+    {
+      "word": "sequentially",
+      "start": 22.21,
+      "characterPosition": 236,
+      "characterCount": 12,
+      "end": 23.119
+    },
+    {
+      "word": "according",
+      "start": 23.119,
+      "characterPosition": 249,
+      "characterCount": 9,
+      "end": 23.753
+    },
+    {
+      "word": "to",
+      "start": 23.753,
+      "characterPosition": 259,
+      "characterCount": 2,
+      "end": 23.925
+    },
+    {
+      "word": "the",
+      "start": 23.925,
+      "characterPosition": 262,
+      "characterCount": 3,
+      "end": 24.056
+    },
+    {
+      "word": "formal",
+      "start": 24.056,
+      "characterPosition": 266,
+      "characterCount": 6,
+      "end": 24.628
+    },
+    {
+      "word": "architectural",
+      "start": 24.628,
+      "characterPosition": 273,
+      "characterCount": 13,
+      "end": 25.71
+    },
+    {
+      "word": "specification",
+      "start": 25.71,
+      "characterPosition": 287,
+      "characterCount": 13,
+      "end": 28.321
+    },
+    {
+      "word": "If",
+      "start": 28.321,
+      "characterPosition": 302,
+      "characterCount": 2,
+      "end": 28.541
+    },
+    {
+      "word": "memory",
+      "start": 28.541,
+      "characterPosition": 305,
+      "characterCount": 6,
+      "end": 29.113
+    },
+    {
+      "word": "permission",
+      "start": 29.113,
+      "characterPosition": 312,
+      "characterCount": 10,
+      "end": 29.788
+    },
+    {
+      "word": "checks",
+      "start": 29.788,
+      "characterPosition": 323,
+      "characterCount": 6,
+      "end": 30.243
+    },
+    {
+      "word": "fail",
+      "start": 30.243,
+      "characterPosition": 330,
+      "characterCount": 4,
+      "end": 31.345
+    },
+    {
+      "word": "the",
+      "start": 31.345,
+      "characterPosition": 336,
+      "characterCount": 3,
+      "end": 31.476
+    },
+    {
+      "word": "kernel",
+      "start": 31.476,
+      "characterPosition": 340,
+      "characterCount": 6,
+      "end": 31.972
+    },
+    {
+      "word": "raises",
+      "start": 31.972,
+      "characterPosition": 347,
+      "characterCount": 6,
+      "end": 32.551
+    },
+    {
+      "word": "an",
+      "start": 32.551,
+      "characterPosition": 354,
+      "characterCount": 2,
+      "end": 32.695
+    },
+    {
+      "word": "exception",
+      "start": 32.695,
+      "characterPosition": 357,
+      "characterCount": 9,
+      "end": 33.453
+    },
+    {
+      "word": "and",
+      "start": 33.453,
+      "characterPosition": 367,
+      "characterCount": 3,
+      "end": 33.694
+    },
+    {
+      "word": "memory",
+      "start": 33.694,
+      "characterPosition": 371,
+      "characterCount": 6,
+      "end": 34.252
+    },
+    {
+      "word": "remains",
+      "start": 34.252,
+      "characterPosition": 378,
+      "characterCount": 7,
+      "end": 34.852
+    },
+    {
+      "word": "unread",
+      "start": 34.852,
+      "characterPosition": 386,
+      "characterCount": 6,
+      "end": 36.795
+    },
+    {
+      "word": "The",
+      "start": 36.795,
+      "characterPosition": 395,
+      "characterCount": 3,
+      "end": 36.946
+    },
+    {
+      "word": "discovery",
+      "start": 36.946,
+      "characterPosition": 399,
+      "characterCount": 9,
+      "end": 37.849
+    },
+    {
+      "word": "of",
+      "start": 37.849,
+      "characterPosition": 409,
+      "characterCount": 2,
+      "end": 38.028
+    },
+    {
+      "word": "speculative",
+      "start": 38.028,
+      "characterPosition": 412,
+      "characterCount": 11,
+      "end": 38.999
+    },
+    {
+      "word": "execution",
+      "start": 38.999,
+      "characterPosition": 424,
+      "characterCount": 9,
+      "end": 39.998
+    },
+    {
+      "word": "side-channel",
+      "start": 39.998,
+      "characterPosition": 434,
+      "characterCount": 12,
+      "end": 40.866
+    },
+    {
+      "word": "attacks",
+      "start": 40.866,
+      "characterPosition": 447,
+      "characterCount": 7,
+      "end": 41.458
+    },
+    {
+      "word": "permanently",
+      "start": 41.458,
+      "characterPosition": 455,
+      "characterCount": 11,
+      "end": 42.278
+    },
+    {
+      "word": "shattered",
+      "start": 42.278,
+      "characterPosition": 467,
+      "characterCount": 9,
+      "end": 42.864
+    },
+    {
+      "word": "this",
+      "start": 42.864,
+      "characterPosition": 477,
+      "characterCount": 4,
+      "end": 43.119
+    },
+    {
+      "word": "abstraction",
+      "start": 43.119,
+      "characterPosition": 482,
+      "characterCount": 11,
+      "end": 45.413
+    },
+    {
+      "word": "Modern",
+      "start": 45.413,
+      "characterPosition": 495,
+      "characterCount": 6,
+      "end": 45.95
+    },
+    {
+      "word": "high-performance",
+      "start": 45.95,
+      "characterPosition": 502,
+      "characterCount": 16,
+      "end": 47.039
+    },
+    {
+      "word": "processors",
+      "start": 47.039,
+      "characterPosition": 519,
+      "characterCount": 10,
+      "end": 47.982
+    },
+    {
+      "word": "cannot",
+      "start": 47.982,
+      "characterPosition": 530,
+      "characterCount": 6,
+      "end": 48.458
+    },
+    {
+      "word": "afford",
+      "start": 48.458,
+      "characterPosition": 537,
+      "characterCount": 6,
+      "end": 48.961
+    },
+    {
+      "word": "to",
+      "start": 48.961,
+      "characterPosition": 544,
+      "characterCount": 2,
+      "end": 49.133
+    },
+    {
+      "word": "idle",
+      "start": 49.133,
+      "characterPosition": 547,
+      "characterCount": 4,
+      "end": 49.56
+    },
+    {
+      "word": "while",
+      "start": 49.56,
+      "characterPosition": 552,
+      "characterCount": 5,
+      "end": 49.877
+    },
+    {
+      "word": "resolving",
+      "start": 49.877,
+      "characterPosition": 558,
+      "characterCount": 9,
+      "end": 50.628
+    },
+    {
+      "word": "memory",
+      "start": 50.628,
+      "characterPosition": 568,
+      "characterCount": 6,
+      "end": 51.186
+    },
+    {
+      "word": "addresses",
+      "start": 51.186,
+      "characterPosition": 575,
+      "characterCount": 9,
+      "end": 52.026
+    },
+    {
+      "word": "or",
+      "start": 52.026,
+      "characterPosition": 585,
+      "characterCount": 2,
+      "end": 52.267
+    },
+    {
+      "word": "branch",
+      "start": 52.267,
+      "characterPosition": 588,
+      "characterCount": 6,
+      "end": 52.784
+    },
+    {
+      "word": "conditions",
+      "start": 52.784,
+      "characterPosition": 595,
+      "characterCount": 10,
+      "end": 54.982
+    },
+    {
+      "word": "Instead",
+      "start": 54.982,
+      "characterPosition": 607,
+      "characterCount": 7,
+      "end": 56.346
+    },
+    {
+      "word": "they",
+      "start": 56.346,
+      "characterPosition": 616,
+      "characterCount": 4,
+      "end": 56.553
+    },
+    {
+      "word": "speculate",
+      "start": 56.553,
+      "characterPosition": 621,
+      "characterCount": 9,
+      "end": 58.055
+    },
+    {
+      "word": "predicting",
+      "start": 58.055,
+      "characterPosition": 632,
+      "characterCount": 10,
+      "end": 58.819
+    },
+    {
+      "word": "branch",
+      "start": 58.819,
+      "characterPosition": 643,
+      "characterCount": 6,
+      "end": 59.308
+    },
+    {
+      "word": "outcomes",
+      "start": 59.308,
+      "characterPosition": 650,
+      "characterCount": 8,
+      "end": 59.99
+    },
+    {
+      "word": "and",
+      "start": 59.99,
+      "characterPosition": 659,
+      "characterCount": 3,
+      "end": 60.266
+    },
+    {
+      "word": "executing",
+      "start": 60.266,
+      "characterPosition": 663,
+      "characterCount": 9,
+      "end": 61.223
+    },
+    {
+      "word": "dozens",
+      "start": 61.223,
+      "characterPosition": 673,
+      "characterCount": 6,
+      "end": 61.795
+    },
+    {
+      "word": "of",
+      "start": 61.795,
+      "characterPosition": 680,
+      "characterCount": 2,
+      "end": 61.981
+    },
+    {
+      "word": "instructions",
+      "start": 61.981,
+      "characterPosition": 683,
+      "characterCount": 12,
+      "end": 62.966
+    },
+    {
+      "word": "ahead",
+      "start": 62.966,
+      "characterPosition": 696,
+      "characterCount": 5,
+      "end": 63.366
+    },
+    {
+      "word": "of",
+      "start": 63.366,
+      "characterPosition": 702,
+      "characterCount": 2,
+      "end": 63.545
+    },
+    {
+      "word": "verification",
+      "start": 63.545,
+      "characterPosition": 705,
+      "characterCount": 12,
+      "end": 65.963
+    },
+    {
+      "word": "Microarchitectural",
+      "start": 65.963,
+      "characterPosition": 720,
+      "characterCount": 18,
+      "end": 67.603
+    },
+    {
+      "word": "Footprints",
+      "start": 67.603,
+      "characterPosition": 739,
+      "characterCount": 10,
+      "end": 68.423
+    },
+    {
+      "word": "in",
+      "start": 68.423,
+      "characterPosition": 750,
+      "characterCount": 2,
+      "end": 68.636
+    },
+    {
+      "word": "CPU",
+      "start": 68.636,
+      "characterPosition": 753,
+      "characterCount": 3,
+      "end": 69.373
+    },
+    {
+      "word": "Caches",
+      "start": 69.373,
+      "characterPosition": 757,
+      "characterCount": 6,
+      "end": 71.399
+    },
+    {
+      "word": "Even",
+      "start": 71.399,
+      "characterPosition": 765,
+      "characterCount": 4,
+      "end": 71.771
+    },
+    {
+      "word": "when",
+      "start": 71.771,
+      "characterPosition": 770,
+      "characterCount": 4,
+      "end": 72.019
+    },
+    {
+      "word": "the",
+      "start": 72.019,
+      "characterPosition": 775,
+      "characterCount": 3,
+      "end": 72.129
+    },
+    {
+      "word": "processor",
+      "start": 72.129,
+      "characterPosition": 779,
+      "characterCount": 9,
+      "end": 72.949
+    },
+    {
+      "word": "detects",
+      "start": 72.949,
+      "characterPosition": 789,
+      "characterCount": 7,
+      "end": 73.521
+    },
+    {
+      "word": "an",
+      "start": 73.521,
+      "characterPosition": 797,
+      "characterCount": 2,
+      "end": 73.679
+    },
+    {
+      "word": "incorrect",
+      "start": 73.679,
+      "characterPosition": 800,
+      "characterCount": 9,
+      "end": 74.389
+    },
+    {
+      "word": "branch",
+      "start": 74.389,
+      "characterPosition": 810,
+      "characterCount": 6,
+      "end": 74.871
+    },
+    {
+      "word": "speculation",
+      "start": 74.871,
+      "characterPosition": 817,
+      "characterCount": 11,
+      "end": 75.904
+    },
+    {
+      "word": "and",
+      "start": 75.904,
+      "characterPosition": 829,
+      "characterCount": 3,
+      "end": 76.159
+    },
+    {
+      "word": "cleanly",
+      "start": 76.159,
+      "characterPosition": 833,
+      "characterCount": 7,
+      "end": 76.738
+    },
+    {
+      "word": "discards",
+      "start": 76.738,
+      "characterPosition": 841,
+      "characterCount": 8,
+      "end": 77.482
+    },
+    {
+      "word": "the",
+      "start": 77.482,
+      "characterPosition": 850,
+      "characterCount": 3,
+      "end": 77.661
+    },
+    {
+      "word": "architectural",
+      "start": 77.661,
+      "characterPosition": 854,
+      "characterCount": 13,
+      "end": 78.77
+    },
+    {
+      "word": "register",
+      "start": 78.77,
+      "characterPosition": 868,
+      "characterCount": 8,
+      "end": 79.438
+    },
+    {
+      "word": "state",
+      "start": 79.438,
+      "characterPosition": 877,
+      "characterCount": 5,
+      "end": 80.575
+    },
+    {
+      "word": "the",
+      "start": 80.575,
+      "characterPosition": 884,
+      "characterCount": 3,
+      "end": 80.72
+    },
+    {
+      "word": "microarchitectural",
+      "start": 80.72,
+      "characterPosition": 888,
+      "characterCount": 18,
+      "end": 82.318
+    },
+    {
+      "word": "state",
+      "start": 82.318,
+      "characterPosition": 907,
+      "characterCount": 5,
+      "end": 83.489
+    },
+    {
+      "word": "specifically",
+      "start": 83.489,
+      "characterPosition": 915,
+      "characterCount": 12,
+      "end": 84.468
+    },
+    {
+      "word": "the",
+      "start": 84.468,
+      "characterPosition": 928,
+      "characterCount": 3,
+      "end": 84.592
+    },
+    {
+      "word": "CPU",
+      "start": 84.592,
+      "characterPosition": 932,
+      "characterCount": 3,
+      "end": 85.363
+    },
+    {
+      "word": "L1",
+      "start": 85.363,
+      "characterPosition": 936,
+      "characterCount": 2,
+      "end": 85.618
+    },
+    {
+      "word": "L1",
+      "start": 85.618,
+      "characterPosition": 936,
+      "characterCount": 2,
+      "end": 85.907
+    },
+    {
+      "word": "and",
+      "start": 85.907,
+      "characterPosition": 939,
+      "characterCount": 3,
+      "end": 86.162
+    },
+    {
+      "word": "L2",
+      "start": 86.162,
+      "characterPosition": 943,
+      "characterCount": 2,
+      "end": 86.41
+    },
+    {
+      "word": "L2",
+      "start": 86.41,
+      "characterPosition": 943,
+      "characterCount": 2,
+      "end": 86.727
+    },
+    {
+      "word": "cache",
+      "start": 86.727,
+      "characterPosition": 946,
+      "characterCount": 5,
+      "end": 87.23
+    },
+    {
+      "word": "lines",
+      "start": 87.23,
+      "characterPosition": 952,
+      "characterCount": 5,
+      "end": 88.408
+    },
+    {
+      "word": "retains",
+      "start": 88.408,
+      "characterPosition": 960,
+      "characterCount": 7,
+      "end": 89.056
+    },
+    {
+      "word": "residual",
+      "start": 89.056,
+      "characterPosition": 968,
+      "characterCount": 8,
+      "end": 89.752
+    },
+    {
+      "word": "timing",
+      "start": 89.752,
+      "characterPosition": 977,
+      "characterCount": 6,
+      "end": 90.372
+    },
+    {
+      "word": "changes",
+      "start": 90.372,
+      "characterPosition": 984,
+      "characterCount": 7,
+      "end": 92.425
+    },
+    {
+      "word": "An",
+      "start": 92.425,
+      "characterPosition": 993,
+      "characterCount": 2,
+      "end": 92.618
+    },
+    {
+      "word": "adversary",
+      "start": 92.618,
+      "characterPosition": 996,
+      "characterCount": 9,
+      "end": 93.52
+    },
+    {
+      "word": "measuring",
+      "start": 93.52,
+      "characterPosition": 1006,
+      "characterCount": 9,
+      "end": 94.189
+    },
+    {
+      "word": "memory",
+      "start": 94.189,
+      "characterPosition": 1016,
+      "characterCount": 6,
+      "end": 94.74
+    },
+    {
+      "word": "access",
+      "start": 94.74,
+      "characterPosition": 1023,
+      "characterCount": 6,
+      "end": 95.408
+    },
+    {
+      "word": "latency",
+      "start": 95.408,
+      "characterPosition": 1030,
+      "characterCount": 7,
+      "end": 96.097
+    },
+    {
+      "word": "down",
+      "start": 96.097,
+      "characterPosition": 1038,
+      "characterCount": 4,
+      "end": 96.482
+    },
+    {
+      "word": "to",
+      "start": 96.482,
+      "characterPosition": 1043,
+      "characterCount": 2,
+      "end": 96.668
+    },
+    {
+      "word": "sub-nanosecond",
+      "start": 96.668,
+      "characterPosition": 1046,
+      "characterCount": 14,
+      "end": 97.936
+    },
+    {
+      "word": "precision",
+      "start": 97.936,
+      "characterPosition": 1061,
+      "characterCount": 9,
+      "end": 98.694
+    },
+    {
+      "word": "can",
+      "start": 98.694,
+      "characterPosition": 1071,
+      "characterCount": 3,
+      "end": 98.99
+    },
+    {
+      "word": "reconstruct",
+      "start": 98.99,
+      "characterPosition": 1075,
+      "characterCount": 11,
+      "end": 99.948
+    },
+    {
+      "word": "unauthorized",
+      "start": 99.948,
+      "characterPosition": 1087,
+      "characterCount": 12,
+      "end": 101.043
+    },
+    {
+      "word": "kernel",
+      "start": 101.043,
+      "characterPosition": 1100,
+      "characterCount": 6,
+      "end": 101.532
+    },
+    {
+      "word": "memory",
+      "start": 101.532,
+      "characterPosition": 1107,
+      "characterCount": 6,
+      "end": 102.104
+    },
+    {
+      "word": "bit",
+      "start": 102.104,
+      "characterPosition": 1114,
+      "characterCount": 3,
+      "end": 102.414
+    },
+    {
+      "word": "by",
+      "start": 102.414,
+      "characterPosition": 1118,
+      "characterCount": 2,
+      "end": 102.682
+    },
+    {
+      "word": "bit",
+      "start": 102.682,
+      "characterPosition": 1121,
+      "characterCount": 3,
+      "end": 104.322
+    },
+    {
+      "word": "Security",
+      "start": 104.322,
+      "characterPosition": 1127,
+      "characterCount": 8,
+      "end": 105.149
+    },
+    {
+      "word": "cannot",
+      "start": 105.149,
+      "characterPosition": 1136,
+      "characterCount": 6,
+      "end": 105.617
+    },
+    {
+      "word": "be",
+      "start": 105.617,
+      "characterPosition": 1143,
+      "characterCount": 2,
+      "end": 105.838
+    },
+    {
+      "word": "guaranteed",
+      "start": 105.838,
+      "characterPosition": 1146,
+      "characterCount": 10,
+      "end": 106.616
+    },
+    {
+      "word": "by",
+      "start": 106.616,
+      "characterPosition": 1157,
+      "characterCount": 2,
+      "end": 106.878
+    },
+    {
+      "word": "software",
+      "start": 106.878,
+      "characterPosition": 1160,
+      "characterCount": 8,
+      "end": 107.677
+    },
+    {
+      "word": "semantics",
+      "start": 107.677,
+      "characterPosition": 1169,
+      "characterCount": 9,
+      "end": 108.497
+    },
+    {
+      "word": "alone",
+      "start": 108.497,
+      "characterPosition": 1179,
+      "characterCount": 5,
+      "end": 108.979
+    },
+    {
+      "word": "when",
+      "start": 108.979,
+      "characterPosition": 1185,
+      "characterCount": 4,
+      "end": 109.227
+    },
+    {
+      "word": "the",
+      "start": 109.227,
+      "characterPosition": 1190,
+      "characterCount": 3,
+      "end": 109.344
+    },
+    {
+      "word": "physical",
+      "start": 109.344,
+      "characterPosition": 1194,
+      "characterCount": 8,
+      "end": 109.971
+    },
+    {
+      "word": "physics",
+      "start": 109.971,
+      "characterPosition": 1203,
+      "characterCount": 7,
+      "end": 110.571
+    },
+    {
+      "word": "of",
+      "start": 110.571,
+      "characterPosition": 1211,
+      "characterCount": 2,
+      "end": 110.75
+    },
+    {
+      "word": "silicon",
+      "start": 110.75,
+      "characterPosition": 1214,
+      "characterCount": 7,
+      "end": 111.439
+    },
+    {
+      "word": "can",
+      "start": 111.439,
+      "characterPosition": 1222,
+      "characterCount": 3,
+      "end": 111.735
+    },
+    {
+      "word": "be",
+      "start": 111.735,
+      "characterPosition": 1226,
+      "characterCount": 2,
+      "end": 111.914
+    },
+    {
+      "word": "probed",
+      "start": 111.914,
+      "characterPosition": 1229,
+      "characterCount": 6,
+      "end": 112.458
+    },
+    {
+      "word": "through",
+      "start": 112.458,
+      "characterPosition": 1236,
+      "characterCount": 7,
+      "end": 112.768
+    },
+    {
+      "word": "temporal",
+      "start": 112.768,
+      "characterPosition": 1244,
+      "characterCount": 8,
+      "end": 113.443
+    },
+    {
+      "word": "measurement",
+      "start": 113.443,
+      "characterPosition": 1253,
+      "characterCount": 11,
+      "end": 115.455
+    },
+    {
+      "word": "Mitigating",
+      "start": 115.455,
+      "characterPosition": 1267,
+      "characterCount": 10,
+      "end": 116.24
+    },
+    {
+      "word": "transient",
+      "start": 116.24,
+      "characterPosition": 1278,
+      "characterCount": 9,
+      "end": 117.032
+    },
+    {
+      "word": "execution",
+      "start": 117.032,
+      "characterPosition": 1288,
+      "characterCount": 9,
+      "end": 118.059
+    },
+    {
+      "word": "vulnerabilities",
+      "start": 118.059,
+      "characterPosition": 1298,
+      "characterCount": 15,
+      "end": 119.237
+    },
+    {
+      "word": "requires",
+      "start": 119.237,
+      "characterPosition": 1314,
+      "characterCount": 8,
+      "end": 120.022
+    },
+    {
+      "word": "re-architecting",
+      "start": 120.022,
+      "characterPosition": 1323,
+      "characterCount": 15,
+      "end": 121.18
+    },
+    {
+      "word": "the",
+      "start": 121.18,
+      "characterPosition": 1339,
+      "characterCount": 3,
+      "end": 121.317
+    },
+    {
+      "word": "boundary",
+      "start": 121.317,
+      "characterPosition": 1343,
+      "characterCount": 8,
+      "end": 121.979
+    },
+    {
+      "word": "between",
+      "start": 121.979,
+      "characterPosition": 1352,
+      "characterCount": 7,
+      "end": 122.544
+    },
+    {
+      "word": "kernel",
+      "start": 122.544,
+      "characterPosition": 1360,
+      "characterCount": 6,
+      "end": 123.033
+    },
+    {
+      "word": "memory",
+      "start": 123.033,
+      "characterPosition": 1367,
+      "characterCount": 6,
+      "end": 123.611
+    },
+    {
+      "word": "and",
+      "start": 123.611,
+      "characterPosition": 1374,
+      "characterCount": 3,
+      "end": 123.852
+    },
+    {
+      "word": "user",
+      "start": 123.852,
+      "characterPosition": 1378,
+      "characterCount": 4,
+      "end": 124.286
+    },
+    {
+      "word": "space",
+      "start": 124.286,
+      "characterPosition": 1383,
+      "characterCount": 5,
+      "end": 126.223
+    },
+    {
+      "word": "Hardware",
+      "start": 126.223,
+      "characterPosition": 1390,
+      "characterCount": 8,
+      "end": 126.939
+    },
+    {
+      "word": "vendors",
+      "start": 126.939,
+      "characterPosition": 1399,
+      "characterCount": 7,
+      "end": 127.525
+    },
+    {
+      "word": "introduced",
+      "start": 127.525,
+      "characterPosition": 1407,
+      "characterCount": 10,
+      "end": 128.303
+    },
+    {
+      "word": "speculative",
+      "start": 128.303,
+      "characterPosition": 1418,
+      "characterCount": 11,
+      "end": 129.24
+    },
+    {
+      "word": "execution",
+      "start": 129.24,
+      "characterPosition": 1430,
+      "characterCount": 9,
+      "end": 130.26
+    },
+    {
+      "word": "barriers",
+      "start": 130.26,
+      "characterPosition": 1440,
+      "characterCount": 8,
+      "end": 131.004
+    },
+    {
+      "word": "and",
+      "start": 131.004,
+      "characterPosition": 1449,
+      "characterCount": 3,
+      "end": 131.238
+    },
+    {
+      "word": "address",
+      "start": 131.238,
+      "characterPosition": 1453,
+      "characterCount": 7,
+      "end": 131.782
+    },
+    {
+      "word": "space",
+      "start": 131.782,
+      "characterPosition": 1461,
+      "characterCount": 5,
+      "end": 132.299
+    },
+    {
+      "word": "isolation",
+      "start": 132.299,
+      "characterPosition": 1467,
+      "characterCount": 9,
+      "end": 133.918
+    },
+    {
+      "word": "yet",
+      "start": 133.918,
+      "characterPosition": 1478,
+      "characterCount": 3,
+      "end": 134.2
+    },
+    {
+      "word": "software",
+      "start": 134.2,
+      "characterPosition": 1482,
+      "characterCount": 8,
+      "end": 135
+    },
+    {
+      "word": "mitigations",
+      "start": 135,
+      "characterPosition": 1491,
+      "characterCount": 11,
+      "end": 135.95
+    },
+    {
+      "word": "inevitably",
+      "start": 135.95,
+      "characterPosition": 1503,
+      "characterCount": 10,
+      "end": 136.784
+    },
+    {
+      "word": "extract",
+      "start": 136.784,
+      "characterPosition": 1514,
+      "characterCount": 7,
+      "end": 137.535
+    },
+    {
+      "word": "a",
+      "start": 137.535,
+      "characterPosition": 1522,
+      "characterCount": 1,
+      "end": 137.604
+    },
+    {
+      "word": "severe",
+      "start": 137.604,
+      "characterPosition": 1524,
+      "characterCount": 6,
+      "end": 138.155
+    },
+    {
+      "word": "latency",
+      "start": 138.155,
+      "characterPosition": 1531,
+      "characterCount": 7,
+      "end": 138.83
+    },
+    {
+      "word": "penalty",
+      "start": 138.83,
+      "characterPosition": 1539,
+      "characterCount": 7,
+      "end": 139.519
+    },
+    {
+      "word": "on",
+      "start": 139.519,
+      "characterPosition": 1547,
+      "characterCount": 2,
+      "end": 139.746
+    },
+    {
+      "word": "high-throughput",
+      "start": 139.746,
+      "characterPosition": 1550,
+      "characterCount": 15,
+      "end": 140.662
+    },
+    {
+      "word": "database",
+      "start": 140.662,
+      "characterPosition": 1566,
+      "characterCount": 8,
+      "end": 141.344
+    },
+    {
+      "word": "systems",
+      "start": 141.344,
+      "characterPosition": 1575,
+      "characterCount": 7,
+      "end": 143.377
+    },
+    {
+      "word": "Memory",
+      "start": 143.377,
+      "characterPosition": 1585,
+      "characterCount": 6,
+      "end": 143.969
+    },
+    {
+      "word": "Isolation",
+      "start": 143.969,
+      "characterPosition": 1592,
+      "characterCount": 9,
+      "end": 144.92
+    },
+    {
+      "word": "and",
+      "start": 144.92,
+      "characterPosition": 1602,
+      "characterCount": 3,
+      "end": 145.14
+    },
+    {
+      "word": "Hardware",
+      "start": 145.14,
+      "characterPosition": 1606,
+      "characterCount": 8,
+      "end": 145.898
+    },
+    {
+      "word": "Enclaves",
+      "start": 145.898,
+      "characterPosition": 1615,
+      "characterCount": 8,
+      "end": 148
+    },
+    {
+      "word": "Defensive",
+      "start": 148,
+      "characterPosition": 1625,
+      "characterCount": 9,
+      "end": 148.695
+    },
+    {
+      "word": "infrastructure",
+      "start": 148.695,
+      "characterPosition": 1635,
+      "characterCount": 14,
+      "end": 149.825
+    },
+    {
+      "word": "engineering",
+      "start": 149.825,
+      "characterPosition": 1650,
+      "characterCount": 11,
+      "end": 150.638
+    },
+    {
+      "word": "must",
+      "start": 150.638,
+      "characterPosition": 1662,
+      "characterCount": 4,
+      "end": 150.969
+    },
+    {
+      "word": "assume",
+      "start": 150.969,
+      "characterPosition": 1667,
+      "characterCount": 6,
+      "end": 151.465
+    },
+    {
+      "word": "that",
+      "start": 151.465,
+      "characterPosition": 1674,
+      "characterCount": 4,
+      "end": 151.72
+    },
+    {
+      "word": "operating",
+      "start": 151.72,
+      "characterPosition": 1679,
+      "characterCount": 9,
+      "end": 152.526
+    },
+    {
+      "word": "system",
+      "start": 152.526,
+      "characterPosition": 1689,
+      "characterCount": 6,
+      "end": 153.146
+    },
+    {
+      "word": "kernels",
+      "start": 153.146,
+      "characterPosition": 1696,
+      "characterCount": 7,
+      "end": 153.731
+    },
+    {
+      "word": "and",
+      "start": 153.731,
+      "characterPosition": 1704,
+      "characterCount": 3,
+      "end": 153.958
+    },
+    {
+      "word": "hypervisors",
+      "start": 153.958,
+      "characterPosition": 1708,
+      "characterCount": 11,
+      "end": 155.116
+    },
+    {
+      "word": "are",
+      "start": 155.116,
+      "characterPosition": 1720,
+      "characterCount": 3,
+      "end": 155.391
+    },
+    {
+      "word": "inherently",
+      "start": 155.391,
+      "characterPosition": 1724,
+      "characterCount": 10,
+      "end": 156.266
+    },
+    {
+      "word": "hostile",
+      "start": 156.266,
+      "characterPosition": 1735,
+      "characterCount": 7,
+      "end": 156.859
+    },
+    {
+      "word": "or",
+      "start": 156.859,
+      "characterPosition": 1743,
+      "characterCount": 2,
+      "end": 157.1
+    },
+    {
+      "word": "compromised",
+      "start": 157.1,
+      "characterPosition": 1746,
+      "characterCount": 11,
+      "end": 159.422
+    },
+    {
+      "word": "By",
+      "start": 159.422,
+      "characterPosition": 1759,
+      "characterCount": 2,
+      "end": 159.69
+    },
+    {
+      "word": "deploying",
+      "start": 159.69,
+      "characterPosition": 1762,
+      "characterCount": 9,
+      "end": 160.352
+    },
+    {
+      "word": "cryptographic",
+      "start": 160.352,
+      "characterPosition": 1772,
+      "characterCount": 13,
+      "end": 161.468
+    },
+    {
+      "word": "enclaves",
+      "start": 161.468,
+      "characterPosition": 1786,
+      "characterCount": 8,
+      "end": 162.17
+    },
+    {
+      "word": "with",
+      "start": 162.17,
+      "characterPosition": 1795,
+      "characterCount": 4,
+      "end": 162.453
+    },
+    {
+      "word": "remote",
+      "start": 162.453,
+      "characterPosition": 1800,
+      "characterCount": 6,
+      "end": 162.908
+    },
+    {
+      "word": "hardware",
+      "start": 162.908,
+      "characterPosition": 1807,
+      "characterCount": 8,
+      "end": 163.645
+    },
+    {
+      "word": "attestation",
+      "start": 163.645,
+      "characterPosition": 1816,
+      "characterCount": 11,
+      "end": 165.326
+    },
+    {
+      "word": "sensitive",
+      "start": 165.326,
+      "characterPosition": 1829,
+      "characterCount": 9,
+      "end": 166.084
+    },
+    {
+      "word": "cryptographic",
+      "start": 166.084,
+      "characterPosition": 1839,
+      "characterCount": 13,
+      "end": 167.2
+    },
+    {
+      "word": "keys",
+      "start": 167.2,
+      "characterPosition": 1853,
+      "characterCount": 4,
+      "end": 167.606
+    },
+    {
+      "word": "and",
+      "start": 167.606,
+      "characterPosition": 1858,
+      "characterCount": 3,
+      "end": 167.82
+    },
+    {
+      "word": "sovereign",
+      "start": 167.82,
+      "characterPosition": 1862,
+      "characterCount": 9,
+      "end": 168.488
+    },
+    {
+      "word": "transactions",
+      "start": 168.488,
+      "characterPosition": 1872,
+      "characterCount": 12,
+      "end": 169.556
+    },
+    {
+      "word": "remain",
+      "start": 169.556,
+      "characterPosition": 1885,
+      "characterCount": 6,
+      "end": 170.045
+    },
+    {
+      "word": "insulated",
+      "start": 170.045,
+      "characterPosition": 1892,
+      "characterCount": 9,
+      "end": 170.878
+    },
+    {
+      "word": "even",
+      "start": 170.878,
+      "characterPosition": 1902,
+      "characterCount": 4,
+      "end": 171.25
+    },
+    {
+      "word": "against",
+      "start": 171.25,
+      "characterPosition": 1907,
+      "characterCount": 7,
+      "end": 171.836
+    },
+    {
+      "word": "root-level",
+      "start": 171.836,
+      "characterPosition": 1915,
+      "characterCount": 10,
+      "end": 172.552
+    },
+    {
+      "word": "host",
+      "start": 172.552,
+      "characterPosition": 1926,
+      "characterCount": 4,
+      "end": 172.945
+    },
+    {
+      "word": "intrusion",
+      "start": 172.945,
+      "characterPosition": 1931,
+      "characterCount": 9,
+      "end": 175.033
+    },
+    {
+      "word": "Defensive",
+      "start": 175.033,
+      "characterPosition": 1943,
+      "characterCount": 9,
+      "end": 175.763
+    },
+    {
+      "word": "Directive",
+      "start": 175.763,
+      "characterPosition": 1953,
+      "characterCount": 9,
+      "end": 177.134
+    },
+    {
+      "word": "In",
+      "start": 177.134,
+      "characterPosition": 1964,
+      "characterCount": 2,
+      "end": 177.327
+    },
+    {
+      "word": "hostile",
+      "start": 177.327,
+      "characterPosition": 1967,
+      "characterCount": 7,
+      "end": 177.899
+    },
+    {
+      "word": "network",
+      "start": 177.899,
+      "characterPosition": 1975,
+      "characterCount": 7,
+      "end": 178.436
+    },
+    {
+      "word": "topologies",
+      "start": 178.436,
+      "characterPosition": 1983,
+      "characterCount": 10,
+      "end": 180.124
+    },
+    {
+      "word": "physical",
+      "start": 180.124,
+      "characterPosition": 1995,
+      "characterCount": 8,
+      "end": 180.723
+    },
+    {
+      "word": "and",
+      "start": 180.723,
+      "characterPosition": 2004,
+      "characterCount": 3,
+      "end": 180.964
+    },
+    {
+      "word": "microarchitectural",
+      "start": 180.964,
+      "characterPosition": 2008,
+      "characterCount": 18,
+      "end": 182.528
+    },
+    {
+      "word": "side",
+      "start": 182.528,
+      "characterPosition": 2027,
+      "characterCount": 4,
+      "end": 183.024
+    },
+    {
+      "word": "channels",
+      "start": 183.024,
+      "characterPosition": 2032,
+      "characterCount": 8,
+      "end": 183.679
+    },
+    {
+      "word": "take",
+      "start": 183.679,
+      "characterPosition": 2041,
+      "characterCount": 4,
+      "end": 184.03
+    },
+    {
+      "word": "precedence",
+      "start": 184.03,
+      "characterPosition": 2046,
+      "characterCount": 10,
+      "end": 184.857
+    },
+    {
+      "word": "over",
+      "start": 184.857,
+      "characterPosition": 2057,
+      "characterCount": 4,
+      "end": 185.249
+    },
+    {
+      "word": "application-layer",
+      "start": 185.249,
+      "characterPosition": 2062,
+      "characterCount": 17,
+      "end": 186.558
+    },
+    {
+      "word": "encryption",
+      "start": 186.558,
+      "characterPosition": 2080,
+      "characterCount": 10,
+      "end": 188.66
+    },
+    {
+      "word": "Always",
+      "start": 188.66,
+      "characterPosition": 2092,
+      "characterCount": 6,
+      "end": 189.245
+    },
+    {
+      "word": "enforce",
+      "start": 189.245,
+      "characterPosition": 2099,
+      "characterCount": 7,
+      "end": 189.879
+    },
+    {
+      "word": "hardware-level",
+      "start": 189.879,
+      "characterPosition": 2107,
+      "characterCount": 14,
+      "end": 190.892
+    },
+    {
+      "word": "memory",
+      "start": 190.892,
+      "characterPosition": 2122,
+      "characterCount": 6,
+      "end": 191.45
+    },
+    {
+      "word": "encryption",
+      "start": 191.45,
+      "characterPosition": 2129,
+      "characterCount": 10,
+      "end": 192.228
+    },
+    {
+      "word": "and",
+      "start": 192.228,
+      "characterPosition": 2140,
+      "characterCount": 3,
+      "end": 192.483
+    },
+    {
+      "word": "timing",
+      "start": 192.483,
+      "characterPosition": 2144,
+      "characterCount": 6,
+      "end": 193.055
+    },
+    {
+      "word": "invariant",
+      "start": 193.055,
+      "characterPosition": 2151,
+      "characterCount": 9,
+      "end": 193.833
+    },
+    {
+      "word": "routines",
+      "start": 193.833,
+      "characterPosition": 2161,
+      "characterCount": 8,
+      "end": 194.433
+    }
+  ]
+}
