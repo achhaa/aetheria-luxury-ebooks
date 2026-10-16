@@ -3,9 +3,11 @@ import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import BookCard from './components/BookCard';
 import InteractiveBookModal from './components/InteractiveBookModal';
+import BookDetailModal from './components/BookDetailModal';
 import CartDrawer from './components/CartDrawer';
 import CheckoutModal from './components/CheckoutModal';
-import PremiumSuggestionsModal from './components/PremiumSuggestionsModal';
+import LibraryLookupModal from './components/LibraryLookupModal';
+import EditorialPoliciesModal from './components/EditorialPoliciesModal';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import BackgroundVideo from './components/BackgroundVideo';
@@ -13,195 +15,194 @@ import OpeningIntro from './components/OpeningIntro';
 
 import { BOOKS_DATA, CATEGORIES } from './data/booksData';
 import { toggleAmbientSound } from './utils/audioSynthesis';
-import { Sparkles, SlidersHorizontal, ArrowUpDown, BookOpen, Layers } from 'lucide-react';
+import { ArrowUpDown, BookOpen, ShieldCheck, Sparkles } from 'lucide-react';
 
 export default function App() {
-  // Opening Animation State
+  // Opening Cinematic Sequence (3-5s, respects reduced-motion)
   const [showOpeningIntro, setShowOpeningIntro] = useState(true);
 
-  // Audio Atmosphere State
+  // Ambient Audio
   const [isAudioOn, setIsAudioOn] = useState(false);
 
-  // Currency State
-  const [currency, setCurrency] = useState({ code: 'USD', symbol: '$', rate: 1 });
-
   // Catalog Filtering & Search
-  const [activeCategory, setActiveCategory] = useState('All Collections');
+  const [activeCategory, setActiveCategory] = useState('All Publications');
   const [searchQuery, setSearchQuery] = useState('');
-  const [sortBy, setSortBy] = useState('bestseller'); // 'bestseller', 'rating', 'price-low', 'price-high'
+  const [sortBy, setSortBy] = useState('featured'); // 'featured', 'price-low', 'price-high', 'pages'
 
-  // Cart & Modals
+  // Cart
   const [cart, setCart] = useState(() => {
     try {
-      const saved = localStorage.getItem('aetheria_cart');
+      const saved = localStorage.getItem('aetheria_cart_inr');
       return saved ? JSON.parse(saved) : [];
     } catch {
       return [];
     }
   });
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [previewBook, setPreviewBook] = useState(null);
-  const [checkoutOrder, setCheckoutOrder] = useState(null);
-  const [isPremiumGuideOpen, setIsPremiumGuideOpen] = useState(false);
+
+  // Active Modals
+  const [readingBook, setReadingBook] = useState(null); // Book currently opened in Reading Room
+  const [detailBook, setDetailBook] = useState(null);   // Book currently opened in Trailer/Dossier modal
+  const [checkoutBooks, setCheckoutBooks] = useState(null); // Books being purchased
+  const [isLibraryLookupOpen, setIsLibraryLookupOpen] = useState(false);
+  const [isPoliciesOpen, setIsPoliciesOpen] = useState(false);
 
   // Persist cart
   useEffect(() => {
     try {
-      localStorage.setItem('aetheria_cart', JSON.stringify(cart));
+      localStorage.setItem('aetheria_cart_inr', JSON.stringify(cart));
     } catch (e) {
-      console.debug('LocalStorage error:', e);
+      console.debug('LocalStorage write error:', e);
     }
   }, [cart]);
 
-  // Audio Toggle Handler
+  // Audio Toggle
   const handleToggleAudio = () => {
-    const newState = !isAudioOn;
-    setIsAudioOn(newState);
-    toggleAmbientSound(newState);
+    const next = !isAudioOn;
+    setIsAudioOn(next);
+    toggleAmbientSound(next);
   };
 
-  // Cart operations
+  // Cart Handlers
   const handleAddToCart = (book) => {
     if (!cart.some((it) => it.id === book.id)) {
       setCart((prev) => [...prev, book]);
-      setIsCartOpen(true);
-    } else {
-      setIsCartOpen(true);
     }
+    setIsCartOpen(true);
   };
 
   const handleRemoveFromCart = (bookId) => {
     setCart((prev) => prev.filter((it) => it.id !== bookId));
   };
 
-  // Filter & Sort Books
+  // Direct 1-Click Buy Action
+  const handleDirectBuy = (book) => {
+    setCheckoutBooks([book]);
+  };
+
+  // Filter & Sort
   const filteredBooks = BOOKS_DATA.filter((book) => {
     const matchesCategory =
-      activeCategory === 'All Collections' || book.category === activeCategory;
+      activeCategory === 'All Publications' || book.category === activeCategory;
+    const q = searchQuery.toLowerCase();
     const matchesSearch =
-      book.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      book.subtitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      book.author.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      book.category.toLowerCase().includes(searchQuery.toLowerCase());
+      book.title.toLowerCase().includes(q) ||
+      book.subtitle.toLowerCase().includes(q) ||
+      book.author.toLowerCase().includes(q) ||
+      book.category.toLowerCase().includes(q);
     return matchesCategory && matchesSearch;
   }).sort((a, b) => {
-    if (sortBy === 'rating') return b.rating - a.rating;
-    if (sortBy === 'price-low') return a.priceUSD - b.priceUSD;
-    if (sortBy === 'price-high') return b.priceUSD - a.priceUSD;
-    return b.reviewsCount - a.reviewsCount; // default popular
+    if (sortBy === 'price-low') return a.priceINR - b.priceINR;
+    if (sortBy === 'price-high') return b.priceINR - a.priceINR;
+    if (sortBy === 'pages') return b.pages - a.pages;
+    return 0; // default order
   });
 
   const featuredBook = BOOKS_DATA[0];
 
   return (
-    <div className="relative min-h-screen bg-obsidian-950 text-slate-100 flex flex-col selection:bg-gold-500/30 selection:text-gold-300">
+    <div className="relative min-h-screen bg-[#07080a] text-slate-100 flex flex-col selection:bg-[#c5a059]/30 selection:text-[#fde68a]">
       
-      {/* 1. Website Opening Cinematic Animation */}
+      {/* 1. Cinematic 3-5s Product Launch Intro */}
       {showOpeningIntro && (
-        <OpeningIntro
-          onComplete={() => setShowOpeningIntro(false)}
-          onToggleAudio={handleToggleAudio}
-          isAudioOn={isAudioOn}
-        />
+        <OpeningIntro onComplete={() => setShowOpeningIntro(false)} />
       )}
 
-      {/* 2. Background Video & Interactive Dust Particles */}
+      {/* 2. Ambient Background Atmosphere Video & Particle Canvas */}
       <BackgroundVideo />
 
-      {/* 3. Luxury Sticky Header */}
+      {/* 3. Navigation Header */}
       <Navbar
         cartCount={cart.length}
         onOpenCart={() => setIsCartOpen(true)}
         isAudioOn={isAudioOn}
         onToggleAudio={handleToggleAudio}
-        currency={currency}
-        onCurrencyChange={setCurrency}
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
-        onOpenPremiumGuide={() => setIsPremiumGuideOpen(true)}
+        onOpenPolicies={() => setIsPoliciesOpen(true)}
+        onOpenLibraryLookup={() => setIsLibraryLookupOpen(true)}
       />
 
-      {/* Main Content Area */}
+      {/* Main Storefront */}
       <main className="relative z-10 flex-1">
         
-        {/* 4. Hero Section with 3D Interactive Showcase */}
+        {/* 4. Editorial Hero Section */}
         <HeroSection
           featuredBook={featuredBook}
-          onOpenPreview={(book) => setPreviewBook(book)}
-          onAddToCart={handleAddToCart}
-          currency={currency.symbol}
-          currencyRate={currency.rate}
+          onOpenSample={(b) => setReadingBook(b)}
+          onOpenDetail={(b) => setDetailBook(b)}
+          onBuyNow={handleDirectBuy}
         />
 
-        {/* 5. Catalog & E-Books Storefront Section */}
+        {/* 5. Catalogue Grid */}
         <section id="catalog" className="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Section Header */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <span className="w-2 h-2 rounded-full bg-gold-400" />
-                <span className="text-xs font-mono uppercase tracking-widest text-gold-400 font-semibold">
-                  CURATED PORTFOLIO • POPULAR MASTERWORKS
+                <span className="w-2 h-2 rounded-full bg-[#c5a059]" />
+                <span className="text-xs font-mono uppercase tracking-widest text-[#c5a059] font-bold">
+                  CURATED PUBLICATIONS • ALL EDITIONS UNDER ₹500
                 </span>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-white">
-                Bestselling Interactive Editions
+                Original Authoritative Volumes
               </h2>
               <p className="text-sm text-slate-400 mt-2 font-light max-w-xl">
-                Each edition includes the full interactive 3D reading experience, vector PDF for reMarkable/iPad, Kindle-compatible EPUB, and audio narration.
+                Every purchase includes instant vector PDF downloads, universal EPUB for Kindle/Apple Books, and full lifetime access.
               </p>
             </div>
 
-            {/* Sort Dropdown */}
+            {/* Sort Controls */}
             <div className="flex items-center gap-3">
               <span className="text-xs font-mono text-slate-400 flex items-center gap-1.5">
-                <ArrowUpDown className="w-3.5 h-3.5" /> Sort by:
+                <ArrowUpDown className="w-3.5 h-3.5" /> Sort:
               </span>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="bg-obsidian-900 border border-white/10 rounded-xl px-3 py-2 text-xs font-mono text-slate-200 focus:outline-none focus:border-gold-500/50"
+                className="bg-[#0f1118] border border-white/10 rounded-xl px-3 py-2 text-xs font-mono text-slate-200 focus:outline-none focus:border-[#c5a059]"
               >
-                <option value="bestseller">Highest Demand / Reviews</option>
-                <option value="rating">Highest Rated (4.9+)</option>
+                <option value="featured">Curated Sequence</option>
                 <option value="price-low">Price: Low to High</option>
                 <option value="price-high">Price: High to Low</option>
+                <option value="pages">Length / Pages</option>
               </select>
             </div>
           </div>
 
-          {/* Category Filter Pills */}
+          {/* Category Filter Tabs */}
           <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 scrollbar-none">
-            {CATEGORIES.map((category) => (
+            {CATEGORIES.map((cat) => (
               <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-4 py-2 rounded-full text-xs font-mono whitespace-nowrap transition-all duration-300 ${
-                  activeCategory === category
-                    ? 'bg-gradient-to-r from-gold-500 to-amber-300 text-obsidian-950 font-bold shadow-[0_0_20px_rgba(212,175,55,0.35)] scale-105'
-                    : 'bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 hover:border-gold-500/30'
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-4 py-2 rounded-full text-xs font-mono whitespace-nowrap transition-all duration-200 ${
+                  activeCategory === cat
+                    ? 'bg-[#c5a059] text-[#07080a] font-bold shadow-md'
+                    : 'bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10'
                 }`}
               >
-                {category}
+                {cat}
               </button>
             ))}
           </div>
 
           {/* Book Cards Grid */}
           {filteredBooks.length === 0 ? (
-            <div className="p-16 rounded-3xl glass-panel text-center max-w-lg mx-auto">
+            <div className="p-16 rounded-3xl bg-white/5 border border-white/10 text-center max-w-md mx-auto">
               <BookOpen className="w-12 h-12 text-slate-500 mx-auto mb-4" />
-              <h3 className="text-lg font-bold text-white mb-2">No matching editions found</h3>
+              <h3 className="text-lg font-bold text-white mb-2">No publications found</h3>
               <p className="text-xs text-slate-400 mb-6 font-light">
-                Try searching for "AI", "Wealth", "Stoic", or reset the filter category.
+                Try searching for "Mind", "Stoic", or "Cyber", or reset the category.
               </p>
               <button
                 onClick={() => {
-                  setActiveCategory('All Collections');
+                  setActiveCategory('All Publications');
                   setSearchQuery('');
                 }}
-                className="px-6 py-2.5 rounded-full bg-gold-500 text-obsidian-950 text-xs font-bold"
+                className="px-6 py-2.5 rounded-full bg-[#c5a059] text-black text-xs font-bold font-mono"
               >
                 RESET CATALOG
               </button>
@@ -212,48 +213,37 @@ export default function App() {
                 <BookCard
                   key={book.id}
                   book={book}
-                  onOpenPreview={(b) => setPreviewBook(b)}
-                  onAddToCart={handleAddToCart}
-                  isInCart={cart.some((it) => it.id === book.id)}
-                  currency={currency.symbol}
-                  currencyRate={currency.rate}
+                  onOpenSample={(b) => setReadingBook(b)}
+                  onOpenDetail={(b) => setDetailBook(b)}
+                  onBuyNow={handleDirectBuy}
                 />
               ))}
             </div>
           )}
 
-          {/* Interactive Feature Banner: "Why Aetheria Editions are 10x More Engaging" */}
-          <div className="mt-20 p-8 sm:p-12 rounded-3xl glass-panel-gold border border-gold-500/30 relative overflow-hidden">
+          {/* Reading Comfort & Guarantee Banner */}
+          <div className="mt-20 p-8 sm:p-12 rounded-3xl bg-[#0d0f14] border border-[#c5a059]/30 relative overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-8 space-y-4">
-                <span className="text-xs font-mono uppercase tracking-widest text-gold-400 font-bold flex items-center gap-1.5">
-                  <Sparkles className="w-4 h-4" /> THE MULTI-DIMENSIONAL READING REVOLUTION
+                <span className="text-xs font-mono uppercase tracking-widest text-[#c5a059] font-bold flex items-center gap-1.5">
+                  <Sparkles className="w-4 h-4" /> REFINED EDITORIAL PHILOSOPHY
                 </span>
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-display font-extrabold text-white">
-                  Forget Boring Flat PDFs. Experience Books in Living 3D.
+                <h3 className="text-2xl sm:text-3xl font-display font-extrabold text-white">
+                  Designed for Effortless Long-Form Reading.
                 </h3>
                 <p className="text-sm text-slate-300 font-light leading-relaxed max-w-2xl">
-                  Every book on Aetheria comes with our tactile 3D browser flipbook engine, synchronized AI narration, interactive architecture diagrams, customizable daylight/sepia/OLED paper textures, and instant DRM-free master downloads.
+                  We believe long-form digital books should feel as comfortable as an artisan hardback. Enjoy sample chapters in warm ivory paper, dark charcoal typography, distraction-free reading mode, and instant vector PDF downloads.
                 </p>
-                <div className="pt-2">
-                  <button
-                    onClick={() => setPreviewBook(featuredBook)}
-                    className="px-6 py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-obsidian-950 font-bold text-xs tracking-wider transition shadow-lg inline-flex items-center gap-2"
-                  >
-                    <BookOpen className="w-4 h-4" />
-                    <span>LAUNCH DEMO FLIPBOOK NOW</span>
-                  </button>
-                </div>
               </div>
 
               <div className="lg:col-span-4 flex justify-center">
-                <div className="p-6 rounded-2xl bg-black/40 border border-white/10 text-center space-y-3 w-full max-w-xs">
-                  <span className="text-3xl font-display font-black text-gold-400">100%</span>
-                  <h4 className="text-xs font-bold text-white uppercase tracking-wider">
-                    Sovereign Ownership
+                <div className="p-6 rounded-2xl bg-black/50 border border-white/10 text-center space-y-2 w-full max-w-xs">
+                  <span className="text-3xl font-display font-bold text-[#c5a059]">₹199 – ₹349</span>
+                  <h4 className="text-xs font-bold text-white uppercase tracking-wider font-mono">
+                    Direct Indian Pricing
                   </h4>
                   <p className="text-[11px] text-slate-400 font-light">
-                    No proprietary app requirements. Read in our web app, Kindle, Apple Books, Kobo, or your browser.
+                    Every title priced under ₹500. Zero hidden shipping or recurring subscriptions.
                   </p>
                 </div>
               </div>
@@ -262,56 +252,68 @@ export default function App() {
 
         </section>
 
-        {/* 6. Social Proof & Endorsements */}
+        {/* 6. Testimonials & Verified Reviews */}
         <Testimonials />
 
       </main>
 
       {/* 7. Footer */}
-      <Footer onOpenPremiumGuide={() => setIsPremiumGuideOpen(true)} />
-
-      {/* 8. Modals & Drawers */}
-      
-      {/* 3D Flipbook Reader Modal */}
-      <InteractiveBookModal
-        book={previewBook}
-        isOpen={Boolean(previewBook)}
-        onClose={() => setPreviewBook(null)}
-        onAddToCart={handleAddToCart}
-        currency={currency.symbol}
-        currencyRate={currency.rate}
+      <Footer 
+        onOpenPolicies={() => setIsPoliciesOpen(true)}
+        onOpenLibraryLookup={() => setIsLibraryLookupOpen(true)}
       />
 
-      {/* Slide-over Cart Drawer */}
+      {/* 8. Interactive Modals */}
+
+      {/* Reading Room Modal: Warm Ivory, Charcoal Text, Distraction-Free */}
+      <InteractiveBookModal
+        book={readingBook}
+        isOpen={Boolean(readingBook)}
+        onClose={() => setReadingBook(null)}
+        onBuyNow={handleDirectBuy}
+      />
+
+      {/* Book Detail & 10s Cinematic Trailer Modal */}
+      <BookDetailModal
+        book={detailBook}
+        isOpen={Boolean(detailBook)}
+        onClose={() => setDetailBook(null)}
+        onOpenSample={(b) => setReadingBook(b)}
+        onBuyNow={handleDirectBuy}
+      />
+
+      {/* Shopping Bag Drawer */}
       <CartDrawer
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}
         cartItems={cart}
         onRemoveItem={handleRemoveFromCart}
-        onProceedCheckout={(order) => {
+        onProceedCheckout={(items) => {
           setIsCartOpen(false);
-          setCheckoutOrder(order);
+          setCheckoutBooks(items);
         }}
-        currency={currency.symbol}
-        currencyRate={currency.rate}
       />
 
-      {/* Checkout & Instant Download Portal Modal */}
+      {/* Razorpay Verified Checkout Modal */}
       <CheckoutModal
-        isOpen={Boolean(checkoutOrder)}
-        orderData={checkoutOrder}
-        onClose={() => setCheckoutOrder(null)}
-        onOrderSuccess={() => {
-          setCart([]); // Clear cart upon successful acquisition
+        books={checkoutBooks}
+        isOpen={Boolean(checkoutBooks)}
+        onClose={() => setCheckoutBooks(null)}
+        onSuccess={() => {
+          setCart([]); // Clear cart upon verified purchase
         }}
-        currency={currency.symbol}
-        currencyRate={currency.rate}
       />
 
-      {/* Suggestions Modal for Making the Website Ultra-Premium */}
-      <PremiumSuggestionsModal
-        isOpen={isPremiumGuideOpen}
-        onClose={() => setIsPremiumGuideOpen(false)}
+      {/* Customer Library Lookup Modal */}
+      <LibraryLookupModal
+        isOpen={isLibraryLookupOpen}
+        onClose={() => setIsLibraryLookupOpen(false)}
+      />
+
+      {/* Editorial & Commerce Policies Modal */}
+      <EditorialPoliciesModal
+        isOpen={isPoliciesOpen}
+        onClose={() => setIsPoliciesOpen(false)}
       />
 
     </div>

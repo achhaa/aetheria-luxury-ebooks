@@ -1,120 +1,134 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, Volume2, VolumeX, ArrowRight, BookOpen } from 'lucide-react';
-import { playBookOpenSound } from '../utils/audioSynthesis';
+import { ArrowRight, Sparkles, BookOpen } from 'lucide-react';
 
-export default function OpeningIntro({ onComplete, onToggleAudio, isAudioOn }) {
-  const [progress, setProgress] = useState(0);
-  const [phase, setPhase] = useState('loading'); // 'loading', 'ready', 'exiting'
+export default function OpeningIntro({ onComplete }) {
+  const [phase, setPhase] = useState(0); // 0: initial ambient light, 1: monogram reveal, 2: typography unveil, 3: ready/exit
+  const [isExiting, setIsExiting] = useState(false);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(timer);
-          setPhase('ready');
-          return 100;
-        }
-        const increment = Math.floor(Math.random() * 12) + 6;
-        return Math.min(100, prev + increment);
-      });
-    }, 120);
+    // Respect user's reduced motion preference
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mediaQuery.matches) {
+      onComplete();
+      return;
+    }
 
-    return () => clearInterval(timer);
+    const t1 = setTimeout(() => setPhase(1), 600);
+    const t2 = setTimeout(() => setPhase(2), 1800);
+    const t3 = setTimeout(() => setPhase(3), 3200);
+    const tAutoExit = setTimeout(() => handleExit(), 4800);
+
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+      clearTimeout(tAutoExit);
+    };
   }, []);
 
-  const handleEnter = () => {
-    setPhase('exiting');
-    playBookOpenSound();
+  const handleExit = () => {
+    setIsExiting(true);
     setTimeout(() => {
       onComplete();
-    }, 900);
+    }, 700);
   };
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-obsidian-950 transition-all duration-1000 ${
-        phase === 'exiting' ? 'opacity-0 scale-105 pointer-events-none' : 'opacity-100 scale-100'
+      role="dialog"
+      aria-label="Aetheria Introduction"
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-[#07080a] text-slate-100 transition-all duration-700 ease-out select-none ${
+        isExiting ? 'opacity-0 scale-[1.03] pointer-events-none' : 'opacity-100 scale-100'
       }`}
     >
-      {/* Background ambient radial glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.12)_0%,rgba(6,7,9,0.98)_70%)] pointer-events-none" />
+      {/* Cinematic Ambient Backdrop & Light Shimmer */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Soft focused radial illumination */}
+        <div 
+          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] rounded-full bg-gradient-to-tr from-amber-500/10 via-cyan-500/5 to-transparent blur-[120px] transition-all duration-1000 ${
+            phase >= 1 ? 'opacity-90 scale-110' : 'opacity-30 scale-90'
+          }`} 
+        />
 
-      {/* Decorative Grid Lines */}
-      <div 
-        className="absolute inset-0 opacity-10 pointer-events-none"
-        style={{
-          backgroundImage: 'linear-gradient(to right, #d4af37 1px, transparent 1px), linear-gradient(to bottom, #d4af37 1px, transparent 1px)',
-          backgroundSize: '80px 80px'
-        }}
-      />
+        {/* Subtle geometric hairline cross */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-10">
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-[#c5a059] to-transparent" />
+          <div className="absolute w-px h-full bg-gradient-to-b from-transparent via-[#c5a059] to-transparent" />
+        </div>
+      </div>
 
-      <div className="relative z-10 max-w-xl mx-auto px-6 text-center flex flex-col items-center">
-        {/* Animated Brand Monogram */}
-        <div className="relative mb-8 group cursor-pointer" onClick={handleEnter}>
-          <div className="w-24 h-24 rounded-2xl border border-gold-500/40 bg-obsidian-900/80 backdrop-blur-xl flex items-center justify-center shadow-[0_0_50px_rgba(212,175,55,0.25)] transition-all duration-700 group-hover:scale-105 group-hover:border-gold-400 group-hover:shadow-[0_0_70px_rgba(212,175,55,0.45)]">
-            <BookOpen className="w-12 h-12 text-gold-accent animate-pulse-glow" />
+      {/* Skip Intro Button — Always immediately available */}
+      <div className="absolute top-6 right-6 z-20">
+        <button
+          onClick={handleExit}
+          className="px-4 py-2 rounded-full border border-white/10 hover:border-[#c5a059]/40 bg-white/5 hover:bg-white/10 text-xs font-mono text-slate-400 hover:text-white transition-all flex items-center gap-1.5"
+          aria-label="Skip cinematic introduction"
+        >
+          <span>Skip Intro</span>
+          <ArrowRight className="w-3 h-3" />
+        </button>
+      </div>
+
+      {/* Choreographed Central Emblem & Brand Reveal */}
+      <div className="relative z-10 max-w-lg mx-auto px-6 text-center flex flex-col items-center">
+        
+        {/* Apple-style Monogram with Polished Backlight */}
+        <div 
+          className={`relative mb-8 transition-all duration-1000 ease-out ${
+            phase >= 1 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'
+          }`}
+        >
+          <div className="w-20 h-20 rounded-2xl border border-[#c5a059]/40 bg-[#0d0f14]/80 backdrop-blur-xl flex items-center justify-center shadow-[0_0_40px_rgba(197,160,89,0.25)] relative overflow-hidden group">
+            <BookOpen className="w-9 h-9 text-[#d4af37]" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
           </div>
-          <span className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-gold-400/20 via-cyan-500/20 to-purple-500/20 blur-xl opacity-70 group-hover:opacity-100 transition duration-700" />
         </div>
 
-        {/* Brand Name with Staggered Glow */}
-        <p className="text-xs uppercase tracking-[0.35em] text-gold-400/80 mb-3 font-mono font-medium">
-          Privé Edition • Digital Atelier
+        {/* Sub-label with Staggered Fade */}
+        <p 
+          className={`text-[10px] uppercase tracking-[0.4em] text-[#c5a059] mb-3 font-mono font-medium transition-all duration-700 delay-100 ${
+            phase >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+          }`}
+        >
+          Atelier of Modern Thought
         </p>
-        <h1 className="text-5xl md:text-6xl font-display font-extrabold tracking-tight mb-4 gold-gradient-text">
+
+        {/* Brand Name */}
+        <h1 
+          className={`text-4xl sm:text-5xl font-display font-extrabold tracking-tight text-white mb-4 transition-all duration-700 delay-200 ${
+            phase >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
+          }`}
+        >
           AETHERIA
         </h1>
-        <p className="text-slate-300 font-light text-base md:text-lg max-w-md mx-auto leading-relaxed mb-8">
-          Curating the zenith of human wisdom, artificial intelligence, and sovereign leadership.
+
+        {/* Tagline */}
+        <p 
+          className={`text-sm sm:text-base text-slate-300 font-light max-w-sm mx-auto leading-relaxed mb-8 transition-all duration-700 delay-300 ${
+            phase >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
+          }`}
+        >
+          Curated masterworks on Artificial Agency, Asymmetric Wealth, and Sovereign Resilience.
         </p>
 
-        {/* Progress bar or Enter button */}
-        {phase === 'loading' ? (
-          <div className="w-64 flex flex-col items-center gap-2">
-            <div className="w-full h-1 bg-obsidian-800 rounded-full overflow-hidden border border-white/10">
-              <div
-                className="h-full bg-gradient-to-r from-gold-600 via-gold-400 to-amber-200 transition-all duration-200 ease-out"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
-            <div className="flex justify-between w-full text-xs font-mono text-slate-400">
-              <span>INITIALIZING ATELIER</span>
-              <span>{progress}%</span>
-            </div>
-          </div>
-        ) : (
-          <div className="flex flex-col sm:flex-row items-center gap-4 animate-fade-in">
-            <button
-              onClick={handleEnter}
-              className="px-8 py-3.5 rounded-full bg-gradient-to-r from-gold-500 via-gold-400 to-amber-300 text-obsidian-950 font-semibold text-sm tracking-wide shadow-[0_0_30px_rgba(212,175,55,0.4)] hover:shadow-[0_0_50px_rgba(212,175,55,0.7)] hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2"
-            >
-              <span>ENTER EXPERIENCE</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-            <button
-              onClick={onToggleAudio}
-              className="px-4 py-3 rounded-full border border-white/10 hover:border-gold-500/40 bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-mono transition-all flex items-center gap-2"
-              title="Toggle Ambient Audio"
-            >
-              {isAudioOn ? (
-                <>
-                  <Volume2 className="w-4 h-4 text-gold-400 animate-pulse" />
-                  <span>AMBIENCE: ON</span>
-                </>
-              ) : (
-                <>
-                  <VolumeX className="w-4 h-4 text-slate-400" />
-                  <span>AMBIENCE: MUTED</span>
-                </>
-              )}
-            </button>
-          </div>
-        )}
+        {/* Subtle Indicator & Enter CTA */}
+        <div 
+          className={`transition-all duration-500 delay-400 ${
+            phase >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'
+          }`}
+        >
+          <button
+            onClick={handleExit}
+            className="px-7 py-3 rounded-full bg-gradient-to-r from-[#c5a059] to-[#dfc079] text-[#07080a] font-semibold text-xs tracking-wider shadow-[0_0_25px_rgba(197,160,89,0.35)] hover:shadow-[0_0_35px_rgba(197,160,89,0.6)] hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
+          >
+            <span>ENTER ATELIER</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
 
-        {/* Subtext */}
-        <div className="mt-12 text-[11px] font-mono text-slate-300 tracking-wider flex items-center gap-2">
-          <Sparkles className="w-3.5 h-3.5 text-gold-400" />
-          <span>INTERACTIVE 3D READERS • VECTOR AUDIOS • DRM-FREE COPIES</span>
+        <div className="mt-10 text-[10px] font-mono text-slate-300 tracking-wider flex items-center gap-2 opacity-50">
+          <Sparkles className="w-3 h-3 text-[#c5a059]" />
+          <span>ORIGINAL MANUSCRIPTS • VERIFIED RAZORPAY SETTLEMENT • DRM-FREE</span>
         </div>
       </div>
     </div>

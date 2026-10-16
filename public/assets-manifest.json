@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "project": "Aetheria Luxury E-Books — Promotional Video & Visual Asset Manifest",
+  "version": "1.0.0",
+  "specifications": {
+    "duration": "10.0 seconds (+/- 0.5s)",
+    "videoCodec": "H.264 / AVC (High Profile)",
+    "audioCodec": "AAC stereo (muted autoplay by default)",
+    "container": "MP4",
+    "resolution": "1920x1080 (16:9 widescreen) or 3840x2160 (4K UHD)",
+    "framerate": "24fps or 30fps constant",
+    "bitrate": "8 - 12 Mbps target",
+    "colorSpace": "Rec.709 / sRGB",
+    "posterFormat": "WebP (fallback JPG), 1920x1080, < 250KB"
+  },
+  "books": [
+    {
+      "bookId": "the-artificial-mind",
+      "bookTitle": "The Artificial Mind",
+      "priceINR": 299,
+      "videoAsset": {
+        "expectedLocalPath": "/videos/the-artificial-mind-trailer.mp4",
+        "expectedPosterPath": "/videos/posters/the-artificial-mind-poster.webp",
+        "currentFallbackUrl": "https://assets.mixkit.co/videos/preview/mixkit-abstract-fast-flowing-glowing-lines-41584-large.mp4",
+        "currentPosterUrl": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=85",
+        "status": "Awaiting local Google Flow final render; currently using high-bitrate responsive CDN preview",
+        "googleFlowPrompt": "Cinematic slow camera dolly through translucent neural geometric filaments, deep obsidian background, cyan electrical pulses synchronizing in harmonic cadence, 10s loop, photorealistic, 24fps"
+      }
+    },
+    {
+      "bookId": "the-sovereign-mind",
+      "bookTitle": "The Sovereign Mind",
+      "priceINR": 349,
+      "videoAsset": {
+        "expectedLocalPath": "/videos/the-sovereign-mind-trailer.mp4",
+        "expectedPosterPath": "/videos/posters/the-sovereign-mind-poster.webp",
+        "currentFallbackUrl": "https://assets.mixkit.co/videos/preview/mixkit-stars-in-space-1610-large.mp4",
+        "currentPosterUrl": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=1200&q=85",
+        "status": "Awaiting local Google Flow final render; currently using high-bitrate responsive CDN preview",
+        "googleFlowPrompt": "Polished metallic gold asymmetric polyhedra rotating smoothly against deep velvet black space, subtle champagne illumination, 10s loop, 24fps"
+      }
+    },
+    {
+      "bookId": "ghost-in-the-wire",
+      "bookTitle": "Ghost in the Wire",
+      "priceINR": 299,
+      "videoAsset": {
+        "expectedLocalPath": "/videos/ghost-in-the-wire-trailer.mp4",
+        "expectedPosterPath": "/videos/posters/ghost-in-the-wire-poster.webp",
+        "currentFallbackUrl": "https://assets.mixkit.co/videos/preview/mixkit-futuristic-tunnel-with-purple-and-blue-neon-lights-32982-large.mp4",
+        "currentPosterUrl": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=85",
+        "status": "Awaiting local Google Flow final render; currently using high-bitrate responsive CDN preview",
+        "googleFlowPrompt": "Dark cryptographic datacenter corridors with encrypted stream data cascading down glass server racks in emerald green, 10s loop, 24fps"
+      }
+    },
+    {
+      "bookId": "the-stoic-sovereign",
+      "bookTitle": "The Stoic Sovereign",
+      "priceINR": 199,
+      "videoAsset": {
+        "expectedLocalPath": "/videos/the-stoic-sovereign-trailer.mp4",
+        "expectedPosterPath": "/videos/posters/the-stoic-sovereign-poster.webp",
+        "currentFallbackUrl": "https://assets.mixkit.co/videos/preview/mixkit-stars-in-space-1610-large.mp4",
+        "currentPosterUrl": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=85",
+        "status": "Awaiting local Google Flow final render; currently using high-bitrate responsive CDN preview",
+        "googleFlowPrompt": "Chiseled classical marble bust of a Stoic philosopher standing impassive in dramatic chiaroscuro lighting, subtle dust motes floating, 10s loop, 24fps"
+      }
+    },
+    {
+      "bookId": "bio-optima",
+      "bookTitle": "Bio-Optima",
+      "priceINR": 249,
+      "videoAsset": {
+        "expectedLocalPath": "/videos/bio-optima-trailer.mp4",
+        "expectedPosterPath": "/videos/posters/bio-optima-poster.webp",
+        "currentFallbackUrl": "https://assets.mixkit.co/videos/preview/mixkit-abstract-fast-flowing-glowing-lines-41584-large.mp4",
+        "currentPosterUrl": "https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=1200&q=85",
+        "status": "Awaiting local Google Flow final render; currently using high-bitrate responsive CDN preview",
+        "googleFlowPrompt": "Microscopic visualization of vibrant cellular mitochondria pulsing rhythmically with ATP energy against a deep obsidian field, 10s loop, 24fps"
+      }
+    }
+  ],
+  "instructions": "Place rendered 10-second .mp4 files into the /public/videos/ directory and .webp posters into /public/videos/posters/. The front-end video player automatically checks local availability and falls back gracefully to high-res poster and CDN video."
+}
