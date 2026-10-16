@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { X, ShieldCheck, Lock, Download, CheckCircle, FileText, AlertCircle, Sparkles } from 'lucide-react';
+import { X, ShieldCheck, Lock, Download, CheckCircle, FileText, AlertCircle } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { playSuccessChime } from '../utils/audioSynthesis';
 
 export default function CheckoutModal({ books, isOpen, onClose, onSuccess }) {
-  if (!isOpen || !books || books.length === 0) return null;
-
   const [customerName, setCustomerName] = useState('');
   const [customerEmail, setCustomerEmail] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [orderResult, setOrderResult] = useState(null);
   const [rzpConfig, setRzpConfig] = useState(null);
-
-  const totalINR = books.reduce((acc, b) => acc + b.priceINR, 0);
 
   // Fetch server configuration
   useEffect(() => {
@@ -22,6 +18,10 @@ export default function CheckoutModal({ books, isOpen, onClose, onSuccess }) {
       .then((data) => setRzpConfig(data))
       .catch((err) => console.error('Failed to load server config:', err));
   }, []);
+
+  if (!isOpen || !books || books.length === 0) return null;
+
+  const totalINR = books.reduce((acc, b) => acc + b.priceINR, 0);
 
   // Initiate Authoritative Checkout
   const handleInitiatePayment = async (e) => {

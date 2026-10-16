@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import CartDrawer from './components/CartDrawer';
 import CheckoutModal from './components/CheckoutModal';
+import OpeningIntro from './components/OpeningIntro';
+import BackgroundVideo from './components/BackgroundVideo';
 
 import HomePage from './pages/HomePage';
 import CatalogPage from './pages/CatalogPage';
@@ -15,6 +18,7 @@ import PoliciesPage from './pages/PoliciesPage';
 import AdminPage from './pages/AdminPage';
 
 import { toggleAmbientSound } from './utils/audioSynthesis';
+import './styles/motion.css';
 
 // Scroll to top helper on route change
 function ScrollToTop() {
@@ -33,6 +37,36 @@ export default function App() {
 
   // Single active video preview across all book cards
   const [activePlayingId, setActivePlayingId] = useState(null);
+
+  // Determine if on standalone Reader view (which has its own distraction-free top bar)
+  const isReaderView = location.pathname.startsWith('/read/');
+
+  // Apple-style brand launch intro sequence (once per session, bypassed on reader routes)
+  const [showIntro, setShowIntro] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    if (window.location.pathname.startsWith('/read/')) return false;
+    try {
+      return sessionStorage.getItem('aetheria_intro_shown') !== 'true';
+    } catch {
+      return false;
+    }
+  });
+
+  const handleIntroComplete = () => {
+    try {
+      sessionStorage.setItem('aetheria_intro_shown', 'true');
+    } catch (e) {
+      console.debug('sessionStorage error:', e);
+    }
+    setShowIntro(false);
+  };
+
+  // Listen for custom trigger to replay brand intro sequence on demand
+  useEffect(() => {
+    const handleReplayIntro = () => setShowIntro(true);
+    window.addEventListener('aetheria:replay-intro', handleReplayIntro);
+    return () => window.removeEventListener('aetheria:replay-intro', handleReplayIntro);
+  }, []);
 
   // Cart Management
   const [cart, setCart] = useState(() => {
@@ -64,14 +98,6 @@ export default function App() {
     toggleAmbientSound(next);
   };
 
-  // Cart Handlers
-  const handleAddToCart = (book) => {
-    if (!cart.some((it) => it.id === book.id)) {
-      setCart((prev) => [...prev, book]);
-    }
-    setIsCartOpen(true);
-  };
-
   const handleRemoveFromCart = (bookId) => {
     setCart((prev) => prev.filter((it) => it.id !== bookId));
   };
@@ -81,12 +107,19 @@ export default function App() {
     setCheckoutBooks([book]);
   };
 
-  // Determine if on standalone Reader view (which has its own distraction-free top bar)
-  const isReaderView = location.pathname.startsWith('/read/');
-
   return (
-    <div className="min-h-screen flex flex-col bg-white text-[#1d1d1f] selection:bg-[#c5a059]/25 selection:text-[#1d1d1f]">
+    <div className="relative min-h-screen flex flex-col text-[#1d1d1f] selection:bg-[#c5a059]/25 selection:text-[#1d1d1f] overflow-x-hidden">
       <ScrollToTop />
+
+      {/* Cinematic Brand Opening Launch Sequence (Apple-style monogram reveal) */}
+      <AnimatePresence mode="wait">
+        {showIntro && !isReaderView && (
+          <OpeningIntro onComplete={handleIntroComplete} />
+        )}
+      </AnimatePresence>
+
+      {/* Full-Bleed Ambient Luxury Background Video with Editorial Scrims */}
+      <BackgroundVideo isReaderView={isReaderView} />
 
       {/* Primary Storefront Navbar (hidden in distraction-free Reader mode) */}
       {!isReaderView && (
@@ -99,7 +132,7 @@ export default function App() {
       )}
 
       {/* Main Multi-Page Routed Content */}
-      <main className="flex-1">
+      <main className="flex-1 relative z-10">
         <Routes>
           <Route 
             path="/" 

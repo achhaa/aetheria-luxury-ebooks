@@ -1,198 +1,158 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Film, Eye, EyeOff, Sliders } from 'lucide-react';
 
-const VIDEO_PRESETS = [
+const LOCAL_PRESETS = [
   {
-    id: 'abstract-luxury',
-    name: 'Liquid Gold & Deep Light',
-    url: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-fast-flowing-glowing-lines-41584-large.mp4',
-    poster: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80'
+    id: 'ambient-luxury',
+    name: 'Aetheria Ambient Master (Local)',
+    url: '/assets/videos/ambient-background.mp4',
+    poster: '/assets/covers/the-artificial-mind.jpg'
   },
   {
-    id: 'cosmic-nebula',
-    name: 'Astral Cosmos & Nebula',
-    url: 'https://assets.mixkit.co/videos/preview/mixkit-stars-in-space-1610-large.mp4',
-    poster: 'https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?auto=format&fit=crop&w=1200&q=80'
+    id: 'monogram-intro',
+    name: 'Atelier Monogram Motion (Local)',
+    url: '/assets/videos/brand-intro.mp4',
+    poster: '/assets/covers/the-sovereign-mind.jpg'
   },
   {
-    id: 'cyber-waves',
-    name: 'Cyber Mesh Dynamics',
-    url: 'https://assets.mixkit.co/videos/preview/mixkit-futuristic-tunnel-with-purple-and-blue-neon-lights-32982-large.mp4',
-    poster: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80'
+    id: 'synthetic-mind',
+    name: 'Autonomous Cognition (Local)',
+    url: '/assets/videos/the-artificial-mind.mp4',
+    poster: '/assets/covers/the-artificial-mind.jpg'
   }
 ];
 
-export default function BackgroundVideo() {
-  const canvasRef = useRef(null);
+export default function BackgroundVideo({ 
+  isReaderView = false, 
+  src = '/assets/videos/ambient-background.mp4',
+  defaultOpacity = 0.28,
+  isDark = false
+}) {
   const videoRef = useRef(null);
-  const [selectedVideo, setSelectedVideo] = useState(0);
-  const [videoEnabled, setVideoEnabled] = useState(true);
-  const [videoOpacity, setVideoOpacity] = useState(0.22);
+  const [selectedPresetIndex, setSelectedPresetIndex] = useState(0);
+
+  // Initialize videoEnabled based on user reduced motion preference directly without setState in effect
+  const [videoEnabled, setVideoEnabled] = useState(() => {
+    if (typeof window === 'undefined') return true;
+    try {
+      return !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    } catch {
+      return true;
+    }
+  });
+
+  const [videoOpacity, setVideoOpacity] = useState(defaultOpacity);
   const [showControls, setShowControls] = useState(false);
 
-  // Interactive Particle Constellation Canvas
+  // Distraction-free reader isolation: completely pause and mute in reader mode
   useEffect(() => {
-    // Respect user's reduced motion preference
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (mediaQuery.matches) {
-      setVideoEnabled(false);
+    if (isReaderView) {
+      if (videoRef.current) {
+        videoRef.current.pause();
+      }
       return;
     }
 
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let animationFrameId;
-
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
-
-    const handleResize = () => {
-      if (!canvas) return;
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    };
-    window.addEventListener('resize', handleResize);
-
-    // Subtle ambient particle pool
-    const particleCount = Math.min(45, Math.floor(width / 35));
-    const particles = [];
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        radius: Math.random() * 1.5 + 0.6,
-        color: Math.random() > 0.5 ? 'rgba(197, 160, 89, ' : 'rgba(14, 165, 233, ',
-        baseAlpha: Math.random() * 0.25 + 0.1,
-      });
-    }
-
-    let mouse = { x: -1000, y: -1000 };
-    const handleMouseMove = (e) => {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-
-    const render = () => {
-      ctx.clearRect(0, 0, width, height);
-
-      // Subtle constellation filaments
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-
-          if (dist < 100) {
-            const alpha = (1 - dist / 100) * 0.05;
-            ctx.strokeStyle = `rgba(197, 160, 89, ${alpha})`;
-            ctx.lineWidth = 0.5;
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
-          }
-        }
+    // Optimize performance: pause video when tab/document is inactive
+    const handleVisibilityChange = () => {
+      if (!videoRef.current) return;
+      if (document.hidden) {
+        videoRef.current.pause();
+      } else if (videoEnabled && !isReaderView) {
+        videoRef.current.play().catch(() => {});
       }
-
-      // Update & Draw particles
-      particles.forEach((p) => {
-        p.x += p.vx;
-        p.y += p.vy;
-
-        if (p.x < 0) p.x = width;
-        if (p.x > width) p.x = 0;
-        if (p.y < 0) p.y = height;
-        if (p.y > height) p.y = 0;
-
-        ctx.fillStyle = `${p.color}${p.baseAlpha})`;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fill();
-      });
-
-      animationFrameId = requestAnimationFrame(render);
     };
 
-    render();
-
+    document.addEventListener('visibilitychange', handleVisibilityChange);
     return () => {
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('mousemove', handleMouseMove);
-      cancelAnimationFrame(animationFrameId);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, []);
+  }, [isReaderView, videoEnabled]);
+
+  // If on reader route, keep unmounted or invisible
+  if (isReaderView) {
+    return null;
+  }
+
+  const activeUrl = LOCAL_PRESETS[selectedPresetIndex]?.url || src;
+  const activePoster = LOCAL_PRESETS[selectedPresetIndex]?.poster || '/assets/covers/the-artificial-mind.jpg';
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none">
-      {/* Background Video */}
+    <div 
+      aria-hidden="true"
+      className="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none hardware-accelerated"
+    >
+      {/* 60fps Hardware-Accelerated Ambient Video Player */}
       {videoEnabled && (
         <video
           ref={videoRef}
-          key={VIDEO_PRESETS[selectedVideo].url}
+          key={activeUrl}
           autoPlay
           loop
           muted
           playsInline
-          poster={VIDEO_PRESETS[selectedVideo].poster}
-          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 filter brightness-70 contrast-110"
+          preload="metadata"
+          poster={activePoster}
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 filter brightness-95 contrast-105 pointer-events-none"
           style={{ opacity: videoOpacity }}
         >
-          <source src={VIDEO_PRESETS[selectedVideo].url} type="video/mp4" />
+          <source src={activeUrl} type="video/mp4" />
         </video>
       )}
 
-      {/* Editorial Gradient Film Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#07080a]/85 via-[#07080a]/70 to-[#07080a]/95" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(197,160,89,0.06)_0%,transparent_50%)]" />
-
-      {/* Interactive Starlight / Particle Canvas */}
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-50" />
+      {/* Editorial Gradient Scrim Overlays ensuring WCAG AAA 7:1 Text Contrast */}
+      <div className={`absolute inset-0 pointer-events-none ${isDark ? 'scrim-editorial-dark' : 'scrim-editorial-light'} bg-gradient-to-b from-white/90 via-white/80 to-white/92`} />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-500/5 via-transparent to-transparent pointer-events-none" />
 
       {/* Atmosphere Controller Pill (Bottom Right) */}
       <div className="absolute bottom-6 right-6 pointer-events-auto z-30">
         <div className="relative">
           {showControls && (
-            <div className="absolute bottom-12 right-0 w-72 p-4 rounded-2xl bg-[#0c0e14]/95 border border-[#c5a059]/30 shadow-2xl text-xs space-y-3 animate-fade-in backdrop-blur-2xl">
-              <div className="flex items-center justify-between pb-2 border-b border-white/10">
-                <span className="font-mono uppercase text-[#c5a059] font-semibold flex items-center gap-1.5">
+            <div 
+              role="region"
+              aria-label="Cinema Atmosphere Settings"
+              className="absolute bottom-12 right-0 w-72 p-4 rounded-2xl bg-white/95 border border-black/10 shadow-2xl text-xs space-y-3 animate-spring-pop backdrop-blur-2xl text-[#1d1d1f]"
+            >
+              <div className="flex items-center justify-between pb-2 border-b border-black/10">
+                <span className="font-mono uppercase text-[#997328] font-semibold flex items-center gap-1.5 text-[11px]">
                   <Film className="w-3.5 h-3.5" /> Ambient Cinema
                 </span>
                 <button
+                  type="button"
                   onClick={() => setVideoEnabled(!videoEnabled)}
-                  className="text-slate-400 hover:text-white"
-                  aria-label="Toggle video"
+                  className="p-1 rounded text-[#6e6e73] hover:text-[#1d1d1f] transition-colors"
+                  aria-label="Toggle ambient video"
                 >
-                  {videoEnabled ? <Eye className="w-3.5 h-3.5 text-[#c5a059]" /> : <EyeOff className="w-3.5 h-3.5" />}
+                  {videoEnabled ? <Eye className="w-3.5 h-3.5 text-[#997328]" /> : <EyeOff className="w-3.5 h-3.5" />}
                 </button>
               </div>
 
               <div>
-                <label className="text-slate-400 block mb-1 font-mono text-[10px]">PRESET</label>
+                <label className="text-[#6e6e73] block mb-1 font-mono text-[10px] tracking-wider uppercase">
+                  Cinematic Preset
+                </label>
                 <div className="space-y-1">
-                  {VIDEO_PRESETS.map((preset, index) => (
+                  {LOCAL_PRESETS.map((preset, index) => (
                     <button
                       key={preset.id}
-                      onClick={() => setSelectedVideo(index)}
+                      type="button"
+                      onClick={() => setSelectedPresetIndex(index)}
                       className={`w-full text-left px-2.5 py-1.5 rounded-lg transition-all text-[11px] flex items-center justify-between ${
-                        selectedVideo === index
-                          ? 'bg-[#c5a059]/20 text-[#dfc079] font-medium border border-[#c5a059]/30'
-                          : 'text-slate-300 hover:bg-white/5'
+                        selectedPresetIndex === index
+                          ? 'bg-[#c5a059]/15 text-[#997328] font-semibold border border-[#c5a059]/30'
+                          : 'text-[#515154] hover:bg-gray-100'
                       }`}
                     >
-                      <span>{preset.name}</span>
-                      {selectedVideo === index && <span className="w-1.5 h-1.5 rounded-full bg-[#c5a059]" />}
+                      <span className="truncate">{preset.name}</span>
+                      {selectedPresetIndex === index && <span className="w-1.5 h-1.5 rounded-full bg-[#997328] shrink-0 ml-1" />}
                     </button>
                   ))}
                 </div>
               </div>
 
               <div>
-                <div className="flex justify-between text-[10px] text-slate-400 mb-1 font-mono">
-                  <span>OPACITY</span>
+                <div className="flex justify-between text-[10px] text-[#6e6e73] mb-1 font-mono">
+                  <span>SCRIM OPACITY</span>
                   <span>{Math.round(videoOpacity * 100)}%</span>
                 </div>
                 <input
@@ -202,21 +162,24 @@ export default function BackgroundVideo() {
                   step="0.05"
                   value={videoOpacity}
                   onChange={(e) => setVideoOpacity(parseFloat(e.target.value))}
-                  className="w-full accent-[#c5a059] cursor-pointer h-1.5 bg-[#1a1d26] rounded-lg"
+                  className="w-full accent-[#997328] cursor-pointer h-1.5 bg-gray-200 rounded-lg"
+                  aria-label="Adjust video opacity"
                 />
               </div>
             </div>
           )}
 
           <button
+            type="button"
             onClick={() => setShowControls(!showControls)}
-            className="px-3.5 py-2 rounded-full bg-[#0d0f14]/80 border border-white/10 hover:border-[#c5a059]/40 text-slate-300 hover:text-white text-xs font-mono flex items-center gap-2 shadow-lg transition-all active:scale-95 group"
-            title="Configure Background Atmosphere"
+            className="px-3 py-1.5 rounded-full bg-white/90 border border-black/10 hover:border-[#c5a059]/50 text-[#1d1d1f] hover:text-[#997328] text-xs font-mono flex items-center gap-2 shadow-sm transition-all active:scale-95 backdrop-blur-md cursor-pointer"
+            title="Configure Ambient Atmosphere"
+            aria-label="Configure Ambient Atmosphere"
           >
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <Film className="w-3.5 h-3.5 text-[#c5a059]" />
-            <span className="hidden sm:inline">Cinema Backdrop</span>
-            <Sliders className="w-3 h-3 text-slate-400" />
+            <span className={`w-2 h-2 rounded-full ${videoEnabled ? 'bg-emerald-500 animate-pulse' : 'bg-gray-400'}`} />
+            <Film className="w-3.5 h-3.5 text-[#997328]" />
+            <span className="hidden sm:inline font-medium">Ambient Film</span>
+            <Sliders className="w-3 h-3 text-[#6e6e73]" />
           </button>
         </div>
       </div>

@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Download, BookOpen, ShieldCheck, ArrowRight, 
-  FileText, CheckCircle, AlertCircle, Headphones, Bookmark
-} from 'lucide-react';
+import { Download, BookOpen, ArrowRight, AlertCircle } from 'lucide-react';
 
 import { BOOKS_DATA } from '../data/booksData';
 
@@ -13,14 +10,7 @@ export default function LibraryPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  // Auto-fetch if email saved
-  useEffect(() => {
-    if (email) {
-      handleFetchLibrary(email);
-    }
-  }, []);
-
-  const handleFetchLibrary = async (targetEmail) => {
+  const handleFetchLibrary = useCallback(async (targetEmail) => {
     if (!targetEmail || !targetEmail.includes('@')) return;
 
     setIsLoading(true);
@@ -47,7 +37,14 @@ export default function LibraryPage() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, []);
+
+  // Auto-fetch if email saved
+  useEffect(() => {
+    if (email) {
+      handleFetchLibrary(email);
+    }
+  }, [email, handleFetchLibrary]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

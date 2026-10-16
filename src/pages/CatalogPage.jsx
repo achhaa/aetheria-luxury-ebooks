@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Search, ArrowUpDown, BookOpen, Sparkles, Filter } from 'lucide-react';
+import { Search, ArrowUpDown, BookOpen } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import { BOOKS_DATA, CATEGORIES } from '../data/booksData';
 import BookCard from '../components/BookCard';
@@ -116,17 +117,20 @@ export default function CatalogPage({ onBuyNow, activePlayingId, setActivePlayin
         {/* Category Filter Chips */}
         <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 scrollbar-none">
           {CATEGORIES.map((cat) => (
-            <button
+            <motion.button
               key={cat}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 25 }}
               onClick={() => handleCategorySelect(cat)}
-              className={`px-4 py-2 rounded-full text-xs font-mono whitespace-nowrap transition-all duration-200 ${
+              className={`px-4 py-2 rounded-full text-xs font-mono whitespace-nowrap cursor-pointer transition-colors duration-200 ${
                 activeCategory === cat
                   ? 'bg-[#1d1d1f] text-white font-bold shadow-xs'
                   : 'bg-[#f5f5f7] hover:bg-gray-200 text-[#515154] border border-black/5'
               }`}
             >
               {cat}
-            </button>
+            </motion.button>
           ))}
         </div>
 
@@ -138,29 +142,45 @@ export default function CatalogPage({ onBuyNow, activePlayingId, setActivePlayin
             <p className="text-xs text-[#6e6e73] mb-6 font-sans">
               Try searching for "Mind", "Stoic", or "Cyber", or reset your active filters.
             </p>
-            <button
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 25 }}
               onClick={() => {
                 setActiveCategory('All Books');
                 setSearchQuery('');
                 setSearchParams({});
               }}
-              className="px-6 py-2.5 rounded-full bg-[#1d1d1f] text-white text-xs font-bold font-mono hover:bg-black transition shadow-xs"
+              className="px-6 py-2.5 rounded-full bg-[#1d1d1f] text-white text-xs font-bold font-mono hover:bg-black transition shadow-xs cursor-pointer"
             >
               RESET CATALOGUE
-            </button>
+            </motion.button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredBooks.map((book) => (
-              <BookCard
-                key={book.id}
-                book={book}
-                onBuyNow={onBuyNow}
-                activePlayingId={activePlayingId}
-                setActivePlayingId={setActivePlayingId}
-              />
-            ))}
-          </div>
+          <motion.div 
+            layout
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            <AnimatePresence mode="popLayout">
+              {filteredBooks.map((book) => (
+                <motion.div
+                  key={book.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ type: 'spring', stiffness: 350, damping: 25 }}
+                >
+                  <BookCard
+                    book={book}
+                    onBuyNow={onBuyNow}
+                    activePlayingId={activePlayingId}
+                    setActivePlayingId={setActivePlayingId}
+                  />
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
         )}
 
       </div>

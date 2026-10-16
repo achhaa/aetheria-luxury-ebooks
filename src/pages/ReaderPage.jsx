@@ -1,26 +1,45 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { 
   ArrowLeft, ChevronLeft, ChevronRight, Bookmark, BookmarkCheck,
-  Type, Sun, Moon, Coffee, Volume2, VolumeX, Play, Pause, 
-  RotateCcw, RotateCw, List, Share2, Check, Sparkles, BookOpen,
-  Headphones, AlertCircle, Info, ExternalLink
+  Sun, Moon, Coffee, Play, Pause, 
+  RotateCcw, RotateCw, List, Check, Headphones
 } from 'lucide-react';
 
 import { BOOKS_DATA } from '../data/booksData';
 import { AudiobookSynchronizer } from '../utils/audiobookEngine';
 import { playPageFlipSound } from '../utils/audioSynthesis';
+import WordUnderlineGlider from '../components/WordUnderlineGlider';
 
 // Split structured content into readable pages (~150-220 words per page)
+// Ensures Page 1 includes Chapter Title and Subtitle at word index 0 for 100% audio-visual synchronization
 function paginateChapter(chapter) {
-  if (!chapter || !chapter.content) return [];
+  if (!chapter) return [];
 
   const pages = [];
   let currentPageBlocks = [];
   let currentWordCount = 0;
   let runningWordIndex = 0;
 
-  chapter.content.forEach((block) => {
+  // Synthesize opening blocks for Chapter Title and Subtitle on Page 1
+  const allBlocks = [];
+  if (chapter.title) {
+    allBlocks.push({
+      type: 'chapter-title',
+      text: chapter.title
+    });
+  }
+  if (chapter.subtitle) {
+    allBlocks.push({
+      type: 'chapter-subtitle',
+      text: chapter.subtitle
+    });
+  }
+  if (chapter.content && Array.isArray(chapter.content)) {
+    allBlocks.push(...chapter.content);
+  }
+
+  allBlocks.forEach((block) => {
     // Process block text into words with global chapter word indices
     const words = block.text.split(/(\s+)/);
     const indexedWords = [];
@@ -44,8 +63,9 @@ function paginateChapter(chapter) {
 
     const blockWordsCount = indexedWords.filter(w => !w.isSpace).length;
 
-    // Page budget check
-    if (currentWordCount + blockWordsCount > 220 && currentPageBlocks.length > 0) {
+    // Page budget check: keep title and subtitle with the opening block on Page 1
+    const hasContentBlock = currentPageBlocks.some(b => b.type !== 'chapter-title' && b.type !== 'chapter-subtitle');
+    if (currentPageBlocks.length > 0 && hasContentBlock && (currentWordCount + blockWordsCount > 220)) {
       pages.push(currentPageBlocks);
       currentPageBlocks = [];
       currentWordCount = 0;
@@ -77,9 +97,31 @@ export default function ReaderPage() {
   const [isTOCSidebarOpen, setIsTOCSidebarOpen] = useState(false);
   const [copyToast, setCopyToast] = useState(null);
 
-  // Chapter & Page State
-  const [currentChapterIndex, setCurrentChapterIndex] = useState(0);
-  const [currentPageIndex, setCurrentPageIndex] = useState(0);
+  // Chapter & Page State (initialized from saved reading progress)
+  const [currentChapterIndex, setCurrentChapterIndex] = useState(() => {
+    try {
+      const saved = localStorage.getItem(`aetheria_progress_${book.id}`);
+      if (saved) {
+        const { chapterIdx } = JSON.parse(saved);
+        if (typeof chapterIdx === 'number') return chapterIdx;
+      }
+    } catch {
+      // Ignore localStorage parse errors
+    }
+    return 0;
+  });
+  const [currentPageIndex, setCurrentPageIndex] = useState(() => {
+    try {
+      const saved = localStorage.getItem(`aetheria_progress_${book.id}`);
+      if (saved) {
+        const { pageIdx } = JSON.parse(saved);
+        if (typeof pageIdx === 'number') return pageIdx;
+      }
+    } catch {
+      // Ignore localStorage parse errors
+    }
+    return 0;
+  });
 
   // Bookmarks
   const [bookmarks, setBookmarks] = useState(() => {
@@ -121,6 +163,51 @@ export default function ReaderPage() {
   // Total pages in current chapter
   const totalPages = pages.length;
 
+  // Automatically advance page when active word belongs to a different page
+  const findAndAdvancePageForWord = useCallback((globalWordIdx) => {
+    for (let p = 0; p < pages.length; p++) {
+      const pageBlocks = pages[p];
+      for (const block of pageBlocks) {
+        const hasWord = block.indexedWords?.some(w => w.globalWordIndex === globalWordIdx);
+        if (hasWord) {
+          setCurrentPageIndex((prev) => {
+            if (p !== prev) {
+              playPageFlipSound();
+              return p;
+            }
+            return prev;
+          });
+          return;
+        }
+      }
+    }
+  }, [pages]);
+
+  // Page Navigation Handlers
+  const handleNextPage = useCallback(() => {
+    if (currentPageIndex < totalPages - 1) {
+      playPageFlipSound();
+      setCurrentPageIndex(prev => prev + 1);
+    } else if (currentChapterIndex < (book.chapters?.length || 1) - 1) {
+      // Transition to next chapter
+      playPageFlipSound();
+      setCurrentChapterIndex(prev => prev + 1);
+      setCurrentPageIndex(0);
+    }
+  }, [currentPageIndex, totalPages, currentChapterIndex, book.chapters]);
+
+  const handlePrevPage = useCallback(() => {
+    if (currentPageIndex > 0) {
+      playPageFlipSound();
+      setCurrentPageIndex(prev => prev - 1);
+    } else if (currentChapterIndex > 0) {
+      // Transition to previous chapter's last page
+      playPageFlipSound();
+      setCurrentChapterIndex(prev => prev - 1);
+      setCurrentPageIndex(0);
+    }
+  }, [currentPageIndex, currentChapterIndex]);
+
   // Persist preferences
   useEffect(() => {
     localStorage.setItem('aetheria_reader_theme', theme);
@@ -129,18 +216,6 @@ export default function ReaderPage() {
   useEffect(() => {
     localStorage.setItem('aetheria_reader_font_size', String(fontSize));
   }, [fontSize]);
-
-  // Load reading progress
-  useEffect(() => {
-    const saved = localStorage.getItem(`aetheria_progress_${book.id}`);
-    if (saved) {
-      try {
-        const { chapterIdx, pageIdx } = JSON.parse(saved);
-        if (chapterIdx !== undefined) setCurrentChapterIndex(chapterIdx);
-        if (pageIdx !== undefined) setCurrentPageIndex(pageIdx);
-      } catch {}
-    }
-  }, [book.id]);
 
   // Save reading progress
   useEffect(() => {
@@ -171,7 +246,7 @@ export default function ReaderPage() {
             setAudioSourceType('synthesis');
           }
         }
-      } catch (err) {
+      } catch {
         if (!isCancelled) {
           setTimingData(null);
           setAudioSourceType('synthesis');
@@ -187,7 +262,7 @@ export default function ReaderPage() {
   useEffect(() => {
     const sync = new AudiobookSynchronizer({
       timingData,
-      onWordChange: (idx, seg) => {
+      onWordChange: (idx) => {
         setActiveWordIndex(idx);
         if (idx >= 0 && isSyncHighlightEnabled) {
           // Check if word is on another page; if so, advance page!
@@ -213,7 +288,7 @@ export default function ReaderPage() {
     return () => {
       sync.destroy();
     };
-  }, [timingData, isSyncHighlightEnabled]);
+  }, [timingData, isSyncHighlightEnabled, findAndAdvancePageForWord]);
 
   // Synchronize synchronizer timing updates
   useEffect(() => {
@@ -224,23 +299,6 @@ export default function ReaderPage() {
     }, 200);
     return () => clearInterval(interval);
   }, [isPlaying]);
-
-  // Automatically advance page when active word belongs to a different page
-  const findAndAdvancePageForWord = (globalWordIdx) => {
-    for (let p = 0; p < pages.length; p++) {
-      const pageBlocks = pages[p];
-      for (const block of pageBlocks) {
-        const hasWord = block.indexedWords.some(w => w.globalWordIndex === globalWordIdx);
-        if (hasWord) {
-          if (p !== currentPageIndex) {
-            setCurrentPageIndex(p);
-            playPageFlipSound();
-          }
-          return;
-        }
-      }
-    }
-  };
 
   // Keyboard Navigation
   useEffect(() => {
@@ -258,7 +316,7 @@ export default function ReaderPage() {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentPageIndex, totalPages, currentChapterIndex]);
+  }, [handleNextPage, handlePrevPage]);
 
   // Selection & Copy Interceptor to prevent white-on-white text pasting
   useEffect(() => {
@@ -288,31 +346,6 @@ export default function ReaderPage() {
       return () => canvas.removeEventListener('copy', handleCopy);
     }
   }, [book.title, book.author]);
-
-  // Page Navigation Handlers
-  const handleNextPage = () => {
-    if (currentPageIndex < totalPages - 1) {
-      playPageFlipSound();
-      setCurrentPageIndex(prev => prev + 1);
-    } else if (currentChapterIndex < (book.chapters?.length || 1) - 1) {
-      // Transition to next chapter
-      playPageFlipSound();
-      setCurrentChapterIndex(prev => prev + 1);
-      setCurrentPageIndex(0);
-    }
-  };
-
-  const handlePrevPage = () => {
-    if (currentPageIndex > 0) {
-      playPageFlipSound();
-      setCurrentPageIndex(prev => prev - 1);
-    } else if (currentChapterIndex > 0) {
-      // Transition to previous chapter's last page
-      playPageFlipSound();
-      setCurrentChapterIndex(prev => prev - 1);
-      setCurrentPageIndex(0);
-    }
-  };
 
   // Bookmark Toggle
   const isCurrentPageBookmarked = bookmarks.some(
@@ -548,14 +581,42 @@ export default function ReaderPage() {
         <article 
           ref={readerContentRef}
           style={{ fontSize: `${fontSize}px`, lineHeight: '1.75' }}
-          className="font-serif select-text flex-1"
+          className="font-serif select-text flex-1 relative"
         >
+          {/* Hardware-accelerated fluid word underline glider */}
+          <WordUnderlineGlider
+            containerRef={readerContentRef}
+            activeWordIndex={activeWordIndex}
+            theme={theme}
+            isEnabled={isSyncHighlightEnabled}
+          />
+
           {activePageBlocks.length === 0 ? (
             <div className="py-20 text-center opacity-40 font-mono text-xs">
               Page content loading...
             </div>
           ) : (
             activePageBlocks.map((block, bIdx) => {
+              if (block.type === 'chapter-title') {
+                return (
+                  <h2 key={bIdx} className="text-2xl sm:text-3xl font-serif font-bold tracking-tight mb-2 text-[#997328] dark:text-[#c5a059]">
+                    {block.indexedWords ? (
+                      block.indexedWords.map((item, wIdx) => renderWordSpan(item, wIdx))
+                    ) : block.text}
+                  </h2>
+                );
+              }
+
+              if (block.type === 'chapter-subtitle') {
+                return (
+                  <p key={bIdx} className="text-sm sm:text-base font-serif italic opacity-75 mb-8 pb-4 border-b border-black/10">
+                    {block.indexedWords ? (
+                      block.indexedWords.map((item, wIdx) => renderWordSpan(item, wIdx))
+                    ) : block.text}
+                  </p>
+                );
+              }
+
               if (block.type === 'heading') {
                 return (
                   <h3 key={bIdx} className="text-xl sm:text-2xl font-serif font-bold tracking-tight mt-8 mb-4">
