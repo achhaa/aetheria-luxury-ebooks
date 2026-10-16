@@ -11,7 +11,7 @@ export default function HeroSection({
   onBuyNow 
 }) {
   return (
-    <section className="relative pt-10 pb-16 md:pt-16 md:pb-24 overflow-hidden">
+    <section id="hero" className="relative pt-10 pb-16 md:pt-16 md:pb-24 overflow-hidden scroll-mt-20">
       {/* Ambient Radial Spotlight */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[550px] bg-gradient-to-tr from-[#c5a059]/10 via-sky-500/5 to-transparent rounded-full blur-[140px] pointer-events-none" />
 
@@ -72,8 +72,8 @@ export default function HeroSection({
                 onClick={() => onOpenDetail(featuredBook)}
                 className="w-full sm:w-auto px-6 py-4 rounded-2xl border border-white/15 hover:border-[#c5a059]/40 bg-white/5 hover:bg-white/10 text-slate-200 hover:text-white text-xs font-mono tracking-wide transition-all flex items-center justify-center gap-2"
               >
-                <Film className="w-4 h-4 text-[#c5a059]" />
-                <span>WATCH 10s TRAILER</span>
+                <ShieldCheck className="w-4 h-4 text-[#c5a059]" />
+                <span>VIEW BOOK DOSSIER</span>
               </button>
             </div>
 

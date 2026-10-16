@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import BookCard from './components/BookCard';
+import AboutSection from './components/AboutSection';
 import InteractiveBookModal from './components/InteractiveBookModal';
 import BookDetailModal from './components/BookDetailModal';
 import CartDrawer from './components/CartDrawer';
@@ -24,8 +25,11 @@ export default function App() {
   // Ambient Audio
   const [isAudioOn, setIsAudioOn] = useState(false);
 
+  // Single active video preview across all book cards
+  const [activePlayingId, setActivePlayingId] = useState(null);
+
   // Catalog Filtering & Search
-  const [activeCategory, setActiveCategory] = useState('All Publications');
+  const [activeCategory, setActiveCategory] = useState('All Books');
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('featured'); // 'featured', 'price-low', 'price-high', 'pages'
 
@@ -83,7 +87,7 @@ export default function App() {
   // Filter & Sort
   const filteredBooks = BOOKS_DATA.filter((book) => {
     const matchesCategory =
-      activeCategory === 'All Publications' || book.category === activeCategory;
+      activeCategory === 'All Books' || book.category === activeCategory;
     const q = searchQuery.toLowerCase();
     const matchesSearch =
       book.title.toLowerCase().includes(q) ||
@@ -119,6 +123,8 @@ export default function App() {
         onToggleAudio={handleToggleAudio}
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
+        activeCategory={activeCategory}
+        onSelectCategory={(cat) => setActiveCategory(cat)}
         onOpenPolicies={() => setIsPoliciesOpen(true)}
         onOpenLibraryLookup={() => setIsLibraryLookupOpen(true)}
       />
@@ -199,7 +205,7 @@ export default function App() {
               </p>
               <button
                 onClick={() => {
-                  setActiveCategory('All Publications');
+                  setActiveCategory('All Books');
                   setSearchQuery('');
                 }}
                 className="px-6 py-2.5 rounded-full bg-[#c5a059] text-black text-xs font-bold font-mono"
@@ -216,6 +222,8 @@ export default function App() {
                   onOpenSample={(b) => setReadingBook(b)}
                   onOpenDetail={(b) => setDetailBook(b)}
                   onBuyNow={handleDirectBuy}
+                  activePlayingId={activePlayingId}
+                  setActivePlayingId={setActivePlayingId}
                 />
               ))}
             </div>
@@ -252,7 +260,10 @@ export default function App() {
 
         </section>
 
-        {/* 6. Testimonials & Verified Reviews */}
+        {/* 6. About Aetheria & Editorial Provenance */}
+        <AboutSection />
+
+        {/* 7. Testimonials & Verified Reviews */}
         <Testimonials />
 
       </main>

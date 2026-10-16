@@ -1,7 +1,8 @@
 /**
  * AETHERIA CURATED CATALOGUE
  * Authoritative editorial catalogue for the 5 core publications.
- * All prices in INR under ₹500 as per specification.
+ * Covers & videos mapped to verified local assets in /public/assets/.
+ * Author names are distinct fictional pen names for AI-assisted editorial manuscripts.
  */
 
 export const BOOKS_DATA = [
@@ -10,38 +11,31 @@ export const BOOKS_DATA = [
     title: 'The Artificial Mind',
     subtitle: 'Architectures of Sovereign Reason, Neural Agency & Human Synthesis',
     tagline: 'From static next-token prediction to autonomous goal-directed systems.',
-    author: 'Dr. Evelyn Vance & Aris Thorne',
-    authorRole: 'AI Systems Architect & Cognitive Science Fellow',
+    author: 'A. Rowan',
+    authorType: 'Fictional Editorial Pen Name',
+    authorRole: 'Editorial Pen Name • Cognitive AI Systems',
     priceINR: 299,
     originalPriceINR: 599,
     category: 'Artificial Intelligence',
-    badge: 'Bestseller',
+    badge: 'Curated Edition',
     pages: 340,
     readTime: '6.5 hours',
     edition: 'First Edition (2026)',
     isbn: '978-93-98210-01-4',
-    coverImage: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=900&q=85',
+    
+    // Verified Local Cover Artwork
+    coverImage: '/assets/covers/the-artificial-mind.jpg',
     accentColor: '#0ea5e9',
     
-    // Phase 5: Cinematic Video Trailer Configuration
-    trailer: {
-      videoId: 'flow-ai-mind-trailer',
-      title: 'The Artificial Mind — Cinematic Trailer',
-      poster: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=85',
-      videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-fast-flowing-glowing-lines-41584-large.mp4',
-      duration: '0:10',
-      aspectRatio: '16:9',
-      captions: 'Abstract neural filaments igniting in harmonic synthesis as cognitive agency emerges.',
-      status: 'production-ready',
-      sourceType: 'Google Flow / Curated High-Bitrate MP4'
-    },
+    // Verified Local Video Preview (Played inline on cover hover/tap)
+    videoPreview: '/assets/videos/the-artificial-mind.mp4',
 
-    description: 'An authoritative study examining the shift from statistical autoregressive models to persistent, goal-directed cognitive architectures. Grounded in peer-reviewed machine learning research and systems engineering, this volume investigates how autonomous agentic networks structure memory, verify intermediate hypotheses, and interface with human operational environments.',
+    description: 'An analytical exploration of the architectural leap from statistical next-token generation to persistent, goal-directed cognitive networks. Prepared with AI research assistance and rigorous human editorial oversight, this volume examines how autonomous agents structure memory, verify intermediate hypotheses in isolated sandboxes, and interface safely with human workflows.',
 
     keyTakeaways: [
       'The critical boundary between linguistic mimicry and multi-hop deductive validation.',
       'Dual-stream architectural memory: separating transient episodic context from invariant heuristics.',
-      'Mechanisms of autonomous tool-use and sandboxed constraint verification in high-consequence domains.',
+      'Mechanisms of autonomous tool-use and sandboxed constraint verification.',
       'Human-agent consensus protocols: managing authority gradients and systemic alignment.'
     ],
 
@@ -88,7 +82,7 @@ export const BOOKS_DATA = [
         },
         {
           type: 'paragraph',
-          text: 'A critical bottleneck in early deployments was context degradation. While raw context windows expanded to hundreds of thousands of tokens, passive ingestion proved insufficient for coherent long-horizon execution. Unstructured text windows suffer from the "lost-in-the-middle" phenomenon and quadratic attentional noise.'
+          text: 'A critical bottleneck in early deployments was context degradation. While raw context windows expanded to hundreds of thousands of tokens, passive ingestion proved insufficient for coherent long-horizon execution. Unstructured text windows suffer from attentional noise and loss of continuity across multiple execution days.'
         },
         {
           type: 'paragraph',
@@ -96,7 +90,7 @@ export const BOOKS_DATA = [
         },
         {
           type: 'note',
-          text: 'Empirical Note: In double-blind benchmarks across 4,200 multi-step engineering tasks, dual-stream architectures demonstrated an 83% reduction in hallucinations over unaugmented 128k context windows.'
+          text: 'Editorial Synthesis: Dual-stream memory models demonstrate substantial consistency improvements over unstructured large-context prompts in long-horizon autonomous workflows.'
         }
       ]
     }
@@ -107,32 +101,24 @@ export const BOOKS_DATA = [
     title: 'The Sovereign Mind',
     subtitle: 'Asymmetric Capital, Mental Models & Temporal Autonomy',
     tagline: 'Constructing enduring independence in non-linear economic systems.',
-    author: 'Marcus Sterling',
-    authorRole: 'Private Capital Allocator & Economic Strategist',
+    author: 'Elias Mercer',
+    authorType: 'Fictional Editorial Pen Name',
+    authorRole: 'Editorial Pen Name • Macro Capital & Strategy',
     priceINR: 349,
     originalPriceINR: 699,
     category: 'Finance & Strategy',
-    badge: 'Curator’s Choice',
+    badge: 'Editorial Choice',
     pages: 290,
     readTime: '5.5 hours',
     edition: 'Revised Edition (2026)',
     isbn: '978-93-98210-02-1',
-    coverImage: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=900&q=85',
+    
+    coverImage: '/assets/covers/the-sovereign-mind.jpg',
     accentColor: '#d4af37',
+    
+    videoPreview: '/assets/videos/the-sovereign-mind.mp4',
 
-    trailer: {
-      videoId: 'flow-sovereign-mind-trailer',
-      title: 'The Sovereign Mind — Cinematic Trailer',
-      poster: 'https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=1200&q=85',
-      videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-stars-in-space-1610-large.mp4',
-      duration: '0:10',
-      aspectRatio: '16:9',
-      captions: 'Geometric constellations forming asymmetric golden shields in dark space.',
-      status: 'production-ready',
-      sourceType: 'Google Flow / Curated High-Bitrate MP4'
-    },
-
-    description: 'An analytical blueprint on navigating modern economic volatility. Moving beyond conventional consumer finance, this book examines risk convexity, antifragility in asset allocation, and the structural pursuit of temporal autonomy—the ability to control your calendar without institutional permission.',
+    description: 'A disciplined economic thesis on navigating contemporary financial volatility. Moving past superficial consumer advice, this book dissects risk convexity, fat-tailed distributions, and the structural pursuit of temporal autonomy—measuring success in uncompromised hours rather than vanity figures.',
 
     keyTakeaways: [
       'The mathematical mechanics of asymmetric bets: capping downside while maintaining unbounded exposure.',
@@ -184,7 +170,7 @@ export const BOOKS_DATA = [
         },
         {
           type: 'paragraph',
-          text: 'Wealth measured purely in currency units is an incomplete metric. If an individual earns five million rupees each month but must remain perpetually tethered to emergency communications, crisis mitigation, and subservient social posturing, they have achieved high operating cash flow at the price of complete personal servitude.'
+          text: 'Wealth measured purely in currency units is an incomplete metric. If an individual earns substantial nominal figures each month but must remain perpetually tethered to emergency communications and crisis mitigation, they have achieved high operating cash flow at the price of complete personal servitude.'
         },
         {
           type: 'paragraph',
@@ -199,8 +185,9 @@ export const BOOKS_DATA = [
     title: 'Ghost in the Wire',
     subtitle: 'Offensive Threat Vectors, Memory Forensics & Zero-Trust Defense',
     tagline: 'Practical operational security and cryptographic defense for modern infrastructure.',
-    author: 'Cipher_Null & Sarah Chen',
-    authorRole: 'Security Researcher & Infrastructure Cryptographer',
+    author: 'C. Vale',
+    authorType: 'Fictional Editorial Pen Name',
+    authorRole: 'Editorial Pen Name • Cryptography & Infrastructure Defense',
     priceINR: 299,
     originalPriceINR: 599,
     category: 'Cybersecurity',
@@ -209,22 +196,13 @@ export const BOOKS_DATA = [
     readTime: '7.8 hours',
     edition: 'First Edition (2026)',
     isbn: '978-93-98210-03-8',
-    coverImage: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=900&q=85',
+    
+    coverImage: '/assets/covers/ghost-in-the-wire.jpg',
     accentColor: '#10b981',
+    
+    videoPreview: '/assets/videos/ghost-in-the-wire.mp4',
 
-    trailer: {
-      videoId: 'flow-ghost-wire-trailer',
-      title: 'Ghost in the Wire — Cinematic Trailer',
-      poster: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=85',
-      videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-futuristic-tunnel-with-purple-and-blue-neon-lights-32982-large.mp4',
-      duration: '0:10',
-      aspectRatio: '16:9',
-      captions: 'Encrypted telemetry stream descending into a secured hardware enclave.',
-      status: 'production-ready',
-      sourceType: 'Google Flow / Curated High-Bitrate MP4'
-    },
-
-    description: 'A deep-dive engineering manual addressing modern threat paradigms. Covers kernel-level memory safety, hardware root-of-trust, zero-knowledge access proofs, and post-quantum cryptographic primitives. Designed for infrastructure engineers, security practitioners, and individuals seeking verifiable digital confidentiality.',
+    description: 'A deep-dive technical handbook addressing contemporary threat paradigms. Examines memory safety transition strategies, hardware root-of-trust, zero-knowledge access proofs, and side-channel mitigation for distributed software systems.',
 
     keyTakeaways: [
       'Deconstructing perimeter defense: why network boundaries fail against synthetic supply-chain attacks.',
@@ -260,7 +238,7 @@ export const BOOKS_DATA = [
         },
         {
           type: 'paragraph',
-          text: 'Zero Trust is frequently co-opted as an enterprise sales slogan, but its foundational engineering principle is rigorous and unforgiving: assume the physical transport medium is monitored, assume the endpoint operating system may harbor an unprivileged backdoor, and verify identity and authorization at every single function invocation.'
+          text: 'Zero Trust is frequently co-opted as an enterprise marketing phrase, but its foundational engineering principle is rigorous and unforgiving: assume the physical transport medium is monitored, assume the endpoint operating system may harbor an unprivileged backdoor, and verify identity and authorization at every single function invocation.'
         },
         {
           type: 'quote',
@@ -276,7 +254,7 @@ export const BOOKS_DATA = [
         },
         {
           type: 'paragraph',
-          text: 'Engineers routinely expend immense effort encrypting payload data with AES-256-GCM or ChaCha20-Poly1305, while completely ignoring metadata telemetry. Yet for state-sponsored or sophisticated commercial adversaries, packet sizes, transmission cadences, DNS request timing, and TLS ClientHello fingerprints provide ample fidelity to de-anonymize operations.'
+          text: 'Engineers routinely expend immense effort encrypting payload data with AES-256-GCM or ChaCha20-Poly1305, while completely ignoring metadata telemetry. Yet for sophisticated commercial or nation-state adversaries, packet sizes, transmission cadences, DNS request timing, and TLS ClientHello fingerprints provide ample fidelity to de-anonymize operations.'
         },
         {
           type: 'note',
@@ -291,8 +269,9 @@ export const BOOKS_DATA = [
     title: 'The Stoic Sovereign',
     subtitle: 'Timeless Mental Frameworks for High-Stakes Leadership',
     tagline: 'Translating classical Hellenistic philosophy into crisis decisiveness.',
-    author: 'Julian Vance & K. S. Aurelius',
-    authorRole: 'Crisis Negotiator & Classical Philosophy Scholar',
+    author: 'Julian Ashford',
+    authorType: 'Fictional Editorial Pen Name',
+    authorRole: 'Editorial Pen Name • Classical Stoic Inquiry',
     priceINR: 199,
     originalPriceINR: 399,
     category: 'Philosophy & Leadership',
@@ -301,25 +280,16 @@ export const BOOKS_DATA = [
     readTime: '4.8 hours',
     edition: 'Second Edition (2026)',
     isbn: '978-93-98210-04-5',
-    coverImage: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=900&q=85',
+    
+    coverImage: '/assets/covers/the-stoic-sovereign.jpg',
     accentColor: '#8b5cf6',
+    
+    videoPreview: '/assets/videos/the-stoic-sovereign.mp4',
 
-    trailer: {
-      videoId: 'flow-stoic-sovereign-trailer',
-      title: 'The Stoic Sovereign — Cinematic Trailer',
-      poster: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=85',
-      videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-stars-in-space-1610-large.mp4',
-      duration: '0:10',
-      aspectRatio: '16:9',
-      captions: 'Chiseled marble monolith standing impassive amidst rushing turbulent waters.',
-      status: 'production-ready',
-      sourceType: 'Google Flow / Curated High-Bitrate MP4'
-    },
-
-    description: 'A disciplined, practical examination of Hellenistic Stoicism applied to executive leadership and crisis command. Synthesizing original texts from Marcus Aurelius, Epictetus, and Seneca with modern cognitive behavioral insights, this book provides tactical mental models for retaining clarity under extreme external volatility.',
+    description: 'A disciplined application of Hellenistic Stoicism to modern crisis management and executive command. Synthesizing classical insights from Marcus Aurelius, Epictetus, and Seneca with contemporary cognitive science, this volume offers mental models for retaining clarity under acute external volatility.',
 
     keyTakeaways: [
-      'The Dichotomy of Control as an operational triage tool during corporate or operational crises.',
+      'The Dichotomy of Control as an operational triage tool during operational crises.',
       'Premeditatio Malorum: systematic stress-testing without descending into destructive catastrophizing.',
       'The discipline of emotional consent: neutralizing subjective panic before it infects downstream teams.',
       'Amor Fati in executive practice: converting unforeseen disruptions into structural competitive advantages.'
@@ -383,32 +353,24 @@ export const BOOKS_DATA = [
     title: 'Bio-Optima',
     subtitle: 'Evidence-Based Protocols for Cellular Longevity & Neuroplasticity',
     tagline: 'Translating translational geroscience into verified daily protocols.',
-    author: 'Dr. Elena Rostova, Ph.D.',
-    authorRole: 'Cellular Biologist & Translational Longevity Researcher',
+    author: 'Elena Voss',
+    authorType: 'Fictional Editorial Pen Name',
+    authorRole: 'Editorial Pen Name • Translational Longevity & Biology',
     priceINR: 249,
     originalPriceINR: 499,
-    category: 'Bio-Optimization & Health',
+    category: 'Health & Longevity',
     badge: 'Evidence-Based',
     pages: 310,
     readTime: '6.0 hours',
     edition: 'First Edition (2026)',
     isbn: '978-93-98210-05-2',
-    coverImage: 'https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=900&q=85',
+    
+    coverImage: '/assets/covers/bio-optima.jpg',
     accentColor: '#10b981',
+    
+    videoPreview: '/assets/videos/bio-optima.mp4',
 
-    trailer: {
-      videoId: 'flow-bio-optima-trailer',
-      title: 'Bio-Optima — Cinematic Trailer',
-      poster: 'https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=1200&q=85',
-      videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-abstract-fast-flowing-glowing-lines-41584-large.mp4',
-      duration: '0:10',
-      aspectRatio: '16:9',
-      captions: 'Cellular mitochondria pulsing with harmonic energy and metabolic efficiency.',
-      status: 'production-ready',
-      sourceType: 'Google Flow / Curated High-Bitrate MP4'
-    },
-
-    description: 'A scientifically grounded, clinically referenced exploration of human healthspan extension. Distinguishing rigorous peer-reviewed biology from wellness marketing fads, this volume reviews mitochondrial energetics, circadian photobiology, autophagy signaling, and cognitive maintenance protocols.',
+    description: 'A scientifically grounded overview of human healthspan extension. Distinguishing rigorous peer-reviewed biology from wellness marketing fads, this volume reviews mitochondrial energetics, circadian photobiology, autophagy signaling, and cognitive maintenance protocols.',
 
     keyTakeaways: [
       'The molecular hallmarks of aging: targeting cellular senescence, telomere attrition, and mitochondrial decay.',
@@ -472,47 +434,44 @@ export const BOOKS_DATA = [
 ];
 
 export const CATEGORIES = [
-  'All Publications',
+  'All Books',
   'Artificial Intelligence',
   'Finance & Strategy',
   'Cybersecurity',
   'Philosophy & Leadership',
-  'Bio-Optimization & Health'
+  'Health & Longevity'
 ];
 
 /**
- * Editorial Policies & Guarantees
+ * Editorial Dispatches & Reader Perspectives
+ * Transparent reflections from early edition readers.
  */
-export const REVIEWS = [
+export const EDITORIAL_DISPATCHES = [
   {
     id: 1,
-    name: 'Karan Malhotra',
-    role: 'Principal Systems Architect, Bengaluru',
-    rating: 5,
-    date: '3 days ago',
-    bookTitle: 'The Artificial Mind',
-    comment: 'The structural analysis of autonomous agent memory loops and formal verification is by far the most rigorous technical breakdown I have read this year. The warm ivory reader made the sample chapters a delight.',
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80'
+    title: 'On Autonomous Agentic Reasoning',
+    bookRef: 'The Artificial Mind',
+    authorCredit: 'A. Rowan',
+    note: 'The structural delineation of dual-stream memory and formal execution sandboxes provides immediate clarity for technical operators designing multi-agent architectures.',
+    topic: 'Artificial Intelligence'
   },
   {
     id: 2,
-    name: 'Dr. Sophia Aris',
-    role: 'Senior AI Research Fellow',
-    rating: 5,
-    date: '1 week ago',
-    bookTitle: 'The Sovereign Mind',
-    comment: 'The mathematical treatment of convexity and temporal autonomy completely re-frames what financial independence means in high-volatility environments.',
-    avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80'
+    title: 'On Mathematical Convexity & Temporal Freedom',
+    bookRef: 'The Sovereign Mind',
+    authorCredit: 'Elias Mercer',
+    note: 'A refreshing departure from consumer wealth cliches. Measuring life in sovereign uncompromised hours rather than nominal net worth shifts one’s entire risk matrix.',
+    topic: 'Finance & Strategy'
   },
   {
     id: 3,
-    name: 'Vikramaditya Sengupta',
-    role: 'Infrastructure Security Lead, Hyderabad',
-    rating: 5,
-    date: '2 weeks ago',
-    bookTitle: 'Ghost in the Wire',
-    comment: 'A genuinely authoritative manual on memory safety and side-channel mitigation. The instant vector PDF download worked seamlessly within 10 seconds of payment.',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80'
+    title: 'On Memory Safety & Side-Channel Defense',
+    bookRef: 'Ghost in the Wire',
+    authorCredit: 'C. Vale',
+    note: 'Practical and sober. The analysis of traffic padding and hardware enclaves demonstrates realistic infrastructure defense in untrusted environments.',
+    topic: 'Cybersecurity'
   }
 ];
+
+export const REVIEWS = EDITORIAL_DISPATCHES;
 

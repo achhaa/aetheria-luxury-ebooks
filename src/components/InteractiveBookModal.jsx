@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
-  X, ChevronLeft, ChevronRight, Bookmark, Volume2, VolumeX, 
-  ShoppingBag, Check, Sun, Moon, Maximize2, Minimize2, 
-  BookOpen, Clock, AlignLeft
+  X, Bookmark, Volume2, VolumeX, ShoppingBag, 
+  Sun, Moon, Maximize2, Minimize2, BookOpen, Clock, Copy, Check
 } from 'lucide-react';
 import { 
-  playPageFlipSound, playBookOpenSound, playBookCloseSound, 
+  playBookOpenSound, playBookCloseSound, 
   speakNarratorText, stopNarratorText 
 } from '../utils/audioSynthesis';
 
@@ -15,17 +14,25 @@ export default function InteractiveBookModal({
   onClose, 
   onBuyNow 
 }) {
-  // Reading Room Theme: Defaults to 'ivory' for optimal reading comfort
-  const [theme, setTheme] = useState('ivory'); // 'ivory' (default), 'night', 'sepia'
+  // Reading Room Theme: Defaults strictly to 'ivory' for each session
+  const [theme, setTheme] = useState(() => {
+    try {
+      return localStorage.getItem('aetheria_reader_theme') || 'ivory';
+    } catch {
+      return 'ivory';
+    }
+  });
+
   const [fontSize, setFontSize] = useState(18); // 18px base
   const [distractionFree, setDistractionFree] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [isNarrating, setIsNarrating] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [copiedSuccess, setCopiedSuccess] = useState(false);
 
   const contentRef = useRef(null);
 
-  // Initialize bookmark status from storage
+  // Initialize bookmark status & reset scroll when book changes
   useEffect(() => {
     if (book) {
       try {
@@ -34,8 +41,22 @@ export default function InteractiveBookModal({
       } catch {
         setIsBookmarked(false);
       }
+      setScrollProgress(0);
+      if (contentRef.current) {
+        contentRef.current.scrollTop = 0;
+      }
     }
   }, [book]);
+
+  // Persist theme preference
+  const handleThemeChange = (newTheme) => {
+    setTheme(newTheme);
+    try {
+      localStorage.setItem('aetheria_reader_theme', newTheme);
+    } catch (e) {
+      console.debug('Storage error:', e);
+    }
+  };
 
   // Handle open sound & narration stop
   useEffect(() => {
@@ -48,6 +69,71 @@ export default function InteractiveBookModal({
       setIsNarrating(false);
     }
   }, [isOpen]);
+
+  // Clipboard Protection: Intercept native copy event on reading canvas
+  // Ensures copied text is clean, background-free plain text and neutral HTML,
+  // preventing dark-mode white text from becoming invisible when pasted into white text editors/email!
+  useEffect(() => {
+    const container = contentRef.current;
+    if (!container) return;
+
+    const handleCopy = (e) => {
+      const selection = window.getSelection();
+      if (!selection || selection.rangeCount === 0) return;
+
+      const selectedText = selection.toString().trim();
+      if (!selectedText) return;
+
+      e.preventDefault();
+
+      // 1. Clean plain text (works anywhere without formatting baggage)
+      e.clipboardData.setData('text/plain', selectedText);
+
+      // 2. Safe HTML with default neutral dark-charcoal text and transparent background
+      const safeHtml = `<div style="color: #24231f; background-color: transparent; font-family: Georgia, serif; font-size: 16px; line-height: 1.7;">${selectedText.replace(/\n\n/g, '<br/><br/>')}</div>`;
+      e.clipboardData.setData('text/html', safeHtml);
+
+      setCopiedSuccess(true);
+      setTimeout(() => setCopiedSuccess(false), 2000);
+    };
+
+    container.addEventListener('copy', handleCopy);
+    return () => container.removeEventListener('copy', handleCopy);
+  }, []);
+
+  // Explicit Copy Excerpt action button
+  const handleCopyChapterExcerpt = async () => {
+    if (!book || !book.sampleChapter) return;
+    const selection = window.getSelection();
+    let textToCopy = selection && selection.toString().trim();
+
+    if (!textToCopy) {
+      // Default to copying the first 3 substantive paragraphs of the chapter
+      const excerptParagraphs = book.sampleChapter.content
+        .filter(c => c.type === 'paragraph')
+        .slice(0, 3)
+        .map(c => c.text)
+        .join('\n\n');
+      textToCopy = `"${book.title}" — Chapter ${book.sampleChapter.chapterNumber}: ${book.sampleChapter.title}\nBy ${book.author} (${book.authorType})\n\n${excerptParagraphs}\n\n— Aetheria Privé Editions (https://aetheria.store)`;
+    }
+
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(textToCopy);
+      } else {
+        const textarea = document.createElement('textarea');
+        textarea.value = textToCopy;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+      }
+      setCopiedSuccess(true);
+      setTimeout(() => setCopiedSuccess(false), 2000);
+    } catch (err) {
+      console.error('Clipboard copy failed:', err);
+    }
+  };
 
   // Track reading scroll progress
   const handleScroll = () => {
@@ -106,49 +192,58 @@ export default function InteractiveBookModal({
 
   if (!isOpen || !book) return null;
 
-  // Reading room themes: High contrast, warm ivory default, zero gold body text
+  // Reading room themes: High contrast, warm ivory default (#FAF7F0), zero gold body text
   const themes = {
     ivory: {
+      themeClass: 'theme-ivory',
       outerBg: 'bg-[#18191c]/90',
-      canvas: 'bg-[#faf7f0]',
-      text: 'text-[#1e2229]',
-      heading: 'text-[#111317]',
-      secondaryText: 'text-[#4b5260]',
-      border: 'border-[#e4ded0]',
-      headerBg: 'bg-[#f4efe4]',
-      quoteBg: 'bg-[#f3edd9]',
+      canvas: 'bg-[#FAF7F0]',
+      text: 'text-[#24231F]',
+      heading: 'text-[#141518]',
+      secondaryText: 'text-[#524E48]',
+      border: 'border-[#E4DED0]',
+      headerBg: 'bg-[#F2ECE0]',
+      quoteBg: 'bg-[#F0E9DA]',
       quoteBorder: 'border-[#c5a059]',
-      noteBg: 'bg-[#f5f0e3]',
-      noteBorder: 'border-[#d4c6a6]',
-      noteText: 'text-[#38311e]'
+      noteBg: 'bg-[#F3EDE0]',
+      noteBorder: 'border-[#D9CFBA]',
+      noteText: 'text-[#38311E]',
+      btnBg: 'bg-[#EAE2D2]',
+      btnText: 'text-[#24231F]'
     },
     night: {
+      themeClass: 'theme-night',
       outerBg: 'bg-black/95',
       canvas: 'bg-[#121418]',
-      text: 'text-[#e2e5eb]',
+      text: 'text-[#E7E8EC]',
       heading: 'text-white',
-      secondaryText: 'text-[#9ca3af]',
-      border: 'border-[#262a33]',
-      headerBg: 'bg-[#181b22]',
-      quoteBg: 'bg-[#1c202a]',
+      secondaryText: 'text-[#9CA3AF]',
+      border: 'border-[#262A33]',
+      headerBg: 'bg-[#181B22]',
+      quoteBg: 'bg-[#1C202A]',
       quoteBorder: 'border-[#c5a059]',
-      noteBg: 'bg-[#1a1e28]',
+      noteBg: 'bg-[#1A1E28]',
       noteBorder: 'border-[#323947]',
-      noteText: 'text-[#cbd5e1]'
+      noteText: 'text-[#CBD5E1]',
+      btnBg: 'bg-[#222733]',
+      btnText: 'text-white'
     },
     sepia: {
-      outerBg: 'bg-[#1c1917]/90',
-      canvas: 'bg-[#f4ebd9]',
-      text: 'text-[#332a1f]',
-      heading: 'text-[#241c13]',
-      secondaryText: 'text-[#615241]',
-      border: 'border-[#dfd3bd]',
-      headerBg: 'bg-[#ede1cb]',
-      quoteBg: 'bg-[#e7d8bf]',
-      quoteBorder: 'border-[#9c783e]',
-      noteBg: 'bg-[#ebdcc4]',
-      noteBorder: 'border-[#cfbca0]',
-      noteText: 'text-[#4a3b29]'
+      themeClass: 'theme-sepia',
+      outerBg: 'bg-[#1C1917]/90',
+      canvas: 'bg-[#F4EBD9]',
+      text: 'text-[#332A1F]',
+      heading: 'text-[#241C13]',
+      secondaryText: 'text-[#5C4F40]',
+      border: 'border-[#DFD3BD]',
+      headerBg: 'bg-[#ECE0C8]',
+      quoteBg: 'bg-[#E7D8BE]',
+      quoteBorder: 'border-[#9C783E]',
+      noteBg: 'bg-[#EBDCC4]',
+      noteBorder: 'border-[#CFBCA0]',
+      noteText: 'text-[#4A3B29]',
+      btnBg: 'bg-[#E2D2B5]',
+      btnText: 'text-[#332A1F]'
     }
   };
 
@@ -162,7 +257,7 @@ export default function InteractiveBookModal({
       className={`fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 ${t.outerBg} backdrop-blur-md transition-all duration-300`}
     >
       <div 
-        className={`relative w-full max-w-4xl h-[94vh] max-h-[920px] rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-black/20 ${t.canvas} transition-colors duration-300`}
+        className={`relative w-full max-w-4xl h-[94vh] max-h-[920px] rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-black/20 ${t.canvas} ${t.themeClass} transition-colors duration-300`}
       >
         
         {/* Reading Progress Top Bar */}
@@ -173,7 +268,7 @@ export default function InteractiveBookModal({
           />
         </div>
 
-        {/* Minimalist Top Control Bar (Can be hidden in distraction-free mode) */}
+        {/* Minimalist Top Control Bar (Hidden in distraction-free mode) */}
         {!distractionFree && (
           <header className={`h-14 px-4 sm:px-6 ${t.headerBg} border-b ${t.border} flex items-center justify-between z-20 shrink-0 transition-colors`}>
             
@@ -181,44 +276,44 @@ export default function InteractiveBookModal({
             <div className="flex items-center gap-3 min-w-0">
               <span className="w-2 h-2 rounded-full bg-[#c5a059] shrink-0" />
               <div className="truncate">
-                <span className={`text-xs font-mono font-semibold uppercase tracking-wider ${t.heading} truncate block`}>
+                <span className={`text-xs font-mono font-bold uppercase tracking-wider ${t.heading} truncate block`}>
                   {book.title}
                 </span>
                 <span className={`text-[10px] font-mono ${t.secondaryText} block truncate`}>
-                  {book.author} • Sample Chapter
+                  {book.author} ({book.authorType}) • Sample Chapter
                 </span>
               </div>
             </div>
 
             {/* Reading Controls */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2">
               
-              {/* Theme Selector */}
+              {/* Theme Selector: Ivory (default), Sepia, Night */}
               <div className="flex items-center gap-1 p-1 rounded-lg border border-black/10 bg-black/5">
                 <button
-                  onClick={() => setTheme('ivory')}
+                  onClick={() => handleThemeChange('ivory')}
                   className={`px-2 py-0.5 rounded text-[11px] font-serif font-bold transition ${
                     theme === 'ivory' ? 'bg-white text-stone-900 shadow-sm' : 'text-stone-500 hover:text-stone-900'
                   }`}
-                  title="Warm Ivory Theme"
+                  title="Warm Ivory (Default)"
                 >
                   Ivory
                 </button>
                 <button
-                  onClick={() => setTheme('sepia')}
+                  onClick={() => handleThemeChange('sepia')}
                   className={`px-2 py-0.5 rounded text-[11px] font-serif font-bold transition ${
                     theme === 'sepia' ? 'bg-[#9c783e] text-white shadow-sm' : 'text-stone-500 hover:text-stone-900'
                   }`}
-                  title="Sepia Manuscript Theme"
+                  title="Sepia Manuscript"
                 >
                   Sepia
                 </button>
                 <button
-                  onClick={() => setTheme('night')}
+                  onClick={() => handleThemeChange('night')}
                   className={`px-2 py-0.5 rounded text-[11px] font-serif font-bold transition ${
                     theme === 'night' ? 'bg-zinc-800 text-white shadow-sm' : 'text-stone-500 hover:text-stone-900'
                   }`}
-                  title="Night Theme"
+                  title="Night Mode"
                 >
                   Night
                 </button>
@@ -243,12 +338,26 @@ export default function InteractiveBookModal({
                 </button>
               </div>
 
+              {/* Copy Plain Text Excerpt Button */}
+              <button
+                onClick={handleCopyChapterExcerpt}
+                className={`p-2 rounded-lg border transition flex items-center gap-1 text-xs font-mono ${
+                  copiedSuccess
+                    ? 'bg-emerald-600 text-white border-emerald-600'
+                    : 'border-black/10 text-slate-600 hover:text-black bg-black/5'
+                }`}
+                title="Copy clean unstyled excerpt to clipboard"
+              >
+                {copiedSuccess ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                <span className="hidden md:inline text-[10px]">{copiedSuccess ? 'Copied' : 'Copy'}</span>
+              </button>
+
               {/* Audio Narrator */}
               <button
                 onClick={handleToggleNarration}
                 className={`p-2 rounded-lg border transition ${
                   isNarrating
-                    ? 'bg-[#c5a059] text-white border-[#c5a059]'
+                    ? 'bg-[#c5a059] text-black border-[#c5a059]'
                     : 'border-black/10 text-slate-600 hover:text-black bg-black/5'
                 }`}
                 title="Listen to chapter read aloud"
@@ -261,7 +370,7 @@ export default function InteractiveBookModal({
                 onClick={toggleBookmark}
                 className={`p-2 rounded-lg border transition ${
                   isBookmarked
-                    ? 'bg-[#c5a059] text-white border-[#c5a059]'
+                    ? 'bg-[#c5a059] text-black border-[#c5a059]'
                     : 'border-black/10 text-slate-600 hover:text-black bg-black/5'
                 }`}
                 title="Bookmark chapter"
@@ -304,11 +413,11 @@ export default function InteractiveBookModal({
           </div>
         )}
 
-        {/* Reading Canvas: Comfortable line length (65-72ch), Serif typography */}
+        {/* Reading Canvas: Comfortable line length (65-72ch), Serif typography, high contrast */}
         <div 
           ref={contentRef}
           onScroll={handleScroll}
-          className="flex-1 overflow-y-auto px-6 sm:px-12 md:px-20 py-10 md:py-16 selection:bg-[#c5a059]/25"
+          className="flex-1 overflow-y-auto px-6 sm:px-12 md:px-20 py-10 md:py-16"
         >
           <article className="max-w-2xl mx-auto space-y-6">
             
@@ -331,6 +440,10 @@ export default function InteractiveBookModal({
               <p className={`text-base sm:text-lg font-serif italic ${t.secondaryText} leading-relaxed`}>
                 {book.sampleChapter.subtitle}
               </p>
+
+              <div className={`text-xs font-mono ${t.secondaryText} mt-4 pt-3 border-t border-black/5`}>
+                By <strong className={t.heading}>{book.author}</strong> ({book.authorType})
+              </div>
             </header>
 
             {/* Chapter Paragraphs & Blocks */}
@@ -373,7 +486,7 @@ export default function InteractiveBookModal({
                       className={`my-8 p-5 rounded-xl border ${t.noteBorder} ${t.noteBg} ${t.noteText} text-sm font-sans leading-relaxed`}
                     >
                       <strong className="font-mono text-xs uppercase tracking-wider block mb-1">
-                        Empirical Research Note:
+                        Editorial Synthesis Note:
                       </strong>
                       {block.text}
                     </div>
@@ -398,7 +511,7 @@ export default function InteractiveBookModal({
                     handleClose();
                     onBuyNow(book);
                   }}
-                  className="w-full sm:w-auto px-6 py-3 rounded-full bg-[#c5a059] hover:bg-[#d4af37] text-[#07080a] font-bold text-xs tracking-wider transition shadow-md flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-6 py-3 rounded-full bg-[#c5a059] hover:bg-[#d4af37] text-black font-bold text-xs tracking-wider transition shadow-md flex items-center justify-center gap-2"
                 >
                   <ShoppingBag className="w-4 h-4" />
                   <span>ACQUIRE COMPLETE EDITION — ₹{book.priceINR}</span>
