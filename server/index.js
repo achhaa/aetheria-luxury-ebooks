@@ -3,17 +3,21 @@ import cors from 'cors';
 import crypto from 'crypto';
 import dotenv from 'dotenv';
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 import Razorpay from 'razorpay';
 
 import { SERVER_CATALOG } from './catalog.js';
 import { saveOrder, findOrderById, findOrdersByEmail, getAllOrders } from './storage.js';
 import { generateBookPdf } from './pdfGenerator.js';
+import { generateBookEpub } from './epubGenerator.js';
+import { initializeDatabase, run, get, all, logAudit } from './db.js';
 
 dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const DATA_DIR = path.join(__dirname, 'data');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -23,6 +27,7 @@ const RAZORPAY_KEY_ID = process.env.RAZORPAY_KEY_ID || 'rzp_test_placeholder';
 const RAZORPAY_KEY_SECRET = process.env.RAZORPAY_KEY_SECRET || 'rzp_secret_placeholder';
 const RAZORPAY_WEBHOOK_SECRET = process.env.RAZORPAY_WEBHOOK_SECRET || 'aetheria_webhook_secret_2026';
 const TOKEN_SECRET = process.env.DOWNLOAD_TOKEN_SECRET || 'aetheria_luxury_download_secret_key_9981';
+const ADMIN_SECRET = process.env.ADMIN_SECRET || 'aetheria-admin-secret-2026';
 
 const isRazorpayConfigured =
   process.env.RAZORPAY_KEY_ID &&
@@ -39,6 +44,9 @@ if (isRazorpayConfigured) {
 
 app.use(cors());
 app.use(express.json());
+
+// Initialize SQLite database schema and seed data
+initializeDatabase().catch((e) => console.error('[Database Init Error]', e));
 
 // Token helper: Creates a signed expiring download token
 function createDownloadToken({ orderId, bookId, email, expiresInMs = 24 * 60 * 60 * 1000 }) {
@@ -65,6 +73,16 @@ function verifyDownloadToken(token) {
   } catch {
     return null;
   }
+}
+
+// Admin Authorization Middleware
+function requireAdmin(req, res, next) {
+  const authHeader = req.headers['authorization'] || '';
+  const token = authHeader.replace(/^Bearer\s+/, '') || req.headers['x-admin-key'];
+  if (token !== ADMIN_SECRET) {
+    return res.status(401).json({ error: 'Unauthorized: Valid administrative key required.' });
+  }
+  next();
 }
 
 /**
@@ -98,12 +116,29 @@ app.post('/api/create-order', async (req, res) => {
     let totalPaise = 0;
 
     for (const id of ids) {
-      const book = SERVER_CATALOG[id];
-      if (!book) {
-        return res.status(400).json({ error: `Book '${id}' not recognized in catalogue.` });
+      // Check database first for dynamic pricing, fallback to catalog
+      const dbBook = await get(`SELECT * FROM books WHERE id = ?`, [id]);
+      if (dbBook) {
+        orderedItems.push({
+          id: dbBook.id,
+          title: dbBook.title,
+          priceINR: dbBook.price_inr,
+          pricePaise: dbBook.price_inr * 100,
+          author: dbBook.author,
+          authorRole: dbBook.author_role,
+          category: dbBook.category,
+          isbn: dbBook.isbn,
+          pages: dbBook.pages
+        });
+        totalPaise += dbBook.price_inr * 100;
+      } else {
+        const book = SERVER_CATALOG[id];
+        if (!book) {
+          return res.status(400).json({ error: `Book '${id}' not recognized in catalogue.` });
+        }
+        orderedItems.push(book);
+        totalPaise += book.pricePaise;
       }
-      orderedItems.push(book);
-      totalPaise += book.pricePaise;
     }
 
     const receipt = `rcpt_${Date.now()}_${Math.floor(Math.random() * 1000)}`;
@@ -139,7 +174,7 @@ app.post('/api/create-order', async (req, res) => {
       createdAt: new Date().toISOString(),
     };
 
-    saveOrder(orderRecord);
+    await saveOrder(orderRecord);
 
     res.json({
       orderId: razorpayOrderId,
@@ -161,7 +196,7 @@ app.post('/api/create-order', async (req, res) => {
  * 3. POST /api/verify-payment
  * Cryptographic signature verification. Order is ONLY unlocked upon verified signature.
  */
-app.post('/api/verify-payment', (req, res) => {
+app.post('/api/verify-payment', async (req, res) => {
   try {
     const {
       razorpay_order_id,
@@ -175,7 +210,7 @@ app.post('/api/verify-payment', (req, res) => {
       return res.status(400).json({ error: 'Missing mandatory payment details.' });
     }
 
-    const order = findOrderById(razorpay_order_id);
+    const order = await findOrderById(razorpay_order_id);
     if (!order) {
       return res.status(404).json({ error: 'Referenced order not found in records.' });
     }
@@ -197,7 +232,7 @@ app.post('/api/verify-payment', (req, res) => {
 
     if (!isValid) {
       order.status = 'PAYMENT_FAILED';
-      saveOrder(order);
+      await saveOrder(order);
       return res.status(400).json({ error: 'Cryptographic payment signature verification failed.' });
     }
 
@@ -221,11 +256,12 @@ app.post('/api/verify-payment', (req, res) => {
         title: item.title,
         token,
         downloadUrl: `/api/download/${token}`,
+        downloadEpubUrl: `/api/download-epub/${token}`,
       };
     });
 
     order.downloadTokens = downloadTokens;
-    saveOrder(order);
+    await saveOrder(order);
 
     res.json({
       success: true,
@@ -251,7 +287,7 @@ app.post('/api/verify-payment', (req, res) => {
  * 4. POST /api/webhook
  * Razorpay Webhook processor. Idempotently handles server-to-server notifications.
  */
-app.post('/api/webhook', (req, res) => {
+app.post('/api/webhook', async (req, res) => {
   try {
     const webhookSignature = req.headers['x-razorpay-signature'];
 
@@ -263,30 +299,23 @@ app.post('/api/webhook', (req, res) => {
         .digest('hex');
 
       if (expectedSignature !== webhookSignature) {
-        return res.status(400).json({ error: 'Invalid webhook signature.' });
+        return res.status(400).json({ error: 'Invalid webhook signature' });
       }
     }
 
-    const event = req.body.event;
-    const payload = req.body.payload;
+    const { event, payload } = req.body;
 
     if (event === 'payment.captured' || event === 'order.paid') {
-      const rzpOrderId = payload.payment?.entity?.order_id || payload.order?.entity?.id;
+      const paymentEntity = payload.payment?.entity;
+      const rzpOrderId = paymentEntity?.order_id;
+
       if (rzpOrderId) {
-        const order = findOrderById(rzpOrderId);
+        const order = await findOrderById(rzpOrderId);
         if (order && order.status !== 'PAID') {
           order.status = 'PAID';
+          order.paymentId = paymentEntity.id;
           order.paidAt = new Date().toISOString();
-          saveOrder(order);
-        }
-      }
-    } else if (event === 'payment.failed') {
-      const rzpOrderId = payload.payment?.entity?.order_id;
-      if (rzpOrderId) {
-        const order = findOrderById(rzpOrderId);
-        if (order) {
-          order.status = 'PAYMENT_FAILED';
-          saveOrder(order);
+          await saveOrder(order);
         }
       }
     }
@@ -300,9 +329,9 @@ app.post('/api/webhook', (req, res) => {
 
 /**
  * 5. GET /api/download/:token
- * Secure digital delivery. Only verified purchasers with a valid HMAC token can access files.
+ * Secure digital delivery: PDF edition. Only verified purchasers with a valid HMAC token can access files.
  */
-app.get('/api/download/:token', (req, res) => {
+app.get('/api/download/:token', async (req, res) => {
   try {
     const { token } = req.params;
     const payload = verifyDownloadToken(token);
@@ -317,7 +346,7 @@ app.get('/api/download/:token', (req, res) => {
       `);
     }
 
-    const order = findOrderById(payload.orderId);
+    const order = await findOrderById(payload.orderId);
     if (!order || order.status !== 'PAID') {
       return res.status(403).send('Unauthorized. Order not confirmed as paid.');
     }
@@ -347,25 +376,71 @@ app.get('/api/download/:token', (req, res) => {
 });
 
 /**
- * 6. POST /api/customer/orders
+ * 6. GET /api/download-epub/:token
+ * Secure digital delivery: EPUB edition.
+ */
+app.get('/api/download-epub/:token', async (req, res) => {
+  try {
+    const { token } = req.params;
+    const payload = verifyDownloadToken(token);
+
+    if (!payload) {
+      return res.status(403).send('Access expired or unauthorized token.');
+    }
+
+    const order = await findOrderById(payload.orderId);
+    if (!order || order.status !== 'PAID') {
+      return res.status(403).send('Unauthorized. Order not confirmed as paid.');
+    }
+
+    const book = SERVER_CATALOG[payload.bookId];
+    if (!book) {
+      return res.status(404).send('Publication not found.');
+    }
+
+    const filename = `${book.id}-aetheria-prive-edition.epub`;
+    res.setHeader('Content-Type', 'application/epub+zip');
+    res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
+
+    const epubBuffer = await generateBookEpub({
+      book,
+      customerName: order.customerName,
+      customerEmail: order.customerEmail,
+      orderId: order.orderId,
+    });
+
+    res.send(epubBuffer);
+  } catch (err) {
+    console.error('EPUB delivery error:', err);
+    res.status(500).send('Failed to generate authorized EPUB publication.');
+  }
+});
+
+/**
+ * 7. POST /api/customer/orders
  * Look up purchase history and regenerate active download tokens for verified customers.
  */
-app.post('/api/customer/orders', (req, res) => {
+app.post('/api/customer/orders', async (req, res) => {
   const { email } = req.body;
   if (!email) return res.status(400).json({ error: 'Email required' });
 
-  const orders = findOrdersByEmail(email).filter((o) => o.status === 'PAID');
+  const allCustomerOrders = await findOrdersByEmail(email);
+  const paidOrders = allCustomerOrders.filter((o) => o.status === 'PAID');
 
-  const history = orders.map((order) => {
-    const tokens = order.items.map((it) => ({
-      bookId: it.id,
-      title: it.title,
-      downloadUrl: `/api/download/${createDownloadToken({
+  const history = paidOrders.map((order) => {
+    const tokens = order.items.map((it) => {
+      const token = createDownloadToken({
         orderId: order.orderId,
         bookId: it.id,
         email: order.customerEmail,
-      })}`,
-    }));
+      });
+      return {
+        bookId: it.id,
+        title: it.title,
+        downloadUrl: `/api/download/${token}`,
+        downloadEpubUrl: `/api/download-epub/${token}`,
+      };
+    });
 
     return {
       orderId: order.orderId,
@@ -379,7 +454,177 @@ app.post('/api/customer/orders', (req, res) => {
   res.json({ orders: history });
 });
 
+/**
+ * 8. GET /api/audiobook/:bookId/:chapterId
+ * Returns structured word-level timing map and verified audio URL for read-along experience.
+ */
+app.get('/api/audiobook/:bookId/:chapterId', (req, res) => {
+  const { bookId, chapterId } = req.params;
+
+  if (bookId === 'the-artificial-mind' && (chapterId === 'chapter-01' || chapterId === '01')) {
+    const timingFile = path.join(__dirname, '..', 'src', 'data', 'the-artificial-mind-chapter-01-timing.json');
+    if (fs.existsSync(timingFile)) {
+      try {
+        const raw = fs.readFileSync(timingFile, 'utf-8').replace(/^\uFEFF/, '');
+        const data = JSON.parse(raw);
+        return res.json(data);
+      } catch (err) {
+        console.error('Failed to read timing file:', err);
+      }
+    }
+  }
+
+  // Honest fallback state if exact audio timing is not yet produced
+  res.status(404).json({
+    error: 'Audiobook recording or timing map not yet available for this chapter.',
+    bookId,
+    chapterId,
+    availableFallback: 'browser_speech_synthesis'
+  });
+});
+
+/**
+ * 9. POST /api/progress & GET /api/progress/:email/:bookId
+ * Reading & Listening Progress synchronization
+ */
+app.post('/api/progress', async (req, res) => {
+  try {
+    const { email, bookId, chapterIndex = 0, pageIndex = 0, scrollRatio = 0, audioTime = 0 } = req.body;
+    if (!email || !bookId) return res.status(400).json({ error: 'Email and bookId required' });
+
+    const now = new Date().toISOString();
+    await run(`
+      INSERT INTO reading_progress (customer_email, book_id, chapter_index, page_index, scroll_ratio, audio_time, updated_at)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(customer_email, book_id) DO UPDATE SET
+        chapter_index = excluded.chapter_index,
+        page_index = excluded.page_index,
+        scroll_ratio = excluded.scroll_ratio,
+        audio_time = excluded.audio_time,
+        updated_at = excluded.updated_at
+    `, [email.toLowerCase(), bookId, chapterIndex, pageIndex, scrollRatio, audioTime, now]);
+
+    res.json({ success: true, updated_at: now });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to save progress' });
+  }
+});
+
+app.get('/api/progress/:email/:bookId', async (req, res) => {
+  try {
+    const { email, bookId } = req.params;
+    const row = await get(`
+      SELECT * FROM reading_progress WHERE customer_email = ? AND book_id = ?
+    `, [email.toLowerCase(), bookId]);
+
+    if (!row) return res.json({ progress: null });
+    res.json({
+      progress: {
+        chapterIndex: row.chapter_index,
+        pageIndex: row.page_index,
+        scrollRatio: row.scroll_ratio,
+        audioTime: row.audio_time,
+        updatedAt: row.updated_at
+      }
+    });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to retrieve progress' });
+  }
+});
+
+/**
+ * 10. POST & GET /api/bookmarks
+ */
+app.post('/api/bookmarks', async (req, res) => {
+  try {
+    const { email, bookId, chapterIndex, pageIndex, excerpt, note } = req.body;
+    if (!email || !bookId) return res.status(400).json({ error: 'Email and bookId required' });
+
+    const id = `bm_${crypto.randomBytes(6).toString('hex')}`;
+    const now = new Date().toISOString();
+
+    await run(`
+      INSERT INTO bookmarks (id, customer_email, book_id, chapter_index, page_index, excerpt, note, created_at)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `, [id, email.toLowerCase(), bookId, chapterIndex, pageIndex, excerpt || '', note || '', now]);
+
+    res.json({ success: true, bookmark: { id, chapterIndex, pageIndex, excerpt, note, createdAt: now } });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to create bookmark' });
+  }
+});
+
+app.get('/api/bookmarks/:email/:bookId', async (req, res) => {
+  try {
+    const { email, bookId } = req.params;
+    const rows = await all(`
+      SELECT * FROM bookmarks WHERE customer_email = ? AND book_id = ? ORDER BY created_at DESC
+    `, [email.toLowerCase(), bookId]);
+
+    res.json({ bookmarks: rows });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch bookmarks' });
+  }
+});
+
+/**
+ * 11. Protected Administrative APIs
+ */
+app.get('/api/admin/orders', requireAdmin, async (req, res) => {
+  try {
+    const orders = await getAllOrders();
+    res.json({ orders });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to retrieve administrative orders' });
+  }
+});
+
+app.get('/api/admin/books', requireAdmin, async (req, res) => {
+  try {
+    const books = await all(`SELECT * FROM books ORDER BY title ASC`);
+    res.json({ books });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to retrieve books' });
+  }
+});
+
+app.put('/api/admin/books/:id', requireAdmin, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { price_inr, status, badge, subtitle } = req.body;
+
+    const existing = await get(`SELECT * FROM books WHERE id = ?`, [id]);
+    if (!existing) return res.status(404).json({ error: 'Book not found' });
+
+    const now = new Date().toISOString();
+    await run(`
+      UPDATE books SET
+        price_inr = COALESCE(?, price_inr),
+        status = COALESCE(?, status),
+        badge = COALESCE(?, badge),
+        subtitle = COALESCE(?, subtitle),
+        updated_at = ?
+      WHERE id = ?
+    `, [price_inr, status, badge, subtitle, now, id]);
+
+    await logAudit('ADMIN_UPDATE_BOOK', 'ADMIN_USER', { bookId: id, changes: req.body });
+    res.json({ success: true, message: 'Book updated successfully' });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to update book' });
+  }
+});
+
+app.get('/api/admin/audit-logs', requireAdmin, async (req, res) => {
+  try {
+    const logs = await all(`SELECT * FROM audit_logs ORDER BY id DESC LIMIT 100`);
+    res.json({ logs });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to retrieve audit logs' });
+  }
+});
+
 app.listen(PORT, () => {
-  console.log(`[AETHERIA COMMERCE BACKEND] Running securely on port ${PORT}`);
+  console.log(`[AETHERIA BACKEND] Running securely on port ${PORT}`);
+  console.log(`[PERSISTENCE] SQLite database active at ${path.join(DATA_DIR, 'aetheria.db')}`);
   console.log(`[RAZORPAY INTEGRATION] Mode: ${isRazorpayConfigured ? 'Live / Registered Test Credentials' : 'Local Test / Mock Mode'}`);
 });

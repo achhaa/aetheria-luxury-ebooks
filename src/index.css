@@ -3,8 +3,12 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    border-color: rgba(255, 255, 255, 0.08);
+  body {
+    background-color: #ffffff;
+    color: #1d1d1f;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   html {
     scroll-behavior: smooth;
@@ -17,44 +21,89 @@
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #090a0f;
+  background: #f5f5f7;
 }
 ::-webkit-scrollbar-thumb {
-  background: #232938;
+  background: #d2d2d7;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #c5a059;
+  background: #86868b;
 }
 
-/* Luxury Glassmorphism & Accents */
-.glass-panel {
-  background: rgba(13, 15, 20, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+/* Light Editorial Glassmorphism & Accents */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-.gold-gradient-text {
-  background: linear-gradient(135deg, #fff2b2 0%, #dfc079 45%, #c5a059 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.gold-accent-text {
+  color: #997328;
 }
 
-/* Accessible Reader Selection Styles for Ivory, Night, and Sepia */
+/* Accessible Reader Themes & High-Contrast Typography */
+.theme-ivory {
+  background-color: #faf7f0 !important;
+  color: #24231f !important;
+}
 .theme-ivory ::selection {
   background-color: #e5dac2 !important;
   color: #1a1915 !important;
 }
 
+.theme-sepia {
+  background-color: #f0e4cc !important;
+  color: #382e1e !important;
+}
+.theme-sepia ::selection {
+  background-color: #dfceb0 !important;
+  color: #271d12 !important;
+}
+
+.theme-night {
+  background-color: #17181b !important;
+  color: #e4e4e7 !important;
+}
 .theme-night ::selection {
   background-color: #2e3646 !important;
   color: #ffffff !important;
 }
 
-.theme-sepia ::selection {
-  background-color: #dfceb0 !important;
-  color: #271d12 !important;
+/* Karaoke-Style Synchronized Word Highlighting */
+.theme-ivory .word-active {
+  background-color: #e6c875 !important;
+  color: #141310 !important;
+  border-radius: 3px;
+  padding: 1px 3px;
+  box-shadow: 0 0 0 2px rgba(230, 200, 117, 0.4);
+  font-weight: 600;
+  transition: all 0.08s ease-in-out;
+}
+
+.theme-sepia .word-active {
+  background-color: #cbb184 !important;
+  color: #1b1208 !important;
+  border-radius: 3px;
+  padding: 1px 3px;
+  box-shadow: 0 0 0 2px rgba(203, 177, 132, 0.4);
+  font-weight: 600;
+  transition: all 0.08s ease-in-out;
+}
+
+.theme-night .word-active {
+  background-color: #3b82f6 !important;
+  color: #ffffff !important;
+  border-radius: 3px;
+  padding: 1px 3px;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+  font-weight: 600;
+  transition: all 0.08s ease-in-out;
+}
+
+.word-completed {
+  opacity: 0.92;
 }
 
 /* Ensure smooth section scrolling offsets for sticky navigation */

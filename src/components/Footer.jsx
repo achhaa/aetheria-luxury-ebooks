@@ -1,93 +1,102 @@
 import React from 'react';
-import { 
-  BookOpen, ShieldCheck, Download, Award, Lock, 
-  RefreshCw, CheckCircle2, Mail
-} from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { BookOpen, ShieldCheck, Mail, Lock } from 'lucide-react';
 
-export default function Footer({ onOpenPolicies, onOpenLibraryLookup }) {
+export default function Footer() {
   return (
-    <footer className="relative bg-[#07080a] border-t border-white/10 pt-16 pb-12 overflow-hidden text-slate-400">
+    <footer className="bg-[#f5f5f7] border-t border-black/10 text-[#6e6e73] py-16 text-xs font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* 4 Pillars of Consumer Protection */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pb-14 border-b border-white/10 text-center">
-          <div className="flex flex-col items-center space-y-2">
-            <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#c5a059]">
-              <Download className="w-5 h-5" />
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+          
+          {/* Col 1: Brand & Atelier */}
+          <div className="space-y-3 md:col-span-1">
+            <div className="flex items-center gap-2 text-[#1d1d1f]">
+              <div className="w-7 h-7 rounded-lg bg-[#1d1d1f] flex items-center justify-center text-[#c5a059]">
+                <BookOpen className="w-3.5 h-3.5" />
+              </div>
+              <span className="font-display font-bold text-sm tracking-wider">AETHERIA</span>
             </div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider">DRM-Free Master Files</h4>
-            <p className="text-[11px] text-slate-400 font-light max-w-[200px]">
-              You own your books. Clean PDF and EPUB files ready for Kindle, iPad, and reMarkable.
+            <p className="text-xs leading-relaxed text-[#6e6e73]">
+              The digital publishing atelier for inquiring minds. High-impact intellectual works prepared with AI research synthesis and human editorial rigor.
             </p>
+            <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#997328] font-bold pt-1">
+              <ShieldCheck className="w-3.5 h-3.5" />
+              <span>All Volumes Under ₹500</span>
+            </div>
           </div>
 
-          <div className="flex flex-col items-center space-y-2">
-            <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-sky-400">
-              <Award className="w-5 h-5" />
-            </div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider">Peer-Reviewed Rigor</h4>
-            <p className="text-[11px] text-slate-400 font-light max-w-[200px]">
-              Authored by senior practitioners and researchers. Factual framing and verified citations.
-            </p>
+          {/* Col 2: Publications */}
+          <div className="space-y-2.5">
+            <h4 className="font-mono text-xs uppercase tracking-wider text-[#1d1d1f] font-bold">
+              Publications
+            </h4>
+            <ul className="space-y-2 text-xs font-mono">
+              <li><Link to="/books/the-artificial-mind" className="hover:text-[#1d1d1f] transition">The Artificial Mind (₹299)</Link></li>
+              <li><Link to="/books/the-sovereign-mind" className="hover:text-[#1d1d1f] transition">The Sovereign Mind (₹349)</Link></li>
+              <li><Link to="/books/ghost-in-the-wire" className="hover:text-[#1d1d1f] transition">Ghost in the Wire (₹299)</Link></li>
+              <li><Link to="/books/the-stoic-sovereign" className="hover:text-[#1d1d1f] transition">The Stoic Sovereign (₹199)</Link></li>
+              <li><Link to="/books/bio-optima" className="hover:text-[#1d1d1f] transition">Bio-Optima (₹249)</Link></li>
+            </ul>
           </div>
 
-          <div className="flex flex-col items-center space-y-2">
-            <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-emerald-400">
-              <RefreshCw className="w-5 h-5" />
-            </div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider">30-Day Guarantee</h4>
-            <p className="text-[11px] text-slate-400 font-light max-w-[200px]">
-              If any title fails to transform your operational thinking, receive a 100% refund via Razorpay.
-            </p>
+          {/* Col 3: Reader Services */}
+          <div className="space-y-2.5">
+            <h4 className="font-mono text-xs uppercase tracking-wider text-[#1d1d1f] font-bold">
+              Reader Access
+            </h4>
+            <ul className="space-y-2 text-xs font-mono">
+              <li><Link to="/books" className="hover:text-[#1d1d1f] transition">Browse Catalogue</Link></li>
+              <li><Link to="/library" className="hover:text-[#1d1d1f] transition">Customer Library & Downloads</Link></li>
+              <li><Link to="/read/the-artificial-mind" className="hover:text-[#1d1d1f] transition">Web Reader & Audiobook</Link></li>
+              <li><Link to="/refund-policy" className="hover:text-[#1d1d1f] transition">30-Day Digital Refund Policy</Link></li>
+              <li><Link to="/refund-policy" className="hover:text-[#1d1d1f] transition">Consumer Protection Disclosures</Link></li>
+            </ul>
           </div>
 
-          <div className="flex flex-col items-center space-y-2">
-            <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#dfc079]">
-              <Lock className="w-5 h-5" />
+          {/* Col 4: Verified Contact & Admin */}
+          <div className="space-y-2.5">
+            <h4 className="font-mono text-xs uppercase tracking-wider text-[#1d1d1f] font-bold">
+              Desk & Governance
+            </h4>
+            <div className="text-xs space-y-2">
+              <p>Editorial Inquiries & Grievance Officer:</p>
+              <a 
+                href="mailto:support@aetheria.luxury" 
+                className="font-mono font-bold text-[#1d1d1f] hover:text-[#0071e3] flex items-center gap-1.5 transition"
+              >
+                <Mail className="w-3.5 h-3.5 text-[#997328]" />
+                <span>support@aetheria.luxury</span>
+              </a>
+              <p className="text-[11px] text-[#86868b] pt-1">
+                Razorpay Level 1 Settlement • Indian Rupee Processing
+              </p>
+              <div className="pt-2">
+                <Link
+                  to="/admin"
+                  className="inline-flex items-center gap-1 text-[11px] font-mono text-[#86868b] hover:text-[#1d1d1f] transition"
+                >
+                  <Lock className="w-3 h-3" />
+                  <span>Admin Console</span>
+                </Link>
+              </div>
             </div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider">Razorpay Encryption</h4>
-            <p className="text-[11px] text-slate-400 font-light max-w-[200px]">
-              256-bit TLS encrypted settlement with UPI, Cards, NetBanking, and authorized server validation.
-            </p>
           </div>
+
         </div>
 
-        {/* Footer Navigation & Credentials */}
-        <div className="pt-10 flex flex-col md:flex-row items-center justify-between gap-6 text-xs">
-          <div className="flex items-center gap-3">
-            <div className="w-7 h-7 rounded-lg bg-[#c5a059] text-black flex items-center justify-center font-bold">
-              <BookOpen className="w-4 h-4" />
-            </div>
-            <span className="font-display font-bold text-white tracking-wider">
-              AETHERIA PRIVÉ EDITIONS
-            </span>
-            <span className="text-slate-600">|</span>
-            <span className="font-mono text-[11px] text-slate-400">Est. 2026</span>
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-black/10 flex flex-col sm:flex-row items-center justify-between text-[11px] font-mono text-[#86868b] gap-4">
+          <div>
+            © 2026 Aetheria Privé Editions. All rights reserved. Master files protected under personal DRM-free licensing.
           </div>
-
-          <div className="flex flex-wrap items-center gap-6 font-mono text-[11px]">
-            <button 
-              onClick={onOpenPolicies}
-              className="text-[#c5a059] hover:underline"
-            >
-              Refund & Delivery Policies
-            </button>
-            <button 
-              onClick={onOpenLibraryLookup}
-              className="hover:text-white transition"
-            >
-              Retrieve My Library
-            </button>
-            <a href="#catalog" className="hover:text-white transition">Catalog</a>
-            <a href="mailto:support@aetheria.com" className="hover:text-white transition flex items-center gap-1">
-              <Mail className="w-3 h-3" />
-              <span>support@aetheria.com</span>
-            </a>
+          <div className="flex items-center gap-4">
+            <Link to="/refund-policy" className="hover:underline">Terms</Link>
+            <span>•</span>
+            <Link to="/refund-policy" className="hover:underline">Privacy</Link>
+            <span>•</span>
+            <Link to="/refund-policy" className="hover:underline">Refunds</Link>
           </div>
-
-          <p className="font-mono text-[11px] text-slate-400">
-            © 2026 Aetheria Editions. All rights reserved.
-          </p>
         </div>
 
       </div>

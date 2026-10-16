@@ -1,51 +1,129 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import { run, get, all, logAudit } from './db.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const DATA_DIR = path.join(__dirname, 'data');
-const ORDERS_FILE = path.join(DATA_DIR, 'orders.json');
-
-// Ensure directory and file exist
-if (!fs.existsSync(DATA_DIR)) {
-  fs.mkdirSync(DATA_DIR, { recursive: true });
-}
-if (!fs.existsSync(ORDERS_FILE)) {
-  fs.writeFileSync(ORDERS_FILE, JSON.stringify({ orders: [] }, null, 2), 'utf-8');
-}
-
-export function getAllOrders() {
+export async function getAllOrders() {
   try {
-    const raw = fs.readFileSync(ORDERS_FILE, 'utf-8');
-    const data = JSON.parse(raw);
-    return data.orders || [];
+    const rows = await all(`SELECT * FROM orders ORDER BY created_at DESC`);
+    return rows.map(formatOrderFromRow);
   } catch (err) {
-    console.error('Failed to read orders file:', err);
+    console.error('Failed to get all orders:', err);
     return [];
   }
 }
 
-export function saveOrder(order) {
-  const orders = getAllOrders();
-  const existingIndex = orders.findIndex((o) => o.orderId === order.orderId);
-  if (existingIndex >= 0) {
-    orders[existingIndex] = { ...orders[existingIndex], ...order, updatedAt: new Date().toISOString() };
-  } else {
-    orders.push({ ...order, createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() });
+export async function saveOrder(order) {
+  try {
+    const now = new Date().toISOString();
+    const existing = await get(`SELECT order_id FROM orders WHERE order_id = ?`, [order.orderId]);
+
+    if (existing) {
+      await run(`
+        UPDATE orders SET
+          payment_id = ?,
+          signature = ?,
+          status = ?,
+          customer_name = ?,
+          customer_email = ?,
+          amount_inr = ?,
+          currency = ?,
+          items_json = ?,
+          download_tokens_json = ?,
+          paid_at = ?,
+          updated_at = ?
+        WHERE order_id = ?
+      `, [
+        order.paymentId || null,
+        order.signature || null,
+        order.status || 'CREATED',
+        order.customerName || null,
+        order.customerEmail || null,
+        order.amountINR || 0,
+        order.currency || 'INR',
+        JSON.stringify(order.items || []),
+        JSON.stringify(order.downloadTokens || []),
+        order.paidAt || null,
+        now,
+        order.orderId
+      ]);
+    } else {
+      await run(`
+        INSERT INTO orders (
+          order_id, payment_id, signature, status, customer_name,
+          customer_email, amount_inr, currency, items_json,
+          download_tokens_json, created_at, paid_at, updated_at
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      `, [
+        order.orderId,
+        order.paymentId || null,
+        order.signature || null,
+        order.status || 'CREATED',
+        order.customerName || null,
+        order.customerEmail || null,
+        order.amountINR || 0,
+        order.currency || 'INR',
+        JSON.stringify(order.items || []),
+        JSON.stringify(order.downloadTokens || []),
+        order.createdAt || now,
+        order.paidAt || null,
+        now
+      ]);
+    }
+
+    await logAudit('SAVE_ORDER', 'SYSTEM', { orderId: order.orderId, status: order.status });
+    return order;
+  } catch (err) {
+    console.error('Failed to save order to SQLite:', err);
+    throw err;
   }
-  fs.writeFileSync(ORDERS_FILE, JSON.stringify({ orders }, null, 2), 'utf-8');
-  return order;
 }
 
-export function findOrderById(orderId) {
-  const orders = getAllOrders();
-  return orders.find((o) => o.orderId === orderId);
+export async function findOrderById(orderId) {
+  try {
+    const row = await get(`SELECT * FROM orders WHERE order_id = ?`, [orderId]);
+    return row ? formatOrderFromRow(row) : null;
+  } catch (err) {
+    console.error('Failed to find order by ID:', err);
+    return null;
+  }
 }
 
-export function findOrdersByEmail(email) {
+export async function findOrdersByEmail(email) {
   if (!email) return [];
-  const normalized = email.trim().toLowerCase();
-  const orders = getAllOrders();
-  return orders.filter((o) => o.customerEmail && o.customerEmail.trim().toLowerCase() === normalized);
+  try {
+    const normalized = email.trim().toLowerCase();
+    const rows = await all(
+      `SELECT * FROM orders WHERE LOWER(customer_email) = ? ORDER BY created_at DESC`,
+      [normalized]
+    );
+    return rows.map(formatOrderFromRow);
+  } catch (err) {
+    console.error('Failed to find orders by email:', err);
+    return [];
+  }
+}
+
+function formatOrderFromRow(row) {
+  let items = [];
+  let downloadTokens = [];
+  try {
+    items = JSON.parse(row.items_json || '[]');
+  } catch {}
+  try {
+    downloadTokens = JSON.parse(row.download_tokens_json || '[]');
+  } catch {}
+
+  return {
+    orderId: row.order_id,
+    paymentId: row.payment_id,
+    signature: row.signature,
+    status: row.status,
+    customerName: row.customer_name,
+    customerEmail: row.customer_email,
+    amountINR: row.amount_inr,
+    currency: row.currency,
+    items,
+    downloadTokens,
+    createdAt: row.created_at,
+    paidAt: row.paid_at,
+    updatedAt: row.updated_at
+  };
 }
