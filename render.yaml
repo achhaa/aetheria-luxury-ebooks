@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: aetheria-luxury-ebooks
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DOWNLOAD_TOKEN_SECRET
+        generateValue: true
+      - key: ADMIN_SECRET
+        generateValue: true
+      - key: RAZORPAY_KEY_ID
+        value: rzp_test_placeholder_key_id
+      - key: RAZORPAY_KEY_SECRET
+        value: placeholder_secret_key
+      - key: RAZORPAY_WEBHOOK_SECRET
+        value: aetheria_webhook_secret_2026
