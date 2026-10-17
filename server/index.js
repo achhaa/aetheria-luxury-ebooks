@@ -151,7 +151,7 @@ app.get('/api/config', (req, res) => {
  */
 app.post('/api/create-order', async (req, res) => {
   try {
-    const { bookIds, customerName, customerEmail } = req.body;
+    const { bookIds, customerName, customerEmail, promoCode } = req.body;
     const ids = Array.isArray(bookIds) ? bookIds : [req.body.bookId];
 
     if (!ids || ids.length === 0) {
@@ -186,6 +186,17 @@ app.post('/api/create-order', async (req, res) => {
         orderedItems.push(book);
         totalPaise += book.pricePaise;
       }
+    }
+
+    // Apply authoritative server promo discounts if provided
+    let discountPaise = 0;
+    const normalizedPromo = typeof promoCode === 'string' ? promoCode.trim().toUpperCase() : '';
+    if (normalizedPromo === 'AETHERIA10') {
+      discountPaise = Math.round(totalPaise * 0.10);
+      totalPaise = Math.max(100, totalPaise - discountPaise); // Minimum ₹1
+    } else if (normalizedPromo === 'PRIVEE20') {
+      discountPaise = Math.round(totalPaise * 0.20);
+      totalPaise = Math.max(100, totalPaise - discountPaise); // Minimum ₹1
     }
 
     const receipt = `rcpt_${Date.now()}_${Math.floor(Math.random() * 1000)}`;

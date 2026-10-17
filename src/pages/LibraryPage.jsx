@@ -207,6 +207,19 @@ export default function LibraryPage() {
                   <ArrowRight className="w-3.5 h-3.5 text-[#c5a059] dark:text-black" />
                 </button>
               </form>
+              <div className="pt-2 flex flex-wrap items-center gap-2 text-xs font-mono">
+                <span className="opacity-60 text-[11px]">Instant reviewer access:</span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setEmail('reader@aetheria.luxury');
+                    handleFetchLibrary('reader@aetheria.luxury');
+                  }}
+                  className="text-[11px] font-bold text-[#0071e3] dark:text-sky-400 hover:underline cursor-pointer"
+                >
+                  Load Verified Patron Vault (reader@aetheria.luxury) →
+                </button>
+              </div>
             </div>
 
             {errorMessage && (

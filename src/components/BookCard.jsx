@@ -1,16 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Play, BookOpen, ShoppingBag, Info, AlertCircle, Headphones, Sparkles } from 'lucide-react';
+import { Play, BookOpen, ShoppingBag, Info, AlertCircle, Headphones, Plus, Check } from 'lucide-react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 export default function BookCard({ 
   book, 
   onBuyNow,
+  onAddToCart,
   activePlayingId,
   setActivePlayingId
 }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [imgError, setImgError] = useState(false);
+  const [addedToCart, setAddedToCart] = useState(false);
   const videoRef = useRef(null);
   const cardRef = useRef(null);
 
@@ -22,6 +24,36 @@ export default function BookCard({
   const springY = useSpring(mouseY, springConfig);
   const rotateX = useTransform(springY, [-0.5, 0.5], ['6deg', '-6deg']);
   const rotateY = useTransform(springX, [-0.5, 0.5], ['-6deg', '6deg']);
+
+  const handleStartVideo = () => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mediaQuery.matches) return;
+
+    if (setActivePlayingId) {
+      setActivePlayingId(book.id);
+    }
+
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.play().then(() => {
+        setIsPlaying(true);
+      }).catch((e) => {
+        console.debug('Autoplay prevented:', e);
+        setIsPlaying(false);
+      });
+    }
+  };
+
+  const handleStopVideo = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+    setIsPlaying(false);
+    if (activePlayingId === book.id && setActivePlayingId) {
+      setActivePlayingId(null);
+    }
+  };
 
   const handleMouseMove = (e) => {
     if (!cardRef.current) return;
@@ -69,36 +101,6 @@ export default function BookCard({
     observer.observe(cardRef.current);
     return () => observer.disconnect();
   }, [isPlaying]);
-
-  const handleStartVideo = () => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (mediaQuery.matches) return;
-
-    if (setActivePlayingId) {
-      setActivePlayingId(book.id);
-    }
-
-    if (videoRef.current) {
-      videoRef.current.muted = true;
-      videoRef.current.play().then(() => {
-        setIsPlaying(true);
-      }).catch((e) => {
-        console.debug('Autoplay prevented:', e);
-        setIsPlaying(false);
-      });
-    }
-  };
-
-  const handleStopVideo = () => {
-    if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
-    }
-    setIsPlaying(false);
-    if (activePlayingId === book.id && setActivePlayingId) {
-      setActivePlayingId(null);
-    }
-  };
 
   const handleToggleTouchVideo = (e) => {
     e.stopPropagation();
@@ -260,13 +262,35 @@ export default function BookCard({
             <span className="text-[9px] text-[#6e6e73] dark:text-[#a1a1a6] font-mono block">Lifetime DRM-Free</span>
           </div>
 
-          <button
-            onClick={() => onBuyNow(book)}
-            className="px-4 py-2.5 rounded-xl bg-[#1d1d1f] dark:bg-[#c5a059] hover:bg-black dark:hover:bg-[#dfb76c] text-white dark:text-black font-bold text-xs tracking-wider transition-all shadow-sm hover:scale-105 active:scale-95 flex items-center gap-1.5"
-          >
-            <ShoppingBag className="w-3.5 h-3.5 text-[#c5a059] dark:text-black" />
-            <span>BUY NOW</span>
-          </button>
+          <div className="flex items-center gap-2">
+            {onAddToCart && (
+              <button
+                type="button"
+                onClick={() => {
+                  onAddToCart(book);
+                  setAddedToCart(true);
+                  setTimeout(() => setAddedToCart(false), 2000);
+                }}
+                className={`p-2.5 rounded-xl border transition-all shadow-xs hover:scale-105 active:scale-95 flex items-center justify-center cursor-pointer ${
+                  addedToCart
+                    ? 'bg-emerald-500/10 border-emerald-500 text-emerald-600 dark:text-emerald-400'
+                    : 'border-black/15 dark:border-white/15 hover:border-[#c5a059] bg-white dark:bg-white/5 text-[#1d1d1f] dark:text-[#f5f5f7] hover:text-[#997328] dark:hover:text-[#c5a059]'
+                }`}
+                title={addedToCart ? 'Added to Bag' : 'Add to Bag'}
+                aria-label={`Add ${book.title} to shopping bag`}
+              >
+                {addedToCart ? <Check className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
+              </button>
+            )}
+
+            <button
+              onClick={() => onBuyNow(book)}
+              className="px-3.5 py-2.5 rounded-xl bg-[#1d1d1f] dark:bg-[#c5a059] hover:bg-black dark:hover:bg-[#dfb76c] text-white dark:text-black font-bold text-xs tracking-wider transition-all shadow-sm hover:scale-105 active:scale-95 flex items-center gap-1.5 cursor-pointer"
+            >
+              <ShoppingBag className="w-3.5 h-3.5 text-[#c5a059] dark:text-black" />
+              <span>BUY NOW</span>
+            </button>
+          </div>
         </div>
 
         {/* Secondary Actions */}

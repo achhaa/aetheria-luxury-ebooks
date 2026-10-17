@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, ShieldCheck, Lock, Download, CheckCircle, FileText, AlertCircle, ArrowLeft } from 'lucide-react';
+import { X, ShieldCheck, Lock, Download, CheckCircle, FileText, AlertCircle, ArrowLeft, Tag } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { playSuccessChime } from '../utils/audioSynthesis';
 import { useAuth } from '../context/AuthContext';
@@ -12,6 +12,9 @@ export default function CheckoutModal({ books, isOpen, onClose, onSuccess }) {
   const [errorMessage, setErrorMessage] = useState('');
   const [orderResult, setOrderResult] = useState(null);
   const [rzpConfig, setRzpConfig] = useState(null);
+  const [promoCode, setPromoCode] = useState('');
+  const [appliedPromo, setAppliedPromo] = useState(null);
+  const [promoError, setPromoError] = useState('');
 
   // Auto-fill from authenticated Google account
   useEffect(() => {
@@ -41,7 +44,9 @@ export default function CheckoutModal({ books, isOpen, onClose, onSuccess }) {
 
   if (!isOpen || !books || books.length === 0) return null;
 
-  const totalINR = books.reduce((acc, b) => acc + b.priceINR, 0);
+  const subtotalINR = books.reduce((acc, b) => acc + b.priceINR, 0);
+  const discountAmountINR = appliedPromo ? Math.round(subtotalINR * appliedPromo.discountPercent / 100) : 0;
+  const finalTotalINR = Math.max(0, subtotalINR - discountAmountINR);
 
   // Initiate Authoritative Checkout
   const handleInitiatePayment = async (e) => {
@@ -63,6 +68,7 @@ export default function CheckoutModal({ books, isOpen, onClose, onSuccess }) {
           bookIds: books.map((b) => b.id),
           customerName,
           customerEmail,
+          promoCode: appliedPromo ? appliedPromo.code : undefined,
         }),
       });
 
@@ -225,15 +231,82 @@ export default function CheckoutModal({ books, isOpen, onClose, onSuccess }) {
               </div>
             </div>
 
+            {/* Promo Code Input */}
+            <div>
+              {appliedPromo ? (
+                <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-between text-xs font-mono">
+                  <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold">
+                    <Tag className="w-3.5 h-3.5" />
+                    <span>{appliedPromo.code} ({appliedPromo.discountPercent}% OFF APPLIED)</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setAppliedPromo(null);
+                      setPromoCode('');
+                    }}
+                    className="text-[#6e6e73] hover:text-red-500 p-1 cursor-pointer"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              ) : (
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    placeholder="Patron voucher (e.g. AETHERIA10)..."
+                    value={promoCode}
+                    onChange={(e) => setPromoCode(e.target.value)}
+                    className="flex-1 bg-[#f5f5f7] dark:bg-[#1c1f26] border border-black/10 dark:border-white/15 focus:border-[#c5a059] rounded-xl px-3.5 py-2 text-xs font-mono text-inherit placeholder-[#86868b] focus:outline-none"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const code = promoCode.trim().toUpperCase();
+                      if (code === 'AETHERIA10') {
+                        setAppliedPromo({ code: 'AETHERIA10', discountPercent: 10 });
+                        setPromoError('');
+                      } else if (code === 'PRIVEE20') {
+                        setAppliedPromo({ code: 'PRIVEE20', discountPercent: 20 });
+                        setPromoError('');
+                      } else {
+                        setPromoError('Try voucher AETHERIA10 or PRIVEE20');
+                      }
+                    }}
+                    className="px-4 py-2 rounded-xl border border-black/15 dark:border-white/15 bg-white dark:bg-white/5 hover:border-[#c5a059] text-xs font-mono font-bold transition cursor-pointer"
+                  >
+                    Apply
+                  </button>
+                </div>
+              )}
+              {promoError && (
+                <span className="text-[10px] text-red-500 font-mono mt-1 block">
+                  {promoError}
+                </span>
+              )}
+            </div>
+
             {/* Total Display */}
-            <div className="p-4 rounded-xl bg-[#f5f5f7] dark:bg-[#1c1f26] border border-black/10 dark:border-white/10 flex items-center justify-between">
-              <div>
-                <span className="text-xs font-mono uppercase opacity-70 block">Authoritative Total</span>
-                <span className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-medium">All single editions priced under ₹500</span>
+            <div className="p-4 rounded-xl bg-[#f5f5f7] dark:bg-[#1c1f26] border border-black/10 dark:border-white/10 space-y-1.5">
+              <div className="flex items-center justify-between text-xs font-mono opacity-70">
+                <span>Catalogue Subtotal:</span>
+                <span>₹{subtotalINR}</span>
               </div>
-              <span className="text-2xl font-serif font-bold text-[#c5a059]">
-                ₹{totalINR}
-              </span>
+              {appliedPromo && (
+                <div className="flex items-center justify-between text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold">
+                  <span>Patron Discount ({appliedPromo.code}):</span>
+                  <span>-₹{discountAmountINR}</span>
+                </div>
+              )}
+              <div className="flex items-center justify-between pt-2 border-t border-black/10 dark:border-white/10">
+                <div>
+                  <span className="text-xs font-mono uppercase opacity-70 block">Authoritative Total</span>
+                  <span className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-medium">All single editions priced under ₹500</span>
+                </div>
+                <span className="text-2xl font-serif font-bold text-[#c5a059]">
+                  ₹{finalTotalINR}
+                </span>
+              </div>
             </div>
 
             {/* Customer Information Inputs */}

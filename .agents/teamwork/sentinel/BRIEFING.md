@@ -1,4 +1,4 @@
-# BRIEFING — 2026-10-16T11:55:00Z
+# BRIEFING — 2026-10-16T12:00:00Z
 
 ## Mission
 Sentinel monitoring and orchestration lifecycle management for elevating Aetheria Luxury E-Books into an Apple-inspired digital publishing experience.
@@ -15,9 +15,10 @@ Sentinel monitoring and orchestration lifecycle management for elevating Aetheri
 - Must not write code, analyze problems, or make technical decisions
 - Monitor orchestrator progress via crons (reporting */8 min, liveness */10 min)
 - Keep context ultra-light
+- Strictly zero expenditure: do not purchase anything, subscribe to any paid service, create billable resources, upgrade plans, buy domains/assets, or enable paid APIs. Use existing tools and free tiers only. Explicit user approval mandatory before proceeding with any paid resource.
 
 ## User Context
-- **Last user request**: Deploy full multi-agent team with continuous QA & test auditor agent to elevate Aetheria Luxury E-Books platform.
+- **Last user request**: Strict zero-expenditure constraint: no purchases, subscriptions, billable resources, plan upgrades, asset purchases, or paid APIs. Use existing tools and free tiers only.
 - **Pending clarifications**: none
 - **Delivered results**:
   - Apple-style 4-phase brand launch intro (`OpeningIntro.jsx`) with local MP4 video, accessible skip button, and reduced-motion support.

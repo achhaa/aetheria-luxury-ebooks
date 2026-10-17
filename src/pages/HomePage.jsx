@@ -47,7 +47,7 @@ const cardSpringVariants = {
   },
 };
 
-export default function HomePage({ onBuyNow, activePlayingId, setActivePlayingId }) {
+export default function HomePage({ onBuyNow, onAddToCart, activePlayingId, setActivePlayingId }) {
   const featuredBook = BOOKS_DATA[0]; // The Artificial Mind
 
   return (
@@ -278,6 +278,7 @@ export default function HomePage({ onBuyNow, activePlayingId, setActivePlayingId
               <BookCard
                 book={book}
                 onBuyNow={onBuyNow}
+                onAddToCart={onAddToCart}
                 activePlayingId={activePlayingId}
                 setActivePlayingId={setActivePlayingId}
               />

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { 
-  BookOpen, ShoppingBag, Volume2, VolumeX, Search, 
-  Download, ShieldCheck, Menu, X, ChevronDown, Check, Sparkles,
-  Moon, Sun, Sunset, User, LogOut
+  BookOpen, ShoppingBag, Volume2, VolumeX, 
+  Download, Menu, X, ChevronDown, ShieldCheck,
+  Moon, Sun, Sunset, LogOut
 } from 'lucide-react';
 import { CATEGORIES } from '../data/booksData';
 import SpotlightSearch from './SpotlightSearch';

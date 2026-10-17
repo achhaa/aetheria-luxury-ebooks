@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { 
   X, Bookmark, Volume2, VolumeX, ShoppingBag, 
-  Sun, Moon, Maximize2, Minimize2, BookOpen, Clock, Copy, Check
+  Maximize2, Minimize2, BookOpen, Clock, Copy, Check
 } from 'lucide-react';
 import { 
   playBookOpenSound, playBookCloseSound, 
@@ -58,6 +58,13 @@ export default function InteractiveBookModal({
     }
   };
 
+  const handleClose = useCallback(() => {
+    stopNarratorText();
+    setIsNarrating(false);
+    playBookCloseSound();
+    onClose();
+  }, [onClose]);
+
   // Handle open sound & narration stop & Escape key dismiss
   useEffect(() => {
     if (isOpen) {
@@ -76,7 +83,7 @@ export default function InteractiveBookModal({
       stopNarratorText();
       setIsNarrating(false);
     }
-  }, [isOpen]);
+  }, [isOpen, handleClose]);
 
   // Clipboard Protection: Intercept native copy event on reading canvas
   // Ensures copied text is clean, background-free plain text and neutral HTML,
@@ -189,13 +196,6 @@ export default function InteractiveBookModal({
         () => setIsNarrating(false)
       );
     }
-  };
-
-  const handleClose = () => {
-    stopNarratorText();
-    setIsNarrating(false);
-    playBookCloseSound();
-    onClose();
   };
 
   if (!isOpen || !book) return null;

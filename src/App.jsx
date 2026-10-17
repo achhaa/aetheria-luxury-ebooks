@@ -129,6 +129,15 @@ function AppContent() {
     setCart((prev) => prev.filter((it) => it.id !== bookId));
   };
 
+  // Add to Bag Action
+  const handleAddToCart = (book) => {
+    setCart((prev) => {
+      if (prev.some((b) => b.id === book.id)) return prev;
+      return [...prev, book];
+    });
+    setIsCartOpen(true);
+  };
+
   // Direct 1-Click Buy Action
   const handleDirectBuy = (book) => {
     setCheckoutBooks([book]);
@@ -168,6 +177,7 @@ function AppContent() {
             element={
               <HomePage 
                 onBuyNow={handleDirectBuy} 
+                onAddToCart={handleAddToCart}
                 activePlayingId={activePlayingId} 
                 setActivePlayingId={setActivePlayingId} 
               />
@@ -178,6 +188,7 @@ function AppContent() {
             element={
               <CatalogPage 
                 onBuyNow={handleDirectBuy} 
+                onAddToCart={handleAddToCart}
                 activePlayingId={activePlayingId} 
                 setActivePlayingId={setActivePlayingId} 
               />
@@ -188,6 +199,7 @@ function AppContent() {
             element={
               <BookDetailPage 
                 onBuyNow={handleDirectBuy} 
+                onAddToCart={handleAddToCart}
               />
             } 
           />
@@ -231,6 +243,7 @@ function AppContent() {
         onClose={() => setIsCartOpen(false)}
         cartItems={cart}
         onRemoveItem={handleRemoveFromCart}
+        onAddItem={handleAddToCart}
         onProceedCheckout={(items) => {
           setIsCartOpen(false);
           setCheckoutBooks(items);

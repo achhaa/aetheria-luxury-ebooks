@@ -3,7 +3,8 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { 
   ArrowLeft, ChevronLeft, ChevronRight, Bookmark, BookmarkCheck,
   Sun, Moon, Coffee, Leaf, Play, Pause, 
-  RotateCcw, RotateCw, List, Check, Headphones, Volume2, VolumeX
+  RotateCcw, RotateCw, List, Check, Headphones, Volume2, VolumeX,
+  Maximize2, Minimize2, Type, HelpCircle, X, Clock, Sparkles
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -97,10 +98,21 @@ export default function ReaderPage() {
   // Reading Preferences
   const [theme, setTheme] = useState(() => localStorage.getItem('aetheria_reader_theme') || 'ivory');
   const [fontSize, setFontSize] = useState(() => Number(localStorage.getItem('aetheria_reader_font_size')) || 18);
+  const [fontFamily, setFontFamily] = useState(() => localStorage.getItem('aetheria_reader_font_family') || 'serif');
   const [isTOCSidebarOpen, setIsTOCSidebarOpen] = useState(false);
   const [copyToast, setCopyToast] = useState(null);
   const [pageTurnDirection, setPageTurnDirection] = useState(1);
   const [isSoundMuted, setIsSoundMuted] = useState(() => localStorage.getItem('aetheria_reader_mute') === 'true');
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isShortcutsOpen, setIsShortcutsOpen] = useState(false);
+
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().then(() => setIsFullscreen(true)).catch(() => {});
+    } else {
+      document.exitFullscreen().then(() => setIsFullscreen(false)).catch(() => {});
+    }
+  };
 
   // Chapter & Page State (initialized from saved reading progress)
   const [currentChapterIndex, setCurrentChapterIndex] = useState(() => {
@@ -183,7 +195,10 @@ export default function ReaderPage() {
   }, [book, currentChapterIndex]);
 
   // Pages for current chapter
-  const pages = allChaptersPaginated[currentChapterIndex] || [[]];
+  const pages = useMemo(
+    () => allChaptersPaginated[currentChapterIndex] || [[]],
+    [allChaptersPaginated, currentChapterIndex]
+  );
 
   // Total pages in current chapter
   const totalPages = pages.length;
@@ -251,8 +266,26 @@ export default function ReaderPage() {
   }, [fontSize]);
 
   useEffect(() => {
+    localStorage.setItem('aetheria_reader_font_family', fontFamily);
+  }, [fontFamily]);
+
+  useEffect(() => {
     localStorage.setItem('aetheria_reader_mute', String(isSoundMuted));
   }, [isSoundMuted]);
+
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(Boolean(document.fullscreenElement));
+    };
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+  }, []);
+
+  const chapterRemainingMinutes = useMemo(() => {
+    if (!pages || pages.length === 0) return 1;
+    const remainingPages = Math.max(1, totalPages - currentPageIndex);
+    return Math.max(1, Math.round(remainingPages * 0.9));
+  }, [pages, totalPages, currentPageIndex]);
 
   // Save reading progress
   useEffect(() => {
@@ -404,7 +437,7 @@ export default function ReaderPage() {
     (b) => b.chapterIdx === currentChapterIndex && b.pageIdx === currentPageIndex
   );
 
-  const handleToggleBookmark = () => {
+  const handleToggleBookmark = useCallback(() => {
     let next;
     if (isCurrentPageBookmarked) {
       next = bookmarks.filter(b => !(b.chapterIdx === currentChapterIndex && b.pageIdx === currentPageIndex));
@@ -424,7 +457,35 @@ export default function ReaderPage() {
     }
     setBookmarks(next);
     localStorage.setItem(`aetheria_bookmarks_${book.id}`, JSON.stringify(next));
-  };
+  }, [isCurrentPageBookmarked, bookmarks, currentChapterIndex, currentPageIndex, pages, currentChapter, book.id]);
+
+  // Keyboard Navigation & Shortcuts (Apple Books Style)
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
+
+      if (e.key === 'ArrowRight' || e.key === 'PageDown' || (e.key === ' ' && !e.shiftKey)) {
+        e.preventDefault();
+        handleNextPage();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp' || (e.key === ' ' && e.shiftKey)) {
+        e.preventDefault();
+        handlePrevPage();
+      } else if (e.key === 'f' || e.key === 'F') {
+        toggleFullscreen();
+      } else if (e.key === 'm' || e.key === 'M') {
+        setIsSoundMuted(prev => !prev);
+      } else if (e.key === 'b' || e.key === 'B') {
+        handleToggleBookmark();
+      } else if (e.key === '?' || e.key === 'h' || e.key === 'H') {
+        setIsShortcutsOpen(prev => !prev);
+      } else if (e.key === 'Escape') {
+        setIsTOCSidebarOpen(false);
+        setIsShortcutsOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [handleNextPage, handlePrevPage, handleToggleBookmark]);
 
   // Audio Controls
   const togglePlayAudio = () => {
@@ -522,34 +583,76 @@ export default function ReaderPage() {
               {book.title}
             </h1>
             <span className="text-[10px] font-mono opacity-60 block">
-              Chapter {currentChapter.chapterNumber}: {currentChapter.title} • Book Page {currentBookPageNumber} of {totalBookPages}
+              Ch. {currentChapter.chapterNumber} • Page {currentBookPageNumber} of {totalBookPages} • ~{chapterRemainingMinutes}m left
             </span>
           </div>
         </div>
 
-        {/* Center: Table of Contents & Quick Selector */}
+        {/* Center: Table of Contents & Bookmarks Selector */}
         <div className="flex items-center gap-2">
           <button
             onClick={() => setIsTOCSidebarOpen(!isTOCSidebarOpen)}
-            className="px-2.5 py-1.5 rounded-lg border border-[var(--reader-border)] hover:bg-[var(--reader-btn-hover)] text-xs font-mono flex items-center gap-1.5 transition text-inherit"
+            className="px-2.5 py-1.5 rounded-lg border border-[var(--reader-border)] hover:bg-[var(--reader-btn-hover)] text-xs font-mono flex items-center gap-1.5 transition text-inherit cursor-pointer"
           >
             <List className="w-3.5 h-3.5" />
             <span className="hidden md:inline">Contents</span>
           </button>
+
+          {bookmarks.length > 0 && (
+            <button
+              onClick={() => setIsTOCSidebarOpen(true)}
+              className="px-2 py-1.5 rounded-lg border border-[#c5a059]/40 bg-[#c5a059]/10 text-xs font-mono flex items-center gap-1.5 transition text-inherit cursor-pointer"
+              title="View Saved Bookmarks"
+            >
+              <Bookmark className="w-3 h-3 text-[#c5a059]" />
+              <span className="font-bold text-[11px]">{bookmarks.length}</span>
+            </button>
+          )}
         </div>
 
-        {/* Right: Controls (Theme, Font Size, Audio, Bookmark) */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        {/* Right: Controls (Typography, Font Size, Audio, Themes, Zen, Shortcuts, Audiobook) */}
+        <div className="flex items-center gap-2 sm:gap-2.5">
           
+          {/* Typography Font Family Switcher */}
+          <div className="hidden lg:flex items-center border border-[var(--reader-border)] rounded-lg p-0.5" title="Typeface: Serif / Sans / Monospace">
+            <button
+              type="button"
+              onClick={() => setFontFamily('serif')}
+              className={`px-2 py-1 rounded text-[11px] font-serif transition cursor-pointer ${
+                fontFamily === 'serif' ? 'bg-[var(--reader-btn-hover)] font-bold text-[var(--reader-accent)]' : 'opacity-60 hover:opacity-100 text-inherit'
+              }`}
+            >
+              Serif
+            </button>
+            <button
+              type="button"
+              onClick={() => setFontFamily('sans')}
+              className={`px-2 py-1 rounded text-[11px] font-sans transition cursor-pointer ${
+                fontFamily === 'sans' ? 'bg-[var(--reader-btn-hover)] font-bold text-[var(--reader-accent)]' : 'opacity-60 hover:opacity-100 text-inherit'
+              }`}
+            >
+              Sans
+            </button>
+            <button
+              type="button"
+              onClick={() => setFontFamily('mono')}
+              className={`px-2 py-1 rounded text-[11px] font-mono transition cursor-pointer ${
+                fontFamily === 'mono' ? 'bg-[var(--reader-btn-hover)] font-bold text-[var(--reader-accent)]' : 'opacity-60 hover:opacity-100 text-inherit'
+              }`}
+            >
+              Mono
+            </button>
+          </div>
+
           {/* Bookmark Button */}
           <button
             onClick={handleToggleBookmark}
-            className={`p-2 rounded-lg border transition ${
+            className={`p-2 rounded-lg border transition cursor-pointer ${
               isCurrentPageBookmarked
                 ? 'bg-[#c5a059]/20 border-[var(--reader-gold)] text-[var(--reader-accent)]'
                 : 'border-[var(--reader-border)] hover:bg-[var(--reader-btn-hover)] text-inherit opacity-70 hover:opacity-100'
             }`}
-            title={isCurrentPageBookmarked ? 'Remove Bookmark' : 'Bookmark this page'}
+            title={isCurrentPageBookmarked ? 'Remove Bookmark (B)' : 'Bookmark this page (B)'}
           >
             {isCurrentPageBookmarked ? <BookmarkCheck className="w-4 h-4 text-[var(--reader-accent)]" /> : <Bookmark className="w-4 h-4" />}
           </button>
@@ -558,7 +661,7 @@ export default function ReaderPage() {
           <div className="hidden sm:flex items-center border border-[var(--reader-border)] rounded-lg overflow-hidden">
             <button
               onClick={() => setFontSize(prev => Math.max(14, prev - 2))}
-              className="px-2 py-1 text-xs font-mono font-bold hover:bg-[var(--reader-btn-hover)] transition text-inherit"
+              className="px-2 py-1 text-xs font-mono font-bold hover:bg-[var(--reader-btn-hover)] transition text-inherit cursor-pointer"
               title="Decrease Font Size"
             >
               A-
@@ -566,7 +669,7 @@ export default function ReaderPage() {
             <span className="px-1.5 text-[10px] font-mono opacity-60 text-inherit">{fontSize}px</span>
             <button
               onClick={() => setFontSize(prev => Math.min(26, prev + 2))}
-              className="px-2 py-1 text-xs font-mono font-bold hover:bg-[var(--reader-btn-hover)] transition text-inherit"
+              className="px-2 py-1 text-xs font-mono font-bold hover:bg-[var(--reader-btn-hover)] transition text-inherit cursor-pointer"
               title="Increase Font Size"
             >
               A+
@@ -576,12 +679,12 @@ export default function ReaderPage() {
           {/* Audio Page-Turn Sound Toggle */}
           <button
             onClick={() => setIsSoundMuted(prev => !prev)}
-            className={`p-2 rounded-lg border transition ${
+            className={`p-2 rounded-lg border transition cursor-pointer ${
               isSoundMuted
                 ? 'border-[var(--reader-border)] text-inherit opacity-40 hover:opacity-70'
                 : 'border-[var(--reader-border)] hover:bg-[var(--reader-btn-hover)] text-inherit opacity-75 hover:opacity-100'
             }`}
-            title={isSoundMuted ? 'Unmute Page Turn Sound' : 'Mute Page Turn Sound'}
+            title={isSoundMuted ? 'Unmute Page Turn Sound (M)' : 'Mute Page Turn Sound (M)'}
           >
             {isSoundMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
           </button>
@@ -590,7 +693,7 @@ export default function ReaderPage() {
           <div className="flex items-center border border-[var(--reader-border)] rounded-lg p-0.5">
             <button
               onClick={() => setTheme('ivory')}
-              className={`p-1.5 rounded text-xs transition ${
+              className={`p-1.5 rounded text-xs transition cursor-pointer ${
                 theme === 'ivory' ? 'bg-[#faf7f0] text-black shadow-sm font-bold border border-black/20' : 'opacity-60 hover:opacity-100 text-inherit'
               }`}
               title="Ivory Paper Theme (Default)"
@@ -599,7 +702,7 @@ export default function ReaderPage() {
             </button>
             <button
               onClick={() => setTheme('sepia')}
-              className={`p-1.5 rounded text-xs transition ${
+              className={`p-1.5 rounded text-xs transition cursor-pointer ${
                 theme === 'sepia' ? 'bg-[#f0e4cc] text-[#2b180a] shadow-sm font-bold border border-black/20' : 'opacity-60 hover:opacity-100 text-inherit'
               }`}
               title="Sepia Warm Theme"
@@ -608,7 +711,7 @@ export default function ReaderPage() {
             </button>
             <button
               onClick={() => setTheme('sage')}
-              className={`p-1.5 rounded text-xs transition ${
+              className={`p-1.5 rounded text-xs transition cursor-pointer ${
                 theme === 'sage' ? 'bg-[#f1f4f0] text-[#1b261d] shadow-sm font-bold border border-black/20' : 'opacity-60 hover:opacity-100 text-inherit'
               }`}
               title="Soft Sage Paper Theme (Eye Comfort)"
@@ -617,7 +720,7 @@ export default function ReaderPage() {
             </button>
             <button
               onClick={() => setTheme('night')}
-              className={`p-1.5 rounded text-xs transition ${
+              className={`p-1.5 rounded text-xs transition cursor-pointer ${
                 theme === 'night' ? 'bg-[#1e2128] text-[#dfb76c] shadow-sm font-bold border border-white/20' : 'opacity-60 hover:opacity-100 text-inherit'
               }`}
               title="Night Reading Theme"
@@ -626,10 +729,32 @@ export default function ReaderPage() {
             </button>
           </div>
 
+          {/* Zen / Fullscreen Mode Toggle */}
+          <button
+            type="button"
+            onClick={toggleFullscreen}
+            className="p-2 rounded-lg border border-[var(--reader-border)] hover:bg-[var(--reader-btn-hover)] text-inherit opacity-75 hover:opacity-100 transition cursor-pointer"
+            title={isFullscreen ? "Exit Fullscreen (F)" : "Enter Zen Fullscreen (F)"}
+            aria-label="Toggle Fullscreen Zen Mode"
+          >
+            {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
+          </button>
+
+          {/* Keyboard Shortcuts Cheatsheet Toggle */}
+          <button
+            type="button"
+            onClick={() => setIsShortcutsOpen(!isShortcutsOpen)}
+            className="p-2 rounded-lg border border-[var(--reader-border)] hover:bg-[var(--reader-btn-hover)] text-inherit opacity-70 hover:opacity-100 transition cursor-pointer"
+            title="Keyboard Shortcuts (?)"
+            aria-label="Keyboard Shortcuts"
+          >
+            <HelpCircle className="w-4 h-4" />
+          </button>
+
           {/* Listen to Book Toggle */}
           <button
             onClick={() => setIsAudioPlayerVisible(!isAudioPlayerVisible)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold flex items-center gap-1.5 transition ${
+            className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold flex items-center gap-1.5 transition cursor-pointer ${
               isAudioPlayerVisible
                 ? 'bg-[#0071e3] text-white shadow-md'
                 : 'border border-[var(--reader-border)] hover:bg-[var(--reader-btn-hover)] text-inherit opacity-80 hover:opacity-100'
@@ -664,7 +789,7 @@ export default function ReaderPage() {
         <article 
           ref={readerContentRef}
           style={{ fontSize: `${fontSize}px`, lineHeight: '1.75' }}
-          className="font-serif select-text flex-1 relative"
+          className={`${fontFamily === 'serif' ? 'font-serif' : fontFamily === 'sans' ? 'font-sans' : 'font-mono'} select-text flex-1 relative`}
         >
           {/* Hardware-accelerated fluid word underline glider */}
           <WordUnderlineGlider
@@ -1100,6 +1225,55 @@ export default function ReaderPage() {
               <Link to="/library" className="hover:underline opacity-70">
                 My Library
               </Link>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Keyboard Shortcuts Cheatsheet Modal */}
+      {isShortcutsOpen && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-fade-in"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setIsShortcutsOpen(false);
+          }}
+        >
+          <div className="w-full max-w-sm rounded-2xl p-6 bg-[var(--reader-card)] border border-[var(--reader-border)] shadow-2xl text-inherit space-y-4 font-mono text-xs">
+            <div className="flex items-center justify-between pb-3 border-b border-[var(--reader-border-subtle)]">
+              <span className="font-bold uppercase tracking-wider text-[var(--reader-accent)]">Apple-Style Shortcuts</span>
+              <button 
+                type="button"
+                onClick={() => setIsShortcutsOpen(false)}
+                className="p-1 rounded-lg hover:bg-[var(--reader-btn-hover)] cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+            <div className="space-y-2.5">
+              <div className="flex justify-between items-center">
+                <span className="opacity-70">Next Page</span>
+                <kbd className="px-2 py-1 rounded bg-[var(--reader-btn-hover)] border border-[var(--reader-border)] font-bold">→</kbd>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="opacity-70">Previous Page</span>
+                <kbd className="px-2 py-1 rounded bg-[var(--reader-btn-hover)] border border-[var(--reader-border)] font-bold">←</kbd>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="opacity-70">Zen Fullscreen</span>
+                <kbd className="px-2 py-1 rounded bg-[var(--reader-btn-hover)] border border-[var(--reader-border)] font-bold">F</kbd>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="opacity-70">Toggle Bookmark</span>
+                <kbd className="px-2 py-1 rounded bg-[var(--reader-btn-hover)] border border-[var(--reader-border)] font-bold">B</kbd>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="opacity-70">Mute Page Turn Sound</span>
+                <kbd className="px-2 py-1 rounded bg-[var(--reader-btn-hover)] border border-[var(--reader-border)] font-bold">M</kbd>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="opacity-70">Close Panels</span>
+                <kbd className="px-2 py-1 rounded bg-[var(--reader-btn-hover)] border border-[var(--reader-border)] font-bold">Esc</kbd>
+              </div>
             </div>
           </div>
         </div>

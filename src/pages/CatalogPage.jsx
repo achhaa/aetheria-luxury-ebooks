@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { BOOKS_DATA, CATEGORIES } from '../data/booksData';
 import BookCard from '../components/BookCard';
 
-export default function CatalogPage({ onBuyNow, activePlayingId, setActivePlayingId }) {
+export default function CatalogPage({ onBuyNow, onAddToCart, activePlayingId, setActivePlayingId }) {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const initialCategory = searchParams.get('category') || 'All Books';
@@ -184,6 +184,7 @@ export default function CatalogPage({ onBuyNow, activePlayingId, setActivePlayin
                   <BookCard
                     book={book}
                     onBuyNow={onBuyNow}
+                    onAddToCart={onAddToCart}
                     activePlayingId={activePlayingId}
                     setActivePlayingId={setActivePlayingId}
                   />
