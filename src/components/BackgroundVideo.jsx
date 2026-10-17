@@ -9,7 +9,8 @@ import React, { useEffect, useRef } from 'react';
 export default function BackgroundVideo({ 
   isReaderView = false, 
   src = '/assets/videos/ambient-background.mp4',
-  isDark = true
+  isDark = true,
+  isCardVideoPlaying = false
 }) {
   const videoRef = useRef(null);
 
@@ -25,6 +26,10 @@ export default function BackgroundVideo({
     video.playsInline = true;
 
     const playVideo = () => {
+      // Respect prefers-reduced-motion
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
+      }
       const promise = video.play();
       if (promise !== undefined) {
         promise.catch((err) => {
@@ -37,7 +42,7 @@ export default function BackgroundVideo({
 
     // Universal unlock listeners on first user gesture if browser held back video
     const unlockAutoplay = () => {
-      if (video && video.paused) {
+      if (video && video.paused && !isCardVideoPlaying) {
         video.play().catch(() => {});
       }
     };
@@ -50,7 +55,7 @@ export default function BackgroundVideo({
     // Pause when tab is hidden, resume when tab is visible
     const handleVisibilityChange = () => {
       if (!video) return;
-      if (document.hidden) {
+      if (document.hidden || isCardVideoPlaying) {
         video.pause();
       } else {
         video.play().catch(() => {});
@@ -66,7 +71,20 @@ export default function BackgroundVideo({
       window.removeEventListener('touchstart', unlockAutoplay);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, [isReaderView]);
+  }, [isReaderView, isCardVideoPlaying]);
+
+  // GPU Budgeting: Pause background ambient video when a card preview video is playing
+  useEffect(() => {
+    if (isReaderView) return;
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (isCardVideoPlaying) {
+      video.pause();
+    } else if (!document.hidden && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      video.play().catch(() => {});
+    }
+  }, [isCardVideoPlaying, isReaderView]);
 
   // Distraction-free reader isolation: completely unmount DOM on reading routes
   if (isReaderView) {

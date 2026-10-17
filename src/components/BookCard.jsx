@@ -150,6 +150,8 @@ export default function BookCard({
             <img
               src={book.coverImage}
               alt={book.title}
+              loading="lazy"
+              decoding="async"
               onError={() => setImgError(true)}
               className={`w-full h-full object-cover object-center transition-opacity duration-300 ${
                 isPlaying ? 'opacity-0' : 'opacity-100'

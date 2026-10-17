@@ -28,6 +28,17 @@ export default function WordUnderlineGlider({
   });
 
   const lastPosRef = useRef(null);
+  const wordGeometryCacheRef = useRef(new Map());
+
+  // Invalidate word coordinates on window resize or theme/font change
+  const invalidateCache = useCallback(() => {
+    wordGeometryCacheRef.current.clear();
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('resize', invalidateCache);
+    return () => window.removeEventListener('resize', invalidateCache);
+  }, [invalidateCache]);
 
   const updateGliderPosition = useCallback(() => {
     if (!isEnabled || activeWordIndex < 0 || !containerRef?.current) {
@@ -36,31 +47,36 @@ export default function WordUnderlineGlider({
     }
 
     const container = containerRef.current;
-    const wordEl = container.querySelector(`[data-word-idx="${activeWordIndex}"]`);
+    let target = wordGeometryCacheRef.current.get(activeWordIndex);
 
-    if (!wordEl) {
-      setGliderState(prev => prev.opacity === 0 ? prev : { ...prev, opacity: 0 });
-      return;
+    if (!target) {
+      const wordEl = container.querySelector(`[data-word-idx="${activeWordIndex}"]`);
+      if (!wordEl) {
+        setGliderState(prev => prev.opacity === 0 ? prev : { ...prev, opacity: 0 });
+        return;
+      }
+
+      const wordRect = wordEl.getBoundingClientRect();
+      const containerRect = container.getBoundingClientRect();
+
+      target = {
+        x: wordRect.left - containerRect.left + container.scrollLeft,
+        y: wordRect.bottom - containerRect.top + container.scrollTop - 2,
+        width: Math.max(wordRect.width, 8)
+      };
+      wordGeometryCacheRef.current.set(activeWordIndex, target);
     }
-
-    const wordRect = wordEl.getBoundingClientRect();
-    const containerRect = container.getBoundingClientRect();
-
-    // Position glider at bottom baseline of the word
-    const targetX = wordRect.left - containerRect.left + container.scrollLeft;
-    const targetY = wordRect.bottom - containerRect.top + container.scrollTop - 2;
-    const targetWidth = Math.max(wordRect.width, 8);
 
     const prevPos = lastPosRef.current;
     // Line wrap detected if vertical position changes significantly (> 10px)
-    const isLineWrap = prevPos ? Math.abs(targetY - prevPos.y) > 10 : false;
+    const isLineWrap = prevPos ? Math.abs(target.y - prevPos.y) > 10 : false;
 
-    lastPosRef.current = { x: targetX, y: targetY, width: targetWidth };
+    lastPosRef.current = target;
 
     setGliderState({
-      x: targetX,
-      y: targetY,
-      width: targetWidth,
+      x: target.x,
+      y: target.y,
+      width: target.width,
       opacity: 1,
       isLineWrap
     });
@@ -68,13 +84,6 @@ export default function WordUnderlineGlider({
 
   useEffect(() => {
     updateGliderPosition();
-  }, [updateGliderPosition]);
-
-  // Re-calculate on window resize or container scroll
-  useEffect(() => {
-    const handleResize = () => updateGliderPosition();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
   }, [updateGliderPosition]);
 
   // Luxury theme styling

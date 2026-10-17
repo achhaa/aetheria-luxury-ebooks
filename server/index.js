@@ -6,6 +6,7 @@ import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
 import Razorpay from 'razorpay';
+import compression from 'compression';
 
 import { SERVER_CATALOG } from './catalog.js';
 import { saveOrder, findOrderById, findOrdersByEmail, getAllOrders } from './storage.js';
@@ -18,6 +19,7 @@ dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const DATA_DIR = path.join(__dirname, 'data');
+const PUBLIC_DIR = path.join(__dirname, '..', 'public');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -42,8 +44,25 @@ if (isRazorpayConfigured) {
   });
 }
 
+// 1. High-Performance Response Compression (Gzip / Deflate)
+app.use(compression({
+  threshold: 1024,
+  filter: (req, res) => {
+    if (req.headers['x-no-compression']) return false;
+    return compression.filter(req, res);
+  }
+}));
+
 app.use(cors());
 app.use(express.json());
+
+// 2. High-Performance Static Asset Serving with 1-Year Immutable Caching & ETags
+app.use('/assets', express.static(path.join(PUBLIC_DIR, 'assets'), {
+  maxAge: '1y',
+  immutable: true,
+  etag: true,
+  lastModified: true
+}));
 
 // Initialize SQLite database schema and seed data
 initializeDatabase().catch((e) => console.error('[Database Init Error]', e));
@@ -137,6 +156,7 @@ async function requireAuth(req, res, next) {
  * Public client configuration (safe public key only, never private secrets)
  */
 app.get('/api/config', (req, res) => {
+  res.setHeader('Cache-Control', 'public, max-age=600, stale-while-revalidate=1200');
   res.json({
     razorpayKeyId: isRazorpayConfigured ? RAZORPAY_KEY_ID : 'rzp_test_mock_mode',
     isTestMode: !isRazorpayConfigured || RAZORPAY_KEY_ID.startsWith('rzp_test_'),
@@ -747,7 +767,7 @@ app.get('/api/audiobook/:bookId/:chapterId', async (req, res) => {
     if (dbTrack && dbTrack.timing_json) {
       try {
         const data = JSON.parse(dbTrack.timing_json);
-        res.setHeader('Cache-Control', 'public, max-age=3600');
+        res.setHeader('Cache-Control', 'public, max-age=86400, stale-while-revalidate=604800');
         return res.json(data);
       } catch (err) {
         console.warn('[Server] DB timing_json parse warning:', err);

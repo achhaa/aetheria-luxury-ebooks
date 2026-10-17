@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
@@ -9,18 +9,37 @@ import CheckoutModal from './components/CheckoutModal';
 import OpeningIntro from './components/OpeningIntro';
 import BackgroundVideo from './components/BackgroundVideo';
 
-import HomePage from './pages/HomePage';
-import CatalogPage from './pages/CatalogPage';
-import BookDetailPage from './pages/BookDetailPage';
-import ReaderPage from './pages/ReaderPage';
-import LibraryPage from './pages/LibraryPage';
-import PoliciesPage from './pages/PoliciesPage';
-import AdminPage from './pages/AdminPage';
+// Lazy-loaded routes for optimal initial chunk load speed
+const HomePage = lazy(() => import('./pages/HomePage'));
+const CatalogPage = lazy(() => import('./pages/CatalogPage'));
+const BookDetailPage = lazy(() => import('./pages/BookDetailPage'));
+const ReaderPage = lazy(() => import('./pages/ReaderPage'));
+const LibraryPage = lazy(() => import('./pages/LibraryPage'));
+const PoliciesPage = lazy(() => import('./pages/PoliciesPage'));
+const AdminPage = lazy(() => import('./pages/AdminPage'));
 
 import { toggleAmbientSound } from './utils/audioSynthesis';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import GoogleAuthModal from './components/GoogleAuthModal';
 import './styles/motion.css';
+
+// Restrained Luxury Micro-Skeleton loader with zero layout shift
+function RouteSuspenseFallback() {
+  return (
+    <div 
+      aria-label="Loading page"
+      className="min-h-[60vh] flex flex-col items-center justify-center p-8 select-none transition-opacity duration-300"
+    >
+      <div className="relative w-10 h-10 flex items-center justify-center">
+        <div className="absolute inset-0 rounded-full border border-amber-500/20 animate-ping pointer-events-none" />
+        <div className="w-6 h-6 rounded-full border border-amber-500/40 border-t-amber-400 animate-spin" />
+      </div>
+      <span className="mt-4 text-[9px] font-mono uppercase tracking-[0.3em] text-neutral-400/70">
+        Aetheria Édition
+      </span>
+    </div>
+  );
+}
 
 // Scroll to top helper on route change
 function ScrollToTop() {
@@ -155,7 +174,11 @@ function AppContent() {
       </AnimatePresence>
 
       {/* Full-Bleed Ambient Luxury Background Video with Editorial Scrims */}
-      <BackgroundVideo isReaderView={isReaderView} isDark={siteTheme !== 'light'} />
+      <BackgroundVideo 
+        isReaderView={isReaderView} 
+        isDark={siteTheme !== 'light'} 
+        isCardVideoPlaying={Boolean(activePlayingId)}
+      />
 
       {/* Primary Storefront Navbar (hidden in distraction-free Reader mode) */}
       {!isReaderView && (
@@ -171,67 +194,69 @@ function AppContent() {
 
       {/* Main Multi-Page Routed Content */}
       <main className="flex-1 relative z-10">
-        <Routes>
-          <Route 
-            path="/" 
-            element={
-              <HomePage 
-                onBuyNow={handleDirectBuy} 
-                onAddToCart={handleAddToCart}
-                activePlayingId={activePlayingId} 
-                setActivePlayingId={setActivePlayingId} 
-              />
-            } 
-          />
-          <Route 
-            path="/books" 
-            element={
-              <CatalogPage 
-                onBuyNow={handleDirectBuy} 
-                onAddToCart={handleAddToCart}
-                activePlayingId={activePlayingId} 
-                setActivePlayingId={setActivePlayingId} 
-              />
-            } 
-          />
-          <Route 
-            path="/books/:slug" 
-            element={
-              <BookDetailPage 
-                onBuyNow={handleDirectBuy} 
-                onAddToCart={handleAddToCart}
-              />
-            } 
-          />
-          <Route 
-            path="/read/:bookId" 
-            element={<ReaderPage />} 
-          />
-          <Route 
-            path="/library" 
-            element={<LibraryPage />} 
-          />
-          <Route 
-            path="/refund-policy" 
-            element={<PoliciesPage />} 
-          />
-          <Route 
-            path="/terms" 
-            element={<PoliciesPage />} 
-          />
-          <Route 
-            path="/privacy" 
-            element={<PoliciesPage />} 
-          />
-          <Route 
-            path="/help" 
-            element={<PoliciesPage />} 
-          />
-          <Route 
-            path="/admin" 
-            element={<AdminPage />} 
-          />
-        </Routes>
+        <Suspense fallback={<RouteSuspenseFallback />}>
+          <Routes>
+            <Route 
+              path="/" 
+              element={
+                <HomePage 
+                  onBuyNow={handleDirectBuy} 
+                  onAddToCart={handleAddToCart}
+                  activePlayingId={activePlayingId} 
+                  setActivePlayingId={setActivePlayingId} 
+                />
+              } 
+            />
+            <Route 
+              path="/books" 
+              element={
+                <CatalogPage 
+                  onBuyNow={handleDirectBuy} 
+                  onAddToCart={handleAddToCart}
+                  activePlayingId={activePlayingId} 
+                  setActivePlayingId={setActivePlayingId} 
+                />
+              } 
+            />
+            <Route 
+              path="/books/:slug" 
+              element={
+                <BookDetailPage 
+                  onBuyNow={handleDirectBuy} 
+                  onAddToCart={handleAddToCart}
+                />
+              } 
+            />
+            <Route 
+              path="/read/:bookId" 
+              element={<ReaderPage />} 
+            />
+            <Route 
+              path="/library" 
+              element={<LibraryPage />} 
+            />
+            <Route 
+              path="/refund-policy" 
+              element={<PoliciesPage />} 
+            />
+            <Route 
+              path="/terms" 
+              element={<PoliciesPage />} 
+            />
+            <Route 
+              path="/privacy" 
+              element={<PoliciesPage />} 
+            />
+            <Route 
+              path="/help" 
+              element={<PoliciesPage />} 
+            />
+            <Route 
+              path="/admin" 
+              element={<AdminPage />} 
+            />
+          </Routes>
+        </Suspense>
       </main>
 
       {/* Storefront Footer (hidden in distraction-free Reader mode) */}

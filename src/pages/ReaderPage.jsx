@@ -4,7 +4,7 @@ import {
   ArrowLeft, ChevronLeft, ChevronRight, Bookmark, BookmarkCheck,
   Sun, Moon, Coffee, Leaf, Play, Pause, 
   RotateCcw, RotateCw, List, Check, Headphones, Volume2, VolumeX,
-  Maximize2, Minimize2, Type, HelpCircle, X, Clock, Sparkles
+  Maximize2, Minimize2, HelpCircle, X
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -793,6 +793,7 @@ export default function ReaderPage() {
         >
           {/* Hardware-accelerated fluid word underline glider */}
           <WordUnderlineGlider
+            key={`${currentChapterIndex}-${currentPageIndex}-${fontSize}-${fontFamily}`}
             containerRef={readerContentRef}
             activeWordIndex={activeWordIndex}
             theme={theme}
