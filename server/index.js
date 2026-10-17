@@ -20,6 +20,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const DATA_DIR = path.join(__dirname, 'data');
 const PUBLIC_DIR = path.join(__dirname, '..', 'public');
+const DIST_DIR = path.join(__dirname, '..', 'dist');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -934,6 +935,18 @@ app.get('/api/admin/audit-logs', requireAdmin, async (req, res) => {
     res.status(500).json({ error: 'Failed to retrieve audit logs' });
   }
 });
+
+// 3. Serve Built Production Frontend (SPA) if dist/ exists
+if (fs.existsSync(DIST_DIR)) {
+  app.use(express.static(DIST_DIR));
+  app.use((req, res, next) => {
+    if (req.method !== 'GET') return next();
+    if (req.path.startsWith('/api') || req.path.startsWith('/assets')) {
+      return next();
+    }
+    res.sendFile(path.join(DIST_DIR, 'index.html'));
+  });
+}
 
 app.listen(PORT, () => {
   console.log(`[AETHERIA BACKEND] Running securely on port ${PORT}`);
