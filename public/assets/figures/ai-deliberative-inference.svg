@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="100%" height="100%">
+  <rect width="800" height="420" fill="none"/>
+  <rect x="20" y="20" width="760" height="380" rx="16" fill="currentColor" fill-opacity="0.02" stroke="currentColor" stroke-opacity="0.1" stroke-width="1.5"/>
+  <text x="400" y="55" font-family="Georgia, serif" font-size="16" font-weight="bold" text-anchor="middle" fill="currentColor">Figure 1.1: Autoregressive Emission vs. Deliberative Verification</text>
+  
+  <!-- Left Side: Unconstrained Autoregression -->
+  <rect x="60" y="90" width="310" height="280" rx="12" fill="currentColor" fill-opacity="0.03" stroke="#e11d48" stroke-opacity="0.4" stroke-dasharray="4 4" stroke-width="1.5"/>
+  <text x="215" y="125" font-family="-apple-system, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#e11d48">Single Forward Pass (Heuristic)</text>
+  
+  <rect x="90" y="150" width="250" height="45" rx="8" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-opacity="0.2"/>
+  <text x="215" y="177" font-family="monospace" font-size="12" text-anchor="middle" fill="currentColor">Prompt Ingestion (x)</text>
+  
+  <path d="M 215 195 L 215 225" stroke="currentColor" stroke-opacity="0.4" stroke-width="1.5" marker-end="url(#arrow)"/>
+  
+  <rect x="90" y="225" width="250" height="45" rx="8" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-opacity="0.2"/>
+  <text x="215" y="252" font-family="monospace" font-size="12" text-anchor="middle" fill="currentColor">Softmax Likelihood Sampling</text>
+  
+  <path d="M 215 270 L 215 300" stroke="#e11d48" stroke-width="1.5"/>
+  <rect x="90" y="300" width="250" height="45" rx="8" fill="#e11d48" fill-opacity="0.1" stroke="#e11d48" stroke-opacity="0.5"/>
+  <text x="215" y="327" font-family="-apple-system, sans-serif" font-size="12" font-weight="500" text-anchor="middle" fill="#e11d48">Unverified Output (High Fragility)</text>
+
+  <!-- Right Side: Sovereign Deliberative Architecture -->
+  <rect x="430" y="90" width="310" height="280" rx="12" fill="currentColor" fill-opacity="0.03" stroke="#0071e3" stroke-width="1.5"/>
+  <text x="585" y="125" font-family="-apple-system, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#0071e3">Deliberative Reasoning Graph</text>
+  
+  <rect x="460" y="150" width="250" height="40" rx="8" fill="currentColor" fill-opacity="0.05" stroke="currentColor" stroke-opacity="0.2"/>
+  <text x="585" y="175" font-family="monospace" font-size="12" text-anchor="middle" fill="currentColor">Hypothesis Formulation (H0)</text>
+  
+  <path d="M 585 190 L 585 210" stroke="#0071e3" stroke-width="1.5"/>
+  
+  <rect x="460" y="210" width="250" height="40" rx="8" fill="#c5a059" fill-opacity="0.15" stroke="#c5a059"/>
+  <text x="585" y="235" font-family="monospace" font-size="12" font-weight="600" text-anchor="middle" fill="#c5a059">Execution Sandbox & Proof</text>
+  
+  <!-- Loop Arrow -->
+  <path d="M 710 230 C 730 230, 730 170, 710 170" fill="none" stroke="#c5a059" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <text x="735" y="205" font-family="monospace" font-size="10" fill="#c5a059" text-anchor="middle">Refine</text>
+  
+  <path d="M 585 250 L 585 275" stroke="#0071e3" stroke-width="1.5"/>
+  
+  <rect x="460" y="275" width="250" height="45" rx="8" fill="#10b981" fill-opacity="0.1" stroke="#10b981" stroke-width="1.5"/>
+  <text x="585" y="302" font-family="-apple-system, sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="#10b981">Formally Verified Action & Proof</text>
+</svg>

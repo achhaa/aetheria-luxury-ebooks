@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { 
-  X, BookOpen, ShoppingBag, ShieldCheck, Clock, CheckCircle2, FileText, Info
+  X, BookOpen, ShoppingBag, ShieldCheck, Clock, CheckCircle2, FileText, Info, ArrowLeft
 } from 'lucide-react';
 
 export default function BookDetailModal({ 
@@ -10,6 +10,16 @@ export default function BookDetailModal({
   onOpenSample, 
   onBuyNow 
 }) {
+  // Escape key handler
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen || !book) return null;
 
   return (
@@ -17,6 +27,9 @@ export default function BookDetailModal({
       role="dialog"
       aria-modal="true"
       aria-label={`${book.title} Dossier`}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
       className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md overflow-y-auto"
     >
       <div className="relative w-full max-w-4xl max-h-[92vh] rounded-3xl bg-[#0c0e14] border border-white/10 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.95)] flex flex-col overflow-hidden my-6">
@@ -126,6 +139,15 @@ export default function BookDetailModal({
                     <span>READ SAMPLE (FREE)</span>
                   </button>
                 </div>
+
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="w-full py-2.5 rounded-xl border border-white/10 hover:border-white/20 text-slate-400 hover:text-white text-xs font-mono transition flex items-center justify-center gap-2"
+                >
+                  <ArrowLeft className="w-3.5 h-3.5" />
+                  <span>Back to Catalogue</span>
+                </button>
 
                 <div className="pt-2 border-t border-white/10 text-[10px] font-mono text-slate-400 flex justify-between">
                   <span>• Vector PDF & EPUB</span>

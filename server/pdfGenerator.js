@@ -95,37 +95,57 @@ export function generateBookPdf({ book, customerName, customerEmail, orderId }, 
   doc.font('Times-Roman').fontSize(10.5).fillColor('#333333').text(book.description || '', { lineGap: 4 });
 
   // CHAPTER CONTENT
-  if (book.sampleChapter) {
+  const chaptersToRender = (book.chapters && book.chapters.length > 0) 
+    ? book.chapters 
+    : (book.sampleChapter ? [book.sampleChapter] : []);
+
+  chaptersToRender.forEach((chapter) => {
     doc.addPage();
-    doc.font('Helvetica-Bold').fontSize(9).fillColor('#c5a059').text(`CHAPTER ${book.sampleChapter.chapterNumber}`, { characterSpacing: 2 });
+    doc.font('Helvetica-Bold').fontSize(9).fillColor('#c5a059').text(`CHAPTER ${chapter.chapterNumber || '01'}`, { characterSpacing: 2 });
     doc.moveDown(0.3);
-    doc.font('Times-Bold').fontSize(22).fillColor('#1a1a1a').text(book.sampleChapter.title);
-    doc.font('Times-Italic').fontSize(12).fillColor('#555555').text(book.sampleChapter.subtitle || '');
+    doc.font('Times-Bold').fontSize(22).fillColor('#1a1a1a').text(chapter.title);
+    if (chapter.subtitle) {
+      doc.font('Times-Italic').fontSize(12).fillColor('#555555').text(chapter.subtitle);
+    }
     doc.moveDown(1.5);
 
-    book.sampleChapter.content.forEach((block) => {
-      if (block.type === 'paragraph') {
-        doc.font('Times-Roman').fontSize(11).fillColor('#262626').text(block.text, { lineGap: 4, paragraphGap: 10 });
-      } else if (block.type === 'heading') {
-        doc.moveDown(1);
-        doc.font('Times-Bold').fontSize(14).fillColor('#1a1a1a').text(block.text);
-        doc.moveDown(0.5);
-      } else if (block.type === 'quote') {
-        doc.moveDown(0.5);
-        doc.rect(doc.x, doc.y, 3, 40).fill('#c5a059');
-        doc.x += 12;
-        doc.font('Times-Italic').fontSize(11.5).fillColor('#444444').text(`"${block.text}"`, { lineGap: 3 });
-        doc.x -= 12;
-        doc.moveDown(1);
-      } else if (block.type === 'note') {
-        doc.moveDown(0.5);
-        doc.rect(doc.x, doc.y, doc.page.width - 108, 40).fillAndStroke('#fcfaf2', '#e5d5a8');
-        doc.fillColor('#6b5624').font('Helvetica-Bold').fontSize(8.5).text('NOTE: ', doc.x + 8, doc.y + 8, { continued: true });
-        doc.font('Times-Roman').fontSize(9.5).fillColor('#3d3215').text(block.text);
-        doc.moveDown(1.5);
-      }
-    });
-  }
+    if (chapter.content && Array.isArray(chapter.content)) {
+      chapter.content.forEach((block) => {
+        if (block.type === 'paragraph') {
+          doc.font('Times-Roman').fontSize(10.5).fillColor('#262626').text(block.text, { lineGap: 3.5, paragraphGap: 9 });
+        } else if (block.type === 'heading') {
+          doc.moveDown(0.8);
+          doc.font('Times-Bold').fontSize(13.5).fillColor('#1a1a1a').text(block.text);
+          doc.moveDown(0.4);
+        } else if (block.type === 'quote') {
+          doc.moveDown(0.5);
+          doc.rect(doc.x, doc.y, 3, 36).fill('#c5a059');
+          doc.x += 12;
+          doc.font('Times-Italic').fontSize(11).fillColor('#444444').text(`"${block.text}"`, { lineGap: 3 });
+          doc.x -= 12;
+          doc.moveDown(0.8);
+        } else if (block.type === 'note') {
+          doc.moveDown(0.5);
+          doc.rect(doc.x, doc.y, doc.page.width - 108, 38).fillAndStroke('#fcfaf2', '#e5d5a8');
+          doc.fillColor('#6b5624').font('Helvetica-Bold').fontSize(8.5).text('EDITORIAL NOTE: ', doc.x + 8, doc.y + 6, { continued: true });
+          doc.font('Times-Roman').fontSize(9.5).fillColor('#3d3215').text(block.text);
+          doc.moveDown(1.2);
+        } else if (block.type === 'case-study') {
+          doc.moveDown(0.5);
+          doc.rect(doc.x, doc.y, doc.page.width - 108, 48).fillAndStroke('#f7f8f9', '#d1d5db');
+          doc.fillColor('#1f2937').font('Helvetica-Bold').fontSize(8.5).text(`EMPIRICAL CASE STUDY: ${block.title || ''}`, doc.x + 8, doc.y + 6);
+          doc.font('Times-Roman').fontSize(9.5).fillColor('#374151').text(block.text || '', doc.x + 8, doc.y + 18, { width: doc.page.width - 124 });
+          doc.moveDown(1.5);
+        } else if (block.type === 'figure' || block.type === 'image') {
+          doc.moveDown(0.8);
+          doc.rect(doc.x, doc.y, doc.page.width - 108, 42).fillAndStroke('#fdfbf7', '#c5a059');
+          doc.fillColor('#997328').font('Helvetica-Bold').fontSize(8.5).text('ARCHITECTURAL FIGURE / SCHEMATIC', doc.x + 10, doc.y + 8);
+          doc.font('Times-Italic').fontSize(9).fillColor('#444444').text(block.caption || 'Plate Illustration', doc.x + 10, doc.y + 22);
+          doc.moveDown(1.5);
+        }
+      });
+    }
+  });
 
   // Cryptographic Footer on All Pages
   const range = doc.bufferedPageRange();

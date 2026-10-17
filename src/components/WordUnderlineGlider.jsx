@@ -87,6 +87,10 @@ export default function WordUnderlineGlider({
       backgroundColor: '#b8682e',
       boxShadow: '0 0 10px rgba(184, 104, 46, 0.75), 0 1px 3px rgba(140, 76, 26, 0.45)'
     },
+    sage: {
+      backgroundColor: '#2e7d32',
+      boxShadow: '0 0 10px rgba(46, 125, 50, 0.75), 0 1px 3px rgba(27, 94, 32, 0.45)'
+    },
     night: {
       backgroundColor: '#38bdf8',
       boxShadow: '0 0 14px rgba(56, 189, 248, 0.85), 0 0 4px rgba(0, 229, 255, 0.95)'

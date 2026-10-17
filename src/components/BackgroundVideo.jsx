@@ -73,8 +73,8 @@ export default function BackgroundVideo({
     return null;
   }
 
-  // Calibrated high-clarity video opacity: video is clearly visible while text retains contrast
-  const videoOpacity = isDark ? 0.72 : 0.58;
+  // High-clarity video opacity: video is prominently and vividly visible
+  const videoOpacity = isDark ? 0.90 : 0.80;
 
   return (
     <div 
@@ -91,18 +91,18 @@ export default function BackgroundVideo({
         playsInline
         preload="auto"
         poster="/assets/covers/the-artificial-mind.jpg"
-        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 filter brightness-100 contrast-105 saturate-110 pointer-events-none"
+        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 filter brightness-105 contrast-105 saturate-110 pointer-events-none"
         style={{ opacity: videoOpacity }}
       >
         <source src={src} type="video/mp4" />
       </video>
 
-      {/* Editorial Gradient Scrim Overlays — Balanced to keep video clearly visible while preserving text legibility */}
+      {/* Editorial Ultra-Light Gradient Scrims — Ultra-translucent to allow vivid video movement */}
       <div 
         className={`absolute inset-0 pointer-events-none transition-colors duration-500 ${
           isDark 
-            ? 'scrim-editorial-dark bg-gradient-to-b from-[#0b0c0e]/50 via-[#0b0c0e]/32 to-[#0b0c0e]/62' 
-            : 'scrim-editorial-light bg-gradient-to-b from-white/60 via-white/42 to-white/68'
+            ? 'scrim-editorial-dark bg-gradient-to-b from-black/35 via-black/20 to-black/45' 
+            : 'scrim-editorial-light bg-gradient-to-b from-white/35 via-white/18 to-white/45'
         }`} 
       />
       

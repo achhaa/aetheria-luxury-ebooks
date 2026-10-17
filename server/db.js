@@ -140,6 +140,34 @@ export async function initializeDatabase() {
   `);
 
   await run(`
+    CREATE TABLE IF NOT EXISTS users (
+      id TEXT PRIMARY KEY,
+      google_id TEXT UNIQUE,
+      email TEXT UNIQUE NOT NULL,
+      name TEXT,
+      avatar_url TEXT,
+      given_name TEXT,
+      family_name TEXT,
+      locale TEXT,
+      role TEXT DEFAULT 'customer',
+      created_at TEXT NOT NULL,
+      last_login_at TEXT NOT NULL,
+      updated_at TEXT NOT NULL
+    );
+  `);
+
+  await run(`CREATE INDEX IF NOT EXISTS idx_users_email ON users(email);`);
+  await run(`CREATE INDEX IF NOT EXISTS idx_users_google_id ON users(google_id);`);
+
+  // Safely add user_id column to orders table if it doesn't already exist
+  try {
+    await run(`ALTER TABLE orders ADD COLUMN user_id TEXT;`);
+  } catch {
+    // Column already exists
+  }
+  await run(`CREATE INDEX IF NOT EXISTS idx_orders_user_id ON orders(user_id);`);
+
+  await run(`
     CREATE TABLE IF NOT EXISTS audit_logs (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       action TEXT NOT NULL,

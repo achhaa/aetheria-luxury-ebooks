@@ -23,6 +23,7 @@ export async function saveOrder(order) {
           status = ?,
           customer_name = ?,
           customer_email = ?,
+          user_id = COALESCE(?, user_id),
           amount_inr = ?,
           currency = ?,
           items_json = ?,
@@ -36,6 +37,7 @@ export async function saveOrder(order) {
         order.status || 'CREATED',
         order.customerName || null,
         order.customerEmail || null,
+        order.userId || null,
         order.amountINR || 0,
         order.currency || 'INR',
         JSON.stringify(order.items || []),
@@ -48,9 +50,9 @@ export async function saveOrder(order) {
       await run(`
         INSERT INTO orders (
           order_id, payment_id, signature, status, customer_name,
-          customer_email, amount_inr, currency, items_json,
+          customer_email, user_id, amount_inr, currency, items_json,
           download_tokens_json, created_at, paid_at, updated_at
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
       `, [
         order.orderId,
         order.paymentId || null,
@@ -58,6 +60,7 @@ export async function saveOrder(order) {
         order.status || 'CREATED',
         order.customerName || null,
         order.customerEmail || null,
+        order.userId || null,
         order.amountINR || 0,
         order.currency || 'INR',
         JSON.stringify(order.items || []),
@@ -116,6 +119,7 @@ function formatOrderFromRow(row) {
     paymentId: row.payment_id,
     signature: row.signature,
     status: row.status,
+    userId: row.user_id || null,
     customerName: row.customer_name,
     customerEmail: row.customer_email,
     amountINR: row.amount_inr,

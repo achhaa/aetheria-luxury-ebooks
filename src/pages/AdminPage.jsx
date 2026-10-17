@@ -79,6 +79,16 @@ export default function AdminPage() {
     }
   }, []);
 
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && editingBook) {
+        setEditingBook(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [editingBook]);
+
   const handleUpdateBook = async (e) => {
     e.preventDefault();
     if (!editingBook) return;
@@ -111,16 +121,16 @@ export default function AdminPage() {
 
   if (!isAuthenticated) {
     return (
-      <div className="bg-[#f5f5f7] min-h-screen py-24 flex items-center justify-center px-4">
-        <div className="w-full max-w-md p-8 rounded-3xl bg-white border border-black/10 shadow-lg text-center space-y-6">
-          <div className="w-14 h-14 rounded-2xl bg-[#1d1d1f] flex items-center justify-center text-white mx-auto shadow-md">
+      <div className="bg-[#f5f5f7] dark:bg-[#0b0c0e] min-h-screen py-24 flex items-center justify-center px-4 transition-colors">
+        <div className="w-full max-w-md p-8 rounded-3xl bg-white dark:bg-[#14161a] border border-black/10 dark:border-white/10 shadow-lg text-center space-y-6">
+          <div className="w-14 h-14 rounded-2xl bg-[#1d1d1f] dark:bg-white/10 flex items-center justify-center text-white mx-auto shadow-md">
             <Lock className="w-7 h-7 text-[#c5a059]" />
           </div>
           <div>
-            <h1 className="text-2xl font-serif font-bold text-[#1d1d1f]">
+            <h1 className="text-2xl font-serif font-bold text-[#1d1d1f] dark:text-[#f5f5f7]">
               Administrative Console
             </h1>
-            <p className="text-xs text-[#6e6e73] font-mono mt-1">
+            <p className="text-xs text-[#6e6e73] dark:text-[#a1a1a6] font-mono mt-1">
               Restricted access. Server-side key authorization required.
             </p>
           </div>
@@ -132,25 +142,25 @@ export default function AdminPage() {
               placeholder="Enter administrative master key..."
               value={adminKey}
               onChange={(e) => setAdminKey(e.target.value)}
-              className="w-full bg-[#f5f5f7] border border-black/10 rounded-xl px-4 py-3 text-xs font-mono text-[#1d1d1f] focus:outline-none focus:border-[#997328]"
+              className="w-full bg-[#f5f5f7] dark:bg-black/30 border border-black/10 dark:border-white/10 rounded-xl px-4 py-3 text-xs font-mono text-[#1d1d1f] dark:text-[#f5f5f7] focus:outline-none focus:border-[#c5a059]"
             />
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-3 rounded-xl bg-[#1d1d1f] hover:bg-black text-white font-mono text-xs font-bold tracking-wider transition shadow-sm"
+              className="w-full py-3 rounded-xl bg-[#1d1d1f] hover:bg-black dark:bg-[#c5a059] dark:hover:bg-[#b08d47] text-white dark:text-[#0b0c0e] font-mono text-xs font-bold tracking-wider transition shadow-sm"
             >
               {isLoading ? 'AUTHENTICATING...' : 'AUTHORIZE SESSION'}
             </button>
           </form>
 
           {authError && (
-            <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs font-mono">
+            <div className="p-3 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/50 text-red-700 dark:text-red-300 text-xs font-mono">
               {authError}
             </div>
           )}
 
-          <div className="text-[10px] font-mono text-[#86868b]">
-            Default test key: <code className="bg-gray-100 px-1 py-0.5 rounded">aetheria-admin-secret-2026</code>
+          <div className="text-[10px] font-mono text-[#86868b] dark:text-[#a1a1a6]">
+            Default test key: <code className="bg-gray-100 dark:bg-white/10 px-1 py-0.5 rounded text-[#1d1d1f] dark:text-[#f5f5f7]">aetheria-admin-secret-2026</code>
           </div>
         </div>
       </div>
@@ -158,19 +168,19 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="bg-white min-h-screen py-12 text-[#1d1d1f]">
+    <div className="bg-white dark:bg-[#0b0c0e] min-h-screen py-12 text-[#1d1d1f] dark:text-[#f5f5f7] transition-colors">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-8 border-b border-black/10 gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-8 border-b border-black/10 dark:border-white/10 gap-4">
           <div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-500" />
-              <span className="text-xs font-mono uppercase tracking-wider text-[#997328] font-bold">
+              <span className="text-xs font-mono uppercase tracking-wider text-[#997328] dark:text-[#c5a059] font-bold">
                 AETHERIA MANAGEMENT SUITE
               </span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#1d1d1f] mt-1">
+            <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#1d1d1f] dark:text-[#f5f5f7] mt-1">
               Editorial & Commercial Governance
             </h1>
           </div>
@@ -182,10 +192,10 @@ export default function AdminPage() {
                 fetchAuditLogs();
                 handleLogin();
               }}
-              className="p-2 rounded-lg border border-black/10 hover:bg-gray-50 text-xs font-mono flex items-center gap-1.5"
+              className="p-2 rounded-lg border border-black/10 dark:border-white/10 hover:bg-gray-50 dark:hover:bg-white/5 text-xs font-mono flex items-center gap-1.5 text-[#1d1d1f] dark:text-[#f5f5f7] transition"
               title="Refresh Records"
             >
-              <RefreshCw className="w-3.5 h-3.5 text-[#997328]" />
+              <RefreshCw className="w-3.5 h-3.5 text-[#997328] dark:text-[#c5a059]" />
               <span>Refresh</span>
             </button>
 
@@ -195,7 +205,7 @@ export default function AdminPage() {
                 setAdminKey('');
                 localStorage.removeItem('aetheria_admin_key');
               }}
-              className="px-3 py-1.5 rounded-lg border border-black/10 hover:bg-red-50 text-red-700 text-xs font-mono"
+              className="px-3 py-1.5 rounded-lg border border-black/10 dark:border-white/10 hover:bg-red-50 dark:hover:bg-red-950/30 text-red-700 dark:text-red-400 text-xs font-mono transition"
             >
               Log Out
             </button>
@@ -203,18 +213,20 @@ export default function AdminPage() {
         </div>
 
         {updateSuccess && (
-          <div className="mb-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-mono flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+          <div className="mb-6 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/50 text-emerald-800 dark:text-emerald-300 text-xs font-mono flex items-center gap-2">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
             <span>{updateSuccess}</span>
           </div>
         )}
 
         {/* Tab Selector */}
-        <div className="flex border-b border-black/10 mb-8 space-x-6 text-xs font-mono font-bold">
+        <div className="flex border-b border-black/10 dark:border-white/10 mb-8 space-x-6 text-xs font-mono font-bold">
           <button
             onClick={() => setActiveTab('books')}
             className={`pb-3 border-b-2 transition ${
-              activeTab === 'books' ? 'border-[#997328] text-[#1d1d1f]' : 'border-transparent text-[#6e6e73]'
+              activeTab === 'books'
+                ? 'border-[#997328] dark:border-[#c5a059] text-[#1d1d1f] dark:text-[#f5f5f7]'
+                : 'border-transparent text-[#6e6e73] dark:text-[#a1a1a6] hover:text-[#1d1d1f] dark:hover:text-[#f5f5f7]'
             }`}
           >
             Books & Pricing ({books.length})
@@ -222,7 +234,9 @@ export default function AdminPage() {
           <button
             onClick={() => setActiveTab('orders')}
             className={`pb-3 border-b-2 transition ${
-              activeTab === 'orders' ? 'border-[#997328] text-[#1d1d1f]' : 'border-transparent text-[#6e6e73]'
+              activeTab === 'orders'
+                ? 'border-[#997328] dark:border-[#c5a059] text-[#1d1d1f] dark:text-[#f5f5f7]'
+                : 'border-transparent text-[#6e6e73] dark:text-[#a1a1a6] hover:text-[#1d1d1f] dark:hover:text-[#f5f5f7]'
             }`}
           >
             Real Transactions ({orders.length})
@@ -230,7 +244,9 @@ export default function AdminPage() {
           <button
             onClick={() => setActiveTab('audit')}
             className={`pb-3 border-b-2 transition ${
-              activeTab === 'audit' ? 'border-[#997328] text-[#1d1d1f]' : 'border-transparent text-[#6e6e73]'
+              activeTab === 'audit'
+                ? 'border-[#997328] dark:border-[#c5a059] text-[#1d1d1f] dark:text-[#f5f5f7]'
+                : 'border-transparent text-[#6e6e73] dark:text-[#a1a1a6] hover:text-[#1d1d1f] dark:hover:text-[#f5f5f7]'
             }`}
           >
             Audit Trail ({auditLogs.length})
@@ -244,7 +260,7 @@ export default function AdminPage() {
               {books.map((b) => (
                 <div 
                   key={b.id}
-                  className="p-5 rounded-2xl bg-[#f5f5f7] border border-black/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+                  className="p-5 rounded-2xl bg-[#f5f5f7] dark:bg-[#14161a] border border-black/5 dark:border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
                 >
                   <div className="flex items-center gap-4">
                     <img 
@@ -254,17 +270,19 @@ export default function AdminPage() {
                     />
                     <div>
                       <div className="flex items-center gap-2">
-                        <h3 className="text-base font-serif font-bold text-[#1d1d1f]">{b.title}</h3>
+                        <h3 className="text-base font-serif font-bold text-[#1d1d1f] dark:text-[#f5f5f7]">{b.title}</h3>
                         <span className={`px-2 py-0.5 rounded text-[10px] font-mono uppercase font-bold ${
-                          b.status === 'published' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'
+                          b.status === 'published'
+                            ? 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700/50'
+                            : 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-700/50'
                         }`}>
                           {b.status}
                         </span>
                       </div>
-                      <p className="text-xs text-[#6e6e73] font-mono mt-0.5">
+                      <p className="text-xs text-[#6e6e73] dark:text-[#a1a1a6] font-mono mt-0.5">
                         Author: {b.author} • Category: {b.category}
                       </p>
-                      <span className="text-xs font-mono text-[#997328] font-bold mt-1 inline-block">
+                      <span className="text-xs font-mono text-[#997328] dark:text-[#c5a059] font-bold mt-1 inline-block">
                         Active Price: ₹{b.price_inr}
                       </span>
                     </div>
@@ -272,7 +290,7 @@ export default function AdminPage() {
 
                   <button
                     onClick={() => setEditingBook(b)}
-                    className="px-4 py-2 rounded-xl bg-white border border-black/10 hover:border-black/20 text-xs font-mono font-bold transition shadow-xs"
+                    className="px-4 py-2 rounded-xl bg-white dark:bg-[#1c1f24] border border-black/10 dark:border-white/10 hover:border-black/20 dark:hover:border-white/20 text-[#1d1d1f] dark:text-[#f5f5f7] text-xs font-mono font-bold transition shadow-xs"
                   >
                     Configure
                   </button>
@@ -282,33 +300,44 @@ export default function AdminPage() {
 
             {/* Edit Modal */}
             {editingBook && (
-              <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
-                <div className="w-full max-w-lg p-6 rounded-3xl bg-white border border-black/10 shadow-2xl space-y-4">
-                  <div className="flex items-center justify-between pb-3 border-b border-black/10">
-                    <h3 className="font-serif font-bold text-lg">Configure: {editingBook.title}</h3>
-                    <button onClick={() => setEditingBook(null)} className="text-xs font-mono">Close</button>
+              <div 
+                className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+                onClick={() => setEditingBook(null)}
+              >
+                <div 
+                  className="w-full max-w-lg p-6 rounded-3xl bg-white dark:bg-[#14161a] border border-black/10 dark:border-white/10 shadow-2xl space-y-4 text-[#1d1d1f] dark:text-[#f5f5f7]"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div className="flex items-center justify-between pb-3 border-b border-black/10 dark:border-white/10">
+                    <h3 className="font-serif font-bold text-lg text-[#1d1d1f] dark:text-[#f5f5f7]">Configure: {editingBook.title}</h3>
+                    <button 
+                      onClick={() => setEditingBook(null)} 
+                      className="px-2.5 py-1 rounded-lg border border-black/10 dark:border-white/10 hover:bg-gray-100 dark:hover:bg-white/10 text-xs font-mono"
+                    >
+                      Close [Esc]
+                    </button>
                   </div>
 
                   <form onSubmit={handleUpdateBook} className="space-y-4 text-xs font-mono">
                     <div>
-                      <label className="block text-[#6e6e73] mb-1">Authoritative Price (INR):</label>
+                      <label className="block text-[#6e6e73] dark:text-[#a1a1a6] mb-1">Authoritative Price (INR):</label>
                       <input
                         type="number"
                         min="99"
                         max="499"
                         value={editingBook.price_inr}
                         onChange={(e) => setEditingBook({ ...editingBook, price_inr: e.target.value })}
-                        className="w-full p-2.5 rounded-lg border border-black/10 font-bold"
+                        className="w-full p-2.5 rounded-lg border border-black/10 dark:border-white/10 bg-white dark:bg-[#1c1f24] text-[#1d1d1f] dark:text-[#f5f5f7] font-bold focus:outline-none focus:border-[#c5a059]"
                       />
-                      <span className="text-[10px] text-[#86868b]">Must remain under ₹500 in accordance with brand pricing policy.</span>
+                      <span className="text-[10px] text-[#86868b] dark:text-[#a1a1a6]">Must remain under ₹500 in accordance with brand pricing policy.</span>
                     </div>
 
                     <div>
-                      <label className="block text-[#6e6e73] mb-1">Publication Status:</label>
+                      <label className="block text-[#6e6e73] dark:text-[#a1a1a6] mb-1">Publication Status:</label>
                       <select
                         value={editingBook.status}
                         onChange={(e) => setEditingBook({ ...editingBook, status: e.target.value })}
-                        className="w-full p-2.5 rounded-lg border border-black/10"
+                        className="w-full p-2.5 rounded-lg border border-black/10 dark:border-white/10 bg-white dark:bg-[#1c1f24] text-[#1d1d1f] dark:text-[#f5f5f7] focus:outline-none focus:border-[#c5a059]"
                       >
                         <option value="published">Published</option>
                         <option value="in_review">In Review</option>
@@ -317,18 +346,18 @@ export default function AdminPage() {
                     </div>
 
                     <div>
-                      <label className="block text-[#6e6e73] mb-1">Badge Label:</label>
+                      <label className="block text-[#6e6e73] dark:text-[#a1a1a6] mb-1">Badge Label:</label>
                       <input
                         type="text"
                         value={editingBook.badge}
                         onChange={(e) => setEditingBook({ ...editingBook, badge: e.target.value })}
-                        className="w-full p-2.5 rounded-lg border border-black/10"
+                        className="w-full p-2.5 rounded-lg border border-black/10 dark:border-white/10 bg-white dark:bg-[#1c1f24] text-[#1d1d1f] dark:text-[#f5f5f7] focus:outline-none focus:border-[#c5a059]"
                       />
                     </div>
 
                     <button
                       type="submit"
-                      className="w-full py-3 rounded-xl bg-[#1d1d1f] hover:bg-black text-white font-bold tracking-wider mt-4"
+                      className="w-full py-3 rounded-xl bg-[#1d1d1f] hover:bg-black dark:bg-[#c5a059] dark:hover:bg-[#b08d47] text-white dark:text-[#0b0c0e] font-bold tracking-wider mt-4 transition shadow-sm"
                     >
                       SAVE CHANGES TO PERSISTENT DATABASE
                     </button>
@@ -343,22 +372,22 @@ export default function AdminPage() {
         {activeTab === 'orders' && (
           <div className="space-y-4">
             {orders.length === 0 ? (
-              <div className="p-8 text-center text-xs font-mono text-[#86868b] bg-[#f5f5f7] rounded-2xl">
+              <div className="p-8 text-center text-xs font-mono text-[#86868b] dark:text-[#a1a1a6] bg-[#f5f5f7] dark:bg-[#14161a] rounded-2xl border border-black/5 dark:border-white/10">
                 No transactions recorded in database yet.
               </div>
             ) : (
               <div className="space-y-3">
                 {orders.map((o) => (
-                  <div key={o.orderId} className="p-4 rounded-xl border border-black/10 bg-[#f5f5f7] text-xs font-mono space-y-1">
+                  <div key={o.orderId} className="p-4 rounded-xl border border-black/10 dark:border-white/10 bg-[#f5f5f7] dark:bg-[#14161a] text-xs font-mono space-y-1">
                     <div className="flex items-center justify-between">
-                      <span className="font-bold text-[#1d1d1f]">{o.orderId}</span>
+                      <span className="font-bold text-[#1d1d1f] dark:text-[#f5f5f7]">{o.orderId}</span>
                       <span className={`px-2 py-0.5 rounded font-bold ${
-                        o.status === 'PAID' ? 'bg-emerald-100 text-emerald-800' : 'bg-gray-200 text-gray-700'
+                        o.status === 'PAID' ? 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300' : 'bg-gray-200 dark:bg-white/10 text-gray-700 dark:text-gray-300'
                       }`}>
                         {o.status} (₹{o.amountINR})
                       </span>
                     </div>
-                    <div className="text-[#6e6e73]">
+                    <div className="text-[#6e6e73] dark:text-[#a1a1a6]">
                       Customer: {o.customerName} ({o.customerEmail})
                     </div>
                     <div className="text-[10px] text-[#86868b]">
@@ -375,10 +404,10 @@ export default function AdminPage() {
         {activeTab === 'audit' && (
           <div className="space-y-2">
             {auditLogs.map((log) => (
-              <div key={log.id} className="p-3 rounded-lg border border-black/5 bg-[#f5f5f7] text-[11px] font-mono flex items-center justify-between">
+              <div key={log.id} className="p-3 rounded-lg border border-black/5 dark:border-white/10 bg-[#f5f5f7] dark:bg-[#14161a] text-[11px] font-mono flex items-center justify-between">
                 <div>
-                  <span className="font-bold text-[#1d1d1f] mr-2">[{log.action}]</span>
-                  <span className="text-[#6e6e73]">{log.actor}: {log.details}</span>
+                  <span className="font-bold text-[#1d1d1f] dark:text-[#f5f5f7] mr-2">[{log.action}]</span>
+                  <span className="text-[#6e6e73] dark:text-[#a1a1a6]">{log.actor}: {log.details}</span>
                 </div>
                 <span className="text-[#86868b] text-[10px] shrink-0 ml-4">
                   {new Date(log.timestamp).toLocaleTimeString()}

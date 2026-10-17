@@ -58,12 +58,20 @@ export default function InteractiveBookModal({
     }
   };
 
-  // Handle open sound & narration stop
+  // Handle open sound & narration stop & Escape key dismiss
   useEffect(() => {
     if (isOpen) {
       playBookOpenSound();
       stopNarratorText();
       setIsNarrating(false);
+
+      const handleKeyDown = (e) => {
+        if (e.key === 'Escape') {
+          handleClose();
+        }
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => window.removeEventListener('keydown', handleKeyDown);
     } else {
       stopNarratorText();
       setIsNarrating(false);
@@ -254,6 +262,7 @@ export default function InteractiveBookModal({
       role="dialog"
       aria-modal="true"
       aria-label={`${book.title} Reading Room`}
+      onClick={(e) => { if (e.target === e.currentTarget) handleClose(); }}
       className={`fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 ${t.outerBg} backdrop-blur-md transition-all duration-300`}
     >
       <div 
@@ -489,6 +498,38 @@ export default function InteractiveBookModal({
                         Editorial Synthesis Note:
                       </strong>
                       {block.text}
+                    </div>
+                  );
+                }
+                if (block.type === 'figure' || block.type === 'image') {
+                  return (
+                    <figure key={idx} className="my-8 flex flex-col items-center">
+                      <div className="w-full max-w-xl reader-figure-mat flex items-center justify-center">
+                        <img 
+                          src={block.url || block.src} 
+                          alt={block.caption || 'Architectural Figure'} 
+                          className="max-h-72 w-auto object-contain mx-auto"
+                          loading="lazy"
+                        />
+                      </div>
+                      {block.caption && (
+                        <figcaption className={`mt-3 text-center text-xs font-mono ${t.secondaryText} italic max-w-md`}>
+                          {block.caption}
+                        </figcaption>
+                      )}
+                    </figure>
+                  );
+                }
+                if (block.type === 'case-study') {
+                  return (
+                    <div key={idx} className={`my-8 p-6 rounded-2xl border ${t.border} ${t.quoteBg}`}>
+                      <span className="text-[10px] font-mono tracking-widest uppercase px-2 py-0.5 rounded bg-[#c5a059]/20 text-[#c5a059] font-bold block w-fit mb-2">
+                        Empirical Case Study
+                      </span>
+                      <h4 className={`text-sm font-serif font-bold ${t.heading} mb-2`}>{block.title}</h4>
+                      <p className={`text-xs sm:text-sm font-serif leading-relaxed ${t.text}`}>
+                        {block.text}
+                      </p>
                     </div>
                   );
                 }

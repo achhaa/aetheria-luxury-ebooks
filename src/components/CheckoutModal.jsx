@@ -1,15 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { X, ShieldCheck, Lock, Download, CheckCircle, FileText, AlertCircle } from 'lucide-react';
+import { X, ShieldCheck, Lock, Download, CheckCircle, FileText, AlertCircle, ArrowLeft } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { playSuccessChime } from '../utils/audioSynthesis';
+import { useAuth } from '../context/AuthContext';
 
 export default function CheckoutModal({ books, isOpen, onClose, onSuccess }) {
+  const { user, isAuthenticated } = useAuth();
   const [customerName, setCustomerName] = useState('');
   const [customerEmail, setCustomerEmail] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [orderResult, setOrderResult] = useState(null);
   const [rzpConfig, setRzpConfig] = useState(null);
+
+  // Auto-fill from authenticated Google account
+  useEffect(() => {
+    if (isAuthenticated && user) {
+      if (user.name) setCustomerName(user.name);
+      if (user.email) setCustomerEmail(user.email);
+    }
+  }, [isAuthenticated, user]);
 
   // Fetch server configuration
   useEffect(() => {
@@ -18,6 +28,16 @@ export default function CheckoutModal({ books, isOpen, onClose, onSuccess }) {
       .then((data) => setRzpConfig(data))
       .catch((err) => console.error('Failed to load server config:', err));
   }, []);
+
+  // Escape key handler for seamless dismiss
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
 
   if (!isOpen || !books || books.length === 0) return null;
 
@@ -147,24 +167,37 @@ export default function CheckoutModal({ books, isOpen, onClose, onSuccess }) {
       role="dialog"
       aria-modal="true"
       aria-label="Secure Razorpay Checkout"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm overflow-y-auto animate-fade-in"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md overflow-y-auto animate-fade-in"
     >
-      <div className="relative w-full max-w-xl rounded-3xl bg-white border border-black/10 shadow-2xl overflow-hidden my-6 text-[#1d1d1f]">
+      <div className="relative w-full max-w-xl rounded-3xl bg-white dark:bg-[#14161a] border border-black/10 dark:border-white/15 shadow-2xl overflow-hidden my-6 text-[#1d1d1f] dark:text-[#f5f5f7]">
         
-        {/* Header */}
-        <header className="p-6 border-b border-black/10 flex items-center justify-between bg-white">
+        {/* Header with Prominent Exit & Back Controls */}
+        <header className="p-6 border-b border-black/10 dark:border-white/10 flex items-center justify-between bg-inherit">
           <div className="flex items-center gap-2.5">
-            <ShieldCheck className="w-5 h-5 text-[#997328]" />
-            <h2 className="text-base sm:text-lg font-serif font-bold text-[#1d1d1f] tracking-wide">
+            <button
+              type="button"
+              onClick={onClose}
+              className="p-1.5 -ml-1.5 rounded-lg text-[#6e6e73] dark:text-[#a1a1a6] hover:text-[#1d1d1f] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition"
+              title="Return / Dismiss"
+            >
+              <ArrowLeft className="w-5 h-5" />
+            </button>
+            <ShieldCheck className="w-5 h-5 text-[#c5a059]" />
+            <h2 className="text-base sm:text-lg font-serif font-bold tracking-wide">
               {orderResult ? 'ACQUISITION CONFIRMED' : 'SECURE RAZORPAY CHECKOUT'}
             </h2>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-[#6e6e73] hover:text-[#1d1d1f] hover:bg-gray-100 transition"
+            className="px-3 py-1.5 rounded-xl border border-black/10 dark:border-white/10 hover:border-black/20 dark:hover:border-white/25 text-[#6e6e73] dark:text-[#a1a1a6] hover:text-[#1d1d1f] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition flex items-center gap-1.5 text-xs font-mono"
             aria-label="Close checkout"
+            title="Dismiss & Exit (Esc)"
           >
-            <X className="w-5 h-5" />
+            <span className="font-semibold">Exit</span>
+            <X className="w-4 h-4" />
           </button>
         </header>
 
@@ -174,65 +207,65 @@ export default function CheckoutModal({ books, isOpen, onClose, onSuccess }) {
             
             {/* Order Items Overview */}
             <div className="space-y-3">
-              <span className="text-xs font-mono uppercase tracking-wider text-[#997328] font-bold block">
+              <span className="text-xs font-mono uppercase tracking-wider text-[#997328] dark:text-[#c5a059] font-bold block">
                 ORDER SUMMARY ({books.length} {books.length === 1 ? 'EDITION' : 'EDITIONS'}):
               </span>
               <div className="space-y-2 max-h-48 overflow-y-auto pr-1">
                 {books.map((b) => (
-                  <div key={b.id} className="flex justify-between items-center p-3 rounded-xl bg-[#f5f5f7] border border-black/5 text-xs">
+                  <div key={b.id} className="flex justify-between items-center p-3 rounded-xl bg-[#f5f5f7] dark:bg-[#1c1f26] border border-black/5 dark:border-white/5 text-xs">
                     <div>
-                      <h4 className="font-serif font-bold text-[#1d1d1f]">{b.title}</h4>
-                      <span className="text-[10px] font-mono text-[#6e6e73]">
+                      <h4 className="font-serif font-bold">{b.title}</h4>
+                      <span className="text-[10px] font-mono opacity-70">
                         {b.pages} Pages • Vector PDF + Universal EPUB Master
                       </span>
                     </div>
-                    <span className="font-mono font-bold text-[#1d1d1f]">₹{b.priceINR}</span>
+                    <span className="font-mono font-bold">₹{b.priceINR}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Total Display */}
-            <div className="p-4 rounded-xl bg-[#f5f5f7] border border-black/10 flex items-center justify-between">
+            <div className="p-4 rounded-xl bg-[#f5f5f7] dark:bg-[#1c1f26] border border-black/10 dark:border-white/10 flex items-center justify-between">
               <div>
-                <span className="text-xs font-mono uppercase text-[#6e6e73] block">Authoritative Total</span>
-                <span className="text-[10px] font-mono text-emerald-700 font-medium">All single editions priced under ₹500</span>
+                <span className="text-xs font-mono uppercase opacity-70 block">Authoritative Total</span>
+                <span className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-medium">All single editions priced under ₹500</span>
               </div>
-              <span className="text-2xl font-serif font-bold text-[#1d1d1f]">
+              <span className="text-2xl font-serif font-bold text-[#c5a059]">
                 ₹{totalINR}
               </span>
             </div>
 
             {/* Customer Information Inputs */}
             <div className="space-y-3">
-              <span className="text-xs font-mono uppercase tracking-wider text-[#6e6e73] block">
+              <span className="text-xs font-mono uppercase tracking-wider opacity-70 block">
                 LICENSEE CREDENTIALS:
               </span>
 
               <div className="space-y-3">
                 <div>
-                  <label className="block text-[11px] font-mono text-[#6e6e73] mb-1">Full Legal Name</label>
+                  <label className="block text-[11px] font-mono opacity-80 mb-1">Full Legal Name</label>
                   <input
                     type="text"
                     required
                     placeholder="e.g. Eleanor Vance"
                     value={customerName}
                     onChange={(e) => setCustomerName(e.target.value)}
-                    className="w-full bg-[#f5f5f7] border border-black/10 focus:border-[#997328] rounded-xl px-4 py-2.5 text-xs text-[#1d1d1f] placeholder-[#86868b] focus:outline-none"
+                    className="w-full bg-[#f5f5f7] dark:bg-[#1c1f26] border border-black/10 dark:border-white/15 focus:border-[#c5a059] rounded-xl px-4 py-2.5 text-xs text-inherit placeholder-[#86868b] focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[11px] font-mono text-[#6e6e73] mb-1">Fulfillment Email Address</label>
+                  <label className="block text-[11px] font-mono opacity-80 mb-1">Fulfillment Email Address</label>
                   <input
                     type="email"
                     required
                     placeholder="e.g. patron@aetheria.luxury"
                     value={customerEmail}
                     onChange={(e) => setCustomerEmail(e.target.value)}
-                    className="w-full bg-[#f5f5f7] border border-black/10 focus:border-[#997328] rounded-xl px-4 py-2.5 text-xs text-[#1d1d1f] placeholder-[#86868b] focus:outline-none"
+                    className="w-full bg-[#f5f5f7] dark:bg-[#1c1f26] border border-black/10 dark:border-white/15 focus:border-[#c5a059] rounded-xl px-4 py-2.5 text-xs text-inherit placeholder-[#86868b] focus:outline-none"
                   />
-                  <span className="text-[10px] font-mono text-[#86868b] mt-1 block">
+                  <span className="text-[10px] font-mono opacity-60 mt-1 block">
                     Cryptographic master download tokens and transaction receipt will be sent here.
                   </span>
                 </div>
@@ -240,33 +273,56 @@ export default function CheckoutModal({ books, isOpen, onClose, onSuccess }) {
             </div>
 
             {errorMessage && (
-              <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs font-mono flex items-center gap-2">
+              <div className="p-3.5 rounded-xl bg-red-500/10 border border-red-500/30 text-red-600 dark:text-red-400 text-xs font-mono flex items-center gap-2">
                 <AlertCircle className="w-4 h-4 shrink-0" />
                 <span>{errorMessage}</span>
               </div>
             )}
 
-            {/* Submit Action */}
-            <button
-              type="submit"
-              disabled={isProcessing}
-              className="w-full py-4 rounded-xl bg-[#1d1d1f] hover:bg-black text-white font-bold text-xs font-mono tracking-wider transition-all shadow-sm flex items-center justify-center gap-2"
-            >
-              {isProcessing ? (
-                <>
-                  <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  <span>COMMUNICATING WITH RAZORPAY GATEWAY...</span>
-                </>
-              ) : (
-                <>
-                  <Lock className="w-4 h-4 text-[#c5a059]" />
-                  <span>PROCEED TO PAYMENT — ₹{totalINR}</span>
-                </>
-              )}
-            </button>
+            {/* Primary Action & Prominent Dismiss / Back Buttons */}
+            <div className="space-y-3 pt-2">
+              <div className="flex flex-col sm:flex-row items-center gap-3">
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="w-full sm:w-auto px-6 py-4 rounded-xl border border-black/15 dark:border-white/15 hover:bg-black/5 dark:hover:bg-white/5 text-inherit font-mono font-bold text-xs transition flex items-center justify-center gap-2"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  <span>BACK / CANCEL</span>
+                </button>
+
+                <button
+                  type="submit"
+                  disabled={isProcessing}
+                  className="flex-1 w-full py-4 rounded-xl bg-[#1d1d1f] hover:bg-black dark:bg-[#c5a059] dark:hover:bg-[#d4af37] text-white dark:text-black font-bold text-xs font-mono tracking-wider transition-all shadow-sm flex items-center justify-center gap-2"
+                >
+                  {isProcessing ? (
+                    <>
+                      <span className="w-4 h-4 border-2 border-white dark:border-black border-t-transparent rounded-full animate-spin" />
+                      <span>COMMUNICATING WITH RAZORPAY GATEWAY...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Lock className="w-4 h-4 text-[#c5a059] dark:text-black" />
+                      <span>PROCEED TO PAYMENT — ₹{totalINR}</span>
+                    </>
+                  )}
+                </button>
+              </div>
+
+              <div className="text-center">
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="text-[11px] font-mono text-[#86868b] hover:text-[#1d1d1f] dark:hover:text-white hover:underline transition"
+                >
+                  Cancel and return to catalogue
+                </button>
+              </div>
+            </div>
 
             {/* Legal Policies Notice */}
-            <div className="pt-2 border-t border-black/5 text-[10px] font-mono text-[#86868b] text-center space-y-1">
+            <div className="pt-2 border-t border-black/5 dark:border-white/10 text-[10px] font-mono opacity-60 text-center space-y-1">
               <p>🔒 256-Bit Encrypted Settlement • 30-Day Digital Evaluation Policy</p>
               <p>Instant digital delivery via expiring cryptographic token. Contact: support@aetheria.luxury</p>
             </div>

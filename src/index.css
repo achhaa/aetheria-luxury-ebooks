@@ -2,13 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
+/* -------------------------------------------------------------
+ * 1. Global Storefront Theme Palettes (Apple-Inspired Luxury)
+ * ------------------------------------------------------------- */
+:root {
+  --site-bg: #0b0c0e;
+  --site-surface: #14161a;
+  --site-elevated: #1c1f26;
+  --site-border: rgba(255, 255, 255, 0.1);
+  --site-text: #f5f5f7;
+  --site-text-muted: #a1a1a6;
+  --site-gold: #c5a059;
+  --site-gold-hover: #dfb76c;
+}
+
+html.theme-site-dark {
+  --site-bg: #0b0c0e;
+  --site-surface: #14161a;
+  --site-elevated: #1c1f26;
+  --site-border: rgba(255, 255, 255, 0.1);
+  --site-text: #f5f5f7;
+  --site-text-muted: #a1a1a6;
+  --site-gold: #c5a059;
+  --site-gold-hover: #dfb76c;
+}
+
+html.theme-site-dim {
+  --site-bg: #17181c;
+  --site-surface: #1f2229;
+  --site-elevated: #282c35;
+  --site-border: rgba(255, 255, 255, 0.09);
+  --site-text: #ede8df;
+  --site-text-muted: #b3aca0;
+  --site-gold: #c5a059;
+  --site-gold-hover: #dfb76c;
+}
+
+html.theme-site-light {
+  --site-bg: #faf8f5;
+  --site-surface: #ffffff;
+  --site-elevated: #f4efe6;
+  --site-border: rgba(0, 0, 0, 0.08);
+  --site-text: #1d1d1f;
+  --site-text-muted: #6e6e73;
+  --site-gold: #997328;
+  --site-gold-hover: #b08530;
+}
+
 @layer base {
   body {
-    background-color: #ffffff;
-    color: #1d1d1f;
+    background-color: var(--site-bg);
+    color: var(--site-text);
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   html {
     scroll-behavior: smooth;
@@ -21,32 +69,47 @@
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f5f5f7;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #d2d2d7;
+  background: rgba(160, 160, 165, 0.35);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #86868b;
+  background: rgba(160, 160, 165, 0.6);
 }
 
-/* Light Editorial Glassmorphism & Accents */
+/* Glassmorphism Classes for Navigation and Cards */
 .glass-nav {
-  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .gold-accent-text {
-  color: #997328;
+  color: var(--site-gold);
 }
 
-/* Accessible Reader Themes & High-Contrast Typography */
+/* -------------------------------------------------------------
+ * 2. Reader Color Science & High-Contrast Calibrated Themes
+ * ------------------------------------------------------------- */
 .theme-ivory {
+  --reader-bg: #faf7f0;
+  --reader-text: #1e1e1b;
+  --reader-text-muted: #5f5c53;
+  --reader-border: rgba(0, 0, 0, 0.09);
+  --reader-border-subtle: rgba(0, 0, 0, 0.05);
+  --reader-btn-bg: rgba(0, 0, 0, 0.04);
+  --reader-btn-hover: rgba(0, 0, 0, 0.08);
+  --reader-accent: #997328;
+  --reader-gold: #c5a059;
+  --reader-card: rgba(0, 0, 0, 0.03);
+  --reader-mat-bg: #ffffff;
+  --reader-track: rgba(0, 0, 0, 0.08);
+  --reader-header-bg: rgba(250, 247, 240, 0.94);
+  --reader-dock-bg: #f5f2ea;
+  --reader-toc-bg: #faf7f0;
   background-color: #faf7f0 !important;
-  color: #24231f !important;
+  color: #1e1e1b !important;
 }
 .theme-ivory ::selection {
   background-color: #e5dac2 !important;
@@ -54,21 +117,100 @@
 }
 
 .theme-sepia {
-  background-color: #f0e4cc !important;
-  color: #382e1e !important;
+  --reader-bg: #f2e8d5;
+  --reader-text: #281c12;
+  --reader-text-muted: #6e5845;
+  --reader-border: rgba(43, 24, 10, 0.12);
+  --reader-border-subtle: rgba(43, 24, 10, 0.06);
+  --reader-btn-bg: rgba(43, 24, 10, 0.05);
+  --reader-btn-hover: rgba(43, 24, 10, 0.1);
+  --reader-accent: #8c5828;
+  --reader-gold: #b38038;
+  --reader-card: rgba(43, 24, 10, 0.04);
+  --reader-mat-bg: #faf6ee;
+  --reader-track: rgba(43, 24, 10, 0.1);
+  --reader-header-bg: rgba(242, 232, 213, 0.94);
+  --reader-dock-bg: #e9ddc3;
+  --reader-toc-bg: #f0e4cc;
+  background-color: #f2e8d5 !important;
+  color: #281c12 !important;
 }
 .theme-sepia ::selection {
   background-color: #dfceb0 !important;
   color: #271d12 !important;
 }
 
+.theme-sage {
+  --reader-bg: #edf2eb;
+  --reader-text: #142217;
+  --reader-text-muted: #4e6352;
+  --reader-border: rgba(20, 34, 23, 0.12);
+  --reader-border-subtle: rgba(20, 34, 23, 0.06);
+  --reader-btn-bg: rgba(20, 34, 23, 0.05);
+  --reader-btn-hover: rgba(20, 34, 23, 0.1);
+  --reader-accent: #2e7d32;
+  --reader-gold: #8c7832;
+  --reader-card: rgba(20, 34, 23, 0.04);
+  --reader-mat-bg: #f6faf5;
+  --reader-track: rgba(20, 34, 23, 0.1);
+  --reader-header-bg: rgba(237, 242, 235, 0.94);
+  --reader-dock-bg: #e2eae1;
+  --reader-toc-bg: #f1f4f0;
+  background-color: #edf2eb !important;
+  color: #142217 !important;
+}
+.theme-sage ::selection {
+  background-color: #cedece !important;
+  color: #0f1c12 !important;
+}
+
 .theme-night {
-  background-color: #17181b !important;
-  color: #e4e4e7 !important;
+  --reader-bg: #101216;
+  --reader-text: #f3f4f6;
+  --reader-text-muted: #9ca3af;
+  --reader-border: rgba(255, 255, 255, 0.14);
+  --reader-border-subtle: rgba(255, 255, 255, 0.08);
+  --reader-btn-bg: rgba(255, 255, 255, 0.06);
+  --reader-btn-hover: rgba(255, 255, 255, 0.14);
+  --reader-accent: #dfb76c;
+  --reader-gold: #dfb76c;
+  --reader-card: rgba(255, 255, 255, 0.04);
+  --reader-mat-bg: #f8f9fa;
+  --reader-track: rgba(255, 255, 255, 0.18);
+  --reader-header-bg: rgba(16, 18, 22, 0.94);
+  --reader-dock-bg: #17191e;
+  --reader-toc-bg: #17181b;
+  background-color: #101216 !important;
+  color: #f3f4f6 !important;
 }
 .theme-night ::selection {
-  background-color: #2e3646 !important;
+  background-color: #2a3850 !important;
   color: #ffffff !important;
+}
+
+/* -------------------------------------------------------------
+ * 3. Calibrated Technical Figure Mat / Card (Universal Contrast)
+ * Figures are housed in high-contrast light-backed mats so all
+ * dark lines, coordinates, and colored graphs remain crystal clear
+ * in Night, Sage, Sepia, and Ivory modes.
+ * ------------------------------------------------------------- */
+.reader-figure-mat {
+  background-color: var(--reader-mat-bg, #ffffff) !important;
+  border-radius: 1.25rem;
+  border: 1px solid var(--reader-border, rgba(0, 0, 0, 0.08));
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  transition: all 0.25s ease;
+}
+
+.theme-night .reader-figure-mat {
+  background-color: #f8f9fa !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  box-shadow: 0 16px 45px -8px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+}
+
+.reader-figure-mat img {
+  filter: contrast(1.02);
 }
 
 /* Fluid Synchronized Word Narration (Zero Layout Shift) */
@@ -89,9 +231,14 @@
   text-shadow: 0 0 1px rgba(156, 77, 21, 0.3);
 }
 
+.theme-sage .word-active {
+  color: #246628 !important;
+  text-shadow: 0 0 1px rgba(36, 102, 40, 0.3);
+}
+
 .theme-night .word-active {
   color: #38bdf8 !important;
-  text-shadow: 0 0 8px rgba(56, 189, 248, 0.45);
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.55);
 }
 
 .word-completed {

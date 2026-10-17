@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" width="100%" height="100%">
+  <rect width="800" height="380" fill="none"/>
+  <rect x="20" y="20" width="760" height="340" rx="16" fill="currentColor" fill-opacity="0.02" stroke="currentColor" stroke-opacity="0.1" stroke-width="1.5"/>
+  <text x="400" y="55" font-family="Georgia, serif" font-size="16" font-weight="bold" text-anchor="middle" fill="currentColor">Figure 3.4: Automated Kernel Threat Graph Traversal &amp; Micro-Isolation</text>
+
+  <!-- Threat Ingress -->
+  <rect x="60" y="120" width="170" height="150" rx="12" fill="#e11d48" fill-opacity="0.1" stroke="#e11d48" stroke-width="1.5"/>
+  <text x="145" y="155" font-family="-apple-system, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#e11d48">0-Day Exploit</text>
+  <text x="145" y="185" font-family="monospace" font-size="11" text-anchor="middle" fill="currentColor">Heap Overflow</text>
+  <text x="145" y="215" font-family="monospace" font-size="11" text-anchor="middle" fill="currentColor">eBPF Telemetry Flag</text>
+  <text x="145" y="245" font-family="monospace" font-size="10" fill="#e11d48" text-anchor="middle">Anomaly Detected (0.4ms)</text>
+
+  <path d="M 230 195 L 320 195" stroke="#e11d48" stroke-width="2"/>
+
+  <!-- AI Sentry Mesh -->
+  <rect x="320" y="100" width="200" height="190" rx="14" fill="#0071e3" fill-opacity="0.1" stroke="#0071e3" stroke-width="2"/>
+  <text x="420" y="135" font-family="Georgia, serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#0071e3">Autonomous Defense Agent</text>
+  <text x="420" y="165" font-family="monospace" font-size="11" text-anchor="middle" fill="currentColor">Memory Tag (ARM MTE)</text>
+  <text x="420" y="195" font-family="monospace" font-size="11" text-anchor="middle" fill="currentColor">Dynamic Page Revocation</text>
+  <text x="420" y="225" font-family="monospace" font-size="11" text-anchor="middle" fill="currentColor">Micro-VLAN Isolation</text>
+  <text x="420" y="255" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle" fill="#0071e3">Surgical Containment</text>
+
+  <path d="M 520 195 L 610 195" stroke="#10b981" stroke-width="2"/>
+
+  <!-- Zero Impact System -->
+  <rect x="610" y="120" width="140" height="150" rx="12" fill="#10b981" fill-opacity="0.1" stroke="#10b981" stroke-width="1.5"/>
+  <text x="680" y="155" font-family="-apple-system, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#10b981">Host Resilience</text>
+  <text x="680" y="185" font-family="monospace" font-size="11" text-anchor="middle" fill="currentColor">Zero Crash</text>
+  <text x="680" y="215" font-family="monospace" font-size="11" text-anchor="middle" fill="currentColor">Attacker Neutralized</text>
+  <text x="680" y="245" font-family="monospace" font-size="10" fill="#10b981" text-anchor="middle">Audit Ledger Sealed</text>
+</svg>

@@ -51,10 +51,10 @@ export default function HomePage({ onBuyNow, activePlayingId, setActivePlayingId
   const featuredBook = BOOKS_DATA[0]; // The Artificial Mind
 
   return (
-    <div className="text-[#1d1d1f]">
+    <div className="text-[var(--site-text)]">
       
       {/* 1. Hero Section: Precision & Calm Editorial Authority with Translucent Scrim */}
-      <section className="relative pt-10 pb-20 md:pt-16 md:pb-28 bg-[#f5f5f7]/88 backdrop-blur-md border-b border-black/5 overflow-hidden">
+      <section className="relative pt-10 pb-20 md:pt-16 md:pb-28 bg-white/10 dark:bg-black/20 backdrop-blur-xs border-b border-black/5 dark:border-white/10 overflow-hidden transition-colors">
         <motion.div 
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
           initial="hidden"
@@ -68,13 +68,13 @@ export default function HomePage({ onBuyNow, activePlayingId, setActivePlayingId
               type="button"
               onClick={() => window.dispatchEvent(new CustomEvent('aetheria:replay-intro'))}
               title="Click to replay brand launch intro"
-              className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/95 border border-black/10 text-xs font-mono text-[#1d1d1f] shadow-xs hover:border-[#997328]/40 transition-colors cursor-pointer backdrop-blur-sm group"
+              className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/95 dark:bg-[#1c1f26]/90 border border-black/10 dark:border-white/10 text-xs font-mono text-[#1d1d1f] dark:text-[#f5f5f7] shadow-xs hover:border-[#997328]/40 transition-colors cursor-pointer backdrop-blur-sm group"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#997328] group-hover:scale-125 transition-transform" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#997328] dark:bg-[#c5a059] group-hover:scale-125 transition-transform" />
               <span className="font-semibold">AETHERIA PRIVÉ EDITIONS</span>
-              <span className="text-[#86868b]">•</span>
-              <span className="text-[#6e6e73]">ALL VOLUMES UNDER ₹500</span>
-              <Sparkles className="w-3 h-3 text-[#997328] opacity-70 group-hover:opacity-100" />
+              <span className="text-[#86868b] dark:text-[#71717a]">•</span>
+              <span className="text-[#6e6e73] dark:text-[#a1a1a6]">ALL VOLUMES UNDER ₹500</span>
+              <Sparkles className="w-3 h-3 text-[#997328] dark:text-[#c5a059] opacity-70 group-hover:opacity-100" />
             </button>
           </motion.div>
 
@@ -84,15 +84,15 @@ export default function HomePage({ onBuyNow, activePlayingId, setActivePlayingId
             <div className="lg:col-span-7 text-center lg:text-left space-y-6">
               <motion.h1 
                 variants={itemSpringVariants}
-                className="text-4xl sm:text-5xl md:text-6xl font-serif font-extrabold tracking-tight leading-[1.08] text-[#1d1d1f]"
+                className="text-4xl sm:text-5xl md:text-6xl font-serif font-extrabold tracking-tight leading-[1.08] text-[#1d1d1f] dark:text-[#f5f5f7]"
               >
                 The Publishing Atelier <br />
-                <span className="text-[#997328]">for Inquiring Minds.</span>
+                <span className="text-[#997328] dark:text-[#c5a059]">for Inquiring Minds.</span>
               </motion.h1>
 
               <motion.p 
                 variants={itemSpringVariants}
-                className="text-base sm:text-lg text-[#515154] max-w-2xl mx-auto lg:mx-0 leading-relaxed font-sans"
+                className="text-base sm:text-lg text-[#515154] dark:text-[#a1a1a6] max-w-2xl mx-auto lg:mx-0 leading-relaxed font-sans"
               >
                 Aetheria crafts authoritative nonfiction e-books on Autonomous Artificial Reason, Asymmetric Capital, Offensive Cybersecurity, and Modern Stoic Command. Designed for effortless reading in warm ivory and delivered with instantaneous DRM-free master files.
               </motion.p>
@@ -100,18 +100,18 @@ export default function HomePage({ onBuyNow, activePlayingId, setActivePlayingId
               {/* Core Feature Badges */}
               <motion.div 
                 variants={itemSpringVariants}
-                className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-xs font-mono text-[#515154]"
+                className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-xs font-mono text-[#515154] dark:text-[#a1a1a6]"
               >
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#997328]" />
+                  <CheckCircle2 className="w-4 h-4 text-[#997328] dark:text-[#c5a059]" />
                   <span>Warm Ivory Reader</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#0071e3]" />
+                  <CheckCircle2 className="w-4 h-4 text-[#0071e3] dark:text-sky-400" />
                   <span>Synchronized Audiobook</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                   <span>Print-Grade PDF & EPUB</span>
                 </div>
               </motion.div>
@@ -144,9 +144,9 @@ export default function HomePage({ onBuyNow, activePlayingId, setActivePlayingId
                 >
                   <Link
                     to={`/books/${featuredBook.slug}`}
-                    className="w-full px-6 py-3.5 rounded-xl border border-black/15 hover:border-black/30 bg-white/95 hover:bg-gray-50 text-[#1d1d1f] text-xs font-mono tracking-wide flex items-center justify-center gap-2 shadow-xs transition-colors backdrop-blur-sm"
+                    className="w-full px-6 py-3.5 rounded-xl border border-black/15 dark:border-white/15 hover:border-black/30 dark:hover:border-white/30 bg-white/95 dark:bg-[#1c1f26]/90 hover:bg-gray-50 dark:hover:bg-white/10 text-[#1d1d1f] dark:text-[#f5f5f7] text-xs font-mono tracking-wide flex items-center justify-center gap-2 shadow-xs transition-colors backdrop-blur-sm"
                   >
-                    <FileText className="w-4 h-4 text-[#997328]" />
+                    <FileText className="w-4 h-4 text-[#997328] dark:text-[#c5a059]" />
                     <span>VIEW DOSSIER & CITATIONS</span>
                   </Link>
                 </motion.div>
@@ -155,14 +155,14 @@ export default function HomePage({ onBuyNow, activePlayingId, setActivePlayingId
               {/* Pricing Transparency */}
               <motion.div 
                 variants={itemSpringVariants}
-                className="pt-6 border-t border-black/10 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-[#6e6e73] font-mono"
+                className="pt-6 border-t border-black/10 dark:border-white/10 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-[#6e6e73] dark:text-[#a1a1a6] font-mono"
               >
                 <div className="flex items-center gap-1.5">
-                  <span className="font-bold text-[#1d1d1f]">₹299</span>
+                  <span className="font-bold text-[#1d1d1f] dark:text-[#f5f5f7]">₹299</span>
                   <span>Direct Authoritative Price</span>
                 </div>
-                <div className="h-4 w-px bg-black/15 hidden sm:block" />
-                <div className="flex items-center gap-1.5 text-emerald-700">
+                <div className="h-4 w-px bg-black/15 dark:bg-white/15 hidden sm:block" />
+                <div className="flex items-center gap-1.5 text-emerald-700 dark:text-emerald-400">
                   <ShieldCheck className="w-4 h-4" />
                   <span>Lifetime Sovereign Access</span>
                 </div>
@@ -177,9 +177,9 @@ export default function HomePage({ onBuyNow, activePlayingId, setActivePlayingId
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ type: 'spring', stiffness: 200, damping: 22, delay: 0.2 }}
                 whileHover={{ y: -8, scale: 1.02 }}
-                className="relative w-72 sm:w-80 rounded-2xl overflow-hidden bg-white/95 border border-black/10 shadow-[0_20px_50px_rgba(0,0,0,0.08)] group hover:shadow-[0_25px_60px_rgba(0,0,0,0.14)] transition-shadow duration-500 backdrop-blur-md"
+                className="relative w-72 sm:w-80 rounded-2xl overflow-hidden bg-white/95 dark:bg-[#1c1f26]/95 border border-black/10 dark:border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.45)] group hover:shadow-[0_25px_60px_rgba(0,0,0,0.14)] dark:hover:shadow-[0_25px_60px_rgba(0,0,0,0.6)] transition-shadow duration-500 backdrop-blur-md"
               >
-                <div className="relative h-[420px] w-full overflow-hidden bg-[#f5f5f7]">
+                <div className="relative h-[420px] w-full overflow-hidden bg-[#f5f5f7] dark:bg-black/40">
                   <img
                     src={featuredBook.coverImage}
                     alt={featuredBook.title}
@@ -191,13 +191,13 @@ export default function HomePage({ onBuyNow, activePlayingId, setActivePlayingId
 
                   {/* Corner Badges */}
                   <div className="absolute top-3 left-3 z-10">
-                    <span className="px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md text-[#1d1d1f] font-mono text-[10px] font-bold shadow-xs">
+                    <span className="px-2.5 py-1 rounded-full bg-white/90 dark:bg-[#14161a]/90 backdrop-blur-md text-[#1d1d1f] dark:text-[#f5f5f7] font-mono text-[10px] font-bold shadow-xs">
                       Curated Release
                     </span>
                   </div>
 
                   <div className="absolute top-3 right-3 z-10">
-                    <span className="px-2.5 py-1 rounded-lg bg-[#1d1d1f] text-[#fde68a] font-mono font-bold text-xs shadow-xs">
+                    <span className="px-2.5 py-1 rounded-lg bg-[#1d1d1f] dark:bg-[#c5a059] text-[#fde68a] dark:text-black font-mono font-bold text-xs shadow-xs">
                       ₹{featuredBook.priceINR}
                     </span>
                   </div>
@@ -239,20 +239,20 @@ export default function HomePage({ onBuyNow, activePlayingId, setActivePlayingId
         
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
           <div>
-            <span className="text-xs font-mono uppercase tracking-widest text-[#997328] font-bold block mb-2">
+            <span className="text-xs font-mono uppercase tracking-widest text-[#997328] dark:text-[#c5a059] font-bold block mb-2">
               CURATED PUBLICATIONS
             </span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-[#1d1d1f]">
+            <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-[#1d1d1f] dark:text-[#f5f5f7]">
               Core Editorial Titles
             </h2>
-            <p className="text-sm text-[#6e6e73] mt-2 font-sans max-w-xl">
+            <p className="text-sm text-[#6e6e73] dark:text-[#a1a1a6] mt-2 font-sans max-w-xl">
               Original, peer-reviewed manuscripts spanning synthetic cognition, convex finance, infrastructure cryptography, and cellular longevity.
             </p>
           </div>
 
           <Link
             to="/books"
-            className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#0071e3] hover:underline pb-1"
+            className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#0071e3] dark:text-sky-400 hover:underline pb-1"
           >
             <span>View Complete Catalogue</span>
             <ArrowRight className="w-4 h-4" />
@@ -293,7 +293,7 @@ export default function HomePage({ onBuyNow, activePlayingId, setActivePlayingId
           >
             <Link
               to="/books"
-              className="px-8 py-3.5 rounded-xl border border-black/10 hover:border-black/20 bg-white/95 hover:bg-gray-50 text-[#1d1d1f] font-mono text-xs font-bold transition shadow-xs backdrop-blur-sm"
+              className="px-8 py-3.5 rounded-xl border border-black/10 dark:border-white/10 hover:border-black/20 dark:hover:border-white/25 bg-white/95 dark:bg-[#1c1f26]/90 hover:bg-gray-50 dark:hover:bg-white/10 text-[#1d1d1f] dark:text-[#f5f5f7] font-mono text-xs font-bold transition shadow-xs backdrop-blur-sm"
             >
               EXPLORE ALL 5 DISCIPLINARY VOLUMES
             </Link>
@@ -303,7 +303,7 @@ export default function HomePage({ onBuyNow, activePlayingId, setActivePlayingId
       </section>
 
       {/* 3. Atelier of Modern Inquiries — Brand Introduction & Editorial Provenance */}
-      <section className="py-20 bg-[#f5f5f7]/88 backdrop-blur-md border-y border-black/5">
+      <section className="py-20 bg-white/10 dark:bg-black/20 backdrop-blur-xs border-y border-black/5 dark:border-white/10 transition-colors">
         <motion.div 
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
           initial="hidden"
@@ -313,14 +313,14 @@ export default function HomePage({ onBuyNow, activePlayingId, setActivePlayingId
         >
           
           <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-            <motion.div variants={itemSpringVariants} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/95 border border-black/10 text-xs font-mono text-[#997328] shadow-xs backdrop-blur-sm">
+            <motion.div variants={itemSpringVariants} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/95 dark:bg-[#1c1f26]/90 border border-black/10 dark:border-white/10 text-xs font-mono text-[#997328] dark:text-[#c5a059] shadow-xs backdrop-blur-sm">
               <BookOpen className="w-3.5 h-3.5" />
               <span>EDITORIAL PROVENANCE & VALUES</span>
             </motion.div>
-            <motion.h2 variants={itemSpringVariants} className="text-3xl sm:text-4xl font-serif font-extrabold text-[#1d1d1f]">
+            <motion.h2 variants={itemSpringVariants} className="text-3xl sm:text-4xl font-serif font-extrabold text-[#1d1d1f] dark:text-[#f5f5f7]">
               The Atelier of Modern Inquiries
             </motion.h2>
-            <motion.p variants={itemSpringVariants} className="text-sm sm:text-base text-[#515154] leading-relaxed">
+            <motion.p variants={itemSpringVariants} className="text-sm sm:text-base text-[#515154] dark:text-[#a1a1a6] leading-relaxed">
               Aetheria was established to reimagine digital publishing as an artisan craft—merging state-of-the-art computational synthesis with rigorous human editorial standards, tactile reading comfort, and verified citations.
             </motion.p>
           </div>
@@ -331,15 +331,15 @@ export default function HomePage({ onBuyNow, activePlayingId, setActivePlayingId
               variants={cardSpringVariants}
               whileHover={{ y: -4, scale: 1.01 }}
               transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-              className="p-8 rounded-2xl bg-white/95 border border-black/10 space-y-4 shadow-xs backdrop-blur-md"
+              className="p-8 rounded-2xl bg-white/95 dark:bg-[#1c1f26]/90 border border-black/10 dark:border-white/10 space-y-4 shadow-xs backdrop-blur-md"
             >
-              <div className="w-12 h-12 rounded-xl bg-[#c5a059]/10 border border-[#c5a059]/30 flex items-center justify-center text-[#997328]">
+              <div className="w-12 h-12 rounded-xl bg-[#c5a059]/10 border border-[#c5a059]/30 flex items-center justify-center text-[#997328] dark:text-[#c5a059]">
                 <Cpu className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-serif font-bold text-[#1d1d1f]">
+              <h3 className="text-lg font-serif font-bold text-[#1d1d1f] dark:text-[#f5f5f7]">
                 AI-Assisted, Human-Refined
               </h3>
-              <p className="text-xs text-[#6e6e73] leading-relaxed">
+              <p className="text-xs text-[#6e6e73] dark:text-[#a1a1a6] leading-relaxed">
                 Our manuscripts are developed with advanced AI research tools and distilled by specialist editors. We utilize consistent editorial pen names (A. Rowan, Elias Mercer, C. Vale, Julian Ashford, and Elena Voss) to represent distinct thematic inquiries with transparent authorship.
               </p>
             </motion.div>
@@ -348,15 +348,15 @@ export default function HomePage({ onBuyNow, activePlayingId, setActivePlayingId
               variants={cardSpringVariants}
               whileHover={{ y: -4, scale: 1.01 }}
               transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-              className="p-8 rounded-2xl bg-white/95 border border-black/10 space-y-4 shadow-xs backdrop-blur-md"
+              className="p-8 rounded-2xl bg-white/95 dark:bg-[#1c1f26]/90 border border-black/10 dark:border-white/10 space-y-4 shadow-xs backdrop-blur-md"
             >
-              <div className="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-600">
+              <div className="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-600 dark:text-sky-400">
                 <ShieldCheck className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-serif font-bold text-[#1d1d1f]">
+              <h3 className="text-lg font-serif font-bold text-[#1d1d1f] dark:text-[#f5f5f7]">
                 Sovereign DRM-Free Master Files
               </h3>
-              <p className="text-xs text-[#6e6e73] leading-relaxed">
+              <p className="text-xs text-[#6e6e73] dark:text-[#a1a1a6] leading-relaxed">
                 We reject predatory subscription models and restrictive walled gardens. When you acquire a volume on Aetheria, you receive master vector PDF and universal EPUB editions you can read on Kindle, Apple Books, or reMarkable forever.
               </p>
             </motion.div>
@@ -365,15 +365,15 @@ export default function HomePage({ onBuyNow, activePlayingId, setActivePlayingId
               variants={cardSpringVariants}
               whileHover={{ y: -4, scale: 1.01 }}
               transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-              className="p-8 rounded-2xl bg-white/95 border border-black/10 space-y-4 shadow-xs backdrop-blur-md"
+              className="p-8 rounded-2xl bg-white/95 dark:bg-[#1c1f26]/90 border border-black/10 dark:border-white/10 space-y-4 shadow-xs backdrop-blur-md"
             >
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-600">
+              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                 <Award className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-serif font-bold text-[#1d1d1f]">
+              <h3 className="text-lg font-serif font-bold text-[#1d1d1f] dark:text-[#f5f5f7]">
                 Fair, Transparent Pricing
               </h3>
-              <p className="text-xs text-[#6e6e73] leading-relaxed">
+              <p className="text-xs text-[#6e6e73] dark:text-[#a1a1a6] leading-relaxed">
                 High-impact intellectual artifacts should not be gated behind prohibitive pricing. Every single edition in our catalogue is priced transparently in Indian Rupees between ₹199 and ₹349, with zero recurring charges.
               </p>
             </motion.div>
@@ -387,13 +387,13 @@ export default function HomePage({ onBuyNow, activePlayingId, setActivePlayingId
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#997328] font-bold block">
+          <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#997328] dark:text-[#c5a059] font-bold block">
             CRITICAL PERSPECTIVES & DISPATCHES
           </span>
-          <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-[#1d1d1f]">
+          <h2 className="text-3xl sm:text-4xl font-serif font-extrabold text-[#1d1d1f] dark:text-[#f5f5f7]">
             Early Reader Observations
           </h2>
-          <p className="text-sm text-[#6e6e73] font-light">
+          <p className="text-sm text-[#6e6e73] dark:text-[#a1a1a6] font-light">
             Reflections from early review editions exploring agency, asymmetric risk, and computational defense.
           </p>
         </div>
@@ -411,25 +411,25 @@ export default function HomePage({ onBuyNow, activePlayingId, setActivePlayingId
               variants={cardSpringVariants}
               whileHover={{ y: -4, scale: 1.01 }}
               transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-              className="p-7 rounded-2xl bg-white/95 border border-black/5 hover:border-black/15 transition-all flex flex-col justify-between backdrop-blur-md shadow-xs"
+              className="p-7 rounded-2xl bg-white/95 dark:bg-[#1c1f26]/90 border border-black/5 dark:border-white/10 hover:border-black/15 dark:hover:border-white/20 transition-all flex flex-col justify-between backdrop-blur-md shadow-xs"
             >
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-wider text-[#997328] px-2.5 py-1 rounded-full bg-white border border-black/5 font-semibold inline-block mb-3">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-[#997328] dark:text-[#c5a059] px-2.5 py-1 rounded-full bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 font-semibold inline-block mb-3">
                   {dispatch.topic}
                 </span>
 
-                <h3 className="text-base font-serif font-bold text-[#1d1d1f] mb-3">
+                <h3 className="text-base font-serif font-bold text-[#1d1d1f] dark:text-[#f5f5f7] mb-3">
                   {dispatch.title}
                 </h3>
 
-                <p className="text-xs sm:text-sm text-[#515154] font-serif italic leading-relaxed mb-6">
+                <p className="text-xs sm:text-sm text-[#515154] dark:text-[#a1a1a6] font-serif italic leading-relaxed mb-6">
                   "{dispatch.note}"
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-black/10 flex items-center justify-between text-[11px] font-mono text-[#6e6e73]">
+              <div className="pt-4 border-t border-black/10 dark:border-white/10 flex items-center justify-between text-[11px] font-mono text-[#6e6e73] dark:text-[#a1a1a6]">
                 <span>Regarding: {dispatch.bookRef}</span>
-                <span className="text-[#1d1d1f] font-semibold">{dispatch.authorCredit}</span>
+                <span className="text-[#1d1d1f] dark:text-[#f5f5f7] font-semibold">{dispatch.authorCredit}</span>
               </div>
             </motion.div>
           ))}

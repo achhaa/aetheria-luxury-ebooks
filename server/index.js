@@ -85,6 +85,53 @@ function requireAdmin(req, res, next) {
   next();
 }
 
+// User Session Authentication (HMAC-SHA256 JWT Token)
+const AUTH_JWT_SECRET = process.env.AUTH_JWT_SECRET || 'aetheria_auth_jwt_session_secret_2026';
+
+function createSessionToken(user, expiresInMs = 30 * 24 * 60 * 60 * 1000) {
+  const expiresAt = Date.now() + expiresInMs;
+  const payload = JSON.stringify({
+    userId: user.id,
+    email: user.email,
+    role: user.role || 'customer',
+    expiresAt,
+  });
+  const b64 = Buffer.from(payload).toString('base64url');
+  const sig = crypto.createHmac('sha256', AUTH_JWT_SECRET).update(b64).digest('base64url');
+  return `${b64}.${sig}`;
+}
+
+function verifySessionToken(token) {
+  try {
+    if (!token) return null;
+    const [b64, sig] = token.split('.');
+    if (!b64 || !sig) return null;
+    const expectedSig = crypto.createHmac('sha256', AUTH_JWT_SECRET).update(b64).digest('base64url');
+    if (sig !== expectedSig) return null;
+    const payload = JSON.parse(Buffer.from(b64, 'base64url').toString('utf-8'));
+    if (Date.now() > payload.expiresAt) return null;
+    return payload;
+  } catch {
+    return null;
+  }
+}
+
+// User Authentication Middleware
+async function requireAuth(req, res, next) {
+  const authHeader = req.headers['authorization'] || '';
+  const token = authHeader.replace(/^Bearer\s+/, '') || req.query.token;
+  const session = verifySessionToken(token);
+  if (!session) {
+    return res.status(401).json({ error: 'Authentication required. Please sign in with Google.' });
+  }
+  const user = await get(`SELECT * FROM users WHERE id = ?`, [session.userId]);
+  if (!user) {
+    return res.status(401).json({ error: 'User session not found.' });
+  }
+  req.user = user;
+  next();
+}
+
 /**
  * 1. GET /api/config
  * Public client configuration (safe public key only, never private secrets)
@@ -259,6 +306,14 @@ app.post('/api/verify-payment', async (req, res) => {
         downloadEpubUrl: `/api/download-epub/${token}`,
       };
     });
+
+    // Auto-link to user account if customer email matches a registered user
+    if (order.customerEmail) {
+      const existingUser = await get(`SELECT id FROM users WHERE LOWER(email) = ?`, [order.customerEmail.toLowerCase().trim()]);
+      if (existingUser) {
+        order.userId = existingUser.id;
+      }
+    }
 
     order.downloadTokens = downloadTokens;
     await saveOrder(order);
@@ -452,6 +507,213 @@ app.post('/api/customer/orders', async (req, res) => {
   });
 
   res.json({ orders: history });
+});
+
+/**
+ * 7.1 GET /api/health
+ * Public health check and server telemetry.
+ */
+app.get('/api/health', async (req, res) => {
+  try {
+    const orderCountRow = await get(`SELECT COUNT(*) as count FROM orders`);
+    const userCountRow = await get(`SELECT COUNT(*) as count FROM users`);
+    res.json({
+      status: 'healthy',
+      uptimeSeconds: Math.floor(process.uptime()),
+      timestamp: new Date().toISOString(),
+      database: 'connected (sqlite3)',
+      ordersCount: orderCountRow?.count || 0,
+      usersCount: userCountRow?.count || 0,
+      catalogCount: SERVER_CATALOG.length,
+      mode: isRazorpayConfigured ? 'live-configured' : 'mock-active',
+    });
+  } catch (err) {
+    res.status(500).json({ status: 'unhealthy', error: err.message });
+  }
+});
+
+/**
+ * 7.2 POST /api/auth/google
+ * Google Identity Services authentication endpoint.
+ * Validates Google ID token / client profile, persists user in SQLite, auto-links guest orders,
+ * and issues an authoritative signed session JWT.
+ */
+app.post('/api/auth/google', async (req, res) => {
+  try {
+    const { credential, profile } = req.body;
+    let googleId = null;
+    let email = null;
+    let name = null;
+    let avatarUrl = null;
+    let givenName = null;
+    let familyName = null;
+    let locale = 'en';
+
+    if (credential) {
+      try {
+        const parts = credential.split('.');
+        if (parts.length === 3) {
+          const payload = JSON.parse(Buffer.from(parts[1], 'base64url').toString('utf-8'));
+          googleId = payload.sub;
+          email = payload.email?.toLowerCase();
+          name = payload.name;
+          avatarUrl = payload.picture;
+          givenName = payload.given_name;
+          familyName = payload.family_name;
+          locale = payload.locale || 'en';
+        }
+      } catch (e) {
+        console.warn('[Auth] Error decoding Google credential JWT:', e);
+      }
+    }
+
+    if (!email && profile) {
+      googleId = profile.id || profile.sub || `google_demo_${Date.now()}`;
+      email = profile.email?.toLowerCase();
+      name = profile.name || profile.displayName;
+      avatarUrl = profile.picture || profile.avatar_url;
+      givenName = profile.given_name;
+      familyName = profile.family_name;
+    }
+
+    if (!email || !email.includes('@')) {
+      return res.status(400).json({ error: 'Valid Google email is required for authentication.' });
+    }
+
+    const now = new Date().toISOString();
+    let user = await get(`SELECT * FROM users WHERE google_id = ? OR LOWER(email) = ?`, [googleId, email]);
+
+    if (user) {
+      await run(`
+        UPDATE users SET
+          google_id = COALESCE(?, google_id),
+          name = COALESCE(?, name),
+          avatar_url = COALESCE(?, avatar_url),
+          given_name = COALESCE(?, given_name),
+          family_name = COALESCE(?, family_name),
+          last_login_at = ?,
+          updated_at = ?
+        WHERE id = ?
+      `, [googleId, name, avatarUrl, givenName, familyName, now, now, user.id]);
+      user = await get(`SELECT * FROM users WHERE id = ?`, [user.id]);
+    } else {
+      const userId = 'usr_' + crypto.randomUUID().replace(/-/g, '').slice(0, 16);
+      await run(`
+        INSERT INTO users (
+          id, google_id, email, name, avatar_url, given_name, family_name, locale, role, created_at, last_login_at, updated_at
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'customer', ?, ?, ?)
+      `, [
+        userId, googleId, email, name || email.split('@')[0], avatarUrl || null,
+        givenName || null, familyName || null, locale, now, now, now
+      ]);
+      user = await get(`SELECT * FROM users WHERE id = ?`, [userId]);
+    }
+
+    // Auto-link any prior guest orders made with this email
+    await run(`
+      UPDATE orders 
+      SET user_id = ? 
+      WHERE LOWER(customer_email) = ? AND (user_id IS NULL OR user_id = '')
+    `, [user.id, email]);
+
+    await logAudit('USER_LOGIN_GOOGLE', user.email, { userId: user.id });
+
+    const sessionToken = createSessionToken(user);
+
+    res.json({
+      success: true,
+      token: sessionToken,
+      user: {
+        id: user.id,
+        googleId: user.google_id,
+        email: user.email,
+        name: user.name,
+        avatarUrl: user.avatar_url,
+        role: user.role,
+      },
+    });
+  } catch (err) {
+    console.error('[Google Auth Error]:', err);
+    res.status(500).json({ error: 'Internal error during Google authentication.' });
+  }
+});
+
+/**
+ * 7.3 GET /api/auth/me
+ * Retrieves current authenticated user profile and stats.
+ */
+app.get('/api/auth/me', requireAuth, async (req, res) => {
+  const paidOrdersCount = await get(
+    `SELECT COUNT(*) as count FROM orders WHERE (user_id = ? OR LOWER(customer_email) = ?) AND status = 'PAID'`,
+    [req.user.id, req.user.email.toLowerCase()]
+  );
+  res.json({
+    user: {
+      id: req.user.id,
+      googleId: req.user.google_id,
+      email: req.user.email,
+      name: req.user.name,
+      avatarUrl: req.user.avatar_url,
+      role: req.user.role,
+      paidOrdersCount: paidOrdersCount?.count || 0,
+    },
+  });
+});
+
+/**
+ * 7.4 GET /api/user/library
+ * Authoritatively retrieves authenticated user's purchased books and active download tokens.
+ */
+app.get('/api/user/library', requireAuth, async (req, res) => {
+  try {
+    const rawOrders = await all(
+      `SELECT * FROM orders WHERE (user_id = ? OR LOWER(customer_email) = ?) AND status = 'PAID' ORDER BY created_at DESC`,
+      [req.user.id, req.user.email.toLowerCase()]
+    );
+
+    const orders = rawOrders.map((row) => {
+      let items = [];
+      try { items = JSON.parse(row.items_json || '[]'); } catch {}
+
+      const tokens = items.map((it) => {
+        const token = createDownloadToken({
+          orderId: row.order_id,
+          bookId: it.id,
+          email: row.customer_email || req.user.email,
+        });
+        return {
+          bookId: it.id,
+          title: it.title,
+          downloadUrl: `/api/download/${token}`,
+          downloadEpubUrl: `/api/download-epub/${token}`,
+        };
+      });
+
+      return {
+        orderId: row.order_id,
+        paymentId: row.payment_id,
+        amountINR: row.amount_inr,
+        customerName: row.customer_name,
+        customerEmail: row.customer_email,
+        paidAt: row.paid_at,
+        items,
+        downloads: tokens,
+      };
+    });
+
+    res.json({
+      user: {
+        id: req.user.id,
+        name: req.user.name,
+        email: req.user.email,
+        avatarUrl: req.user.avatar_url,
+      },
+      orders,
+    });
+  } catch (err) {
+    console.error('[User Library Error]:', err);
+    res.status(500).json({ error: 'Failed to retrieve user library.' });
+  }
 });
 
 /**

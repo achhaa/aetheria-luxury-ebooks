@@ -18,6 +18,8 @@ import PoliciesPage from './pages/PoliciesPage';
 import AdminPage from './pages/AdminPage';
 
 import { toggleAmbientSound } from './utils/audioSynthesis';
+import { AuthProvider, useAuth } from './context/AuthContext';
+import GoogleAuthModal from './components/GoogleAuthModal';
 import './styles/motion.css';
 
 // Scroll to top helper on route change
@@ -29,8 +31,9 @@ function ScrollToTop() {
   return null;
 }
 
-export default function App() {
+function AppContent() {
   const location = useLocation();
+  const { isAuthModalOpen, setIsAuthModalOpen } = useAuth();
 
   // Ambient Audio
   const [isAudioOn, setIsAudioOn] = useState(false);
@@ -91,6 +94,30 @@ export default function App() {
     }
   }, [cart]);
 
+  // Global Storefront Theme: 'dark' (luxury obsidian), 'editorial-dim' (warm twilight), 'light' (clean gallery)
+  const [siteTheme, setSiteTheme] = useState(() => {
+    try {
+      return localStorage.getItem('aetheria_site_theme') || 'dark';
+    } catch {
+      return 'dark';
+    }
+  });
+
+  // Sync theme with localStorage and root <html> classes
+  useEffect(() => {
+    try {
+      localStorage.setItem('aetheria_site_theme', siteTheme);
+    } catch (e) {
+      console.debug('LocalStorage write error:', e);
+    }
+    const root = document.documentElement;
+    root.classList.remove('theme-site-dark', 'theme-site-dim', 'theme-site-light', 'dark');
+    root.classList.add(`theme-site-${siteTheme}`);
+    if (siteTheme !== 'light') {
+      root.classList.add('dark');
+    }
+  }, [siteTheme]);
+
   // Audio Toggle
   const handleToggleAudio = () => {
     const next = !isAudioOn;
@@ -108,7 +135,7 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col text-[#1d1d1f] selection:bg-[#c5a059]/25 selection:text-[#1d1d1f] overflow-x-hidden">
+    <div className="relative min-h-screen flex flex-col text-[var(--site-text)] selection:bg-[#c5a059]/25 selection:text-[var(--site-text)] overflow-x-hidden transition-colors duration-300">
       <ScrollToTop />
 
       {/* Cinematic Brand Opening Launch Sequence (Apple-style monogram reveal) */}
@@ -119,7 +146,7 @@ export default function App() {
       </AnimatePresence>
 
       {/* Full-Bleed Ambient Luxury Background Video with Editorial Scrims */}
-      <BackgroundVideo isReaderView={isReaderView} />
+      <BackgroundVideo isReaderView={isReaderView} isDark={siteTheme !== 'light'} />
 
       {/* Primary Storefront Navbar (hidden in distraction-free Reader mode) */}
       {!isReaderView && (
@@ -128,6 +155,8 @@ export default function App() {
           onOpenCart={() => setIsCartOpen(true)}
           isAudioOn={isAudioOn}
           onToggleAudio={handleToggleAudio}
+          siteTheme={siteTheme}
+          setSiteTheme={setSiteTheme}
         />
       )}
 
@@ -218,6 +247,20 @@ export default function App() {
         }}
       />
 
+      {/* Google Identity Services Authentication Modal */}
+      <GoogleAuthModal
+        isOpen={isAuthModalOpen}
+        onClose={() => setIsAuthModalOpen(false)}
+      />
+
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
   );
 }

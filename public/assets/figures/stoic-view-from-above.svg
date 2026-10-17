@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" width="100%" height="100%">
+  <rect width="800" height="360" fill="none"/>
+  <rect x="20" y="20" width="760" height="320" rx="16" fill="currentColor" fill-opacity="0.02" stroke="currentColor" stroke-opacity="0.1" stroke-width="1.5"/>
+  <text x="400" y="55" font-family="Georgia, serif" font-size="16" font-weight="bold" text-anchor="middle" fill="currentColor">Figure 4.3: The View from Above — Cosmic Scale vs. Transient Alarm</text>
+
+  <circle cx="400" cy="200" r="100" fill="currentColor" fill-opacity="0.02" stroke="currentColor" stroke-opacity="0.2"/>
+  <circle cx="400" cy="200" r="65" fill="currentColor" fill-opacity="0.03" stroke="currentColor" stroke-opacity="0.3"/>
+  <circle cx="400" cy="200" r="30" fill="#0071e3" fill-opacity="0.1" stroke="#0071e3"/>
+
+  <text x="400" y="204" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle" fill="#0071e3">Present Crisis</text>
+  <text x="400" y="125" font-family="-apple-system, sans-serif" font-size="11" text-anchor="middle" fill="currentColor">Human Civilizations (Millennia)</text>
+  <text x="400" y="85" font-family="-apple-system, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#c5a059">Cosmic Geological Horizon</text>
+</svg>

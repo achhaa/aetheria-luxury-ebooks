@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Play, BookOpen, ShoppingBag, Info, AlertCircle, Headphones } from 'lucide-react';
+import { Play, BookOpen, ShoppingBag, Info, AlertCircle, Headphones, Sparkles } from 'lucide-react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 export default function BookCard({ 
   book, 
@@ -12,6 +13,30 @@ export default function BookCard({
   const [imgError, setImgError] = useState(false);
   const videoRef = useRef(null);
   const cardRef = useRef(null);
+
+  // 3D Apple-grade tilt physics
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springConfig = { damping: 25, stiffness: 250 };
+  const springX = useSpring(mouseX, springConfig);
+  const springY = useSpring(mouseY, springConfig);
+  const rotateX = useTransform(springY, [-0.5, 0.5], ['6deg', '-6deg']);
+  const rotateY = useTransform(springX, [-0.5, 0.5], ['-6deg', '6deg']);
+
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const xPct = (e.clientX - rect.left) / rect.width - 0.5;
+    const yPct = (e.clientY - rect.top) / rect.height - 0.5;
+    mouseX.set(xPct);
+    mouseY.set(yPct);
+  };
+
+  const handleCardMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+    handleStopVideo();
+  };
 
   const isCurrentActive = activePlayingId === book.id;
 
@@ -88,25 +113,36 @@ export default function BookCard({
   return (
     <article 
       ref={cardRef}
-      className="group relative rounded-2xl bg-white p-4 sm:p-5 flex flex-col justify-between border border-black/10 hover:border-black/20 transition-all duration-300 hover:shadow-[0_12px_32px_rgba(0,0,0,0.06)]"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleCardMouseLeave}
+      style={{ perspective: 1000 }}
+      className="group relative rounded-2xl bg-white/80 dark:bg-[#14161a]/90 backdrop-blur-sm p-4 sm:p-5 flex flex-col justify-between border border-black/10 dark:border-white/10 hover:border-[#c5a059]/40 dark:hover:border-[#c5a059]/50 transition-all duration-300 hover:shadow-[0_16px_36px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_16px_36px_rgba(0,0,0,0.5)]"
     >
       <div>
         {/* Top Badges */}
         <div className="flex items-center justify-between gap-2 mb-3">
-          <span className="text-[10px] font-mono px-2.5 py-1 rounded-full bg-[#f5f5f7] border border-black/5 text-[#6e6e73]">
+          <span className="text-[10px] font-mono px-2.5 py-1 rounded-full bg-[#f5f5f7] dark:bg-white/5 border border-black/5 dark:border-white/10 text-[#6e6e73] dark:text-[#a1a1a6]">
             {book.category}
           </span>
-          <span className="text-[10px] font-mono tracking-wider px-2 py-0.5 rounded-full bg-[#c5a059]/15 text-[#997328] font-bold border border-[#c5a059]/30">
+          <span className="text-[10px] font-mono tracking-wider px-2 py-0.5 rounded-full bg-[#c5a059]/15 text-[#997328] dark:text-[#c5a059] font-bold border border-[#c5a059]/30">
             {book.badge}
           </span>
         </div>
 
-        {/* Book Cover Frame with Inline Video Preview */}
-        <div 
+        {/* 3D Dynamic Tilt Book Cover Frame with Inline Video Preview */}
+        <motion.div 
+          style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
           onMouseEnter={handleStartVideo}
           onMouseLeave={handleStopVideo}
-          className="relative w-full aspect-[2/3] rounded-xl overflow-hidden bg-[#f5f5f7] border border-black/10 shadow-sm mb-4 select-none"
+          className="relative w-full aspect-[2/3] rounded-xl overflow-hidden bg-[#f5f5f7] dark:bg-black/40 border border-black/10 dark:border-white/10 shadow-sm mb-4 select-none group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)] dark:group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)] transition-shadow duration-300"
         >
+          {/* Champagne Specular Reflection Overlay */}
+          <div 
+            className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30 mix-blend-overlay"
+            style={{
+              background: 'radial-gradient(circle at 50% 0%, rgba(223, 183, 108, 0.4), transparent 70%)',
+            }}
+          />
           {/* Static Cover Image */}
           {!imgError ? (
             <img
@@ -118,10 +154,10 @@ export default function BookCard({
               }`}
             />
           ) : (
-            <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-[#f5f5f7]">
-              <AlertCircle className="w-8 h-8 text-[#997328] mb-2" />
-              <span className="text-xs font-serif font-bold text-[#1d1d1f]">{book.title}</span>
-              <span className="text-[10px] font-mono text-[#6e6e73] mt-1">{book.author}</span>
+            <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-[#f5f5f7] dark:bg-[#1c1f26]">
+              <AlertCircle className="w-8 h-8 text-[#997328] dark:text-[#c5a059] mb-2" />
+              <span className="text-xs font-serif font-bold text-[#1d1d1f] dark:text-[#f5f5f7]">{book.title}</span>
+              <span className="text-[10px] font-mono text-[#6e6e73] dark:text-[#a1a1a6] mt-1">{book.author}</span>
             </div>
           )}
 
@@ -150,13 +186,13 @@ export default function BookCard({
               aria-label={isPlaying ? 'Stop video preview' : 'Play video preview'}
               className={`px-2.5 py-1 rounded-full text-[10px] font-mono flex items-center gap-1.5 transition-all shadow-sm backdrop-blur-md ${
                 isPlaying
-                  ? 'bg-white/95 text-[#997328] border border-[#c5a059]/50 font-bold'
+                  ? 'bg-white/95 text-[#997328] dark:text-[#c5a059] border border-[#c5a059]/50 font-bold'
                   : 'bg-black/60 hover:bg-black/80 text-white border border-white/20'
               }`}
             >
               {isPlaying ? (
                 <>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#997328] animate-pulse" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#997328] dark:bg-[#c5a059] animate-pulse" />
                   <span>Previewing</span>
                 </>
               ) : (
@@ -175,34 +211,34 @@ export default function BookCard({
 
           {/* Audiobook indicator pill if available */}
           {book.hasAudiobook && (
-            <div className="absolute bottom-3 left-3 z-10 px-2 py-0.5 rounded-full bg-white/90 backdrop-blur-md text-[#0071e3] text-[10px] font-mono font-bold flex items-center gap-1 shadow-sm">
+            <div className="absolute bottom-3 left-3 z-10 px-2 py-0.5 rounded-full bg-white/90 dark:bg-[#1c1f26]/90 backdrop-blur-md text-[#0071e3] dark:text-sky-400 text-[10px] font-mono font-bold flex items-center gap-1 shadow-sm">
               <Headphones className="w-3 h-3" />
               <span>Audiobook</span>
             </div>
           )}
-        </div>
+        </motion.div>
 
         {/* Title & Author Info */}
         <div className="space-y-1.5">
-          <div className="flex items-center justify-between text-xs text-[#6e6e73]">
+          <div className="flex items-center justify-between text-xs text-[#6e6e73] dark:text-[#a1a1a6]">
             <span className="font-mono text-[11px]">{book.pages} pages • {book.readTime}</span>
-            <span className="font-mono text-[10px] text-emerald-600 font-medium">PDF + EPUB</span>
+            <span className="font-mono text-[10px] text-emerald-600 dark:text-emerald-400 font-medium">PDF + EPUB</span>
           </div>
 
           <Link
             to={`/books/${book.slug || book.id}`}
-            className="block text-base sm:text-lg font-serif font-bold text-[#1d1d1f] hover:text-[#0071e3] transition-colors line-clamp-1"
+            className="block text-base sm:text-lg font-serif font-bold text-[#1d1d1f] dark:text-[#f5f5f7] hover:text-[#0071e3] dark:hover:text-[#c5a059] transition-colors line-clamp-1"
           >
             {book.title}
           </Link>
 
-          <p className="text-xs text-[#6e6e73] line-clamp-2 leading-relaxed">
+          <p className="text-xs text-[#6e6e73] dark:text-[#a1a1a6] line-clamp-2 leading-relaxed">
             {book.subtitle}
           </p>
 
-          <div className="text-[11px] text-[#6e6e73] font-mono pt-1">
-            Author: <span className="text-[#1d1d1f] font-semibold">{book.author}</span>
-            <span className="text-[9px] text-[#997328] ml-1.5 px-1.5 py-0.2 rounded border border-[#c5a059]/30 bg-[#c5a059]/5">
+          <div className="text-[11px] text-[#6e6e73] dark:text-[#a1a1a6] font-mono pt-1">
+            Author: <span className="text-[#1d1d1f] dark:text-[#f5f5f7] font-semibold">{book.author}</span>
+            <span className="text-[9px] text-[#997328] dark:text-[#c5a059] ml-1.5 px-1.5 py-0.2 rounded border border-[#c5a059]/30 bg-[#c5a059]/5">
               Pen Name
             </span>
           </div>
@@ -210,25 +246,25 @@ export default function BookCard({
       </div>
 
       {/* Action Footer */}
-      <div className="pt-4 mt-3 border-t border-black/5 flex flex-col gap-2">
+      <div className="pt-4 mt-3 border-t border-black/5 dark:border-white/10 flex flex-col gap-2">
         <div className="flex items-center justify-between">
           <div>
             <div className="flex items-baseline gap-1.5">
-              <span className="text-xl font-display font-bold text-[#1d1d1f]">
+              <span className="text-xl font-display font-bold text-[#1d1d1f] dark:text-[#f5f5f7]">
                 ₹{book.priceINR}
               </span>
-              <span className="text-xs text-[#86868b] line-through font-mono">
+              <span className="text-xs text-[#86868b] dark:text-[#71717a] line-through font-mono">
                 ₹{book.originalPriceINR}
               </span>
             </div>
-            <span className="text-[9px] text-[#6e6e73] font-mono block">Lifetime DRM-Free</span>
+            <span className="text-[9px] text-[#6e6e73] dark:text-[#a1a1a6] font-mono block">Lifetime DRM-Free</span>
           </div>
 
           <button
             onClick={() => onBuyNow(book)}
-            className="px-4 py-2.5 rounded-xl bg-[#1d1d1f] hover:bg-black text-white font-bold text-xs tracking-wider transition-all shadow-sm hover:scale-105 active:scale-95 flex items-center gap-1.5"
+            className="px-4 py-2.5 rounded-xl bg-[#1d1d1f] dark:bg-[#c5a059] hover:bg-black dark:hover:bg-[#dfb76c] text-white dark:text-black font-bold text-xs tracking-wider transition-all shadow-sm hover:scale-105 active:scale-95 flex items-center gap-1.5"
           >
-            <ShoppingBag className="w-3.5 h-3.5 text-[#c5a059]" />
+            <ShoppingBag className="w-3.5 h-3.5 text-[#c5a059] dark:text-black" />
             <span>BUY NOW</span>
           </button>
         </div>
@@ -237,17 +273,17 @@ export default function BookCard({
         <div className="grid grid-cols-2 gap-2 pt-1">
           <Link
             to={`/read/${book.id}`}
-            className="py-1.5 px-2 rounded-lg border border-black/10 text-[#1d1d1f] hover:bg-[#f5f5f7] bg-white text-[11px] font-mono flex items-center justify-center gap-1 transition shadow-xs text-center"
+            className="py-1.5 px-2 rounded-lg border border-black/10 dark:border-white/10 text-[#1d1d1f] dark:text-[#f5f5f7] hover:bg-[#f5f5f7] dark:hover:bg-white/5 bg-white dark:bg-white/5 text-[11px] font-mono flex items-center justify-center gap-1 transition shadow-xs text-center"
           >
-            <BookOpen className="w-3 h-3 text-[#997328]" />
+            <BookOpen className="w-3 h-3 text-[#997328] dark:text-[#c5a059]" />
             <span>Read Sample</span>
           </Link>
 
           <Link
             to={`/books/${book.slug || book.id}`}
-            className="py-1.5 px-2 rounded-lg border border-black/10 text-[#1d1d1f] hover:bg-[#f5f5f7] bg-white text-[11px] font-mono flex items-center justify-center gap-1 transition shadow-xs text-center"
+            className="py-1.5 px-2 rounded-lg border border-black/10 dark:border-white/10 text-[#1d1d1f] dark:text-[#f5f5f7] hover:bg-[#f5f5f7] dark:hover:bg-white/5 bg-white dark:bg-white/5 text-[11px] font-mono flex items-center justify-center gap-1 transition shadow-xs text-center"
           >
-            <Info className="w-3 h-3 text-[#0071e3]" />
+            <Info className="w-3 h-3 text-[#0071e3] dark:text-sky-400" />
             <span>Dossier</span>
           </Link>
         </div>

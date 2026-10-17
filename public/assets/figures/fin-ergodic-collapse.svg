@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%">
+  <rect width="800" height="400" fill="none"/>
+  <rect x="20" y="20" width="760" height="360" rx="16" fill="currentColor" fill-opacity="0.02" stroke="currentColor" stroke-opacity="0.1" stroke-width="1.5"/>
+  <text x="400" y="55" font-family="Georgia, serif" font-size="16" font-weight="bold" text-anchor="middle" fill="currentColor">Figure 2.1: Ensemble Expectation vs. Individual Path Dependency</text>
+
+  <!-- Left: Ensemble Model -->
+  <rect x="60" y="90" width="310" height="250" rx="12" fill="currentColor" fill-opacity="0.03" stroke="currentColor" stroke-opacity="0.2"/>
+  <text x="215" y="125" font-family="-apple-system, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="currentColor">Ensemble Average (6 People, 1 Round)</text>
+  
+  <text x="215" y="160" font-family="-apple-system, sans-serif" font-size="12" opacity="0.8" text-anchor="middle" fill="currentColor">5 Players Walk Away: +$1,000,000</text>
+  <text x="215" y="185" font-family="-apple-system, sans-serif" font-size="12" fill="#e11d48" text-anchor="middle">1 Player Fatal Ruin: -$0 (Terminal)</text>
+  
+  <rect x="90" y="220" width="250" height="48" rx="8" fill="#10b981" fill-opacity="0.1" stroke="#10b981"/>
+  <text x="215" y="249" font-family="monospace" font-size="13" font-weight="bold" text-anchor="middle" fill="#10b981">E[Gain] = +$833,333 (Positive)</text>
+  <text x="215" y="295" font-family="-apple-system, sans-serif" font-size="11" opacity="0.6" text-anchor="middle" fill="currentColor">Academic models falsely label this attractive</text>
+
+  <!-- Right: Time-Series Model -->
+  <rect x="430" y="90" width="310" height="250" rx="12" fill="#e11d48" fill-opacity="0.03" stroke="#e11d48" stroke-width="1.5"/>
+  <text x="585" y="125" font-family="-apple-system, sans-serif" font-size="14" font-weight="600" text-anchor="middle" fill="#e11d48">Time-Series Path (1 Person, 6 Rounds)</text>
+  
+  <text x="585" y="160" font-family="monospace" font-size="12" opacity="0.8" text-anchor="middle" fill="currentColor">Round 1: 5/6 Survival</text>
+  <text x="585" y="185" font-family="monospace" font-size="12" opacity="0.8" text-anchor="middle" fill="currentColor">Round 2: 25/36 Survival</text>
+  <text x="585" y="210" font-family="monospace" font-size="12" fill="#e11d48" text-anchor="middle">Round 6: Absorbing Barrier Triggered</text>
+
+  <rect x="460" y="235" width="250" height="48" rx="8" fill="#e11d48" fill-opacity="0.15" stroke="#e11d48"/>
+  <text x="585" y="264" font-family="monospace" font-size="13" font-weight="bold" text-anchor="middle" fill="#e11d48">P(Survival) -&gt; 0.00% (Terminal)</text>
+  <text x="585" y="305" font-family="-apple-system, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#e11d48">Absorbing Barrier Destroys Compounding</text>
+</svg>

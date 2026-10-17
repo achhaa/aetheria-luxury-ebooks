@@ -126,41 +126,55 @@ export async function generateBookEpub({ book, customerName, customerEmail, orde
     '<itemref idref="nav"/>'
   ];
 
-  // If sampleChapter or chapters exist
-  const sample = book.sampleChapter;
-  if (sample && sample.content && sample.content.length > 0) {
+  // If chapters or sampleChapter exist
+  const chapters = (book.chapters && book.chapters.length > 0)
+    ? book.chapters
+    : (book.sampleChapter ? [book.sampleChapter] : []);
+
+  chapters.forEach((chapter, chIdx) => {
+    const chapNumStr = String(chIdx + 1).padStart(2, '0');
+    const chapId = `chap${chapNumStr}`;
+    const chapFileName = `chapter-${chapNumStr}.xhtml`;
+
     let chapterBody = '';
-    for (const block of sample.content) {
-      if (block.type === 'heading') {
-        chapterBody += `<h3>${escapeXml(block.text)}</h3>\n`;
-      } else if (block.type === 'quote') {
-        chapterBody += `<blockquote>${escapeXml(block.text)}</blockquote>\n`;
-      } else if (block.type === 'note') {
-        chapterBody += `<div style="background: #eef2f6; padding: 1em; border-left: 3px solid #0ea5e9; font-size: 0.9em; margin: 1em 0;">${escapeXml(block.text)}</div>\n`;
-      } else {
-        chapterBody += `<p>${escapeXml(block.text)}</p>\n`;
+    if (chapter.content && Array.isArray(chapter.content)) {
+      for (const block of chapter.content) {
+        if (block.type === 'heading') {
+          chapterBody += `<h3>${escapeXml(block.text || '')}</h3>\n`;
+        } else if (block.type === 'quote') {
+          chapterBody += `<blockquote>${escapeXml(block.text || '')}</blockquote>\n`;
+        } else if (block.type === 'note') {
+          chapterBody += `<div style="background: #fdfbf7; border-left: 3px solid #c5a059; padding: 1em; font-size: 0.9em; margin: 1.5em 0;"><strong>EDITORIAL NOTE:</strong> ${escapeXml(block.text || '')}</div>\n`;
+        } else if (block.type === 'case-study') {
+          chapterBody += `<div style="background: #f7f8f9; border: 1px solid #dcd7cd; border-radius: 8px; padding: 1.2em; margin: 1.5em 0;"><div style="font-size: 0.8em; font-weight: bold; color: #8c6b23; letter-spacing: 0.1em; text-transform: uppercase;">EMPIRICAL CASE STUDY: ${escapeXml(block.title || '')}</div><p style="margin-top: 0.5em; font-size: 0.95em;">${escapeXml(block.text || '')}</p></div>\n`;
+        } else if (block.type === 'figure' || block.type === 'image') {
+          chapterBody += `<div style="text-align: center; margin: 2em 0; padding: 1.5em; background: #faf8f5; border: 1px solid #e5d5a8; border-radius: 8px;"><div style="font-family: sans-serif; font-size: 0.8em; letter-spacing: 0.15em; color: #997328; text-transform: uppercase; font-weight: bold; margin-bottom: 0.5em;">Plate Schematic</div><p style="font-style: italic; font-size: 0.9em; color: #555;">${escapeXml(block.caption || 'Architectural Figure')}</p></div>\n`;
+        } else {
+          chapterBody += `<p>${escapeXml(block.text || '')}</p>\n`;
+        }
       }
     }
 
-    const chap1Html = `<?xml version="1.0" encoding="utf-8"?>
+    const chapHtml = `<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en">
 <head>
-  <title>${escapeXml(sample.title)}</title>
+  <title>${escapeXml(chapter.title)}</title>
   <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 <body>
-  <div class="chapter-number">CHAPTER ${escapeXml(sample.chapterNumber || '01')}</div>
-  <h2>${escapeXml(sample.title)}</h2>
-  <div class="subtitle">${escapeXml(sample.subtitle || '')}</div>
+  <div class="chapter-number">CHAPTER ${escapeXml(chapter.chapterNumber || chapNumStr)}</div>
+  <h2>${escapeXml(chapter.title)}</h2>
+  <div class="subtitle">${escapeXml(chapter.subtitle || '')}</div>
   ${chapterBody}
 </body>
 </html>`;
-    oebps.file('chapter-01.xhtml', chap1Html);
-    manifestItems.push('<item id="chap01" href="chapter-01.xhtml" media-type="application/xhtml+xml"/>');
-    spineItems.push('<itemref idref="chap01"/>');
-    chapterItems.push({ id: 'chap01', href: 'chapter-01.xhtml', title: sample.title });
-  }
+
+    oebps.file(chapFileName, chapHtml);
+    manifestItems.push(`<item id="${chapId}" href="${chapFileName}" media-type="application/xhtml+xml"/>`);
+    spineItems.push(`<itemref idref="${chapId}"/>`);
+    chapterItems.push({ id: chapId, href: chapFileName, title: `Chapter ${chapter.chapterNumber || chapNumStr}: ${chapter.title}` });
+  });
 
   // 6. Navigation (nav.xhtml - EPUB3 standard)
   const navHtml = `<?xml version="1.0" encoding="utf-8"?>
